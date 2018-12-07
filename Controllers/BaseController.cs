@@ -1,4 +1,5 @@
 ﻿using CodeNode.ActiveDirectory;
+using Finch_Inventory.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,21 @@ namespace Finch_Inventory.Controllers
 {
     public class BaseController : Controller
     {
-        // GET: Base
-        public ActionResult Index()
+        private static FinchDbContext db = new FinchDbContext();
+
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+
+            var inventory = db.Clothings.ToList();
+#if (!DEBUG)
             var manager = new ActiveDirectoryManager();
             var currWinUser = manager.GetCurrentWindowUser();
-            return View();
+#endif
+#if (DEBUG)
+            var currWinUser = "terrancesmith98@gmail.com";
+#endif
+            ViewBag.CurrUser = currWinUser;
+            ViewBag.Inventory = inventory;
         }
     }
 }

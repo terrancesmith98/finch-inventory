@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CodeNode.ActiveDirectory</name>
+    </assembly>
+    <members>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CodeNode.ActiveDirectory.ActiveDirectoryManager"/> class.
+            </summary>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CodeNode.ActiveDirectory.ActiveDirectoryManager"/> class.
+            </summary>
+            <param name="domain">The domain. for e.g.: mycampany.com</param>
+            <param name="userName">Name of the user.</param>
+            <param name="password">The password of the user.</param>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.#ctor(System.DirectoryServices.AccountManagement.PrincipalContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CodeNode.ActiveDirectory.ActiveDirectoryManager"/> class.
+            </summary>
+            <param name="context">The PrincipalContext. If you can want to create some custom principal context on which rest of the operation will execute</param>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.IsUserValid(System.String,System.String)">
+            <summary>
+                Validates the username and password of a given user
+            </summary>
+            <param name="userName">The username to validate</param>
+            <param name="password">The password of the username to validate</param>
+            <returns>Returns True of user is valid</returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.IsUserExpired(System.String)">
+            <summary>
+                Checks if the User Account is Expired
+            </summary>
+            <param name="userName">The username to check</param>
+            <returns>Returns true if Expired</returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.IsUserExist(System.String)">
+            <summary>
+                Checks if user exists on AD
+            </summary>
+            <param name="userName">The username to check</param>
+            <returns>Returns true if username Exists</returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.IsAccountLocked(System.String)">
+            <summary>
+                Checks if user account is locked
+            </summary>
+            <param name="userName">The username to check</param>
+            <returns>Returns true of Account is locked</returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.GetCurrentWebUser">
+            <summary>
+            Gets the current logged in window user.
+            </summary>
+            <returns>Current user UserPrincipal</returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.GetCurrentWindowUser">
+            <summary>
+            Gets the current window user.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.GetUser(System.String)">
+            <summary>
+                Gets a user by SamAccountName
+            </summary>
+            <param name="searchValue">The username to get</param>
+            <returns>Returns the UserPrincipal Object</returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.GetUser(System.DirectoryServices.AccountManagement.IdentityType,System.String)">
+            <summary>
+                Gets the user based on search type and search value
+            </summary>
+            <param name="identityType">Type of the identity.</param>
+            <param name="searchValue">The search value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.GetGroupPrincipal(System.String)">
+            <summary>
+                Gets a certain group on Active Directory
+            </summary>
+            <param name="groupName">The group to get</param>
+            <returns>Returns the GroupPrincipal Object</returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.GetGroupUsers(System.String,System.Boolean)">
+            <summary>
+                Gets all user of a AD group.
+            </summary>
+            <param name="groupName">Name of the group.</param>
+            <param name="recursiveSearch">if set to <c>true</c> [recursive search].</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.GetGroupUsers(CodeNode.ActiveDirectory.UserSearchCriteria,System.Boolean)">
+            <summary>
+                Gets all user based on search criteria of a particular group.
+            </summary>
+            <param name="search">The user search.</param>
+            <param name="recursiveSearch">if set to <c>true</c> [recursive search].</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.GetUsers(CodeNode.ActiveDirectory.UserSearchCriteria)">
+            <summary>
+                Gets the users irrespective of their group based on search criteria .
+            </summary>
+            <param name="criteria">The search.</param>
+            <param name="recursiveSearch">if set to <c>true</c> [recursive search].</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.IsUserGroupMember(System.String,System.String)">
+            <summary>
+                Checks if user is a member of a given group
+            </summary>
+            <param name="userName">The user you want to validate</param>
+            <param name="groupName">The group you want to check the membership of the user</param>
+            <returns>Returns true if user is a group member</returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.GetUserGroupNames(System.String)">
+            <summary>
+                Gets a list of the users group memberships
+            </summary>
+            <param name="userName">The user you want to get the group memberships</param>
+            <returns>Returns an arraylist of group memberships</returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.GetUserGroups(System.String)">
+            <summary>
+                Gets the user groups.
+            </summary>
+            <param name="userName">Name of the user.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.GetUserGroups(System.Guid)">
+            <summary>
+            Gets the user groups.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.GetUserAuthorizationGroupNames(System.String)">
+            <summary>
+                Gets a list of the users authorization groups
+            </summary>
+            <param name="userName">The user you want to get authorization groups</param>
+            <returns>Returns an arraylist of group authorization memberships</returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.GetUserAuthorizationGroups(System.String)">
+            <summary>
+                Gets the user authorization groups.
+            </summary>
+            <param name="userName">Name of the user.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.GetPrincipalContext">
+            <summary>
+                Gets the base principal context
+            </summary>
+            <returns>Returns the PrincipalContext object</returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.GetPrincipalContext(System.String,System.String,System.String)">
+            <summary>
+                Gets the principal context.
+            </summary>
+            <param name="domain">The domain name. For eg. "mycompany.com"</param>
+            <param name="userName">Name of the user.</param>
+            <param name="password">The password.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.ActiveDirectoryManager.GetFormattedSearchString(System.Boolean,System.String)">
+            <summary>
+                Gets the formatted search string.
+            </summary>
+            <param name="exactMatch">if set to <c>true</c> [exact match].</param>
+            <param name="searchValue">The search value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.Helper.GetCurrentWebUserAdId">
+            <summary>
+            Gets the current user Ad id for windows authentication enabled web application.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.ActiveDirectory.Helper.GetCurrentUserNameForWindowApp">
+            <summary>
+            Gets the current user name for window application.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

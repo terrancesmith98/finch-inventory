@@ -155,6 +155,8 @@
     <Compile Include="Models\Position.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\Type.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

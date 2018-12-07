@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CodeNode.Extension</name>
+    </assembly>
+    <members>
+        <member name="M:CodeNode.Extension.DataTableExtensions.GetColumnData(System.Data.DataColumn)">
+            <summary>
+                Gets the data in column.
+            </summary>
+            <param name="column">The column.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.Extension.DataTableExtensions.ToListof``1(System.Data.DataTable)">
+            <summary>
+                To the list of T.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dt">The data table.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.Extension.DataTableExtensions.ToXml(System.Data.DataTable,System.String)">
+            <summary>
+                To the XML.
+            </summary>
+            <param name="dataTable">The dataTable.</param>
+            <param name="rootName">Name of the root.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.Extension.EnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Invoke action for all elements
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="items">The items.</param>
+            <param name="action">The action.</param>
+        </member>
+        <member name="M:CodeNode.Extension.EnumerableExtensions.IsAllEqual``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Checks if all elements in a sequence are equal.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="items"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.Extension.EnumerableExtensions.AllBeforeFirstOccuranceOf``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns all elements from items that precede the first occurrence of an element that satisfies a specified condition.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="items"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.Extension.EnumerableExtensions.AllCombinationsOf``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})">
+            <summary>
+            Provide all the combinations of other IEnumerable.
+            </summary>
+            <typeparam name="T1">The type of the 1.</typeparam>
+            <typeparam name="T2">The type of the 2.</typeparam>
+            <param name="source1">The source1.</param>
+            <param name="source2">The source2.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.Extension.EnumerableExtensions.AllCombinationsOf``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Provide all the combinations with self.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="items">The items.</param>
+            <returns></returns>
+        </member>
+        <member name="T:CodeNode.Extension.EnumExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CodeNode.Extension.EnumExtensions.ToDictionary``1">
+            <summary>
+            Enum To the dictionary.
+            </summary>
+            <typeparam name="T">Type of the enum</typeparam>
+            <returns>Returns the dictionary from the enumeration</returns>
+        </member>
+        <member name="M:CodeNode.Extension.EnumExtensions.ToEnum``1(System.String)">
+            <summary>
+            Convert the string to the enumeration provided
+            </summary>
+            <typeparam name="T">enum type</typeparam>
+            <param name="input">string input</param>
+            <returns>enum equivalent of string</returns>
+        </member>
+        <member name="M:CodeNode.Extension.EnumExtensions.GetDescription(System.Enum)">
+            <summary>
+            Return the description of Enum property 
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.Extension.ListExtensions.Move``1(System.Collections.Generic.List{``0},System.Predicate{``0},System.Int32)">
+            <summary>
+                Moves the item matching the <paramref name="itemSelector" /> to the <paramref name="newIndex" /> in the
+                <paramref name="list" />.
+            </summary>
+        </member>
+        <member name="T:CodeNode.Extension.QueryableExtensions">
+            <summary>
+                Extension methods for <see cref="T:System.Linq.IQueryable`1"/>
+            </summary>
+        </member>
+        <member name="M:CodeNode.Extension.QueryableExtensions.GetPage``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+                Convenience method for performing paged queries.
+            </summary>
+            <typeparam name="T">Element type</typeparam>
+            <param name="query">Query to page</param>
+            <param name="pageIndex">The index of the page to get.</param>
+            <param name="pageSize">The size of the pages.</param>
+        </member>
+        <member name="T:CodeNode.Extension.StringExtensions">
+            <summary>
+                Extensions for <see cref="T:System.String"/>
+               Credits: Some functions credit goes Ben-Foster and team
+            </summary>
+        </member>
+        <member name="M:CodeNode.Extension.StringExtensions.IsEqual(System.String,System.String)">
+            <summary>
+            Determines whether the specified target is equal with StringComparison.InvariantCultureIgnoreCase.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.Extension.StringExtensions.DoContains(System.String,System.String)">
+            <summary>
+            Check that string contains with StringComparison.InvariantCultureIgnoreCase
+            </summary>
+            <param name="source">The source.</param>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeNode.Extension.StringExtensions.IsNullOrEmpty(System.String)">
+            <summary>
+                A nicer way of calling <see cref="M:System.String.IsNullOrEmpty(System.String)"/>
+            </summary>
+            <param name="value">The string to test.</param>
+            <returns>true if the value parameter is null or an empty string (""); otherwise, false.</returns>
+        </member>
+        <member name="M:CodeNode.Extension.StringExtensions.IsNotNullOrEmpty(System.String)">
+            <summary>
+                A nicer way of calling the inverse of <see cref="M:System.String.IsNullOrEmpty(System.String)"/>
+            </summary>
+            <param name="value">The string to test.</param>
+            <returns>true if the value parameter is not null or an empty string (""); otherwise, false.</returns>
+        </member>
+        <member name="M:CodeNode.Extension.StringExtensions.FormatWith(System.String,System.Object[])">
+            <summary>
+                A nicer way of calling <see cref="M:System.String.Format(System.String,System.Object[])"/>
+            </summary>
+            <param name="format">A composite format string.</param>
+            <param name="args">An object array that contains zero or more objects to format.</param>
+            <returns>
+                A copy of format in which the format items have been replaced by the string representation of the
+                corresponding objects in args.
+            </returns>
+        </member>
+        <member name="M:CodeNode.Extension.StringExtensions.NullIfEmpty(System.String)">
+            <summary>
+                Allows for using strings in null coalescing operations
+            </summary>
+            <param name="value">The string value to check</param>
+            <returns>Null if <paramref name="value" /> is empty or the original value of <paramref name="value" />.</returns>
+        </member>
+        <member name="M:CodeNode.Extension.StringExtensions.ToSlug(System.String,System.Nullable{System.Int32})">
+            <summary>
+                Slugifies a string
+            </summary>
+            <param name="value">The string value to slugify</param>
+            <param name="maxLength">An optional maximum length of the generated slug</param>
+            <returns>A URL safe slug representation of the input <paramref name="value" />.</returns>
+        </member>
+        <member name="M:CodeNode.Extension.StringExtensions.ToSlugWithSegments(System.String)">
+            <summary>
+                Converts a string into a slug that allows segments e.g.
+                <example>.blog/2012/07/01/title</example>
+                .
+                Normally used to validate user entered slugs.
+            </summary>
+            <param name="value">The string value to slugify</param>
+            <returns>A URL safe slug with segments.</returns>
+        </member>
+        <member name="M:CodeNode.Extension.StringExtensions.SeparatePascalCase(System.String)">
+            <summary>
+                Separates a PascalCase string
+            </summary>
+            <example>
+                "ThisIsPascalCase".SeparatePascalCase(); // returns "This Is Pascal Case"
+            </example>
+            <param name="value">The value to split</param>
+            <returns>The original string separated on each uppercase character.</returns>
+        </member>
+        <member name="M:CodeNode.Extension.StringExtensions.GenerateSlug(System.String,System.Nullable{System.Int32})">
+            <summary>
+                Credit for this method goes to http://stackoverflow.com/questions/2920744/url-slugify-alrogithm-in-cs
+            </summary>
+        </member>
+        <member name="M:CodeNode.Extension.StringExtensions.SplitAndTrim(System.String,System.Char[])">
+            <summary>
+                Returns a string array containing the trimmed substrings in this <paramref name="value" />
+                that are delimited by the provided <paramref name="separators" />.
+            </summary>
+        </member>
+        <member name="M:CodeNode.Extension.StringExtensions.Contains(System.String,System.String,System.StringComparison)">
+            <summary>
+                Checks if the <paramref name="source" /> contains the <paramref name="input" /> based on the provided
+                <paramref name="comparison" /> rules.
+            </summary>
+        </member>
+        <member name="T:CodeNode.Extension.ValidationExtensions">
+            <summary>
+            Validate strings with Regex
+            Credits: Ben-Foster 
+            </summary>
+        </member>
+        <member name="M:CodeNode.Extension.ValidationExtensions.IsValidSlug(System.String)">
+            <summary>
+                Validates whether the provided
+                <param name="value">string</param>
+                is a valid slug.
+            </summary>
+        </member>
+        <member name="M:CodeNode.Extension.ValidationExtensions.IsValidUrl(System.String)">
+            <summary>
+                Validates whether the provided
+                <param name="value">string</param>
+                is a valid (absolute) URL.
+            </summary>
+        </member>
+        <member name="M:CodeNode.Extension.ValidationExtensions.IsValidEmail(System.String)">
+            <summary>
+                Validates whether the provided
+                <param name="value">string</param>
+                is a valid Email Address.
+            </summary>
+        </member>
+        <member name="M:CodeNode.Extension.ValidationExtensions.IsValidIpAddress(System.String)">
+            <summary>
+                Validates whether the provided
+                <param name="value">string</param>
+                is a valid IP Address.
+            </summary>
+        </member>
+    </members>
+</doc>

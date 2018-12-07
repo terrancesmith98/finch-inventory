@@ -17,6 +17,8 @@ namespace Finch_Inventory.Models
         public virtual DbSet<Position> Positions { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<Type> Types { get; set; }
+        public virtual DbSet<UserRole> UserRoles { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
