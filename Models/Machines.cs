@@ -8,10 +8,19 @@ namespace Finch_Inventory.Models
 
     public partial class Machines
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Machines()
+        {
+            Clothing = new HashSet<Clothing>();
+        }
+
         public int ID { get; set; }
 
         [Required]
         [StringLength(50)]
         public string Machine { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Clothing> Clothing { get; set; }
     }
 }

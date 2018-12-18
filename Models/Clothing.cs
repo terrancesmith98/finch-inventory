@@ -41,6 +41,8 @@ namespace Finch_Inventory.Models
 
         public virtual Location Location { get; set; }
 
+        public virtual Machines Machines { get; set; }
+
         public virtual Position Position { get; set; }
 
         public virtual Status Status { get; set; }

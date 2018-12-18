@@ -24,6 +24,12 @@ namespace Finch_Inventory.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Machines>()
+                .HasMany(e => e.Clothing)
+                .WithRequired(e => e.Machines)
+                .HasForeignKey(e => e.PM_Number)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Position>()
                 .HasMany(e => e.Clothing)
                 .WithRequired(e => e.Position)
