@@ -1,0 +1,9 @@
+﻿@import '../modules/_variables.scss';
+
+.card-primary {
+    .card-header {
+        background: $primary-color;
+        color: whitesmoke;
+        border-bottom: 3px solid #333 !important;
+    }
+}

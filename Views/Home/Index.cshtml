@@ -5,25 +5,20 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="card card-primary">
+        <div class="card card-primary mt-5">
             <div class="card-header">
                 <h2>Finch Paper - Inventory</h2>
             </div>
             <div class="card-body">
-                <table>
+                <table id="inventory_table">
                     <thead>
                         <tr>
                             <th>PM_Number</th>
                             <th>Position</th>
-                            <th>Manufacturer</th>
                             <th>Type</th>
-                            <th>Serial Number</th>
-                            <th>Date Received</th>
-                            <th>Date Placed on Machine</th>
-                            <th>Date Removed from Machine</th>
                             <th>Status</th>
-                            <th>Inventory Location</th>
                             <th>Age</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,18 +54,15 @@
                                 <tr>
                                     <td>@item.PM_Number</td>
                                     <td>@item.Position.Position1</td>
-                                    <td>@item.Manufacturer</td>
                                     <td>@item.Type.Type1</td>
-                                    <td>@item.Serial_Number</td>
-                                    <td>@dateReceived.ToShortDateString()</td>
-                                    <td>@datePlaced.ToShortDateString()</td>
-                                    <td>@dateRemoved.ToShortDateString()</td>
                                     <td>@item.Status.Status1</td>
-                                    <td>@location</td>
                                     @if (dateReceived != null && dateReceived != DateTime.Parse("1/1/0001") && datePlaced != null && datePlaced != DateTime.Parse("1/1/0001"))
                                     {
                                         <td>@age</td>
                                     }
+                                    <td>
+                                        <a href="~/Clothing/Edit/@item.ID" class="btn btn-warning">Edit</a>
+                                    </td>
 
                                 </tr>
                             }
@@ -83,3 +75,13 @@
         </div>
     </div>
 </div>
+
+@section Scripts 
+{
+    <script>
+        $(document).ready(function(){
+            'use strict';
+            $('#inventory_table').dataTable();
+        });
+    </script>
+}

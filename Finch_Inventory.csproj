@@ -145,18 +145,22 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ClothingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Clothing.cs" />
     <Compile Include="Models\FinchDbContext.cs" />
     <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\Machines.cs" />
     <Compile Include="Models\Position.cs" />
+    <Compile Include="Models\RollType.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\Type.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserRole.cs" />
+    <Compile Include="Models\UserRoles.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -164,10 +168,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\finch-logo.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="gulpfile.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -181,6 +187,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="src\js\main.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -195,6 +202,25 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Clothing\Create.cshtml" />
+    <Content Include="Views\Clothing\Delete.cshtml" />
+    <Content Include="Views\Clothing\Details.cshtml" />
+    <Content Include="Views\Clothing\Edit.cshtml" />
+    <Content Include="Views\Clothing\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="src\scss\styles.scss" />
+    <Content Include="src\scss\base\_normalize.scss" />
+    <Content Include="src\scss\base\_typography.scss" />
+    <Content Include="src\scss\base\_iconography.scss" />
+    <Content Include="src\scss\layout\_main.scss" />
+    <Content Include="src\scss\modules\_variables.scss" />
+    <Content Include="src\scss\base\_cards.scss" />
+    <Content Include="src\scss\base\_bootstrap-overrides.scss" />
+    <Content Include="src\scss\base\_tables.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

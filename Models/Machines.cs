@@ -6,20 +6,12 @@ namespace Finch_Inventory.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class UserRole
+    public partial class Machines
     {
-        [Key]
-        [Column(Order = 0)]
         public int ID { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
+        [Required]
         [StringLength(50)]
-        public string User { get; set; }
-
-        [Key]
-        [Column(Order = 2)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int RoleID { get; set; }
+        public string Machine { get; set; }
     }
 }

@@ -12,28 +12,30 @@ namespace Finch_Inventory.Models
         {
         }
 
-        public virtual DbSet<Clothing> Clothings { get; set; }
-        public virtual DbSet<Location> Locations { get; set; }
-        public virtual DbSet<Position> Positions { get; set; }
+        public virtual DbSet<Clothing> Clothing { get; set; }
+        public virtual DbSet<Location> Location { get; set; }
+        public virtual DbSet<Machines> Machines { get; set; }
+        public virtual DbSet<Position> Position { get; set; }
+        public virtual DbSet<RollType> RollType { get; set; }
         public virtual DbSet<Status> Status { get; set; }
-        public virtual DbSet<Type> Types { get; set; }
-        public virtual DbSet<UserRole> UserRoles { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Type> Type { get; set; }
+        public virtual DbSet<UserRoles> UserRoles { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Position>()
-                .HasMany(e => e.Clothings)
+                .HasMany(e => e.Clothing)
                 .WithRequired(e => e.Position)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Status>()
-                .HasMany(e => e.Clothings)
+                .HasMany(e => e.Clothing)
                 .WithRequired(e => e.Status)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Type>()
-                .HasMany(e => e.Clothings)
+                .HasMany(e => e.Clothing)
                 .WithRequired(e => e.Type)
                 .WillCascadeOnDelete(false);
         }

@@ -37,10 +37,7 @@ namespace Finch_Inventory.Models
 
         public int? LocationID { get; set; }
 
-        public int? Age { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? Today { get; set; }
+        public string Comments { get; set; }
 
         public virtual Location Location { get; set; }
 

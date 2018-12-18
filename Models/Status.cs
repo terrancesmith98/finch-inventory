@@ -11,7 +11,7 @@ namespace Finch_Inventory.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Status()
         {
-            Clothings = new HashSet<Clothing>();
+            Clothing = new HashSet<Clothing>();
         }
 
         public int ID { get; set; }
@@ -22,6 +22,6 @@ namespace Finch_Inventory.Models
         public string Status1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Clothing> Clothings { get; set; }
+        public virtual ICollection<Clothing> Clothing { get; set; }
     }
 }

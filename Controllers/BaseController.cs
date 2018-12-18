@@ -15,7 +15,7 @@ namespace Finch_Inventory.Controllers
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
 
-            var inventory = db.Clothings.ToList();
+            var inventory = db.Clothing.ToList();
 #if (!DEBUG)
             var manager = new ActiveDirectoryManager();
             var currWinUser = manager.GetCurrentWindowUser();
