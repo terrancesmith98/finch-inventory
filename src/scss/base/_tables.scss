@@ -1,4 +1,7 @@
-﻿table {
+﻿@import '../modules/_variables.scss';
+
+table {
+    font-family: $font-roboto;
     td {
         text-align: center;
     }

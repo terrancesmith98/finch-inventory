@@ -1,107 +1,161 @@
 ﻿@model Finch_Inventory.Models.Clothing
-
+@using Finch_Inventory.Models
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h2>Details for ID @Model.ID</h2>
+            </div>
+            <div class="card-body">
+                <dl class="dl-horizontal">
+                    @{
+                        var dateReceived = new DateTime();
+                        var datePlaced = new DateTime();
+                        var dateRemoved = new DateTime();
+                        if (Model.Date_Received != null)
+                        {
+                            dateReceived = (DateTime)Model.Date_Received;
+                        }
+                        if (Model.Date_Placed_On_Mac != null)
+                        {
+                            datePlaced = (DateTime)Model.Date_Placed_On_Mac;
+                        }
+                        if (Model.Date_Removed_From_Mac != null)
+                        {
+                            dateRemoved = (DateTime)Model.Date_Removed_From_Mac;
+                        }
+                    }
 
-<div>
-    <h4>Clothing</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Location.Location1)
-        </dt>
+                    <dt>
+                        Position
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Location.Location1)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Position.Position1)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Position.Position1)
-        </dt>
+                    <dt>
+                        Status
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Position.Position1)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Status.Status1)
+                    </dd>
+                    @{
+                        if (Model.Status.ToString() == "Inventory")
+                        {
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Location.Location1)
+                            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Status.Status1)
-        </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Location.Location1)
+                            </dd>
+                        }
+                    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Status.Status1)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Type.Type1)
-        </dt>
+                    <dt>
+                        Type
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Type.Type1)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Type.Type1)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PM_Number)
-        </dt>
+                    <dt>
+                        PM Number
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PM_Number)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.PM_Number)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Manufacturer)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Manufacturer)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Serial_Number)
-        </dt>
+                    <dt>
+                        Serial Number
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Serial_Number)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Serial_Number)
+                    </dd>
+                    @{
+                        if (Model.Date_Received != null && Model.Date_Received != DateTime.Parse("1/1/0001"))
+                        {
+                            <dt>
+                                Date Received
+                            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Date_Received)
-        </dt>
+                            <dd>
+                                @dateReceived.ToShortDateString()
+                            </dd>
+                        }
 
-        <dd>
-            @Html.DisplayFor(model => model.Date_Received)
-        </dd>
+                        if (Model.Date_Placed_On_Mac != null && Model.Date_Placed_On_Mac != DateTime.Parse("1/1/0001"))
+                        {
+                            <dt>
+                                Placed on Machine
+                            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Date_Placed_On_Mac)
-        </dt>
+                            <dd>
+                                @datePlaced.ToShortDateString()
+                            </dd>
+                        }
 
-        <dd>
-            @Html.DisplayFor(model => model.Date_Placed_On_Mac)
-        </dd>
+                        if (Model.Date_Removed_From_Mac != null && Model.Date_Removed_From_Mac != DateTime.Parse("1/1/0001"))
+                        {
+                            <dt>
+                                Removed from Machine
+                            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Date_Removed_From_Mac)
-        </dt>
+                            <dd>
+                                @dateRemoved.ToShortDateString()
+                            </dd>
+                        }
 
-        <dd>
-            @Html.DisplayFor(model => model.Date_Removed_From_Mac)
-        </dd>
+                        if (Model.Date_Placed_On_Mac != null || Model.Date_Placed_On_Mac != DateTime.Parse("1/1/0001") && Model.Date_Removed_From_Mac == null ||Model.Date_Removed_From_Mac != DateTime.Parse("1/1/0001"))
+                        {
+                            var age = (DateTime)Model.Date_Placed_On_Mac - (DateTime)Model.Date_Received;
+                            <dt>Age</dt>
+                            <dd>@age.Days</dd>
+                        }
+                        else if (Model.Date_Removed_From_Mac != null && Model.Date_Removed_From_Mac != DateTime.Parse("1/1/0001"))
+                        {
+                            var age = (DateTime)Model.Date_Removed_From_Mac - (DateTime)Model.Date_Received;
+                            <dt>Age</dt>
+                            <dd>@age.Days</dd>
+                        }
+                    }
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Comments)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Comments)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Comments)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Comments)
-        </dd>
+                </dl>
 
-    </dl>
+            </div>
+            <div class="card-footer">
+                <a href="~/Clothing/Edit/@Model.ID" class="btn btn-warning btn-lg" title="Edit">Edit</a>
+                <a href="~/Home/Index" class="btn btn-primary btn-lg" title="Back"><i class="fas fa-arrow-left mx-2"></i>Back To List</a>
+            </div>
+        </div>
+
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+

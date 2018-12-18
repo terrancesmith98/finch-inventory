@@ -98,13 +98,13 @@ namespace Finch_Inventory.Controllers
             {
                 db.Entry(clothing).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             ViewBag.LocationID = new SelectList(db.Location, "ID", "Location1", clothing.LocationID);
             ViewBag.PositionID = new SelectList(db.Position, "ID", "Position1", clothing.PositionID);
             ViewBag.StatusID = new SelectList(db.Status, "ID", "Status1", clothing.StatusID);
             ViewBag.TypeID = new SelectList(db.Type, "ID", "Type1", clothing.TypeID);
-            return View(clothing);
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Clothing/Delete/5
