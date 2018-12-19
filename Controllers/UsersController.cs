@@ -79,7 +79,7 @@ namespace Finch_Inventory.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,UserName,FirstName,LastName")] Users users)
+        public async Task<ActionResult> Edit([Bind(Include = "UserName,FirstName,LastName")] Users users)
         {
             if (ModelState.IsValid)
             {

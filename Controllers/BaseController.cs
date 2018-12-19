@@ -14,14 +14,15 @@ namespace Finch_Inventory.Controllers
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-
+            db.Dispose();
+            db = new FinchDbContext();
             var inventory = db.Clothing.ToList();
 #if (!DEBUG)
             var manager = new ActiveDirectoryManager();
             var currWinUser = manager.GetCurrentWindowUser();
 #endif
 #if (DEBUG)
-            var currWinUser = "terrancesmith98@gmail.com";
+            var currWinUser = "tsmith@otiservices.com";
 #endif
             ViewBag.CurrUser = currWinUser;
             ViewBag.Inventory = inventory;

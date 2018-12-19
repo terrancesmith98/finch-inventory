@@ -9,6 +9,7 @@
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/styles.css" rel="stylesheet" />
 </head>
@@ -24,14 +25,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="~/Home/Index">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Home/Index" id="home-link">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="~/Users/Index">Users</a>
+                    <a class="nav-link" href="~/Users/Index" id="users-link">Users</a>
                 </li>
             </ul>
 
+        </div>
+        <div id="welcome-message" class="px-3">
+            <h3>Welcome, @ViewBag.CurrUser</h3>
         </div>
     </nav>
     <div class="container body-content my-5">
@@ -50,12 +54,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
     <script>
         $(document).ready(function () {
             'use strict';
             $('.datepicker').datepicker();
+
+            if (window.location.href.indexOf("Users") > -1) {
+                $('#users-link').addClass('active');
+                $('#users-link').siblings().removeClass('active');
+            }
+
+            if (window.location.href.indexOf("Home") > -1) {
+                $('#home-link').addClass('active');
+                $('#home-link').siblings().removeClass('active');
+            } else if (window.location.pathname == '/') {
+                $('#home-link').addClass('active');
+                $('#home-link').siblings().removeClass('active');
+            }
         });
     </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+

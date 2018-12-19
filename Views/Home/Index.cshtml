@@ -13,10 +13,10 @@
         </div>
         <div class="card card-primary mt-5">
             <div class="card-header">
-                <h2>Finch Paper - Inventory</h2>
+                <h2>Clothing/Roll Inventory</h2>
             </div>
             <div class="card-body">
-                <table id="inventory_table">
+                <table id="inventory_table" class="table table-striped">
                     <thead>
                         <tr>
                             <th>PM_Number</th>
@@ -89,7 +89,15 @@
     <script>
         $(document).ready(function(){
             'use strict';
-            $('#inventory_table').dataTable();
+            $('#inventory_table').dataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'pdfHtml5',
+                    'excel'
+                ]
+            }
+               
+            );
         });
     </script>
 }

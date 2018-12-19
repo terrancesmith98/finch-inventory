@@ -84,6 +84,8 @@ namespace Finch_Inventory.Controllers
             ViewBag.PositionID = new SelectList(db.Position, "ID", "Position1", clothing.PositionID);
             ViewBag.StatusID = new SelectList(db.Status, "ID", "Status1", clothing.StatusID);
             ViewBag.TypeID = new SelectList(db.Type, "ID", "Type1", clothing.TypeID);
+            ViewBag.Machines = db.Machines.ToList();
+
             return View(clothing);
         }
 
@@ -104,6 +106,7 @@ namespace Finch_Inventory.Controllers
             ViewBag.PositionID = new SelectList(db.Position, "ID", "Position1", clothing.PositionID);
             ViewBag.StatusID = new SelectList(db.Status, "ID", "Status1", clothing.StatusID);
             ViewBag.TypeID = new SelectList(db.Type, "ID", "Type1", clothing.TypeID);
+
             return RedirectToAction("Index", "Home");
         }
 

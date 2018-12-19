@@ -1,47 +1,82 @@
 ﻿@model IEnumerable<Finch_Inventory.Models.Users>
 
-@{
-    Layout = null;
-}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-lg-12">
+            <a href="Create" class="btn btn-success btn-lg" title="Add New"><i class="fas fa-plus mx-2"></i>Add New</a>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-lg-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h1><i class="fas fa-users mx-2"></i>Users</h1>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped" id="users-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    First Name
+                                </th>
+                                <th>
+                                    Last Name
+                                </th>
+                                <th>
+                                    Username
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FirstName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.LastName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UserName)
+                                    </td>
+                                    <td class="pull-right">
+                                        <a href="~/Users/Edit/@item.ID" class="btn btn-warning btn-lg" title="Edit"><i class="fas fa-pencil-alt mx-2"></i></a>
+                                        <a href="~/Users/Details/@item.ID" class="btn btn-info btn-lg" title="Details"><i class="fas fa-info-circle mx-2"></i></a>
+                                        <a href="~/Users/Delete/@item.ID" class="btn btn-danger btn-lg" title="Delete"><i class="fas fa-trash mx-2"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
 
-<!DOCTYPE html>
+                       
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-    }
-    
-    </table>
-</body>
-</html>
+
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function(){
+            'use strict';
+            $('#users-table').dataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'pdfHtml5',
+                    'excel'
+                ]
+            }
+
+            );
+        });
+    </script>    
+}

@@ -18,7 +18,7 @@ namespace Finch_Inventory.Models
         [StringLength(50)]
         public string LastName { get; set; }
 
-        [Key]
+
         [Column(Order = 1)]
         [StringLength(50)]
         public string UserName { get; set; }
