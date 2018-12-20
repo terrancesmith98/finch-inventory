@@ -12,37 +12,48 @@ namespace Finch_Inventory.Models
         {
         }
 
-        public virtual DbSet<Clothing> Clothing { get; set; }
-        public virtual DbSet<Location> Location { get; set; }
-        public virtual DbSet<Machines> Machines { get; set; }
-        public virtual DbSet<Position> Position { get; set; }
-        public virtual DbSet<RollType> RollType { get; set; }
+        public virtual DbSet<Clothing> Clothings { get; set; }
+        public virtual DbSet<Location> Locations { get; set; }
+        public virtual DbSet<Machine> Machines { get; set; }
+        public virtual DbSet<Position> Positions { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<RollType> RollTypes { get; set; }
         public virtual DbSet<Status> Status { get; set; }
-        public virtual DbSet<Type> Type { get; set; }
-        public virtual DbSet<UserRoles> UserRoles { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Type> Types { get; set; }
+        public virtual DbSet<UserRole> UserRoles { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Machines>()
-                .HasMany(e => e.Clothing)
-                .WithRequired(e => e.Machines)
+            modelBuilder.Entity<Machine>()
+                .HasMany(e => e.Clothings)
+                .WithRequired(e => e.Machine)
                 .HasForeignKey(e => e.PM_Number)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Position>()
-                .HasMany(e => e.Clothing)
+                .HasMany(e => e.Clothings)
                 .WithRequired(e => e.Position)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Role>()
+                .HasMany(e => e.UserRoles)
+                .WithRequired(e => e.Role)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Status>()
-                .HasMany(e => e.Clothing)
+                .HasMany(e => e.Clothings)
                 .WithRequired(e => e.Status)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Type>()
-                .HasMany(e => e.Clothing)
+                .HasMany(e => e.Clothings)
                 .WithRequired(e => e.Type)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.UserRoles)
+                .WithRequired(e => e.User)
                 .WillCascadeOnDelete(false);
         }
     }

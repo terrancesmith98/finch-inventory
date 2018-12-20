@@ -6,21 +6,20 @@ namespace Finch_Inventory.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Location")]
-    public partial class Location
+    public partial class Machine
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Location()
+        public Machine()
         {
             Clothings = new HashSet<Clothing>();
         }
 
         public int ID { get; set; }
 
-        [Column("Location")]
+        [Column("Machine")]
         [Required]
         [StringLength(50)]
-        public string Location1 { get; set; }
+        public string Machine1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Clothing> Clothings { get; set; }

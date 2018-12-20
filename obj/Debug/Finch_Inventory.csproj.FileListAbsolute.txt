@@ -48,6 +48,9 @@ C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\roslyn\vbc.rsp
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\roslyn\VBCSCompiler.exe
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\Antlr3.Runtime.dll
+C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\CodeNode.ActiveDirectory.dll
+C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\CodeNode.Core.dll
+C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\CodeNode.Extension.dll
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\EntityFramework.dll
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\EntityFramework.SqlServer.dll
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\Microsoft.AspNet.TelemetryCorrelation.dll
@@ -63,6 +66,9 @@ C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\System.Web.WebP
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\System.Web.WebPages.dll
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\System.Web.WebPages.Razor.dll
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\WebGrease.dll
+C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\CodeNode.ActiveDirectory.xml
+C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\CodeNode.Core.xml
+C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\CodeNode.Extension.xml
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\EntityFramework.xml
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\EntityFramework.SqlServer.xml
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\System.Web.Helpers.xml
@@ -77,14 +83,8 @@ C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\Antlr3.Runtime.
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\obj\Debug\Finch_Inventory.csprojAssemblyReference.cache
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\obj\Debug\Finch_Inventory.csproj.CoreCompileInputs.cache
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\obj\Debug\Finch_Inventory.csproj.CopyComplete
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\obj\Debug\Finch_Inventory.dll
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\obj\Debug\Finch_Inventory.pdb
-C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\CodeNode.ActiveDirectory.dll
-C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\CodeNode.Core.dll
-C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\CodeNode.Extension.dll
-C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\CodeNode.ActiveDirectory.xml
-C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\CodeNode.Core.xml
-C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\CodeNode.Extension.xml
+C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\obj\Debug\Finch_Inventory.csprojAssemblyReference.cache

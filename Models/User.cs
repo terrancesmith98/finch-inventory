@@ -5,11 +5,16 @@ namespace Finch_Inventory.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web.Mvc;
 
-    public partial class Users
+    public partial class User
     {
-        [Key]
-        [Column(Order = 0)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            UserRoles = new HashSet<UserRole>();
+        }
+
         public int ID { get; set; }
 
         [StringLength(50)]
@@ -18,9 +23,14 @@ namespace Finch_Inventory.Models
         [StringLength(50)]
         public string LastName { get; set; }
 
-
-        [Column(Order = 1)]
+        [Required]
         [StringLength(50)]
         public string UserName { get; set; }
+
+        
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserRole> UserRoles { get; set; }
     }
+
 }

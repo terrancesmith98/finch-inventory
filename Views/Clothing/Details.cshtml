@@ -124,19 +124,8 @@
                                 @dateRemoved.ToShortDateString()
                             </dd>
                         }
-
-                        if (Model.Date_Placed_On_Mac != null || Model.Date_Placed_On_Mac != DateTime.Parse("1/1/0001") && Model.Date_Removed_From_Mac == null ||Model.Date_Removed_From_Mac != DateTime.Parse("1/1/0001"))
-                        {
-                            var age = (DateTime)Model.Date_Placed_On_Mac - (DateTime)Model.Date_Received;
-                            <dt>Age</dt>
-                            <dd>@age.Days</dd>
-                        }
-                        else if (Model.Date_Removed_From_Mac != null && Model.Date_Removed_From_Mac != DateTime.Parse("1/1/0001"))
-                        {
-                            var age = (DateTime)Model.Date_Removed_From_Mac - (DateTime)Model.Date_Received;
-                            <dt>Age</dt>
-                            <dd>@age.Days</dd>
-                        }
+                        <dt>Age</dt>
+                        <dd>@Model.Age</dd>
                     }
                     <dt>
                         @Html.DisplayNameFor(model => model.Comments)

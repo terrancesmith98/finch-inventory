@@ -11,7 +11,7 @@ using Finch_Inventory.Models;
 
 namespace Finch_Inventory.Controllers
 {
-    public class UsersController : Controller
+    public class UsersController : BaseController
     {
         private FinchDbContext db = new FinchDbContext();
 
@@ -28,12 +28,12 @@ namespace Finch_Inventory.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Users users = await db.Users.FindAsync(id);
-            if (users == null)
+            User user = await db.Users.FindAsync(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(users);
+            return View(user);
         }
 
         // GET: Users/Create
@@ -47,16 +47,16 @@ namespace Finch_Inventory.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,UserName,FirstName,LastName")] Users users)
+        public async Task<ActionResult> Create([Bind(Include = "ID,FirstName,LastName,UserName")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(users);
+                db.Users.Add(user);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(users);
+            return View(user);
         }
 
         // GET: Users/Edit/5
@@ -66,28 +66,50 @@ namespace Finch_Inventory.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Users users = await db.Users.FindAsync(id);
-            if (users == null)
+            User user = await db.Users.FindAsync(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(users);
+            return View(user);
         }
 
-        // POST: Users/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
+        // Post: Users/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "UserName,FirstName,LastName")] Users users)
+        public async Task<ActionResult> Edit(int ID, string FirstName, string LastName, string UserName, int[] UserRoles )
         {
-            if (ModelState.IsValid)
+            if (ID > 0 && !string.IsNullOrEmpty(FirstName) && !string.IsNullOrEmpty(LastName) && !string.IsNullOrEmpty(UserName) && UserRoles.Length > 0)
             {
-                db.Entry(users).State = EntityState.Modified;
+                var existing = db.Users.Find(ID);
+                if (existing != null)
+                {
+                    try
+                    {
+                        existing.FirstName = FirstName;
+                        existing.LastName = LastName;
+                        existing.UserName = UserName;
+                        foreach (var role in UserRoles)
+                        {
+                            var userRole = db.UserRoles.Where(r => r.UserID == ID && r.RoleID == role).Any();
+                            if (!userRole)
+                            {
+                                var newRole = new UserRole(ID, role);
+                                db.UserRoles.Add(newRole);
+                            }
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                }
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(users);
+            return View();
         }
 
         // GET: Users/Delete/5
@@ -97,12 +119,12 @@ namespace Finch_Inventory.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Users users = await db.Users.FindAsync(id);
-            if (users == null)
+            User user = await db.Users.FindAsync(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(users);
+            return View(user);
         }
 
         // POST: Users/Delete/5
@@ -110,8 +132,8 @@ namespace Finch_Inventory.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Users users = await db.Users.FindAsync(id);
-            db.Users.Remove(users);
+            User user = await db.Users.FindAsync(id);
+            db.Users.Remove(user);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

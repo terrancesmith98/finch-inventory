@@ -1,4 +1,4 @@
-﻿@model Finch_Inventory.Models.Users
+﻿@model Finch_Inventory.Models.User
 
 
     <div class="container">
@@ -37,8 +37,8 @@
                         </dl>
                     </div>
                     <div class="card-footer">
-                        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-                        @Html.ActionLink("Back to List", "Index")
+                        <a href="~/Users/Edit/@Model.ID" class="btn btn-warning btn-lg" title="Edit"><i class="fas fa-pencil-alt mx-2"></i>Edit</a>
+                        <a href="~/Users/Index" class="btn btn-primary btn-lg" title="Back to List"><i class="fas fa-arrow-left mx-2"></i>Back to List</a>
                     </div>
                 </div>
             </div>

@@ -53,10 +53,18 @@
                                 {
                                     location = item.Location.Location1;
                                 }
-                                if (dateReceived != null && datePlaced != null)
-                                {
-                                    age = (datePlaced - dateReceived).Days;
-                                }
+                                //if (dateReceived != null && datePlaced != null)
+                                //{
+                                //    if (dateRemoved == null)
+                                //    {
+                                //        age = (datePlaced - DateTime.Today).Days;
+                                //    }
+                                //    else
+                                //    {
+                                //        age = (dateRemoved - datePlaced).Days;
+                                //    }
+
+                                //}
                                 <tr>
                                     <td>@item.PM_Number</td>
                                     <td>@item.Position.Position1</td>
@@ -64,7 +72,7 @@
                                     <td>@item.Status.Status1</td>
                                     @if (dateReceived != null && dateReceived != DateTime.Parse("1/1/0001") && datePlaced != null && datePlaced != DateTime.Parse("1/1/0001"))
                                     {
-                                        <td>@age</td>
+                                        <td>@item.Age</td>
                                     }
                                     <td class="pull-right">
                                         <a href="~/Clothing/Details/@item.ID" class="btn btn-info btn-lg" title="Details"><i class="fas fa-info-circle"></i></a>

@@ -16,7 +16,7 @@ namespace Finch_Inventory.Controllers
         {
             db.Dispose();
             db = new FinchDbContext();
-            var inventory = db.Clothing.ToList();
+            var inventory = db.Clothings.ToList();
 #if (!DEBUG)
             var manager = new ActiveDirectoryManager();
             var currWinUser = manager.GetCurrentWindowUser();
@@ -24,7 +24,12 @@ namespace Finch_Inventory.Controllers
 #if (DEBUG)
             var currWinUser = "tsmith@otiservices.com";
 #endif
-            ViewBag.CurrUser = currWinUser;
+            var currUser = db.Users.SingleOrDefault(u => u.UserName == currWinUser);
+
+            var roles = db.UserRoles.Where(r => r.UserID == currUser.ID).Select(r => r.RoleID).ToList();
+            ViewBag.CurrUser = currUser;
+            ViewBag.UserRoles = roles;
+            ViewBag.RolesList = new MultiSelectList(db.Roles.OrderBy(r => r.ID).Select(r => r.Role1).ToList());
             ViewBag.Inventory = inventory;
         }
     }

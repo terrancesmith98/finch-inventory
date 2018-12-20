@@ -11,14 +11,14 @@ using Finch_Inventory.Models;
 
 namespace Finch_Inventory.Controllers
 {
-    public class ClothingController : Controller
+    public class ClothingController : BaseController
     {
         private FinchDbContext db = new FinchDbContext();
 
         // GET: Clothing
         public async Task<ActionResult> Index()
         {
-            var clothing = db.Clothing.Include(c => c.Location).Include(c => c.Position).Include(c => c.Status).Include(c => c.Type);
+            var clothing = db.Clothings.Include(c => c.Location).Include(c => c.Position).Include(c => c.Status).Include(c => c.Type);
             return View(await clothing.ToListAsync());
         }
 
@@ -29,7 +29,7 @@ namespace Finch_Inventory.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Clothing clothing = await db.Clothing.FindAsync(id);
+            Clothing clothing = await db.Clothings.FindAsync(id);
             if (clothing == null)
             {
                 return HttpNotFound();
@@ -40,10 +40,10 @@ namespace Finch_Inventory.Controllers
         // GET: Clothing/Create
         public ActionResult Create()
         {
-            ViewBag.LocationID = new SelectList(db.Location, "ID", "Location1");
-            ViewBag.PositionID = new SelectList(db.Position, "ID", "Position1");
+            ViewBag.LocationID = new SelectList(db.Locations, "ID", "Location1");
+            ViewBag.PositionID = new SelectList(db.Positions, "ID", "Position1");
             ViewBag.StatusID = new SelectList(db.Status, "ID", "Status1");
-            ViewBag.TypeID = new SelectList(db.Type, "ID", "Type1");
+            ViewBag.TypeID = new SelectList(db.Types, "ID", "Type1");
             return View();
         }
 
@@ -56,15 +56,15 @@ namespace Finch_Inventory.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Clothing.Add(clothing);
+                db.Clothings.Add(clothing);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.LocationID = new SelectList(db.Location, "ID", "Location1", clothing.LocationID);
-            ViewBag.PositionID = new SelectList(db.Position, "ID", "Position1", clothing.PositionID);
+            ViewBag.LocationID = new SelectList(db.Locations, "ID", "Location1", clothing.LocationID);
+            ViewBag.PositionID = new SelectList(db.Positions, "ID", "Position1", clothing.PositionID);
             ViewBag.StatusID = new SelectList(db.Status, "ID", "Status1", clothing.StatusID);
-            ViewBag.TypeID = new SelectList(db.Type, "ID", "Type1", clothing.TypeID);
+            ViewBag.TypeID = new SelectList(db.Types, "ID", "Type1", clothing.TypeID);
             return View(clothing);
         }
 
@@ -75,15 +75,15 @@ namespace Finch_Inventory.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Clothing clothing = await db.Clothing.FindAsync(id);
+            Clothing clothing = await db.Clothings.FindAsync(id);
             if (clothing == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.LocationID = new SelectList(db.Location, "ID", "Location1", clothing.LocationID);
-            ViewBag.PositionID = new SelectList(db.Position, "ID", "Position1", clothing.PositionID);
+            ViewBag.LocationID = new SelectList(db.Locations, "ID", "Location1", clothing.LocationID);
+            ViewBag.PositionID = new SelectList(db.Positions, "ID", "Position1", clothing.PositionID);
             ViewBag.StatusID = new SelectList(db.Status, "ID", "Status1", clothing.StatusID);
-            ViewBag.TypeID = new SelectList(db.Type, "ID", "Type1", clothing.TypeID);
+            ViewBag.TypeID = new SelectList(db.Types, "ID", "Type1", clothing.TypeID);
             ViewBag.Machines = db.Machines.ToList();
 
             return View(clothing);
@@ -102,10 +102,10 @@ namespace Finch_Inventory.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index", "Home");
             }
-            ViewBag.LocationID = new SelectList(db.Location, "ID", "Location1", clothing.LocationID);
-            ViewBag.PositionID = new SelectList(db.Position, "ID", "Position1", clothing.PositionID);
+            ViewBag.LocationID = new SelectList(db.Locations, "ID", "Location1", clothing.LocationID);
+            ViewBag.PositionID = new SelectList(db.Positions, "ID", "Position1", clothing.PositionID);
             ViewBag.StatusID = new SelectList(db.Status, "ID", "Status1", clothing.StatusID);
-            ViewBag.TypeID = new SelectList(db.Type, "ID", "Type1", clothing.TypeID);
+            ViewBag.TypeID = new SelectList(db.Types, "ID", "Type1", clothing.TypeID);
 
             return RedirectToAction("Index", "Home");
         }
@@ -117,7 +117,7 @@ namespace Finch_Inventory.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Clothing clothing = await db.Clothing.FindAsync(id);
+            Clothing clothing = await db.Clothings.FindAsync(id);
             if (clothing == null)
             {
                 return HttpNotFound();
@@ -130,8 +130,8 @@ namespace Finch_Inventory.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Clothing clothing = await db.Clothing.FindAsync(id);
-            db.Clothing.Remove(clothing);
+            Clothing clothing = await db.Clothings.FindAsync(id);
+            db.Clothings.Remove(clothing);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

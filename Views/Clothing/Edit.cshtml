@@ -31,7 +31,7 @@
                                 <select id="PM_Number", name="PM_Number">
                                     @foreach (var machine in ViewBag.Machines)
                                     {
-                                        <option value="@machine.ID">@machine.Machine</option>
+                                        <option value="@machine.ID">@machine.Machine1</option>
                                     }
 
                                 </select>
@@ -147,6 +147,13 @@
         $(document).ready(function(){
             'use strict';
             $('#PM_Number').val('@Model.PM_Number');
+
+            $('#Date_Removed_From_Mac').on('changeDate', function (event) {
+                var value = $('#Date_Removed_From_Mac').val();
+                if (value != null) {
+                    $('#StatusID').val(3);
+                }
+            });
         });
     </script>
 }

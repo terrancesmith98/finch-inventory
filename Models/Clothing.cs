@@ -24,16 +24,16 @@ namespace Finch_Inventory.Models
         [StringLength(50)]
         public string Serial_Number { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [Column(TypeName = "date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime? Date_Received { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [Column(TypeName = "date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime? Date_Placed_On_Mac { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [Column(TypeName = "date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime? Date_Removed_From_Mac { get; set; }
 
         public int StatusID { get; set; }
@@ -43,9 +43,23 @@ namespace Finch_Inventory.Models
         [DataType(DataType.MultilineText)]
         public string Comments { get; set; }
 
+        public int Age {
+            get
+            {
+                if (Date_Removed_From_Mac == null)
+                {
+                    return (DateTime.Now - (DateTime)Date_Placed_On_Mac).Days;
+                }
+                else
+                {
+                    return ((DateTime)Date_Removed_From_Mac - (DateTime)Date_Placed_On_Mac).Days;
+                }
+            }
+        }
+
         public virtual Location Location { get; set; }
 
-        public virtual Machines Machines { get; set; }
+        public virtual Machine Machine { get; set; }
 
         public virtual Position Position { get; set; }
 
