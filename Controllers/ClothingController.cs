@@ -19,6 +19,8 @@ namespace Finch_Inventory.Controllers
         public async Task<ActionResult> Index()
         {
             var clothing = db.Clothings.Include(c => c.Location).Include(c => c.Position).Include(c => c.Status).Include(c => c.Type);
+            ViewBag.Machines = db.Machines.ToList();
+
             return View(await clothing.ToListAsync());
         }
 
@@ -44,6 +46,8 @@ namespace Finch_Inventory.Controllers
             ViewBag.PositionID = new SelectList(db.Positions, "ID", "Position1");
             ViewBag.StatusID = new SelectList(db.Status, "ID", "Status1");
             ViewBag.TypeID = new SelectList(db.Types, "ID", "Type1");
+            ViewBag.Machines = db.Machines.ToList();
+
             return View();
         }
 
@@ -56,16 +60,19 @@ namespace Finch_Inventory.Controllers
         {
             if (ModelState.IsValid)
             {
+                clothing.StatusID = 1;
+                clothing.Date_Placed_On_Mac = null;
+                clothing.Date_Removed_From_Mac = null;
                 db.Clothings.Add(clothing);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             ViewBag.LocationID = new SelectList(db.Locations, "ID", "Location1", clothing.LocationID);
             ViewBag.PositionID = new SelectList(db.Positions, "ID", "Position1", clothing.PositionID);
             ViewBag.StatusID = new SelectList(db.Status, "ID", "Status1", clothing.StatusID);
             ViewBag.TypeID = new SelectList(db.Types, "ID", "Type1", clothing.TypeID);
-            return View(clothing);
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Clothing/Edit/5
