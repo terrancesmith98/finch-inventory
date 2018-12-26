@@ -5,6 +5,51 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<!-- Modal Windows -->
+
+@*<div class="modal hide fade" id="replace-modal" tabindex="-1" role="dialog" aria-labelledby="replace-modal-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="replace-modal-label">Replace Roll</h5>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ID, "Roll ID", htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            <select id="id" , name="id">
+                                @{
+                                    using (var db = new FinchDbContext())
+                                    {
+                                        var availableRolls = db.Clothings.Where(x => x.PM_Number == Model.PM_Number && x.Position == Model.Position && x.ID != Model.ID);
+                                        foreach (var item in @availableRolls)
+                                        {
+                                            <option value="@item.ID">@item.Serial_Number</option>
+                                        }
+                                    }
+                                }
+
+
+                            </select>
+                            @Html.ValidationMessageFor(model => model.PM_Number, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                }
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success">Complete Replacement</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+<!------------------->
+
 <div class="row">
     <div class="col-lg-12">
         <div class="card card-primary">
@@ -139,8 +184,12 @@
 
             </div>
             <div class="card-footer">
-                <a href="~/Clothing/Edit/@Model.ID" class="btn btn-warning " title="Edit">Edit</a>
-                <a href="~/Home/Index" class="btn btn-primary " title="Back"><i class="fas fa-arrow-left mx-2"></i>Back To List</a>
+                @if (Model.StatusID != 1 && Model.StatusID != 3)
+                {
+                    <a href="@Url.Action("ReplaceForm", "Clothing", new { id = Model.ID})" id="replace-roll" class="btn btn-success mx-2" title="Replace Clothing/Roll"><i class="fas fa-exchange-alt mx-2"></i>Replace Roll</a>
+                }
+
+                <a href="@Url.Action("Index", "Home")" class="btn btn-primary " title="Back"><i class="fas fa-arrow-left mx-2"></i>Back To List</a>
             </div>
         </div>
 

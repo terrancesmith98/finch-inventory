@@ -3,13 +3,14 @@
 }
 @using Finch_Inventory.Models;
 
+
+
 <div class="row">
     <div class="col-lg-12">
         <div class="row">
             <div class="col-lg-12 mt-5">
                 <div id="main-console" class="mt-2 rounded p-3 col-lg-12">
                     <a href="~/Clothing/Create" class="btn btn-success mx-2" title="Receive Clothing/Roll"><i class="fas fa-plus mx-2"></i>Receive Roll</a>
-                    <a href="~/Clothing/Replace" class="btn btn-primary mx-2" title="Replace Clothing/Roll"><i class="fas fa-exchange-alt mx-2"></i>Replace Roll</a>
                     <a href="~/Reports/WeeklyInventory" class="btn btn-secondary ml-5 mr-2 pull-right" title="Generate Weekly Inventory Report"><i class="fas fa-file-pdf mx-2"></i>Weekly Inventory</a>
                     <a href="~/Reports/WeeklyPMClothing" class="btn btn-secondary mx-2 pull-right" title="Generate Weekly PM Clothing Report"><i class="fas fa-file-pdf mx-2"></i>Weekly PM Clothing</a>
                 </div>
@@ -41,7 +42,6 @@
                                 var datePlaced = new DateTime();
                                 var dateRemoved = new DateTime();
                                 var location = string.Empty;
-                                var age = 0;
                                 if (item.Date_Received != null)
                                 {
                                     dateReceived = (DateTime)item.Date_Received;
@@ -58,31 +58,25 @@
                                 {
                                     location = item.Location.Location1;
                                 }
-                                //if (dateReceived != null && datePlaced != null)
-                                //{
-                                //    if (dateRemoved == null)
-                                //    {
-                                //        age = (datePlaced - DateTime.Today).Days;
-                                //    }
-                                //    else
-                                //    {
-                                //        age = (dateRemoved - datePlaced).Days;
-                                //    }
 
-                                //}
                                 <tr>
                                     <td>@item.PM_Number</td>
                                     <td>@item.Position.Position1</td>
                                     <td>@item.Type.Type1</td>
                                     <td>@item.Status.Status1</td>
-                                    @if (dateReceived != null && dateReceived != DateTime.Parse("1/1/0001") && datePlaced != null && datePlaced != DateTime.Parse("1/1/0001"))
-                                    {
-                                        <td>@item.Age</td>
-                                    }
-                                    <td class="pull-right">
-                                        <a href="~/Clothing/Details/@item.ID" class="btn btn-info " title="Details"><i class="fas fa-info-circle"></i></a>
-                                        <a href="~/Clothing/Edit/@item.ID" class="btn btn-warning " title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                        <a href="~/Clothing/Delete/@item.ID" class="btn btn-danger " title="Delete"><i class="fas fa-trash-alt"></i></a>
+                                    <td>@item.Age</td>
+                                    <td class="text-right">
+                                        <div class="pull-right">
+                                            @if (item.StatusID != 1 && item.StatusID != 3)
+                                            {
+                                                <a href="@Url.Action("ReplaceForm", "Clothing", new { id = item.ID})" id="replace-roll" class="btn btn-success btn-sm" title="Replace Clothing/Roll"><i class="fas fa-exchange-alt mx-2"></i></a>
+                                            }
+                                            <a href="~/Clothing/Details/@item.ID" class="btn btn-info btn-sm" title="Details"><i class="fas fa-info-circle"></i></a>
+                                            <a href="~/Clothing/Edit/@item.ID" class="btn btn-warning btn-sm" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                            <a href="~/Clothing/Delete/@item.ID" class="btn btn-danger btn-sm" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                                        </div>
+                                        
+
                                     </td>
 
                                 </tr>

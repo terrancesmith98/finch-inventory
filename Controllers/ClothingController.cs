@@ -110,6 +110,55 @@ namespace Finch_Inventory.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult ReplaceForm([Bind(Include = "ID,PM_Number,PositionID,Manufacturer,TypeID,Serial_Number,Date_Received,Date_Placed_On_Mac,Date_Removed_From_Mac,StatusID,LocationID,Comments")] Clothing clothing)
+        {
+            if (clothing.ID > 0)
+            {
+                try
+                {
+                    var existing = db.Clothings.Find(clothing.ID);
+                    if (existing != null)
+                    {
+                        var availables = db.Clothings.Where(x => x.PositionID == existing.PositionID && x.PM_Number == existing.PM_Number && x.ID != existing.ID).ToList();
+                        ViewBag.AvailableRolls = availables;
+                        ViewBag.Existing = existing;
+                    }
+                    
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            return View(clothing);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Replace(int id, int replacementId)
+        {
+            var existing = db.Clothings.Find(id);
+            var replacement = db.Clothings.Find(replacementId);
+            if (existing != null && replacement != null)
+            {
+                try
+                {
+                    //update Date Removed for roll to be replaced
+                    existing.Date_Removed_From_Mac = DateTime.Now;
+                    //update Status to History for roll to be replaced
+                    existing.StatusID = 3;
+                    replacement.Date_Placed_On_Mac = DateTime.Now;
+                    replacement.StatusID = 2;
+                    db.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            return View("~/Home/Index");
+        }
+
         // GET: Clothing/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {

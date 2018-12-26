@@ -46,9 +46,13 @@ namespace Finch_Inventory.Models
         public int Age {
             get
             {
-                if (Date_Removed_From_Mac == null)
+                if (Date_Removed_From_Mac == null && Date_Placed_On_Mac != null)
                 {
                     return (DateTime.Now - (DateTime)Date_Placed_On_Mac).Days;
+                }
+                else if (Date_Removed_From_Mac == null && Date_Placed_On_Mac == null)
+                {
+                    return 0;
                 }
                 else
                 {
