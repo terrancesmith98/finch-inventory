@@ -18,12 +18,10 @@ namespace Finch_Inventory.Models
 
         public virtual User User { get; set; }
 
-        public UserRole() { }
-
-        public UserRole(int userID, int roleID)
+        public UserRole( int id, int userId)
         {
-            UserID = userID;
-            RoleID = roleID;
+            ID = id;
+            UserID = userId;
         }
     }
 }

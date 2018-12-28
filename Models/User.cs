@@ -5,7 +5,6 @@ namespace Finch_Inventory.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-    using System.Web.Mvc;
 
     public partial class User
     {
@@ -27,10 +26,7 @@ namespace Finch_Inventory.Models
         [StringLength(50)]
         public string UserName { get; set; }
 
-        
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserRole> UserRoles { get; set; }
     }
-
 }

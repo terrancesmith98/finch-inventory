@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Finch_Inventory.Models;
+using Type = Finch_Inventory.Models.Type;
 
 namespace Finch_Inventory.Controllers
 {
@@ -46,8 +47,9 @@ namespace Finch_Inventory.Controllers
             ViewBag.PositionID = new SelectList(db.Positions, "ID", "Position1");
             ViewBag.StatusID = new SelectList(db.Status, "ID", "Status1");
             ViewBag.TypeID = new SelectList(db.Types, "ID", "Type1");
+            ViewBag.RollTypeID = new SelectList(db.RollTypes, "ID", "Type");
             ViewBag.Machines = db.Machines.ToList();
-
+            ViewBag.Types = db.Types.ToList();
             return View();
         }
 
@@ -56,15 +58,36 @@ namespace Finch_Inventory.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,PM_Number,PositionID,Manufacturer,TypeID,Serial_Number,Date_Received,Date_Placed_On_Mac,Date_Removed_From_Mac,StatusID,LocationID,Comments")] Clothing clothing)
+        public async Task<ActionResult> Create([Bind(Include = "ID,PM_Number,PositionID,Manufacturer,TypeID,Serial_Number,Date_Received,Date_Placed_On_Mac,Date_Removed_From_Mac,StatusID,LocationID,Comments, newType, RollTypeID")] Clothing clothing, string newType)
         {
             if (ModelState.IsValid)
             {
                 clothing.StatusID = 1;
                 clothing.Date_Placed_On_Mac = null;
                 clothing.Date_Removed_From_Mac = null;
+                if (!string.IsNullOrEmpty(newType))
+                {
+                    Type type = new Type();
+                    type.Type1 = newType;
+                    bool exists = db.Types.Any(x => x.Type1 == type.Type1);
+                    if (!exists)
+                    {
+                        db.Types.Add(type);
+                        await db.SaveChangesAsync();
+                        var newTypeID = db.Types.OrderByDescending(x => x.ID).First();
+                        clothing.TypeID = newTypeID.ID;
+                    }
+                    else
+                    {
+                        var newTypeID = db.Types.Where(x => x.Type1 == newType).Select(x => x.ID).Single();
+                        clothing.TypeID = newTypeID;
+                    }
+                    
+                }
+                
                 db.Clothings.Add(clothing);
                 await db.SaveChangesAsync();
+                
                 return RedirectToAction("Index", "Home");
             }
 

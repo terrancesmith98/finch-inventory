@@ -1,4 +1,5 @@
 ﻿@model Finch_Inventory.Models.Clothing
+@using Finch_Inventory.Models
 
 @{
     ViewBag.Title = "Create";
@@ -34,6 +35,15 @@
                                 </div>
 
                             </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    @Html.LabelFor(model => model.RollTypeID, "Roll Type", htmlAttributes: new { @class = "control-label col-md-2 text-right"})
+                                    <div class="col-md-10">
+                                        @Html.DropDownList("RollTypeID", null, htmlAttributes: new { @class = "form-control"})
+                                        @Html.ValidationMessageFor(model => model.RollTypeID, "", new { @class = "text-danger"})
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <div class="form-row">
@@ -61,7 +71,23 @@
                                 <div class="form-row">
                                     @Html.LabelFor(model => model.TypeID, "Type", htmlAttributes: new { @class = "control-label col-md-2 text-right" })
                                     <div class="col-md-10">
-                                        @Html.DropDownList("TypeID", null, htmlAttributes: new { @class = "form-control" })
+                                        @*@Html.DropDownList("TypeID", null, htmlAttributes: new { @class = "form-control" })*@
+                                        <select id="type-select">
+                                            <option value="" disabled selected>-- Select Type --</option>
+                                            <option value="new">Add New</option>
+                                            @using (FinchDbContext db = new FinchDbContext())
+                                            {
+                                                foreach (Finch_Inventory.Models.Type type in db.Types.ToList())
+                                                {
+                                                    if (type.Type1 != "None")
+                                                    {
+                                                        <option value="@type.ID">@type.Type1</option>
+                                                    }
+
+                                                }
+                                            }
+                                        </select>
+                                        <input type="text" name="newType" id="newType" value="" placeholder="Enter new type" hidden/>
                                         @Html.ValidationMessageFor(model => model.TypeID, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -89,33 +115,6 @@
                                 </div>
 
                             </div>
-
-                            @*<div class="form-group">
-                                <div class="form-row">
-                                    @Html.LabelFor(model => model.Date_Placed_On_Mac, "Date Placed", htmlAttributes: new { @class = "control-label col-md-2 text-right" })
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.Date_Placed_On_Mac, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.Date_Placed_On_Mac, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                                
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Date_Removed_From_Mac, htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.Date_Removed_From_Mac, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Date_Removed_From_Mac, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.StatusID, "StatusID", htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
-                                    @Html.DropDownList("StatusID", null, htmlAttributes: new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.StatusID, "", new { @class = "text-danger" })
-                                </div>
-                            </div>*@
 
                             <div class="form-group">
                                 <div class="form-row">
@@ -159,6 +158,16 @@
         $(document).ready(function () {
             'use strict';
             $('#Date_Received').datepicker('setDate', new Date());
+
+            $('#type-select').change(function () {
+                var newType = $('#type-select').val();
+                console.log(newType);
+
+                if (newType == "new") {
+                    $('#newType').attr('hidden', false);
+                }
+                
+            });
         });
     </script>
 }

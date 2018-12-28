@@ -25,6 +25,10 @@ namespace Finch_Inventory.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Clothing>()
+                .Property(e => e.Dimensions)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Machine>()
                 .HasMany(e => e.Clothings)
                 .WithRequired(e => e.Machine)
@@ -39,6 +43,11 @@ namespace Finch_Inventory.Models
             modelBuilder.Entity<Role>()
                 .HasMany(e => e.UserRoles)
                 .WithRequired(e => e.Role)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<RollType>()
+                .HasMany(e => e.Clothings)
+                .WithRequired(e => e.RollType)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Status>()
