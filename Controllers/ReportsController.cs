@@ -24,18 +24,22 @@ namespace Finch_Inventory.Controllers
             return View();
         }
 
-        [HttpGet]
-        public static void CreateInventoryAuditReport()
+
+        public string CreateInventoryAuditReport()
         {
             var inventoryItems = db.Clothings.Where(c => c.StatusID != 2 && c.StatusID != 3).ToList();
             //create Migradoc Document
             Document document = Documents.WeeklyInventoryAudit(inventoryItems);
+            //create PDF Renderer
             PdfDocumentRenderer renderer = new PdfDocumentRenderer(true);
             renderer.Document = document;
             renderer.RenderDocument();
-            string fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"\Finch_Weekly_Inventory_Audit_", DateTime.Now.ToString().Replace('/', '-').Replace(':', '_').Replace(' ', '_'), ".pdf");
-            renderer.PdfDocument.Save(fileName);
-            Process.Start(fileName);
+            //var fileName = "Finch_Weekly_Inventory_Audit_" + DateTime.Now.ToShortDateString().Replace('/', '-').Replace(':', '_').Replace(' ', '_') + ".pdf";
+            var fileName = "Finch_Weekly_Inventory_Audit_" + DateTime.Now.ToShortDateString().Replace('/', '-') + ".pdf";
+            var filePath = Path.Combine(Server.MapPath("~/Content/Reports"), fileName);
+            renderer.PdfDocument.Save(filePath);
+
+            return fileName;
         }
     }
 }

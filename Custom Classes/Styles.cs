@@ -33,6 +33,8 @@ namespace Finch_Inventory.Custom_Classes
             style = document.Styles["Heading2"];
             style.Font.Size = 10;
             style.Font.Bold = true;
+            style.Font.Color = Colors.DarkGray;
+            style.ParagraphFormat.Alignment = ParagraphAlignment.Center;
             style.ParagraphFormat.PageBreakBefore = false;
             style.ParagraphFormat.SpaceBefore = 6;
             style.ParagraphFormat.SpaceAfter = 6;

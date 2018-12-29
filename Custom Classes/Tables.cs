@@ -19,15 +19,11 @@ namespace Finch_Inventory.Custom_Classes
             auditTable.Rows.Alignment = RowAlignment.Center;
 
             //define header columns
-            Column posCol = auditTable.AddColumn(Unit.FromCentimeter(3));
+            Column posCol = auditTable.AddColumn(Unit.FromCentimeter(6));
             posCol.Format.Alignment = ParagraphAlignment.Left;
             posCol.Format.Font.Size = 6.5;
 
-            Column macCol = auditTable.AddColumn(Unit.FromCentimeter(3));
-            macCol.Format.Alignment = ParagraphAlignment.Center;
-            macCol.Format.Font.Size = 6.5;
-
-            Column typeCol = auditTable.AddColumn(Unit.FromCentimeter(3));
+            Column typeCol = auditTable.AddColumn(Unit.FromCentimeter(8));
             typeCol.Format.Alignment = ParagraphAlignment.Center;
             typeCol.Format.Font.Size = 6.5;
 
@@ -46,41 +42,43 @@ namespace Finch_Inventory.Custom_Classes
             posHeader.VerticalAlignment = VerticalAlignment.Center;
             posHeader.AddParagraph("Position");
 
-            Cell macHeader = headers.Cells[0];
-            macHeader.Format.Font.Size = 6.5;
-            macHeader.VerticalAlignment = VerticalAlignment.Center;
-            macHeader.AddParagraph("Position");
-
-            Cell typeHeader = headers.Cells[0];
+            Cell typeHeader = headers.Cells[1];
             typeHeader.Format.Font.Size = 6.5;
             typeHeader.VerticalAlignment = VerticalAlignment.Center;
-            typeHeader.AddParagraph("Position");
+            typeHeader.AddParagraph("Type");
 
-            Cell locHeader = headers.Cells[0];
+            Cell locHeader = headers.Cells[2];
             locHeader.Format.Font.Size = 6.5;
             locHeader.VerticalAlignment = VerticalAlignment.Center;
-            locHeader.AddParagraph("Position");
+            locHeader.AddParagraph("Location");
 
             //fill content cells
+            var rowCounter = 1;
             foreach (var clothing in clothings)
             {
                 Row r = auditTable.AddRow();
                 r.Height = 13;
+                if (rowCounter % 2 == 0)
+                {
+                    r.Format.Shading.Color = Colors.LightGray;
+                }
+                
 
                 Cell cPos = r.Cells[0];
                 cPos.Format.Font.Size = 7;
-                cPos.AddParagraph(clothing.Position.Position1);
+                cPos.AddParagraph($"{clothing.Position.Position1} - {clothing.Dimensions}");
                 cPos.VerticalAlignment = VerticalAlignment.Center;
 
-                Cell cMac = r.Cells[1];
-                cMac.Format.Font.Size = 7;
-                cMac.AddParagraph(clothing.Machine.Machine1);
-                cMac.VerticalAlignment = VerticalAlignment.Center;
-
-                Cell cType = r.Cells[2];
+                Cell cType = r.Cells[1];
                 cType.Format.Font.Size = 7;
-                cType.AddParagraph(clothing.Type.Type1);
+                cType.AddParagraph($"{clothing.Manufacturer} - #{clothing.Serial_Number} - {clothing.Type.Type1}");
                 cType.VerticalAlignment = VerticalAlignment.Center;
+
+                Cell cLoc = r.Cells[2];
+                cLoc.Format.Font.Size = 7;
+                cLoc.AddParagraph(clothing.Location.Location1);
+                cLoc.VerticalAlignment = VerticalAlignment.Center;
+                rowCounter++;
             }
 
             return auditTable;

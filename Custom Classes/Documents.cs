@@ -26,20 +26,33 @@ namespace Finch_Inventory.Custom_Classes
             document.LastSection.AddParagraph("Clothing Inventory as of  - " + DateTime.Now.ToShortDateString(), "Heading1");
             document.LastSection.AddParagraph("", "FooterText");
 
+            document.LastSection.AddParagraph("", "FooterText");
+            document.LastSection.AddParagraph("Machine 1", "FooterText");
+            document.LastSection.AddParagraph("", "FooterText");
             var clothings1 = clothings.Where(x => x.PM_Number == 1).ToList();
             Table table1 = Tables.BuildInventoryAuditTable(clothings1);
             document.LastSection.Add(table1);
+
             document.LastSection.AddParagraph("", "FooterText");
-            document.LastSection.AddParagraph("Clothing Inventory", "Header3");
+            document.LastSection.AddParagraph("Machine 2", "FooterText");
+            document.LastSection.AddParagraph("", "FooterText");
+            var clothings2 = clothings.Where(x => x.PM_Number == 2).ToList();
+            Table table2 = Tables.BuildInventoryAuditTable(clothings2);
+            document.LastSection.Add(table2);
 
-            //var clothings2 = clothings.Where(x => x.PM_Number == 1).ToList();
-            //Table table2 = Tables.BuildInventoryAuditTable(clothings2);
+            document.LastSection.AddParagraph("", "FooterText");
+            document.LastSection.AddParagraph("Machine 3", "FooterText");
+            document.LastSection.AddParagraph("", "FooterText");
+            var clothings3 = clothings.Where(x => x.PM_Number == 3).ToList();
+            Table table3 = Tables.BuildInventoryAuditTable(clothings3);
+            document.LastSection.Add(table3);
 
-            //var clothings3 = clothings.Where(x => x.PM_Number == 1).ToList();
-            //Table table3 = Tables.BuildInventoryAuditTable(clothings3);
-
-            //var clothings4 = clothings.Where(x => x.PM_Number == 1).ToList();
-            //Table table4 = Tables.BuildInventoryAuditTable(clothings4);
+            document.LastSection.AddParagraph("", "FooterText");
+            document.LastSection.AddParagraph("Machine 4", "FooterText");
+            document.LastSection.AddParagraph("", "FooterText");
+            var clothings4 = clothings.Where(x => x.PM_Number == 4).ToList();
+            Table table4 = Tables.BuildInventoryAuditTable(clothings4);
+            document.LastSection.Add(table4);
 
             return document;
         }
@@ -48,17 +61,10 @@ namespace Finch_Inventory.Custom_Classes
         {
             Section section = document.AddSection();
             section.PageSetup.HeaderDistance = 2;
-            section.PageSetup.LeftMargin = 50;
+            section.PageSetup.LeftMargin = 10;
             section.PageSetup.TopMargin = 30;
             section.PageSetup.DifferentFirstPageHeaderFooter = true;
 
-            //Create report header
-            HeaderFooter header = section.Headers.FirstPage;
-            Image logo = header.AddImage(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Finch.png"));
-            logo.RelativeHorizontal = RelativeHorizontal.Margin;
-            logo.RelativeVertical = RelativeVertical.Page;
-            logo.Top = 15;
-            logo.Left = 400;
 
             //Create report footer
             HeaderFooter footer = section.Footers.FirstPage;
@@ -66,8 +72,7 @@ namespace Finch_Inventory.Custom_Classes
             paragraph.AddFormattedText("Report Printed on: " + DateTime.Now.ToShortDateString(), "FooterText");
             paragraph.Format.Alignment = ParagraphAlignment.Center;
             footer.Add(paragraph);
-            paragraph.AddFormattedText("\n Finch Clothing Inventory Audit Report", "FooterText");
-            footer.Add(paragraph.Clone());
+
 
         }
     }
