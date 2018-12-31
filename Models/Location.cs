@@ -22,6 +22,10 @@ namespace Finch_Inventory.Models
         [StringLength(50)]
         public string Location1 { get; set; }
 
+        public int? AgeLast { get; set; }
+
+        public int? Goal { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Clothing> Clothings { get; set; }
     }

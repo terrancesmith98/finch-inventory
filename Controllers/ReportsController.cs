@@ -29,13 +29,31 @@ namespace Finch_Inventory.Controllers
         {
             var inventoryItems = db.Clothings.Where(c => c.StatusID != 2 && c.StatusID != 3).ToList();
             //create Migradoc Document
-            Document document = Documents.WeeklyInventoryAudit(inventoryItems);
+            Document document = Documents.InventoryAudit(inventoryItems);
             //create PDF Renderer
             PdfDocumentRenderer renderer = new PdfDocumentRenderer(true);
             renderer.Document = document;
             renderer.RenderDocument();
-            //var fileName = "Finch_Weekly_Inventory_Audit_" + DateTime.Now.ToShortDateString().Replace('/', '-').Replace(':', '_').Replace(' ', '_') + ".pdf";
-            var fileName = "Finch_Weekly_Inventory_Audit_" + DateTime.Now.ToShortDateString().Replace('/', '-') + ".pdf";
+            var fileName = "Finch_Inventory_Audit.pdf";
+            var filePath = Path.Combine(Server.MapPath("~/Content/Reports"), fileName);
+            renderer.PdfDocument.Save(filePath);
+
+            return fileName;
+        }
+
+        public string CreateWeeklyPMReport()
+        {
+            var currentItems = db.Clothings.Where(c => c.StatusID == 2).ToList();
+            //create Migradoc Document
+            Document document = Documents.WeeklyPMReport(currentItems);
+            PageSetup pageSetup = document.DefaultPageSetup.Clone();
+            // set orientation
+            pageSetup.Orientation = Orientation.Landscape;
+            //create PDF renderer
+            PdfDocumentRenderer renderer = new PdfDocumentRenderer(true);
+            renderer.Document = document;
+            renderer.RenderDocument();
+            var fileName = "Finch_Weekly_PM_Report.pdf";
             var filePath = Path.Combine(Server.MapPath("~/Content/Reports"), fileName);
             renderer.PdfDocument.Save(filePath);
 

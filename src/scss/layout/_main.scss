@@ -31,37 +31,39 @@ nav {
     border: 1px solid #555;
     box-shadow: 0 0 10px #111;
 
-    & > .btn.btn-success {
-        background: linear-gradient(to bottom, #4c4b54 0%,#2b2b2b 100%);
-        border: 1px solid #ccc;
+    .main-console {
+        & > .btn.btn-success {
+            background: linear-gradient(to bottom, #4c4b54 0%,#2b2b2b 100%);
+            border: 1px solid #ccc;
 
-        &:hover {
-            box-shadow: 0 0 8px #ddff00;
-            color: #ddff00;
-        }
-    }
-
-    & > .btn.btn-primary {
-        border: 1px solid #ccc;
-        background: linear-gradient(to bottom, #4c4b54 0%,#2b2b2b 100%);
-
-        &:hover {
-            box-shadow: 0 0 8px cyan;
-            color: cyan;
-        }
-    }
-
-    & > .btn.btn-secondary {
-        border: 1px solid #ccc;
-        background: linear-gradient(to bottom, #4c4b54 0%,#2b2b2b 100%);
-
-        & > .fas {
-            color: #ff6161;
+            &:hover {
+                box-shadow: 0 0 8px #ddff00;
+                color: #ddff00;
+            }
         }
 
-        &:hover {
-            box-shadow: 0 0 8px #ff6161;
-            color: #ff6161;
+        & > .btn.btn-primary {
+            border: 1px solid #ccc;
+            background: linear-gradient(to bottom, #4c4b54 0%,#2b2b2b 100%);
+
+            &:hover {
+                box-shadow: 0 0 8px cyan;
+                color: cyan;
+            }
+        }
+
+        & > .btn.btn-secondary {
+            border: 1px solid #ccc;
+            background: linear-gradient(to bottom, #4c4b54 0%,#2b2b2b 100%);
+
+            & > .fas {
+                color: #ff6161;
+            }
+
+            &:hover {
+                box-shadow: 0 0 8px #ff6161;
+                color: #ff6161;
+            }
         }
     }
 }

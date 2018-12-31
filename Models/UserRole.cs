@@ -20,10 +20,10 @@ namespace Finch_Inventory.Models
 
         public UserRole() { }
 
-        public UserRole( int id, int userId)
+        public UserRole(int userID, int roleID)
         {
-            ID = id;
-            UserID = userId;
+            UserID = userID;
+            RoleID = roleID;
         }
     }
 }

@@ -12,20 +12,23 @@ namespace Finch_Inventory.Custom_Classes
 {
     public class Documents
     {
-        internal static Document WeeklyInventoryAudit(List<Clothing> clothings)
+        internal static Document InventoryAudit(List<Clothing> clothings)
         {
             //create new Migradoc document
             Document document = new Document();
             document.Info.Title = "Clothing/Roll Inventory Audit Report";
-            document.Info.Subject = "Displays a inventory per Paper Machine.";
+            document.Info.Subject = "Displays an inventory per Paper Machine.";
             document.Info.Author = "Terry Smith Custom Applications";
             Styles.DefineStyles(document);
-            DefineWeeklyContentSection(document);
+            DefineInventoryAuditContentSection(document);
 
             //add report heading
             document.LastSection.AddParagraph("Clothing Inventory as of  - " + DateTime.Now.ToShortDateString(), "Heading1");
             document.LastSection.AddParagraph("", "FooterText");
 
+            //add main content tables
+
+            //machine 1 inventory
             document.LastSection.AddParagraph("", "FooterText");
             document.LastSection.AddParagraph("Machine 1", "FooterText");
             document.LastSection.AddParagraph("", "FooterText");
@@ -33,6 +36,7 @@ namespace Finch_Inventory.Custom_Classes
             Table table1 = Tables.BuildInventoryAuditTable(clothings1);
             document.LastSection.Add(table1);
 
+            //machine 2 inventory
             document.LastSection.AddParagraph("", "FooterText");
             document.LastSection.AddParagraph("Machine 2", "FooterText");
             document.LastSection.AddParagraph("", "FooterText");
@@ -40,6 +44,7 @@ namespace Finch_Inventory.Custom_Classes
             Table table2 = Tables.BuildInventoryAuditTable(clothings2);
             document.LastSection.Add(table2);
 
+            //machine 3 inventory
             document.LastSection.AddParagraph("", "FooterText");
             document.LastSection.AddParagraph("Machine 3", "FooterText");
             document.LastSection.AddParagraph("", "FooterText");
@@ -47,6 +52,7 @@ namespace Finch_Inventory.Custom_Classes
             Table table3 = Tables.BuildInventoryAuditTable(clothings3);
             document.LastSection.Add(table3);
 
+            //machine 4 inventory
             document.LastSection.AddParagraph("", "FooterText");
             document.LastSection.AddParagraph("Machine 4", "FooterText");
             document.LastSection.AddParagraph("", "FooterText");
@@ -57,7 +63,7 @@ namespace Finch_Inventory.Custom_Classes
             return document;
         }
 
-        private static void DefineWeeklyContentSection(Document document)
+        private static void DefineInventoryAuditContentSection(Document document)
         {
             Section section = document.AddSection();
             section.PageSetup.HeaderDistance = 2;
@@ -74,6 +80,44 @@ namespace Finch_Inventory.Custom_Classes
             footer.Add(paragraph);
 
 
+        }
+
+        internal static Document WeeklyPMReport(List<Clothing> clothings)
+        {
+            //create new Migradoc document
+            Document document = new Document();
+            document.Info.Title = "Weekly PM Clothing Report";
+            document.Info.Subject = "Displays a weekly paper maching roll aging report.";
+            document.Info.Author = "Terry Smith Custom Applications";
+            Styles.DefineStyles(document);
+            DefineWeeklyPMClothingContentSection(document);
+
+            //add report heading
+            document.LastSection.AddParagraph("Weekly Paper Machine Clothing Report  - " + DateTime.Now.ToShortDateString(), "Heading1");
+            document.LastSection.AddParagraph("", "FooterText");
+
+            //add main content table
+            Table table = Tables.BuildWeeklyPMTable(clothings);
+
+            return document;
+        }
+
+        private static void DefineWeeklyPMClothingContentSection(Document document)
+        {
+            Section section = document.AddSection();
+            section.PageSetup.HeaderDistance = 2;
+            section.PageSetup.LeftMargin = 10;
+            section.PageSetup.TopMargin = 30;
+            section.PageSetup.DifferentFirstPageHeaderFooter = true;
+            section.PageSetup.Orientation = Orientation.Landscape;
+
+
+            //Create report footer
+            HeaderFooter footer = section.Footers.FirstPage;
+            Paragraph paragraph = new Paragraph();
+            paragraph.AddFormattedText("Report Printed on: " + DateTime.Now.ToShortDateString(), "FooterText");
+            paragraph.Format.Alignment = ParagraphAlignment.Center;
+            footer.Add(paragraph);
         }
     }
 }
