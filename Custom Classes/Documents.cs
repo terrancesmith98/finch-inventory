@@ -98,7 +98,7 @@ namespace Finch_Inventory.Custom_Classes
 
             //add main content table
             Table table = Tables.BuildWeeklyPMTable(clothings);
-
+            document.LastSection.Add(table);
             return document;
         }
 

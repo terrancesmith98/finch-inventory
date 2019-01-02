@@ -167,6 +167,7 @@
     </Compile>
     <Compile Include="Models\Clothing.cs" />
     <Compile Include="Models\FinchDbContext.cs" />
+    <Compile Include="Models\Goal.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Machine.cs" />
     <Compile Include="Models\Position.cs" />

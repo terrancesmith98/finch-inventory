@@ -13,6 +13,7 @@ namespace Finch_Inventory.Models
         public Position()
         {
             Clothings = new HashSet<Clothing>();
+            Goals = new HashSet<Goal>();
         }
 
         public int ID { get; set; }
@@ -24,5 +25,8 @@ namespace Finch_Inventory.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Clothing> Clothings { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Goal> Goals { get; set; }
     }
 }

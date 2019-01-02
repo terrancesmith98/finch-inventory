@@ -13,6 +13,7 @@ namespace Finch_Inventory.Models
         }
 
         public virtual DbSet<Clothing> Clothings { get; set; }
+        public virtual DbSet<Goal> Goals { get; set; }
         public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<Machine> Machines { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
@@ -35,8 +36,19 @@ namespace Finch_Inventory.Models
                 .HasForeignKey(e => e.PM_Number)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Machine>()
+                .HasMany(e => e.Goals)
+                .WithRequired(e => e.Machine)
+                .HasForeignKey(e => e.PM_ID)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Position>()
                 .HasMany(e => e.Clothings)
+                .WithRequired(e => e.Position)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Position>()
+                .HasMany(e => e.Goals)
                 .WithRequired(e => e.Position)
                 .WillCascadeOnDelete(false);
 
