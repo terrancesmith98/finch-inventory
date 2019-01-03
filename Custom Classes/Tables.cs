@@ -1356,58 +1356,1859 @@ namespace Finch_Inventory.Custom_Classes
             #endregion
 
             #region 3rd Top PM 3
+            // ----- 3rd Top Position PM 3 ----- //
+            var cell3rdTopDryer3Past = row3rdTopDryer.Cells[7];
+            cell3rdTopDryer3Past.Format.Font.Size = 6.5;
+            cell3rdTopDryer3Past.VerticalAlignment = VerticalAlignment.Center;
+            cell3rdTopDryer3Past.AddParagraph($"100");
 
+            var cell3rdTopDryer3Current = row3rdTopDryer.Cells[8];
+            cell3rdTopDryer3Current.Format.Font.Size = 6.5;
+            cell3rdTopDryer3Current.VerticalAlignment = VerticalAlignment.Center;
+            var thirdTopDryer3Age = 0;
+            if (clothing3rdTopDryer3 != null)
+            {
+                thirdTopDryer3Age = clothing3rdTopDryer3.Age != null ? Convert.ToInt32(clothing3rdTopDryer3.Age) : 0;
+            }
+
+            cell3rdTopDryer3Current.AddParagraph($"{thirdTopDryer3Age}");
+
+            var cell3rdTopDryer3Goal = row3rdTopDryer.Cells[9];
+            cell3rdTopDryer3Goal.Format.Font.Size = 6.5;
+            cell3rdTopDryer3Goal.VerticalAlignment = VerticalAlignment.Center;
+            var thirdTopDryer3Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 3 && g.PositionID == 8);
+            cell3rdTopDryer3Goal.AddParagraph($"{thirdTopDryer3Goal.Goal1}");
+
+            var cell3rdTopDryer3Info = row3rdTopDryer2.Cells[7];
+            cell3rdTopDryer3Info.Format.Font.Size = 6.5;
+            cell3rdTopDryer3Info.MergeRight = 2;
+            cell3rdTopDryer3Info.VerticalAlignment = VerticalAlignment.Center;
+            cell3rdTopDryer3Info.Shading.Color = Colors.LightBlue;
+            if (clothing3rdTopDryer3 != null)
+            {
+                cell3rdTopDryer3Info.AddParagraph($"{clothing3rdTopDryer3.Manufacturer} {clothing3rdTopDryer3.Serial_Number}");
+            }
+            else cell3rdTopDryer3Info.AddParagraph("NA");
             #endregion
 
             #region 3rd Top PM 4
+            // ----- 3rd Top Position PM 4 ----- //
+            var cell3rdTopDryer4Past = row3rdTopDryer.Cells[10];
+            cell3rdTopDryer4Past.Format.Font.Size = 6.5;
+            cell3rdTopDryer4Past.VerticalAlignment = VerticalAlignment.Center;
+            cell3rdTopDryer4Past.AddParagraph($"100");
 
+            var cell3rdTopDryer4Current = row3rdTopDryer.Cells[11];
+            cell3rdTopDryer4Current.Format.Font.Size = 6.5;
+            cell3rdTopDryer4Current.VerticalAlignment = VerticalAlignment.Center;
+            var thirdTopDryer4Age = 0;
+            if (clothing3rdTopDryer4 != null)
+            {
+                thirdTopDryer4Age = clothing3rdTopDryer4.Age != null ? Convert.ToInt32(clothing3rdTopDryer4.Age) : 0;
+            }
+
+            cell3rdTopDryer4Current.AddParagraph($"{thirdTopDryer4Age}");
+
+            var cell3rdTopDryer4Goal = row3rdTopDryer.Cells[12];
+            cell3rdTopDryer4Goal.Format.Font.Size = 6.5;
+            cell3rdTopDryer4Goal.VerticalAlignment = VerticalAlignment.Center;
+            var thirdTopDryer4Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 4 && g.PositionID == 8);
+            cell3rdTopDryer4Goal.AddParagraph($"{thirdTopDryer4Goal.Goal1}");
+
+            var cell3rdTopDryer4Info = row3rdTopDryer2.Cells[10];
+            cell3rdTopDryer4Info.Format.Font.Size = 6.5;
+            cell3rdTopDryer4Info.MergeRight = 2;
+            cell3rdTopDryer4Info.VerticalAlignment = VerticalAlignment.Center;
+            cell3rdTopDryer4Info.Shading.Color = Colors.LightBlue;
+            if (clothing3rdTopDryer4 != null)
+            {
+                cell3rdTopDryer4Info.AddParagraph($"{clothing3rdTopDryer4.Manufacturer} {clothing3rdTopDryer4.Serial_Number}");
+            }
+            else cell3rdTopDryer4Info.AddParagraph("NA");
             #endregion
 
             #endregion // 3rd Top Dryer Position
 
             #region 4th Top Dryer Position
+            // add spacer row
+            spacer = weeklyPMTable.AddRow();
+            spacer.Height = 15;
+            cellSpacer = spacer.Cells[0];
+            cellSpacer.MergeRight = 12;
+            cellSpacer.AddParagraph("");
+
+            var clothing4thTopDryer1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "4th top dryer felt" && c.PM_Number == 1);
+            var clothing4thTopDryer2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "4th top dryer felt" && c.PM_Number == 2);
+            var clothing4thTopDryer3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "4th top dryer felt" && c.PM_Number == 3);
+            var clothing4thTopDryer4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "4th top dryer felt" && c.PM_Number == 4);
+            var row4thTopDryer = weeklyPMTable.AddRow();
+            row4thTopDryer.Height = 10;
+            var row4thTopDryer2 = weeklyPMTable.AddRow();
+            row4thTopDryer2.Height = 10;
+
+            //define 4th Top position row cells
+
+            var cell4thTopDryer = row4thTopDryer.Cells[0];
+            cell4thTopDryer.Format.Font.Size = 6.5;
+            cell4thTopDryer.VerticalAlignment = VerticalAlignment.Center;
+            cell4thTopDryer.MergeDown = 1;
+            cell4thTopDryer.AddParagraph("4TH TOP");
+
+            #region 4th Top PM 1
+            // ----- 4th Top Position PM 1 ----- //
+            var cell4thTopDryer1Past = row4thTopDryer.Cells[1];
+            cell4thTopDryer1Past.Format.Font.Size = 6.5;
+            cell4thTopDryer1Past.VerticalAlignment = VerticalAlignment.Center;
+            cell4thTopDryer1Past.AddParagraph($"100");
+
+            var cell4thTopDryer1Current = row4thTopDryer.Cells[2];
+            cell4thTopDryer1Current.Format.Font.Size = 6.5;
+            cell4thTopDryer1Current.VerticalAlignment = VerticalAlignment.Center;
+            var fourthTopDryer1Age = 0;
+            if (clothing4thTopDryer1 != null)
+            {
+                fourthTopDryer1Age = clothing4thTopDryer1.Age != null ? Convert.ToInt32(clothing4thTopDryer1.Age) : 0;
+            }
+
+            cell4thTopDryer1Current.AddParagraph($"{fourthTopDryer1Age}");
+
+            var cell4thTopDryer1Goal = row4thTopDryer.Cells[3];
+            cell4thTopDryer1Goal.Format.Font.Size = 6.5;
+            cell4thTopDryer1Goal.VerticalAlignment = VerticalAlignment.Center;
+            var fourthTopDryerlGoal = db.Goals.SingleOrDefault(g => g.PM_ID == 1 && g.PositionID == 9);
+            cell4thTopDryer1Goal.AddParagraph($"{fourthTopDryerlGoal.Goal1}");
+
+            var cell4thTopDryer1Info = row4thTopDryer2.Cells[1];
+            cell4thTopDryer1Info.Format.Font.Size = 6.5;
+            cell4thTopDryer1Info.MergeRight = 2;
+            cell4thTopDryer1Info.VerticalAlignment = VerticalAlignment.Center;
+            cell4thTopDryer1Info.Shading.Color = Colors.LightBlue;
+            if (clothing4thTopDryer1 != null)
+            {
+                cell4thTopDryer1Info.AddParagraph($"{clothing4thTopDryer1.Manufacturer} {clothing4thTopDryer1.Serial_Number}");
+            }
+            else cell4thTopDryer1Info.AddParagraph("NA");
+            #endregion
+
+            #region 4th Top PM 2
+            // ----- 4th Top Position PM 2 ----- //
+            var cell4thTopDryer2Past = row4thTopDryer.Cells[4];
+            cell4thTopDryer2Past.Format.Font.Size = 6.5;
+            cell4thTopDryer2Past.VerticalAlignment = VerticalAlignment.Center;
+            cell4thTopDryer2Past.AddParagraph($"100");
+
+            var cell4thTopDryer2Current = row4thTopDryer.Cells[5];
+            cell4thTopDryer2Current.Format.Font.Size = 6.5;
+            cell4thTopDryer2Current.VerticalAlignment = VerticalAlignment.Center;
+            var fourthTopDryer2Age = 0;
+            if (clothing4thTopDryer2 != null)
+            {
+                fourthTopDryer2Age = clothing4thTopDryer2.Age != null ? Convert.ToInt32(clothing4thTopDryer2.Age) : 0;
+            }
+
+            cell4thTopDryer2Current.AddParagraph($"{fourthTopDryer2Age}");
+
+            var cell4thTopDryer2Goal = row4thTopDryer.Cells[6];
+            cell4thTopDryer2Goal.Format.Font.Size = 6.5;
+            cell4thTopDryer2Goal.VerticalAlignment = VerticalAlignment.Center;
+            var fourthTopDryer2Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 2 && g.PositionID == 9);
+            cell4thTopDryer2Goal.AddParagraph($"{fourthTopDryer2Goal.Goal1}");
+
+            var cell4thTopDryer2Info = row4thTopDryer2.Cells[4];
+            cell4thTopDryer2Info.Format.Font.Size = 6.5;
+            cell4thTopDryer2Info.MergeRight = 2;
+            cell4thTopDryer2Info.VerticalAlignment = VerticalAlignment.Center;
+            cell4thTopDryer2Info.Shading.Color = Colors.LightBlue;
+            if (clothing4thTopDryer2 != null)
+            {
+                cell4thTopDryer2Info.AddParagraph($"{clothing4thTopDryer2.Manufacturer} {clothing4thTopDryer2.Serial_Number}");
+            }
+            else cell4thTopDryer2Info.AddParagraph("NA");
+
+            #endregion
+
+            #region 4th Top PM 3
+            // ----- 4th Top Position PM 3 ----- //
+            var cell4thTopDryer3Past = row4thTopDryer.Cells[7];
+            cell4thTopDryer3Past.Format.Font.Size = 6.5;
+            cell4thTopDryer3Past.VerticalAlignment = VerticalAlignment.Center;
+            cell4thTopDryer3Past.AddParagraph($"100");
+
+            var cell4thTopDryer3Current = row4thTopDryer.Cells[8];
+            cell4thTopDryer3Current.Format.Font.Size = 6.5;
+            cell4thTopDryer3Current.VerticalAlignment = VerticalAlignment.Center;
+            var fourthTopDryer3Age = 0;
+            if (clothing4thTopDryer3 != null)
+            {
+                fourthTopDryer3Age = clothing4thTopDryer3.Age != null ? Convert.ToInt32(clothing4thTopDryer3.Age) : 0;
+            }
+
+            cell4thTopDryer3Current.AddParagraph($"{fourthTopDryer3Age}");
+
+            var cell4thTopDryer3Goal = row4thTopDryer.Cells[9];
+            cell4thTopDryer3Goal.Format.Font.Size = 6.5;
+            cell4thTopDryer3Goal.VerticalAlignment = VerticalAlignment.Center;
+            var fourthTopDryer3Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 3 && g.PositionID == 9);
+            cell4thTopDryer3Goal.AddParagraph($"{fourthTopDryer3Goal.Goal1}");
+
+            var cell4thTopDryer3Info = row4thTopDryer2.Cells[7];
+            cell4thTopDryer3Info.Format.Font.Size = 6.5;
+            cell4thTopDryer3Info.MergeRight = 2;
+            cell4thTopDryer3Info.VerticalAlignment = VerticalAlignment.Center;
+            cell4thTopDryer3Info.Shading.Color = Colors.LightBlue;
+            if (clothing4thTopDryer3 != null)
+            {
+                cell4thTopDryer3Info.AddParagraph($"{clothing4thTopDryer3.Manufacturer} {clothing4thTopDryer3.Serial_Number}");
+            }
+            else cell4thTopDryer3Info.AddParagraph("NA");
+            #endregion
+
+            #region 4th Top PM 4
+            // ----- 4th Top Position PM 4 ----- //
+            var cell4thTopDryer4Past = row4thTopDryer.Cells[10];
+            cell4thTopDryer4Past.Format.Font.Size = 6.5;
+            cell4thTopDryer4Past.VerticalAlignment = VerticalAlignment.Center;
+            cell4thTopDryer4Past.AddParagraph($"100");
+
+            var cell4thTopDryer4Current = row4thTopDryer.Cells[11];
+            cell4thTopDryer4Current.Format.Font.Size = 6.5;
+            cell4thTopDryer4Current.VerticalAlignment = VerticalAlignment.Center;
+            var fourthTopDryer4Age = 0;
+            if (clothing4thTopDryer4 != null)
+            {
+                fourthTopDryer4Age = clothing4thTopDryer4.Age != null ? Convert.ToInt32(clothing4thTopDryer4.Age) : 0;
+            }
+
+            cell4thTopDryer4Current.AddParagraph($"{fourthTopDryer4Age}");
+
+            var cell4thTopDryer4Goal = row4thTopDryer.Cells[12];
+            cell4thTopDryer4Goal.Format.Font.Size = 6.5;
+            cell4thTopDryer4Goal.VerticalAlignment = VerticalAlignment.Center;
+            var fourthTopDryer4Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 4 && g.PositionID == 9);
+            cell4thTopDryer4Goal.AddParagraph($"{fourthTopDryer4Goal.Goal1}");
+
+            var cell4thTopDryer4Info = row4thTopDryer2.Cells[10];
+            cell4thTopDryer4Info.Format.Font.Size = 6.5;
+            cell4thTopDryer4Info.MergeRight = 2;
+            cell4thTopDryer4Info.VerticalAlignment = VerticalAlignment.Center;
+            cell4thTopDryer4Info.Shading.Color = Colors.LightBlue;
+            if (clothing4thTopDryer4 != null)
+            {
+                cell4thTopDryer4Info.AddParagraph($"{clothing4thTopDryer4.Manufacturer} {clothing4thTopDryer4.Serial_Number}");
+            }
+            else cell4thTopDryer4Info.AddParagraph("NA");
+            #endregion
 
             #endregion
 
             #region 1st Bottom Dryer Position
+            // add spacer row
+            spacer = weeklyPMTable.AddRow();
+            spacer.Height = 15;
+            cellSpacer = spacer.Cells[0];
+            cellSpacer.MergeRight = 12;
+            cellSpacer.AddParagraph("");
+
+            var clothing1stBottomDryer1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st bottom dryer felt" && c.PM_Number == 1);
+            var clothing1stBottomDryer2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st bottom dryer felt" && c.PM_Number == 2);
+            var clothing1stBottomDryer3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st bottom dryer felt" && c.PM_Number == 3);
+            var clothing1stBottomDryer4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st bottom dryer felt" && c.PM_Number == 4);
+            var row1stBottomDryer = weeklyPMTable.AddRow();
+            row1stBottomDryer.Height = 10;
+            var row1stBottomDryer2 = weeklyPMTable.AddRow();
+            row1stBottomDryer2.Height = 10;
+
+            //define 1st Bottom position row cells
+
+            var cell1stBottomDryer = row1stBottomDryer.Cells[0];
+            cell1stBottomDryer.Format.Font.Size = 6.5;
+            cell1stBottomDryer.VerticalAlignment = VerticalAlignment.Center;
+            cell1stBottomDryer.MergeDown = 1;
+            cell1stBottomDryer.AddParagraph("1ST BOTTOM");
+
+            #region 1st Bottom PM 1
+            // ----- 1st Bottom Position PM 1 ----- //
+            var cell1stBottomDryer1Past = row1stBottomDryer.Cells[1];
+            cell1stBottomDryer1Past.Format.Font.Size = 6.5;
+            cell1stBottomDryer1Past.VerticalAlignment = VerticalAlignment.Center;
+            cell1stBottomDryer1Past.AddParagraph($"100");
+
+            var cell1stBottomDryer1Current = row1stBottomDryer.Cells[2];
+            cell1stBottomDryer1Current.Format.Font.Size = 6.5;
+            cell1stBottomDryer1Current.VerticalAlignment = VerticalAlignment.Center;
+            var firstBottomDryer1Age = 0;
+            if (clothing1stBottomDryer1 != null)
+            {
+                firstBottomDryer1Age = clothing1stBottomDryer1.Age != null ? Convert.ToInt32(clothing1stBottomDryer1.Age) : 0;
+            }
+
+            cell1stBottomDryer1Current.AddParagraph($"{firstBottomDryer1Age}");
+
+            var cell1stBottomDryer1Goal = row1stBottomDryer.Cells[3];
+            cell1stBottomDryer1Goal.Format.Font.Size = 6.5;
+            cell1stBottomDryer1Goal.VerticalAlignment = VerticalAlignment.Center;
+            var firstBottomDryerlGoal = db.Goals.SingleOrDefault(g => g.PM_ID == 1 && g.PositionID == 10);
+            cell1stBottomDryer1Goal.AddParagraph($"{firstBottomDryerlGoal.Goal1}");
+
+            var cell1stBottomDryer1Info = row1stBottomDryer2.Cells[1];
+            cell1stBottomDryer1Info.Format.Font.Size = 6.5;
+            cell1stBottomDryer1Info.MergeRight = 2;
+            cell1stBottomDryer1Info.VerticalAlignment = VerticalAlignment.Center;
+            cell1stBottomDryer1Info.Shading.Color = Colors.LightBlue;
+            if (clothing1stBottomDryer1 != null)
+            {
+                cell1stBottomDryer1Info.AddParagraph($"{clothing1stBottomDryer1.Manufacturer} {clothing1stBottomDryer1.Serial_Number}");
+            }
+            else cell1stBottomDryer1Info.AddParagraph("NA");
+            #endregion
+
+            #region 1st Bottom PM 2
+            // ----- 1st Bottom Position PM 2 ----- //
+            var cell1stBottomDryer2Past = row1stBottomDryer.Cells[4];
+            cell1stBottomDryer2Past.Format.Font.Size = 6.5;
+            cell1stBottomDryer2Past.VerticalAlignment = VerticalAlignment.Center;
+            cell1stBottomDryer2Past.AddParagraph($"100");
+
+            var cell1stBottomDryer2Current = row1stBottomDryer.Cells[5];
+            cell1stBottomDryer2Current.Format.Font.Size = 6.5;
+            cell1stBottomDryer2Current.VerticalAlignment = VerticalAlignment.Center;
+            var firstBottomDryer2Age = 0;
+            if (clothing1stBottomDryer2 != null)
+            {
+                firstBottomDryer2Age = clothing1stBottomDryer2.Age != null ? Convert.ToInt32(clothing1stBottomDryer2.Age) : 0;
+            }
+
+            cell1stBottomDryer2Current.AddParagraph($"{firstBottomDryer2Age}");
+
+            var cell1stBottomDryer2Goal = row1stBottomDryer.Cells[6];
+            cell1stBottomDryer2Goal.Format.Font.Size = 6.5;
+            cell1stBottomDryer2Goal.VerticalAlignment = VerticalAlignment.Center;
+            var firstBottomDryer2Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 2 && g.PositionID == 10);
+            cell1stBottomDryer2Goal.AddParagraph($"{firstBottomDryer2Goal.Goal1}");
+
+            var cell1stBottomDryer2Info = row1stBottomDryer2.Cells[4];
+            cell1stBottomDryer2Info.Format.Font.Size = 6.5;
+            cell1stBottomDryer2Info.MergeRight = 2;
+            cell1stBottomDryer2Info.VerticalAlignment = VerticalAlignment.Center;
+            cell1stBottomDryer2Info.Shading.Color = Colors.LightBlue;
+            if (clothing1stBottomDryer2 != null)
+            {
+                cell1stBottomDryer2Info.AddParagraph($"{clothing1stBottomDryer2.Manufacturer} {clothing1stBottomDryer2.Serial_Number}");
+            }
+            else cell1stBottomDryer2Info.AddParagraph("NA");
+            #endregion
+
+            #region 1st Bottom PM 3
+            // ----- 1st Bottom Position PM 3 ----- //
+            var cell1stBottomDryer3Past = row1stBottomDryer.Cells[7];
+            cell1stBottomDryer3Past.Format.Font.Size = 6.5;
+            cell1stBottomDryer3Past.VerticalAlignment = VerticalAlignment.Center;
+            cell1stBottomDryer3Past.AddParagraph($"100");
+
+            var cell1stBottomDryer3Current = row1stBottomDryer.Cells[8];
+            cell1stBottomDryer3Current.Format.Font.Size = 6.5;
+            cell1stBottomDryer3Current.VerticalAlignment = VerticalAlignment.Center;
+            var firstBottomDryer3Age = 0;
+            if (clothing1stBottomDryer3 != null)
+            {
+                firstBottomDryer3Age = clothing1stBottomDryer3.Age != null ? Convert.ToInt32(clothing1stBottomDryer3.Age) : 0;
+            }
+
+            cell1stBottomDryer3Current.AddParagraph($"{firstBottomDryer3Age}");
+
+            var cell1stBottomDryer3Goal = row1stBottomDryer.Cells[9];
+            cell1stBottomDryer3Goal.Format.Font.Size = 6.5;
+            cell1stBottomDryer3Goal.VerticalAlignment = VerticalAlignment.Center;
+            var firstBottomDryer3Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 3 && g.PositionID == 10);
+            cell1stBottomDryer3Goal.AddParagraph($"{firstBottomDryer3Goal.Goal1}");
+
+            var cell1stBottomDryer3Info = row1stBottomDryer2.Cells[7];
+            cell1stBottomDryer3Info.Format.Font.Size = 6.5;
+            cell1stBottomDryer3Info.MergeRight = 2;
+            cell1stBottomDryer3Info.VerticalAlignment = VerticalAlignment.Center;
+            cell1stBottomDryer3Info.Shading.Color = Colors.LightBlue;
+            if (clothing1stBottomDryer3 != null)
+            {
+                cell1stBottomDryer3Info.AddParagraph($"{clothing1stBottomDryer3.Manufacturer} {clothing1stBottomDryer3.Serial_Number}");
+            }
+            else cell1stBottomDryer3Info.AddParagraph("NA");
+            #endregion
+
+            #region 1st Bottom PM 4
+            // ----- 1st Bottom Position PM 4 ----- //
+            var cell1stBottomDryer4Past = row1stBottomDryer.Cells[10];
+            cell1stBottomDryer4Past.Format.Font.Size = 6.5;
+            cell1stBottomDryer4Past.VerticalAlignment = VerticalAlignment.Center;
+            cell1stBottomDryer4Past.AddParagraph($"100");
+
+            var cell1stBottomDryer4Current = row1stBottomDryer.Cells[11];
+            cell1stBottomDryer4Current.Format.Font.Size = 6.5;
+            cell1stBottomDryer4Current.VerticalAlignment = VerticalAlignment.Center;
+            var firstBottomDryer4Age = 0;
+            if (clothing1stBottomDryer4 != null)
+            {
+                firstBottomDryer4Age = clothing1stBottomDryer4.Age != null ? Convert.ToInt32(clothing1stBottomDryer4.Age) : 0;
+            }
+
+            cell1stBottomDryer4Current.AddParagraph($"{firstBottomDryer4Age}");
+
+            var cell1stBottomDryer4Goal = row1stBottomDryer.Cells[12];
+            cell1stBottomDryer4Goal.Format.Font.Size = 6.5;
+            cell1stBottomDryer4Goal.VerticalAlignment = VerticalAlignment.Center;
+            var firstBottomDryer4Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 4 && g.PositionID == 10);
+            cell1stBottomDryer4Goal.AddParagraph($"{firstBottomDryer4Goal.Goal1}");
+
+            var cell1stBottomDryer4Info = row1stBottomDryer2.Cells[10];
+            cell1stBottomDryer4Info.Format.Font.Size = 6.5;
+            cell1stBottomDryer4Info.MergeRight = 2;
+            cell1stBottomDryer4Info.VerticalAlignment = VerticalAlignment.Center;
+            cell1stBottomDryer4Info.Shading.Color = Colors.LightBlue;
+            if (clothing1stBottomDryer4 != null)
+            {
+                cell1stBottomDryer4Info.AddParagraph($"{clothing1stBottomDryer4.Manufacturer} {clothing1stBottomDryer4.Serial_Number}");
+            }
+            else cell1stBottomDryer4Info.AddParagraph("NA");
+            #endregion
 
             #endregion
 
             #region 2nd Bottom Dryer Position
+            // add spacer row
+            spacer = weeklyPMTable.AddRow();
+            spacer.Height = 15;
+            cellSpacer = spacer.Cells[0];
+            cellSpacer.MergeRight = 12;
+            cellSpacer.AddParagraph("");
+
+            var clothing2ndBottomDryer1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd bottom dryer felt" && c.PM_Number == 1);
+            var clothing2ndBottomDryer2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd bottom dryer felt" && c.PM_Number == 2);
+            var clothing2ndBottomDryer3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd bottom dryer felt" && c.PM_Number == 3);
+            var clothing2ndBottomDryer4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd bottom dryer felt" && c.PM_Number == 4);
+            var row2ndBottomDryer = weeklyPMTable.AddRow();
+            row2ndBottomDryer.Height = 10;
+            var row2ndBottomDryer2 = weeklyPMTable.AddRow();
+            row2ndBottomDryer2.Height = 10;
+
+            //define 1st Bottom position row cells
+
+            var cell2ndBottomDryer = row2ndBottomDryer.Cells[0];
+            cell2ndBottomDryer.Format.Font.Size = 6.5;
+            cell2ndBottomDryer.VerticalAlignment = VerticalAlignment.Center;
+            cell2ndBottomDryer.MergeDown = 1;
+            cell2ndBottomDryer.AddParagraph("2ND BOTTOM");
+
+            #region 2nd Bottom PM 1
+            // ----- 2nd Bottom Position PM 1 ----- //
+            var cell2ndBottomDryer1Past = row2ndBottomDryer.Cells[1];
+            cell2ndBottomDryer1Past.Format.Font.Size = 6.5;
+            cell2ndBottomDryer1Past.VerticalAlignment = VerticalAlignment.Center;
+            cell2ndBottomDryer1Past.AddParagraph($"100");
+
+            var cell2ndtBottomDryer1Current = row2ndBottomDryer.Cells[2];
+            cell2ndtBottomDryer1Current.Format.Font.Size = 6.5;
+            cell2ndtBottomDryer1Current.VerticalAlignment = VerticalAlignment.Center;
+            var secondtBottomDryer1Age = 0;
+            if (clothing2ndBottomDryer1 != null)
+            {
+                secondtBottomDryer1Age = clothing2ndBottomDryer1.Age != null ? Convert.ToInt32(clothing2ndBottomDryer1.Age) : 0;
+            }
+
+            cell2ndtBottomDryer1Current.AddParagraph($"{secondtBottomDryer1Age}");
+
+            var cell2ndBottomDryer1Goal = row2ndBottomDryer.Cells[3];
+            cell2ndBottomDryer1Goal.Format.Font.Size = 6.5;
+            cell2ndBottomDryer1Goal.VerticalAlignment = VerticalAlignment.Center;
+            var secondBottomDryerlGoal = db.Goals.SingleOrDefault(g => g.PM_ID == 1 && g.PositionID == 11);
+            cell2ndBottomDryer1Goal.AddParagraph($"{secondBottomDryerlGoal.Goal1}");
+
+            var cell2ndBottomDryer1Info = row2ndBottomDryer2.Cells[1];
+            cell2ndBottomDryer1Info.Format.Font.Size = 6.5;
+            cell2ndBottomDryer1Info.MergeRight = 2;
+            cell2ndBottomDryer1Info.VerticalAlignment = VerticalAlignment.Center;
+            cell2ndBottomDryer1Info.Shading.Color = Colors.LightBlue;
+            if (clothing2ndBottomDryer1 != null)
+            {
+                cell2ndBottomDryer1Info.AddParagraph($"{clothing2ndBottomDryer1.Manufacturer} {clothing2ndBottomDryer1.Serial_Number}");
+            }
+            else cell2ndBottomDryer1Info.AddParagraph("NA");
+            #endregion
+
+            #region 2nd Bottom PM 2
+            // ----- 2nd Bottom Position PM 2 ----- //
+            var cell2ndBottomDryer2Past = row2ndBottomDryer.Cells[4];
+            cell2ndBottomDryer2Past.Format.Font.Size = 6.5;
+            cell2ndBottomDryer2Past.VerticalAlignment = VerticalAlignment.Center;
+            cell2ndBottomDryer2Past.AddParagraph($"100");
+
+            var cell2ndBottomDryer2Current = row2ndBottomDryer.Cells[5];
+            cell2ndBottomDryer2Current.Format.Font.Size = 6.5;
+            cell2ndBottomDryer2Current.VerticalAlignment = VerticalAlignment.Center;
+            var secondtBottomDryer2Age = 0;
+            if (clothing2ndBottomDryer2 != null)
+            {
+                secondtBottomDryer2Age = clothing2ndBottomDryer2.Age != null ? Convert.ToInt32(clothing2ndBottomDryer2.Age) : 0;
+            }
+
+            cell2ndBottomDryer2Current.AddParagraph($"{secondtBottomDryer2Age}");
+
+            var cell2ndBottomDryer2Goal = row2ndBottomDryer.Cells[6];
+            cell2ndBottomDryer2Goal.Format.Font.Size = 6.5;
+            cell2ndBottomDryer2Goal.VerticalAlignment = VerticalAlignment.Center;
+            var secondBottomDryer2Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 2 && g.PositionID == 11);
+            cell2ndBottomDryer2Goal.AddParagraph($"{secondBottomDryer2Goal.Goal1}");
+
+            var cell2ndBottomDryer2Info = row2ndBottomDryer2.Cells[4];
+            cell2ndBottomDryer2Info.Format.Font.Size = 6.5;
+            cell2ndBottomDryer2Info.MergeRight = 2;
+            cell2ndBottomDryer2Info.VerticalAlignment = VerticalAlignment.Center;
+            cell2ndBottomDryer2Info.Shading.Color = Colors.LightBlue;
+            if (clothing2ndBottomDryer2 != null)
+            {
+                cell2ndBottomDryer2Info.AddParagraph($"{clothing2ndBottomDryer2.Manufacturer} {clothing2ndBottomDryer2.Serial_Number}");
+            }
+            else cell2ndBottomDryer2Info.AddParagraph("NA");
+            #endregion
+
+            #region 2nd Bottom PM 3
+            // ----- 2nd Bottom Position PM 3 ----- //
+            var cell2ndBottomDryer3Past = row2ndBottomDryer.Cells[7];
+            cell2ndBottomDryer3Past.Format.Font.Size = 6.5;
+            cell2ndBottomDryer3Past.VerticalAlignment = VerticalAlignment.Center;
+            cell2ndBottomDryer3Past.AddParagraph($"100");
+
+            var cell2ndBottomDryer3Current = row2ndBottomDryer.Cells[8];
+            cell2ndBottomDryer3Current.Format.Font.Size = 6.5;
+            cell2ndBottomDryer3Current.VerticalAlignment = VerticalAlignment.Center;
+            var secondtBottomDryer3Age = 0;
+            if (clothing2ndBottomDryer3 != null)
+            {
+                secondtBottomDryer3Age = clothing2ndBottomDryer3.Age != null ? Convert.ToInt32(clothing2ndBottomDryer3.Age) : 0;
+            }
+
+            cell2ndBottomDryer3Current.AddParagraph($"{secondtBottomDryer3Age}");
+
+            var cell2ndBottomDryer3Goal = row2ndBottomDryer.Cells[9];
+            cell2ndBottomDryer3Goal.Format.Font.Size = 6.5;
+            cell2ndBottomDryer3Goal.VerticalAlignment = VerticalAlignment.Center;
+            var secondBottomDryer3Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 3 && g.PositionID == 11);
+            cell2ndBottomDryer3Goal.AddParagraph($"{secondBottomDryer3Goal.Goal1}");
+
+            var cell2ndBottomDryer3Info = row2ndBottomDryer2.Cells[7];
+            cell2ndBottomDryer3Info.Format.Font.Size = 6.5;
+            cell2ndBottomDryer3Info.MergeRight = 2;
+            cell2ndBottomDryer3Info.VerticalAlignment = VerticalAlignment.Center;
+            cell2ndBottomDryer3Info.Shading.Color = Colors.LightBlue;
+            if (clothing2ndBottomDryer3 != null)
+            {
+                cell2ndBottomDryer3Info.AddParagraph($"{clothing2ndBottomDryer3.Manufacturer} {clothing2ndBottomDryer3.Serial_Number}");
+            }
+            else cell2ndBottomDryer3Info.AddParagraph("NA");
+            #endregion
+
+            #region 2nd Bottom PM 4
+            // ----- 2nd Bottom Position PM 4 ----- //
+            var cell2ndBottomDryer4Past = row2ndBottomDryer.Cells[10];
+            cell2ndBottomDryer4Past.Format.Font.Size = 6.5;
+            cell2ndBottomDryer4Past.VerticalAlignment = VerticalAlignment.Center;
+            cell2ndBottomDryer4Past.AddParagraph($"100");
+
+            var cell2ndBottomDryer4Current = row2ndBottomDryer.Cells[11];
+            cell2ndBottomDryer4Current.Format.Font.Size = 6.5;
+            cell2ndBottomDryer4Current.VerticalAlignment = VerticalAlignment.Center;
+            var secondtBottomDryer4Age = 0;
+            if (clothing2ndBottomDryer4 != null)
+            {
+                secondtBottomDryer4Age = clothing2ndBottomDryer4.Age != null ? Convert.ToInt32(clothing2ndBottomDryer4.Age) : 0;
+            }
+
+            cell2ndBottomDryer4Current.AddParagraph($"{secondtBottomDryer4Age}");
+
+            var cell2ndBottomDryer4Goal = row2ndBottomDryer.Cells[12];
+            cell2ndBottomDryer4Goal.Format.Font.Size = 6.5;
+            cell2ndBottomDryer4Goal.VerticalAlignment = VerticalAlignment.Center;
+            var secondBottomDryer4Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 3 && g.PositionID == 11);
+            cell2ndBottomDryer4Goal.AddParagraph($"{secondBottomDryer4Goal.Goal1}");
+
+            var cell2ndBottomDryer4Info = row2ndBottomDryer2.Cells[10];
+            cell2ndBottomDryer4Info.Format.Font.Size = 6.5;
+            cell2ndBottomDryer4Info.MergeRight = 2;
+            cell2ndBottomDryer4Info.VerticalAlignment = VerticalAlignment.Center;
+            cell2ndBottomDryer4Info.Shading.Color = Colors.LightBlue;
+            if (clothing2ndBottomDryer4 != null)
+            {
+                cell2ndBottomDryer4Info.AddParagraph($"{clothing2ndBottomDryer4.Manufacturer} {clothing2ndBottomDryer4.Serial_Number}");
+            }
+            else cell2ndBottomDryer4Info.AddParagraph("NA");
+            #endregion
 
             #endregion
 
             #region 3rd Bottom Dryer Position
+            // add spacer row
+            spacer = weeklyPMTable.AddRow();
+            spacer.Height = 15;
+            cellSpacer = spacer.Cells[0];
+            cellSpacer.MergeRight = 12;
+            cellSpacer.AddParagraph("");
+
+            var clothing3rdBottomDryer1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd bottom dryer felt" && c.PM_Number == 1);
+            var clothing3rdBottomDryer2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd bottom dryer felt" && c.PM_Number == 2);
+            var clothing3rdBottomDryer3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd bottom dryer felt" && c.PM_Number == 3);
+            var clothing3rdBottomDryer4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd bottom dryer felt" && c.PM_Number == 4);
+            var row3rdBottomDryer = weeklyPMTable.AddRow();
+            row3rdBottomDryer.Height = 10;
+            var row3rdBottomDryer2 = weeklyPMTable.AddRow();
+            row3rdBottomDryer2.Height = 10;
+
+            //define 3rd Bottom position row cells
+
+            var cell3rdBottomDryer = row3rdBottomDryer.Cells[0];
+            cell3rdBottomDryer.Format.Font.Size = 6.5;
+            cell3rdBottomDryer.VerticalAlignment = VerticalAlignment.Center;
+            cell3rdBottomDryer.MergeDown = 1;
+            cell3rdBottomDryer.AddParagraph("3RD BOTTOM");
+
+            #region 3rd Bottom PM 1
+            // ----- 3rd Bottom Position PM 1 ----- //
+            var cell3rdBottomDryer1Past = row3rdBottomDryer.Cells[1];
+            cell3rdBottomDryer1Past.Format.Font.Size = 6.5;
+            cell3rdBottomDryer1Past.VerticalAlignment = VerticalAlignment.Center;
+            cell3rdBottomDryer1Past.AddParagraph($"100");
+
+            var cell3rdBottomDryer1Current = row3rdBottomDryer.Cells[2];
+            cell3rdBottomDryer1Current.Format.Font.Size = 6.5;
+            cell3rdBottomDryer1Current.VerticalAlignment = VerticalAlignment.Center;
+            var thirdtBottomDryer1Age = 0;
+            if (clothing3rdBottomDryer1 != null)
+            {
+                thirdtBottomDryer1Age = clothing3rdBottomDryer1.Age != null ? Convert.ToInt32(clothing3rdBottomDryer1.Age) : 0;
+            }
+
+            cell3rdBottomDryer1Current.AddParagraph($"{thirdtBottomDryer1Age}");
+
+            var cell3rdBottomDryer1Goal = row3rdBottomDryer.Cells[3];
+            cell3rdBottomDryer1Goal.Format.Font.Size = 6.5;
+            cell3rdBottomDryer1Goal.VerticalAlignment = VerticalAlignment.Center;
+            var thirdBottomDryerlGoal = db.Goals.SingleOrDefault(g => g.PM_ID == 1 && g.PositionID == 12);
+            cell3rdBottomDryer1Goal.AddParagraph($"{thirdBottomDryerlGoal.Goal1}");
+
+            var cell3rdBottomDryer1Info = row3rdBottomDryer2.Cells[1];
+            cell3rdBottomDryer1Info.Format.Font.Size = 6.5;
+            cell3rdBottomDryer1Info.MergeRight = 2;
+            cell3rdBottomDryer1Info.VerticalAlignment = VerticalAlignment.Center;
+            cell3rdBottomDryer1Info.Shading.Color = Colors.LightBlue;
+            if (clothing3rdBottomDryer1 != null)
+            {
+                cell3rdBottomDryer1Info.AddParagraph($"{clothing3rdBottomDryer1.Manufacturer} {clothing3rdBottomDryer1.Serial_Number}");
+            }
+            else cell3rdBottomDryer1Info.AddParagraph("NA");
+            #endregion
+
+            #region 3rd Bottom PM 2
+            // ----- 3rd Bottom Position PM 2 ----- //
+            var cell3rdBottomDryer2Past = row3rdBottomDryer.Cells[4];
+            cell3rdBottomDryer2Past.Format.Font.Size = 6.5;
+            cell3rdBottomDryer2Past.VerticalAlignment = VerticalAlignment.Center;
+            cell3rdBottomDryer2Past.AddParagraph($"100");
+
+            var cell3rdBottomDryer2Current = row3rdBottomDryer.Cells[5];
+            cell3rdBottomDryer2Current.Format.Font.Size = 6.5;
+            cell3rdBottomDryer2Current.VerticalAlignment = VerticalAlignment.Center;
+            var thirdtBottomDryer2Age = 0;
+            if (clothing3rdBottomDryer2 != null)
+            {
+                thirdtBottomDryer2Age = clothing3rdBottomDryer2.Age != null ? Convert.ToInt32(clothing3rdBottomDryer2.Age) : 0;
+            }
+
+            cell3rdBottomDryer2Current.AddParagraph($"{thirdtBottomDryer2Age}");
+
+            var cell3rdBottomDryer2Goal = row3rdBottomDryer.Cells[6];
+            cell3rdBottomDryer2Goal.Format.Font.Size = 6.5;
+            cell3rdBottomDryer2Goal.VerticalAlignment = VerticalAlignment.Center;
+            var thirdBottomDryer2Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 2 && g.PositionID == 12);
+            cell3rdBottomDryer2Goal.AddParagraph($"{thirdBottomDryer2Goal.Goal1}");
+
+            var cell3rdBottomDryer2Info = row3rdBottomDryer2.Cells[4];
+            cell3rdBottomDryer2Info.Format.Font.Size = 6.5;
+            cell3rdBottomDryer2Info.MergeRight = 2;
+            cell3rdBottomDryer2Info.VerticalAlignment = VerticalAlignment.Center;
+            cell3rdBottomDryer2Info.Shading.Color = Colors.LightBlue;
+            if (clothing3rdBottomDryer2 != null)
+            {
+                cell3rdBottomDryer2Info.AddParagraph($"{clothing3rdBottomDryer2.Manufacturer} {clothing3rdBottomDryer2.Serial_Number}");
+            }
+            else cell3rdBottomDryer2Info.AddParagraph("NA");
+            #endregion
+
+            #region 3rd Bottom PM 3
+            // ----- 3rd Bottom Position PM 3 ----- //
+            var cell3rdBottomDryer3Past = row3rdBottomDryer.Cells[7];
+            cell3rdBottomDryer3Past.Format.Font.Size = 6.5;
+            cell3rdBottomDryer3Past.VerticalAlignment = VerticalAlignment.Center;
+            cell3rdBottomDryer3Past.AddParagraph($"100");
+
+            var cell3rdBottomDryer3Current = row3rdBottomDryer.Cells[8];
+            cell3rdBottomDryer3Current.Format.Font.Size = 6.5;
+            cell3rdBottomDryer3Current.VerticalAlignment = VerticalAlignment.Center;
+            var thirdtBottomDryer3Age = 0;
+            if (clothing3rdBottomDryer3 != null)
+            {
+                thirdtBottomDryer3Age = clothing3rdBottomDryer3.Age != null ? Convert.ToInt32(clothing3rdBottomDryer3.Age) : 0;
+            }
+
+            cell3rdBottomDryer3Current.AddParagraph($"{thirdtBottomDryer3Age}");
+
+            var cell3rdBottomDryer3Goal = row3rdBottomDryer.Cells[9];
+            cell3rdBottomDryer3Goal.Format.Font.Size = 6.5;
+            cell3rdBottomDryer3Goal.VerticalAlignment = VerticalAlignment.Center;
+            var thirdBottomDryer3Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 3 && g.PositionID == 12);
+            cell3rdBottomDryer3Goal.AddParagraph($"{thirdBottomDryer3Goal.Goal1}");
+
+            var cell3rdBottomDryer3Info = row3rdBottomDryer2.Cells[7];
+            cell3rdBottomDryer3Info.Format.Font.Size = 6.5;
+            cell3rdBottomDryer3Info.MergeRight = 2;
+            cell3rdBottomDryer3Info.VerticalAlignment = VerticalAlignment.Center;
+            cell3rdBottomDryer3Info.Shading.Color = Colors.LightBlue;
+            if (clothing3rdBottomDryer3 != null)
+            {
+                cell3rdBottomDryer3Info.AddParagraph($"{clothing3rdBottomDryer3.Manufacturer} {clothing3rdBottomDryer3.Serial_Number}");
+            }
+            else cell3rdBottomDryer3Info.AddParagraph("NA");
+            #endregion
+
+            #region 3rd Bottom PM 4
+            // ----- 3rd Bottom Position PM 4 ----- //
+            var cell3rdBottomDryer4Past = row3rdBottomDryer.Cells[10];
+            cell3rdBottomDryer4Past.Format.Font.Size = 6.5;
+            cell3rdBottomDryer4Past.VerticalAlignment = VerticalAlignment.Center;
+            cell3rdBottomDryer4Past.AddParagraph($"100");
+
+            var cell3rdBottomDryer4Current = row3rdBottomDryer.Cells[11];
+            cell3rdBottomDryer4Current.Format.Font.Size = 6.5;
+            cell3rdBottomDryer4Current.VerticalAlignment = VerticalAlignment.Center;
+            var thirdtBottomDryer4Age = 0;
+            if (clothing3rdBottomDryer4 != null)
+            {
+                thirdtBottomDryer4Age = clothing3rdBottomDryer4.Age != null ? Convert.ToInt32(clothing3rdBottomDryer4.Age) : 0;
+            }
+
+            cell3rdBottomDryer4Current.AddParagraph($"{thirdtBottomDryer4Age}");
+
+            var cell3rdBottomDryer4Goal = row3rdBottomDryer.Cells[12];
+            cell3rdBottomDryer4Goal.Format.Font.Size = 6.5;
+            cell3rdBottomDryer4Goal.VerticalAlignment = VerticalAlignment.Center;
+            var thirdBottomDryer4Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 4 && g.PositionID == 12);
+            cell3rdBottomDryer4Goal.AddParagraph($"{thirdBottomDryer4Goal.Goal1}");
+
+            var cell3rdBottomDryer4Info = row3rdBottomDryer2.Cells[10];
+            cell3rdBottomDryer4Info.Format.Font.Size = 6.5;
+            cell3rdBottomDryer4Info.MergeRight = 2;
+            cell3rdBottomDryer4Info.VerticalAlignment = VerticalAlignment.Center;
+            cell3rdBottomDryer4Info.Shading.Color = Colors.LightBlue;
+            if (clothing3rdBottomDryer4 != null)
+            {
+                cell3rdBottomDryer4Info.AddParagraph($"{clothing3rdBottomDryer4.Manufacturer} {clothing3rdBottomDryer4.Serial_Number}");
+            }
+            else cell3rdBottomDryer4Info.AddParagraph("NA");
+            #endregion
 
             #endregion
 
             #region 4th Bottom Dryer Position
+            // add spacer row
+            spacer = weeklyPMTable.AddRow();
+            spacer.Height = 15;
+            cellSpacer = spacer.Cells[0];
+            cellSpacer.MergeRight = 12;
+            cellSpacer.AddParagraph("");
+
+            var clothing4thBottomDryer1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "4th bottom dryer felt" && c.PM_Number == 1);
+            var clothing4thBottomDryer2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "4th bottom dryer felt" && c.PM_Number == 2);
+            var clothing4thBottomDryer3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "4th bottom dryer felt" && c.PM_Number == 3);
+            var clothing4thBottomDryer4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "4th bottom dryer felt" && c.PM_Number == 4);
+            var row4thBottomDryer = weeklyPMTable.AddRow();
+            row4thBottomDryer.Height = 10;
+            var row4thBottomDryer2 = weeklyPMTable.AddRow();
+            row4thBottomDryer2.Height = 10;
+
+            //define 3rd Bottom position row cells
+
+            var cell4thBottomDryer = row4thBottomDryer.Cells[0];
+            cell4thBottomDryer.Format.Font.Size = 6.5;
+            cell4thBottomDryer.VerticalAlignment = VerticalAlignment.Center;
+            cell4thBottomDryer.MergeDown = 1;
+            cell4thBottomDryer.AddParagraph("4TH BOTTOM");
+
+            #region 4th Bottom PM 1
+            // ----- 4th Bottom Position PM 1 ----- //
+            var cell4thBottomDryer1Past = row4thBottomDryer.Cells[1];
+            cell4thBottomDryer1Past.Format.Font.Size = 6.5;
+            cell4thBottomDryer1Past.VerticalAlignment = VerticalAlignment.Center;
+            cell4thBottomDryer1Past.AddParagraph($"100");
+
+            var cell4thBottomDryer1Current = row4thBottomDryer.Cells[2];
+            cell4thBottomDryer1Current.Format.Font.Size = 6.5;
+            cell4thBottomDryer1Current.VerticalAlignment = VerticalAlignment.Center;
+            var fourthBottomDryer1Age = 0;
+            if (clothing4thBottomDryer1 != null)
+            {
+                fourthBottomDryer1Age = clothing4thBottomDryer1.Age != null ? Convert.ToInt32(clothing4thBottomDryer1.Age) : 0;
+            }
+
+            cell4thBottomDryer1Current.AddParagraph($"{fourthBottomDryer1Age}");
+
+            var cell4thBottomDryer1Goal = row4thBottomDryer.Cells[3];
+            cell4thBottomDryer1Goal.Format.Font.Size = 6.5;
+            cell4thBottomDryer1Goal.VerticalAlignment = VerticalAlignment.Center;
+            var fourthBottomDryerlGoal = db.Goals.SingleOrDefault(g => g.PM_ID == 1 && g.PositionID == 13);
+            cell4thBottomDryer1Goal.AddParagraph($"{fourthBottomDryerlGoal.Goal1}");
+
+            var cell4thBottomDryer1Info = row4thBottomDryer2.Cells[1];
+            cell4thBottomDryer1Info.Format.Font.Size = 6.5;
+            cell4thBottomDryer1Info.MergeRight = 2;
+            cell4thBottomDryer1Info.VerticalAlignment = VerticalAlignment.Center;
+            cell4thBottomDryer1Info.Shading.Color = Colors.LightBlue;
+            if (clothing4thBottomDryer1 != null)
+            {
+                cell4thBottomDryer1Info.AddParagraph($"{clothing4thBottomDryer1.Manufacturer} {clothing4thBottomDryer1.Serial_Number}");
+            }
+            else cell4thBottomDryer1Info.AddParagraph("NA");
+            #endregion
+
+            #region 4th Bottom PM 2
+            // ----- 4th Bottom Position PM 2 ----- //
+            var cell4thBottomDryer2Past = row4thBottomDryer.Cells[4];
+            cell4thBottomDryer2Past.Format.Font.Size = 6.5;
+            cell4thBottomDryer2Past.VerticalAlignment = VerticalAlignment.Center;
+            cell4thBottomDryer2Past.AddParagraph($"100");
+
+            var cell4thBottomDryer2Current = row4thBottomDryer.Cells[5];
+            cell4thBottomDryer2Current.Format.Font.Size = 6.5;
+            cell4thBottomDryer2Current.VerticalAlignment = VerticalAlignment.Center;
+            var fourthBottomDryer2Age = 0;
+            if (clothing4thBottomDryer2 != null)
+            {
+                fourthBottomDryer2Age = clothing4thBottomDryer2.Age != null ? Convert.ToInt32(clothing4thBottomDryer2.Age) : 0;
+            }
+
+            cell4thBottomDryer2Current.AddParagraph($"{fourthBottomDryer2Age}");
+
+            var cell4thBottomDryer2Goal = row4thBottomDryer.Cells[6];
+            cell4thBottomDryer2Goal.Format.Font.Size = 6.5;
+            cell4thBottomDryer2Goal.VerticalAlignment = VerticalAlignment.Center;
+            var fourthBottomDryer2Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 2 && g.PositionID == 13);
+            cell4thBottomDryer2Goal.AddParagraph($"{fourthBottomDryer2Goal.Goal1}");
+
+            var cell4thBottomDryer2Info = row4thBottomDryer2.Cells[4];
+            cell4thBottomDryer2Info.Format.Font.Size = 6.5;
+            cell4thBottomDryer2Info.MergeRight = 2;
+            cell4thBottomDryer2Info.VerticalAlignment = VerticalAlignment.Center;
+            cell4thBottomDryer2Info.Shading.Color = Colors.LightBlue;
+            if (clothing4thBottomDryer2 != null)
+            {
+                cell4thBottomDryer2Info.AddParagraph($"{clothing4thBottomDryer2.Manufacturer} {clothing4thBottomDryer2.Serial_Number}");
+            }
+            else cell4thBottomDryer2Info.AddParagraph("NA");
+            #endregion
+
+            #region 4th Bottom PM 3
+            // ----- 4th Bottom Position PM 3 ----- //
+            var cell4thBottomDryer3Past = row4thBottomDryer.Cells[7];
+            cell4thBottomDryer3Past.Format.Font.Size = 6.5;
+            cell4thBottomDryer3Past.VerticalAlignment = VerticalAlignment.Center;
+            cell4thBottomDryer3Past.AddParagraph($"100");
+
+            var cell4thBottomDryer3Current = row4thBottomDryer.Cells[8];
+            cell4thBottomDryer3Current.Format.Font.Size = 6.5;
+            cell4thBottomDryer3Current.VerticalAlignment = VerticalAlignment.Center;
+            var fourthBottomDryer3Age = 0;
+            if (clothing4thBottomDryer3 != null)
+            {
+                fourthBottomDryer3Age = clothing4thBottomDryer3.Age != null ? Convert.ToInt32(clothing4thBottomDryer3.Age) : 0;
+            }
+
+            cell4thBottomDryer3Current.AddParagraph($"{fourthBottomDryer3Age}");
+
+            var cell4thBottomDryer3Goal = row4thBottomDryer.Cells[9];
+            cell4thBottomDryer3Goal.Format.Font.Size = 6.5;
+            cell4thBottomDryer3Goal.VerticalAlignment = VerticalAlignment.Center;
+            var fourthBottomDryer3Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 3 && g.PositionID == 13);
+            cell4thBottomDryer3Goal.AddParagraph($"{fourthBottomDryer3Goal.Goal1}");
+
+            var cell4thBottomDryer3Info = row4thBottomDryer2.Cells[7];
+            cell4thBottomDryer3Info.Format.Font.Size = 6.5;
+            cell4thBottomDryer3Info.MergeRight = 2;
+            cell4thBottomDryer3Info.VerticalAlignment = VerticalAlignment.Center;
+            cell4thBottomDryer3Info.Shading.Color = Colors.LightBlue;
+            if (clothing4thBottomDryer3 != null)
+            {
+                cell4thBottomDryer3Info.AddParagraph($"{clothing4thBottomDryer3.Manufacturer} {clothing4thBottomDryer3.Serial_Number}");
+            }
+            else cell4thBottomDryer3Info.AddParagraph("NA");
+            #endregion
+
+            #region 4th Bottom PM 4
+            // ----- 4th Bottom Position PM 4 ----- //
+            var cell4thBottomDryer4Past = row4thBottomDryer.Cells[10];
+            cell4thBottomDryer4Past.Format.Font.Size = 6.5;
+            cell4thBottomDryer4Past.VerticalAlignment = VerticalAlignment.Center;
+            cell4thBottomDryer4Past.AddParagraph($"100");
+
+            var cell4thBottomDryer4Current = row4thBottomDryer.Cells[11];
+            cell4thBottomDryer4Current.Format.Font.Size = 6.5;
+            cell4thBottomDryer4Current.VerticalAlignment = VerticalAlignment.Center;
+            var fourthBottomDryer4Age = 0;
+            if (clothing4thBottomDryer4 != null)
+            {
+                fourthBottomDryer4Age = clothing4thBottomDryer4.Age != null ? Convert.ToInt32(clothing4thBottomDryer4.Age) : 0;
+            }
+
+            cell4thBottomDryer4Current.AddParagraph($"{fourthBottomDryer4Age}");
+
+            var cell4thBottomDryer4Goal = row4thBottomDryer.Cells[12];
+            cell4thBottomDryer4Goal.Format.Font.Size = 6.5;
+            cell4thBottomDryer4Goal.VerticalAlignment = VerticalAlignment.Center;
+            var fourthBottomDryer4Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 4 && g.PositionID == 13);
+            cell4thBottomDryer4Goal.AddParagraph($"{fourthBottomDryer4Goal.Goal1}");
+
+            var cell4thBottomDryer4Info = row4thBottomDryer2.Cells[10];
+            cell4thBottomDryer4Info.Format.Font.Size = 6.5;
+            cell4thBottomDryer4Info.MergeRight = 2;
+            cell4thBottomDryer4Info.VerticalAlignment = VerticalAlignment.Center;
+            cell4thBottomDryer4Info.Shading.Color = Colors.LightBlue;
+            if (clothing4thBottomDryer4 != null)
+            {
+                cell4thBottomDryer4Info.AddParagraph($"{clothing4thBottomDryer4.Manufacturer} {clothing4thBottomDryer4.Serial_Number}");
+            }
+            else cell4thBottomDryer4Info.AddParagraph("NA");
+            #endregion
 
             #endregion
 
             #region Breast Roll Position
+            // add spacer row
+            spacer = weeklyPMTable.AddRow();
+            spacer.Height = 15;
+            cellSpacer = spacer.Cells[0];
+            cellSpacer.MergeRight = 12;
+            cellSpacer.AddParagraph("");
+
+            var clothingBreast1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "breast roll" && c.PM_Number == 1);
+            var clothingBreast2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "breast roll" && c.PM_Number == 2);
+            var clothingBreast3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "breast roll" && c.PM_Number == 3);
+            var clothingBreast4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "breast roll" && c.PM_Number == 4);
+            var rowBreast = weeklyPMTable.AddRow();
+            rowBreast.Height = 10;
+            var rowBreast2 = weeklyPMTable.AddRow();
+            rowBreast2.Height = 10;
+
+            //define Breast position row cells
+
+            var cellBreast = rowBreast.Cells[0];
+            cellBreast.Format.Font.Size = 6.5;
+            cellBreast.VerticalAlignment = VerticalAlignment.Center;
+            cellBreast.MergeDown = 1;
+            cellBreast.AddParagraph("BREAST ROLL");
+
+            #region Breast PM 1
+            // ----- Breast Position PM 1 ----- //
+            var cellBreast1Past = rowBreast.Cells[1];
+            cellBreast1Past.Format.Font.Size = 6.5;
+            cellBreast1Past.VerticalAlignment = VerticalAlignment.Center;
+            cellBreast1Past.AddParagraph($"100");
+
+            var cellBreast1Current = rowBreast.Cells[2];
+            cellBreast1Current.Format.Font.Size = 6.5;
+            cellBreast1Current.VerticalAlignment = VerticalAlignment.Center;
+            var breast1Age = 0;
+            if (clothingBreast1 != null)
+            {
+                breast1Age = clothingBreast1.Age != null ? Convert.ToInt32(clothingBreast1.Age) : 0;
+            }
+
+            cellBreast1Current.AddParagraph($"{breast1Age}");
+
+            var cellBreast1Goal = rowBreast.Cells[3];
+            cellBreast1Goal.Format.Font.Size = 6.5;
+            cellBreast1Goal.VerticalAlignment = VerticalAlignment.Center;
+            var breastlGoal = db.Goals.SingleOrDefault(g => g.PM_ID == 1 && g.PositionID == 14);
+            cellBreast1Goal.AddParagraph($"{breastlGoal.Goal1}");
+
+            var cellBreast1Info = rowBreast2.Cells[1];
+            cellBreast1Info.Format.Font.Size = 6.5;
+            cellBreast1Info.MergeRight = 2;
+            cellBreast1Info.VerticalAlignment = VerticalAlignment.Center;
+            cellBreast1Info.Shading.Color = Colors.LightBlue;
+            if (clothingBreast1 != null)
+            {
+                cellBreast1Info.AddParagraph($"{clothingBreast1.Manufacturer} {clothingBreast1.Serial_Number}");
+            }
+            else cellBreast1Info.AddParagraph("NA");
+            #endregion
+
+            #region Breast PM 2
+            // ----- Breast Position PM 2 ----- //
+            var cellBreast2Past = rowBreast.Cells[4];
+            cellBreast2Past.Format.Font.Size = 6.5;
+            cellBreast2Past.VerticalAlignment = VerticalAlignment.Center;
+            cellBreast2Past.AddParagraph($"100");
+
+            var cellBreast2Current = rowBreast.Cells[5];
+            cellBreast2Current.Format.Font.Size = 6.5;
+            cellBreast2Current.VerticalAlignment = VerticalAlignment.Center;
+            var breast2Age = 0;
+            if (clothingBreast2 != null)
+            {
+                breast2Age = clothingBreast2.Age != null ? Convert.ToInt32(clothingBreast2.Age) : 0;
+            }
+
+            cellBreast2Current.AddParagraph($"{breast2Age}");
+
+            var cellBreast2Goal = rowBreast.Cells[6];
+            cellBreast2Goal.Format.Font.Size = 6.5;
+            cellBreast2Goal.VerticalAlignment = VerticalAlignment.Center;
+            var breast2Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 2 && g.PositionID == 14);
+            cellBreast2Goal.AddParagraph($"{breast2Goal.Goal1}");
+
+            var cellBreast2Info = rowBreast2.Cells[4];
+            cellBreast2Info.Format.Font.Size = 6.5;
+            cellBreast2Info.MergeRight = 2;
+            cellBreast2Info.VerticalAlignment = VerticalAlignment.Center;
+            cellBreast2Info.Shading.Color = Colors.LightBlue;
+            if (clothingBreast2 != null)
+            {
+                cellBreast2Info.AddParagraph($"{clothingBreast2.Manufacturer} {clothingBreast2.Serial_Number}");
+            }
+            else cellBreast2Info.AddParagraph("NA");
+            #endregion
+
+            #region Breast PM 3
+            // ----- Breast Position PM 3 ----- //
+            var cellBreast3Past = rowBreast.Cells[7];
+            cellBreast3Past.Format.Font.Size = 6.5;
+            cellBreast3Past.VerticalAlignment = VerticalAlignment.Center;
+            cellBreast3Past.AddParagraph($"100");
+
+            var cellBreast3Current = rowBreast.Cells[8];
+            cellBreast3Current.Format.Font.Size = 6.5;
+            cellBreast3Current.VerticalAlignment = VerticalAlignment.Center;
+            var breast3Age = 0;
+            if (clothingBreast3 != null)
+            {
+                breast3Age = clothingBreast3.Age != null ? Convert.ToInt32(clothingBreast3.Age) : 0;
+            }
+
+            cellBreast3Current.AddParagraph($"{breast3Age}");
+
+            var cellBreast3Goal = rowBreast.Cells[9];
+            cellBreast3Goal.Format.Font.Size = 6.5;
+            cellBreast3Goal.VerticalAlignment = VerticalAlignment.Center;
+            var breast3Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 3 && g.PositionID == 14);
+            cellBreast3Goal.AddParagraph($"{breast3Goal.Goal1}");
+
+            var cellBreast3Info = rowBreast2.Cells[7];
+            cellBreast3Info.Format.Font.Size = 6.5;
+            cellBreast3Info.MergeRight = 2;
+            cellBreast3Info.VerticalAlignment = VerticalAlignment.Center;
+            cellBreast3Info.Shading.Color = Colors.LightBlue;
+            if (clothingBreast3 != null)
+            {
+                cellBreast3Info.AddParagraph($"{clothingBreast3.Manufacturer} {clothingBreast3.Serial_Number}");
+            }
+            else cellBreast3Info.AddParagraph("NA");
+            #endregion
+
+            #region Breast PM 4
+            // ----- Breast Position PM 4 ----- //
+            var cellBreast4Past = rowBreast.Cells[10];
+            cellBreast4Past.Format.Font.Size = 6.5;
+            cellBreast4Past.VerticalAlignment = VerticalAlignment.Center;
+            cellBreast4Past.AddParagraph($"100");
+
+            var cellBreast4Current = rowBreast.Cells[11];
+            cellBreast4Current.Format.Font.Size = 6.5;
+            cellBreast4Current.VerticalAlignment = VerticalAlignment.Center;
+            var breast4Age = 0;
+            if (clothingBreast4 != null)
+            {
+                breast4Age = clothingBreast4.Age != null ? Convert.ToInt32(clothingBreast4.Age) : 0;
+            }
+
+            cellBreast4Current.AddParagraph($"{breast4Age}");
+
+            var cellBreast4Goal = rowBreast.Cells[12];
+            cellBreast4Goal.Format.Font.Size = 6.5;
+            cellBreast4Goal.VerticalAlignment = VerticalAlignment.Center;
+            var breast4Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 3 && g.PositionID == 14);
+            cellBreast4Goal.AddParagraph($"{breast4Goal.Goal1}");
+
+            var cellBreast4Info = rowBreast2.Cells[10];
+            cellBreast4Info.Format.Font.Size = 6.5;
+            cellBreast4Info.MergeRight = 2;
+            cellBreast4Info.VerticalAlignment = VerticalAlignment.Center;
+            cellBreast4Info.Shading.Color = Colors.LightBlue;
+            if (clothingBreast4 != null)
+            {
+                cellBreast4Info.AddParagraph($"{clothingBreast4.Manufacturer} {clothingBreast4.Serial_Number}");
+            }
+            else cellBreast4Info.AddParagraph("NA");
+            #endregion
 
             #endregion
 
             #region Dandy Position
+            // add spacer row
+            spacer = weeklyPMTable.AddRow();
+            spacer.Height = 15;
+            cellSpacer = spacer.Cells[0];
+            cellSpacer.MergeRight = 12;
+            cellSpacer.AddParagraph("");
+
+            var clothingDandy1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "dandy" && c.PM_Number == 1);
+            var clothingDandy2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "dandy" && c.PM_Number == 2);
+            var clothingDandy3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "dandy" && c.PM_Number == 3);
+            var clothingDandy4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "dandy" && c.PM_Number == 4);
+            var rowDandy = weeklyPMTable.AddRow();
+            rowDandy.Height = 10;
+            var rowDandy2 = weeklyPMTable.AddRow();
+            rowDandy2.Height = 10;
+
+            //define Dandy position row cells
+
+            var cellDandy = rowDandy.Cells[0];
+            cellDandy.Format.Font.Size = 6.5;
+            cellDandy.VerticalAlignment = VerticalAlignment.Center;
+            cellDandy.MergeDown = 1;
+            cellDandy.AddParagraph("DANDY");
+
+            #region Dandy PM 1
+            // ----- Dandy Position PM 1 ----- //
+            var cellDandy1Past = rowDandy.Cells[1];
+            cellDandy1Past.Format.Font.Size = 6.5;
+            cellDandy1Past.VerticalAlignment = VerticalAlignment.Center;
+            cellDandy1Past.AddParagraph($"100");
+
+            var cellDandy1Current = rowDandy.Cells[2];
+            cellDandy1Current.Format.Font.Size = 6.5;
+            cellDandy1Current.VerticalAlignment = VerticalAlignment.Center;
+            var dandy1Age = 0;
+            if (clothingDandy1 != null)
+            {
+                dandy1Age = clothingDandy1.Age != null ? Convert.ToInt32(clothingDandy1.Age) : 0;
+            }
+
+            cellDandy1Current.AddParagraph($"{dandy1Age}");
+
+            var cellDandy1Goal = rowDandy.Cells[3];
+            cellDandy1Goal.Format.Font.Size = 6.5;
+            cellDandy1Goal.VerticalAlignment = VerticalAlignment.Center;
+            var dandylGoal = db.Goals.SingleOrDefault(g => g.PM_ID == 1 && g.PositionID == 15);
+            cellDandy1Goal.AddParagraph($"{dandylGoal.Goal1}");
+
+            var cellDandy1Info = rowDandy2.Cells[1];
+            cellDandy1Info.Format.Font.Size = 6.5;
+            cellDandy1Info.MergeRight = 2;
+            cellDandy1Info.VerticalAlignment = VerticalAlignment.Center;
+            cellDandy1Info.Shading.Color = Colors.LightBlue;
+            if (clothingDandy1 != null)
+            {
+                cellDandy1Info.AddParagraph($"{clothingDandy1.Manufacturer} {clothingDandy1.Serial_Number}");
+            }
+            else cellDandy1Info.AddParagraph("NA");
+            #endregion
+
+            #region Dandy PM 2
+            // ----- Dandy Position PM 2 ----- //
+            var cellDandy2Past = rowDandy.Cells[4];
+            cellDandy2Past.Format.Font.Size = 6.5;
+            cellDandy2Past.VerticalAlignment = VerticalAlignment.Center;
+            cellDandy2Past.AddParagraph($"100");
+
+            var cellDandy2Current = rowDandy.Cells[5];
+            cellDandy2Current.Format.Font.Size = 6.5;
+            cellDandy2Current.VerticalAlignment = VerticalAlignment.Center;
+            var dandy2Age = 0;
+            if (clothingDandy2 != null)
+            {
+                dandy2Age = clothingDandy2.Age != null ? Convert.ToInt32(clothingDandy2.Age) : 0;
+            }
+
+            cellDandy2Current.AddParagraph($"{dandy2Age}");
+
+            var cellDandy2Goal = rowDandy.Cells[6];
+            cellDandy2Goal.Format.Font.Size = 6.5;
+            cellDandy2Goal.VerticalAlignment = VerticalAlignment.Center;
+            var dandy2Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 2 && g.PositionID == 15);
+            cellDandy2Goal.AddParagraph($"{dandy2Goal.Goal1}");
+
+            var cellDandy2Info = rowDandy2.Cells[4];
+            cellDandy2Info.Format.Font.Size = 6.5;
+            cellDandy2Info.MergeRight = 2;
+            cellDandy2Info.VerticalAlignment = VerticalAlignment.Center;
+            cellDandy2Info.Shading.Color = Colors.LightBlue;
+            if (clothingDandy2 != null)
+            {
+                cellDandy2Info.AddParagraph($"{clothingDandy2.Manufacturer} {clothingDandy2.Serial_Number}");
+            }
+            else cellDandy2Info.AddParagraph("NA");
+            #endregion
+
+            #region Dandy PM 3
+            // ----- Dandy Position PM 3 ----- //
+            var cellDandy3Past = rowDandy.Cells[7];
+            cellDandy3Past.Format.Font.Size = 6.5;
+            cellDandy3Past.VerticalAlignment = VerticalAlignment.Center;
+            cellDandy3Past.AddParagraph($"100");
+
+            var cellDandy3Current = rowDandy.Cells[8];
+            cellDandy3Current.Format.Font.Size = 6.5;
+            cellDandy3Current.VerticalAlignment = VerticalAlignment.Center;
+            var dandy3Age = 0;
+            if (clothingDandy3 != null)
+            {
+                dandy3Age = clothingDandy3.Age != null ? Convert.ToInt32(clothingDandy3.Age) : 0;
+            }
+
+            cellDandy3Current.AddParagraph($"{dandy3Age}");
+
+            var cellDandy3Goal = rowDandy.Cells[9];
+            cellDandy3Goal.Format.Font.Size = 6.5;
+            cellDandy3Goal.VerticalAlignment = VerticalAlignment.Center;
+            var dandy3Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 3 && g.PositionID == 15);
+            cellDandy3Goal.AddParagraph($"{dandy3Goal.Goal1}");
+
+            var cellDandy3Info = rowDandy2.Cells[7];
+            cellDandy3Info.Format.Font.Size = 6.5;
+            cellDandy3Info.MergeRight = 2;
+            cellDandy3Info.VerticalAlignment = VerticalAlignment.Center;
+            cellDandy3Info.Shading.Color = Colors.LightBlue;
+            if (clothingDandy3 != null)
+            {
+                cellDandy3Info.AddParagraph($"{clothingDandy3.Manufacturer} {clothingDandy3.Serial_Number}");
+            }
+            else cellDandy3Info.AddParagraph("NA");
+            #endregion
+
+            #region Dandy PM 4
+            // ----- Dandy Position PM 4 ----- //
+            var cellDandy4Past = rowDandy.Cells[10];
+            cellDandy4Past.Format.Font.Size = 6.5;
+            cellDandy4Past.VerticalAlignment = VerticalAlignment.Center;
+            cellDandy4Past.AddParagraph($"100");
+
+            var cellDandy4Current = rowDandy.Cells[11];
+            cellDandy4Current.Format.Font.Size = 6.5;
+            cellDandy4Current.VerticalAlignment = VerticalAlignment.Center;
+            var dandy4Age = 0;
+            if (clothingDandy4 != null)
+            {
+                dandy4Age = clothingDandy4.Age != null ? Convert.ToInt32(clothingDandy4.Age) : 0;
+            }
+
+            cellDandy4Current.AddParagraph($"{dandy4Age}");
+
+            var cellDandy4Goal = rowDandy.Cells[12];
+            cellDandy4Goal.Format.Font.Size = 6.5;
+            cellDandy4Goal.VerticalAlignment = VerticalAlignment.Center;
+            var dandy4Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 4 && g.PositionID == 15);
+            cellDandy4Goal.AddParagraph($"{dandy4Goal.Goal1}");
+
+            var cellDandy4Info = rowDandy2.Cells[10];
+            cellDandy4Info.Format.Font.Size = 6.5;
+            cellDandy4Info.MergeRight = 2;
+            cellDandy4Info.VerticalAlignment = VerticalAlignment.Center;
+            cellDandy4Info.Shading.Color = Colors.LightBlue;
+            if (clothingDandy4 != null)
+            {
+                cellDandy4Info.AddParagraph($"{clothingDandy4.Manufacturer} {clothingDandy4.Serial_Number}");
+            }
+            else cellDandy4Info.AddParagraph("NA");
+            #endregion
 
             #endregion
 
             #region Lumpbreaker Position
+            // add spacer row
+            spacer = weeklyPMTable.AddRow();
+            spacer.Height = 15;
+            cellSpacer = spacer.Cells[0];
+            cellSpacer.MergeRight = 12;
+            cellSpacer.AddParagraph("");
+
+            var clothingLumpbreaker1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "lumpbreaker" && c.PM_Number == 1);
+            var clothingLumpbreaker2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "lumpbreaker" && c.PM_Number == 2);
+            var clothingLumpbreaker3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "lumpbreaker" && c.PM_Number == 3);
+            var clothingLumpbreaker4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "lumpbreaker" && c.PM_Number == 4);
+            var rowLumpbreaker = weeklyPMTable.AddRow();
+            rowLumpbreaker.Height = 10;
+            var rowLumpbreaker2 = weeklyPMTable.AddRow();
+            rowLumpbreaker2.Height = 10;
+
+            //define Dandy position row cells
+
+            var cellLumpbreaker = rowLumpbreaker.Cells[0];
+            cellLumpbreaker.Format.Font.Size = 6.5;
+            cellLumpbreaker.VerticalAlignment = VerticalAlignment.Center;
+            cellLumpbreaker.MergeDown = 1;
+            cellLumpbreaker.AddParagraph("LUMPBREAKER");
+
+            #region Lumpbreaker PM 1
+            // ----- Lumpbreaker Position PM 1 ----- //
+            var cellLumpbreaker1Past = rowLumpbreaker.Cells[1];
+            cellLumpbreaker1Past.Format.Font.Size = 6.5;
+            cellLumpbreaker1Past.VerticalAlignment = VerticalAlignment.Center;
+            cellLumpbreaker1Past.AddParagraph($"100");
+
+            var cellLumpbreaker1Current = rowLumpbreaker.Cells[2];
+            cellLumpbreaker1Current.Format.Font.Size = 6.5;
+            cellLumpbreaker1Current.VerticalAlignment = VerticalAlignment.Center;
+            var lumpbreaker1Age = 0;
+            if (clothingLumpbreaker1 != null)
+            {
+                lumpbreaker1Age = clothingLumpbreaker1.Age != null ? Convert.ToInt32(clothingLumpbreaker1.Age) : 0;
+            }
+
+            cellLumpbreaker1Current.AddParagraph($"{lumpbreaker1Age}");
+
+            var cellLumpbreaker1Goal = rowLumpbreaker.Cells[3];
+            cellLumpbreaker1Goal.Format.Font.Size = 6.5;
+            cellLumpbreaker1Goal.VerticalAlignment = VerticalAlignment.Center;
+            var lumpbreakerlGoal = db.Goals.SingleOrDefault(g => g.PM_ID == 1 && g.PositionID == 16);
+            cellLumpbreaker1Goal.AddParagraph($"{lumpbreakerlGoal.Goal1}");
+
+            var cellLumpbreaker1Info = rowLumpbreaker2.Cells[1];
+            cellLumpbreaker1Info.Format.Font.Size = 6.5;
+            cellLumpbreaker1Info.MergeRight = 2;
+            cellLumpbreaker1Info.VerticalAlignment = VerticalAlignment.Center;
+            cellLumpbreaker1Info.Shading.Color = Colors.LightBlue;
+            if (clothingLumpbreaker1 != null)
+            {
+                cellLumpbreaker1Info.AddParagraph($"{clothingLumpbreaker1.Manufacturer} {clothingLumpbreaker1.Serial_Number}");
+            }
+            else cellLumpbreaker1Info.AddParagraph("NA");
+            #endregion
+
+            #region Lumpbreaker PM 2
+            // ----- Lumpbreaker Position PM 2 ----- //
+            var cellLumpbreaker2Past = rowLumpbreaker.Cells[4];
+            cellLumpbreaker2Past.Format.Font.Size = 6.5;
+            cellLumpbreaker2Past.VerticalAlignment = VerticalAlignment.Center;
+            cellLumpbreaker2Past.AddParagraph($"100");
+
+            var cellLumpbreaker2Current = rowLumpbreaker.Cells[5];
+            cellLumpbreaker2Current.Format.Font.Size = 6.5;
+            cellLumpbreaker2Current.VerticalAlignment = VerticalAlignment.Center;
+            var lumpbreaker2Age = 0;
+            if (clothingLumpbreaker2 != null)
+            {
+                lumpbreaker2Age = clothingLumpbreaker2.Age != null ? Convert.ToInt32(clothingLumpbreaker2.Age) : 0;
+            }
+
+            cellLumpbreaker2Current.AddParagraph($"{lumpbreaker2Age}");
+
+            var cellLumpbreaker2Goal = rowLumpbreaker.Cells[6];
+            cellLumpbreaker2Goal.Format.Font.Size = 6.5;
+            cellLumpbreaker2Goal.VerticalAlignment = VerticalAlignment.Center;
+            var lumpbreaker2Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 2 && g.PositionID == 16);
+            cellLumpbreaker2Goal.AddParagraph($"{lumpbreaker2Goal.Goal1}");
+
+            var cellLumpbreaker2Info = rowLumpbreaker2.Cells[4];
+            cellLumpbreaker2Info.Format.Font.Size = 6.5;
+            cellLumpbreaker2Info.MergeRight = 2;
+            cellLumpbreaker2Info.VerticalAlignment = VerticalAlignment.Center;
+            cellLumpbreaker2Info.Shading.Color = Colors.LightBlue;
+            if (clothingLumpbreaker2 != null)
+            {
+                cellLumpbreaker2Info.AddParagraph($"{clothingLumpbreaker2.Manufacturer} {clothingLumpbreaker2.Serial_Number}");
+            }
+            else cellLumpbreaker2Info.AddParagraph("NA");
+            #endregion
+
+            #region Lumpbreaker PM 3
+            // ----- Lumpbreaker Position PM 3 ----- //
+            var cellLumpbreaker3Past = rowLumpbreaker.Cells[7];
+            cellLumpbreaker3Past.Format.Font.Size = 6.5;
+            cellLumpbreaker3Past.VerticalAlignment = VerticalAlignment.Center;
+            cellLumpbreaker3Past.AddParagraph($"100");
+
+            var cellLumpbreaker3Current = rowLumpbreaker.Cells[8];
+            cellLumpbreaker3Current.Format.Font.Size = 6.5;
+            cellLumpbreaker3Current.VerticalAlignment = VerticalAlignment.Center;
+            var lumpbreaker3Age = 0;
+            if (clothingLumpbreaker3 != null)
+            {
+                lumpbreaker3Age = clothingLumpbreaker3.Age != null ? Convert.ToInt32(clothingLumpbreaker3.Age) : 0;
+            }
+
+            cellLumpbreaker3Current.AddParagraph($"{lumpbreaker3Age}");
+
+            var cellLumpbreaker3Goal = rowLumpbreaker.Cells[9];
+            cellLumpbreaker3Goal.Format.Font.Size = 6.5;
+            cellLumpbreaker3Goal.VerticalAlignment = VerticalAlignment.Center;
+            var lumpbreaker3Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 3 && g.PositionID == 16);
+            cellLumpbreaker3Goal.AddParagraph($"{lumpbreaker3Goal.Goal1}");
+
+            var cellLumpbreaker3Info = rowLumpbreaker2.Cells[7];
+            cellLumpbreaker3Info.Format.Font.Size = 6.5;
+            cellLumpbreaker3Info.MergeRight = 2;
+            cellLumpbreaker3Info.VerticalAlignment = VerticalAlignment.Center;
+            cellLumpbreaker3Info.Shading.Color = Colors.LightBlue;
+            if (clothingLumpbreaker3 != null)
+            {
+                cellLumpbreaker3Info.AddParagraph($"{clothingLumpbreaker3.Manufacturer} {clothingLumpbreaker3.Serial_Number}");
+            }
+            else cellLumpbreaker3Info.AddParagraph("NA");
+            #endregion
+
+            #region Lumpbreaker PM 4
+            // ----- Lumpbreaker Position PM 4 ----- //
+            var cellLumpbreaker4Past = rowLumpbreaker.Cells[10];
+            cellLumpbreaker4Past.Format.Font.Size = 6.5;
+            cellLumpbreaker4Past.VerticalAlignment = VerticalAlignment.Center;
+            cellLumpbreaker4Past.AddParagraph($"100");
+
+            var cellLumpbreaker4Current = rowLumpbreaker.Cells[11];
+            cellLumpbreaker4Current.Format.Font.Size = 6.5;
+            cellLumpbreaker4Current.VerticalAlignment = VerticalAlignment.Center;
+            var lumpbreaker4Age = 0;
+            if (clothingLumpbreaker4 != null)
+            {
+                lumpbreaker4Age = clothingLumpbreaker4.Age != null ? Convert.ToInt32(clothingLumpbreaker4.Age) : 0;
+            }
+
+            cellLumpbreaker4Current.AddParagraph($"{lumpbreaker4Age}");
+
+            var cellLumpbreaker4Goal = rowLumpbreaker.Cells[12];
+            cellLumpbreaker4Goal.Format.Font.Size = 6.5;
+            cellLumpbreaker4Goal.VerticalAlignment = VerticalAlignment.Center;
+            var lumpbreaker4Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 4 && g.PositionID == 16);
+            cellLumpbreaker4Goal.AddParagraph($"{lumpbreaker4Goal.Goal1}");
+
+            var cellLumpbreaker4Info = rowLumpbreaker2.Cells[10];
+            cellLumpbreaker4Info.Format.Font.Size = 6.5;
+            cellLumpbreaker4Info.MergeRight = 2;
+            cellLumpbreaker4Info.VerticalAlignment = VerticalAlignment.Center;
+            cellLumpbreaker4Info.Shading.Color = Colors.LightBlue;
+            if (clothingLumpbreaker4 != null)
+            {
+                cellLumpbreaker4Info.AddParagraph($"{clothingLumpbreaker4.Manufacturer} {clothingLumpbreaker4.Serial_Number}");
+            }
+            else cellLumpbreaker4Info.AddParagraph("NA");
+            #endregion
 
             #endregion
 
             #region Suction Pickup Position
+            // add spacer row
+            spacer = weeklyPMTable.AddRow();
+            spacer.Height = 15;
+            cellSpacer = spacer.Cells[0];
+            cellSpacer.MergeRight = 12;
+            cellSpacer.AddParagraph("");
 
+            var clothingSuction1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "suction pickup" && c.PM_Number == 1);
+            var clothingSuction2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "suction pickup" && c.PM_Number == 2);
+            var clothingSuction3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "suction pickup" && c.PM_Number == 3);
+            var clothingSuction4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "suction pickup" && c.PM_Number == 4);
+            var rowSuction = weeklyPMTable.AddRow();
+            rowSuction.Height = 10;
+            var rowSuction2 = weeklyPMTable.AddRow();
+            rowSuction2.Height = 10;
+
+            //define Dandy position row cells
+
+            var cellSuction = rowSuction.Cells[0];
+            cellSuction.Format.Font.Size = 6.5;
+            cellSuction.VerticalAlignment = VerticalAlignment.Center;
+            cellSuction.MergeDown = 1;
+            cellSuction.AddParagraph("SUCTION PICKUP");
+
+            #region Suction Pickup PM 1
+            // ----- Suction Position PM 1 ----- //
+            var cellSuction1Past = rowSuction.Cells[1];
+            cellSuction1Past.Format.Font.Size = 6.5;
+            cellSuction1Past.VerticalAlignment = VerticalAlignment.Center;
+            cellSuction1Past.AddParagraph($"100");
+
+            var cellSuction1Current = rowSuction.Cells[2];
+            cellSuction1Current.Format.Font.Size = 6.5;
+            cellSuction1Current.VerticalAlignment = VerticalAlignment.Center;
+            var suction1Age = 0;
+            if (clothingSuction1 != null)
+            {
+                suction1Age = clothingSuction1.Age != null ? Convert.ToInt32(clothingSuction1.Age) : 0;
+            }
+
+            cellSuction1Current.AddParagraph($"{suction1Age}");
+
+            var cellSuction1Goal = rowSuction.Cells[3];
+            cellSuction1Goal.Format.Font.Size = 6.5;
+            cellSuction1Goal.VerticalAlignment = VerticalAlignment.Center;
+            var suctionlGoal = db.Goals.SingleOrDefault(g => g.PM_ID == 1 && g.PositionID == 17);
+            cellSuction1Goal.AddParagraph($"{suctionlGoal.Goal1}");
+
+            var cellSuction1Info = rowSuction2.Cells[1];
+            cellSuction1Info.Format.Font.Size = 6.5;
+            cellSuction1Info.MergeRight = 2;
+            cellSuction1Info.VerticalAlignment = VerticalAlignment.Center;
+            cellSuction1Info.Shading.Color = Colors.LightBlue;
+            if (clothingSuction1 != null)
+            {
+                cellSuction1Info.AddParagraph($"{clothingSuction1.Manufacturer} {clothingSuction1.Serial_Number}");
+            }
+            else cellSuction1Info.AddParagraph("NA");
             #endregion
+
+            #region Suction Pickup PM 2
+            // ----- Suction Position PM 2 ----- //
+            var cellSuction2Past = rowSuction.Cells[4];
+            cellSuction2Past.Format.Font.Size = 6.5;
+            cellSuction2Past.VerticalAlignment = VerticalAlignment.Center;
+            cellSuction2Past.AddParagraph($"100");
+
+            var cellSuction2Current = rowSuction.Cells[5];
+            cellSuction2Current.Format.Font.Size = 6.5;
+            cellSuction2Current.VerticalAlignment = VerticalAlignment.Center;
+            var suction2Age = 0;
+            if (clothingSuction2 != null)
+            {
+                suction2Age = clothingSuction2.Age != null ? Convert.ToInt32(clothingSuction2.Age) : 0;
+            }
+
+            cellSuction2Current.AddParagraph($"{suction2Age}");
+
+            var cellSuction2Goal = rowSuction.Cells[6];
+            cellSuction2Goal.Format.Font.Size = 6.5;
+            cellSuction2Goal.VerticalAlignment = VerticalAlignment.Center;
+            var suction2Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 2 && g.PositionID == 17);
+            cellSuction2Goal.AddParagraph($"{suction2Goal.Goal1}");
+
+            var cellSuction2Info = rowSuction2.Cells[4];
+            cellSuction2Info.Format.Font.Size = 6.5;
+            cellSuction2Info.MergeRight = 2;
+            cellSuction2Info.VerticalAlignment = VerticalAlignment.Center;
+            cellSuction2Info.Shading.Color = Colors.LightBlue;
+            if (clothingSuction2 != null)
+            {
+                cellSuction2Info.AddParagraph($"{clothingSuction2.Manufacturer} {clothingSuction2.Serial_Number}");
+            }
+            else cellSuction2Info.AddParagraph("NA");
+            #endregion
+
+            #region  Suction Pickup PM 3
+            // ----- Suction Position PM 3 ----- //
+            var cellSuction3Past = rowSuction.Cells[7];
+            cellSuction3Past.Format.Font.Size = 6.5;
+            cellSuction3Past.VerticalAlignment = VerticalAlignment.Center;
+            cellSuction3Past.AddParagraph($"100");
+
+            var cellSuction3Current = rowSuction.Cells[8];
+            cellSuction3Current.Format.Font.Size = 6.5;
+            cellSuction3Current.VerticalAlignment = VerticalAlignment.Center;
+            var suction3Age = 0;
+            if (clothingSuction3 != null)
+            {
+                suction3Age = clothingSuction3.Age != null ? Convert.ToInt32(clothingSuction3.Age) : 0;
+            }
+
+            cellSuction3Current.AddParagraph($"{suction3Age}");
+
+            var cellSuction3Goal = rowSuction.Cells[9];
+            cellSuction3Goal.Format.Font.Size = 6.5;
+            cellSuction3Goal.VerticalAlignment = VerticalAlignment.Center;
+            var suction3Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 3 && g.PositionID == 17);
+            cellSuction3Goal.AddParagraph($"{suction3Goal.Goal1}");
+
+            var cellSuction3Info = rowSuction2.Cells[7];
+            cellSuction3Info.Format.Font.Size = 6.5;
+            cellSuction3Info.MergeRight = 2;
+            cellSuction3Info.VerticalAlignment = VerticalAlignment.Center;
+            cellSuction3Info.Shading.Color = Colors.LightBlue;
+            if (clothingSuction3 != null)
+            {
+                cellSuction3Info.AddParagraph($"{clothingSuction3.Manufacturer} {clothingSuction3.Serial_Number}");
+            }
+            else cellSuction3Info.AddParagraph("NA");
+            #endregion
+
+            #region Suction Pickup PM 4
+            // ----- Suction Position PM 4 ----- //
+            var cellSuction4Past = rowSuction.Cells[10];
+            cellSuction4Past.Format.Font.Size = 6.5;
+            cellSuction4Past.VerticalAlignment = VerticalAlignment.Center;
+            cellSuction4Past.AddParagraph($"100");
+
+            var cellSuction4Current = rowSuction.Cells[11];
+            cellSuction4Current.Format.Font.Size = 6.5;
+            cellSuction4Current.VerticalAlignment = VerticalAlignment.Center;
+            var suction4Age = 0;
+            if (clothingSuction4 != null)
+            {
+                suction4Age = clothingSuction4.Age != null ? Convert.ToInt32(clothingSuction4.Age) : 0;
+            }
+
+            cellSuction4Current.AddParagraph($"{suction4Age}");
+
+            var cellSuction4Goal = rowSuction.Cells[12];
+            cellSuction4Goal.Format.Font.Size = 6.5;
+            cellSuction4Goal.VerticalAlignment = VerticalAlignment.Center;
+            var suction4Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 4 && g.PositionID == 17);
+            cellSuction4Goal.AddParagraph($"{suction4Goal.Goal1}");
+
+            var cellSuction4Info = rowSuction2.Cells[10];
+            cellSuction4Info.Format.Font.Size = 6.5;
+            cellSuction4Info.MergeRight = 2;
+            cellSuction4Info.VerticalAlignment = VerticalAlignment.Center;
+            cellSuction4Info.Shading.Color = Colors.LightBlue;
+            if (clothingSuction4 != null)
+            {
+                cellSuction4Info.AddParagraph($"{clothingSuction4.Manufacturer} {clothingSuction4.Serial_Number}");
+            }
+            else cellSuction4Info.AddParagraph("NA");
+            #endregion
+            #endregion // Suction Pickup Position
 
             #region 1st Press Top Position
+            // add spacer row
+            spacer = weeklyPMTable.AddRow();
+            spacer.Height = 15;
+            cellSpacer = spacer.Cells[0];
+            cellSpacer.MergeRight = 12;
+            cellSpacer.AddParagraph("");
 
+            var clothing1stPressTop1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press top" && c.PM_Number == 1);
+            var clothing1stPressTop2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press top" && c.PM_Number == 2);
+            var clothing1stPressTop3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press top" && c.PM_Number == 3);
+            var clothing1stPressTop4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press top" && c.PM_Number == 4);
+            var row1stPressTop = weeklyPMTable.AddRow();
+            row1stPressTop.Height = 10;
+            var row1stPressTop2 = weeklyPMTable.AddRow();
+            row1stPressTop2.Height = 10;
+
+            //define Dandy position row cells
+
+            var cell1stPressTop = row1stPressTop.Cells[0];
+            cell1stPressTop.Format.Font.Size = 6.5;
+            cell1stPressTop.VerticalAlignment = VerticalAlignment.Center;
+            cell1stPressTop.MergeDown = 1;
+            cell1stPressTop.AddParagraph("1ST PRESS TOP");
+
+            #region 1st Press Top PM 1
+            // ----- 1st Press Top Position PM 1 ----- //
+            var cell1stPressTop1Past = row1stPressTop.Cells[1];
+            cell1stPressTop1Past.Format.Font.Size = 6.5;
+            cell1stPressTop1Past.VerticalAlignment = VerticalAlignment.Center;
+            cell1stPressTop1Past.AddParagraph($"100");
+
+            var cell1stPressTop1Current = row1stPressTop.Cells[2];
+            cell1stPressTop1Current.Format.Font.Size = 6.5;
+            cell1stPressTop1Current.VerticalAlignment = VerticalAlignment.Center;
+            var firstPressTop1Age = 0;
+            if (clothing1stPressTop1 != null)
+            {
+                firstPressTop1Age = clothing1stPressTop1.Age != null ? Convert.ToInt32(clothing1stPressTop1.Age) : 0;
+            }
+            cell1stPressTop1Current.AddParagraph($"{firstPressTop1Age}");
+
+            var cell1stPressTop1Goal = row1stPressTop.Cells[3];
+            cell1stPressTop1Goal.Format.Font.Size = 6.5;
+            cell1stPressTop1Goal.VerticalAlignment = VerticalAlignment.Center;
+            var firstPressToplGoal = db.Goals.SingleOrDefault(g => g.PM_ID == 1 && g.PositionID == 18);
+            cell1stPressTop1Goal.AddParagraph($"{firstPressToplGoal.Goal1}");
+
+            var cell1stPressTop1Info = row1stPressTop2.Cells[1];
+            cell1stPressTop1Info.Format.Font.Size = 6.5;
+            cell1stPressTop1Info.MergeRight = 2;
+            cell1stPressTop1Info.VerticalAlignment = VerticalAlignment.Center;
+            cell1stPressTop1Info.Shading.Color = Colors.LightBlue;
+            if (clothing1stPressTop1 != null)
+            {
+                cell1stPressTop1Info.AddParagraph($"{clothing1stPressTop1.Manufacturer} {clothing1stPressTop1.Serial_Number}");
+            }
+            else cell1stPressTop1Info.AddParagraph("NA");
             #endregion
+
+            #region 1st Press Top PM 2
+            // ----- 1st Press Top Position PM 2 ----- //
+            var cell1stPressTop2Past = row1stPressTop.Cells[4];
+            cell1stPressTop2Past.Format.Font.Size = 6.5;
+            cell1stPressTop2Past.VerticalAlignment = VerticalAlignment.Center;
+            cell1stPressTop2Past.AddParagraph($"100");
+
+            var cell1stPressTop2Current = row1stPressTop.Cells[5];
+            cell1stPressTop2Current.Format.Font.Size = 6.5;
+            cell1stPressTop2Current.VerticalAlignment = VerticalAlignment.Center;
+            var firstPressTop2Age = 0;
+            if (clothing1stPressTop2 != null)
+            {
+                firstPressTop2Age = clothing1stPressTop2.Age != null ? Convert.ToInt32(clothing1stPressTop2.Age) : 0;
+            }
+            cell1stPressTop2Current.AddParagraph($"{firstPressTop2Age}");
+
+            var cell1stPressTop2Goal = row1stPressTop.Cells[6];
+            cell1stPressTop2Goal.Format.Font.Size = 6.5;
+            cell1stPressTop2Goal.VerticalAlignment = VerticalAlignment.Center;
+            var firstPressTop2Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 2 && g.PositionID == 18);
+            cell1stPressTop2Goal.AddParagraph($"{firstPressTop2Goal.Goal1}");
+
+            var cell1stPressTop2Info = row1stPressTop2.Cells[4];
+            cell1stPressTop2Info.Format.Font.Size = 6.5;
+            cell1stPressTop2Info.MergeRight = 2;
+            cell1stPressTop2Info.VerticalAlignment = VerticalAlignment.Center;
+            cell1stPressTop2Info.Shading.Color = Colors.LightBlue;
+            if (clothing1stPressTop2 != null)
+            {
+                cell1stPressTop2Info.AddParagraph($"{clothing1stPressTop2.Manufacturer} {clothing1stPressTop2.Serial_Number}");
+            }
+            else cell1stPressTop2Info.AddParagraph("NA");
+            #endregion
+
+            #region 1st Press Top PM 3
+            // ----- 1st Press Top Position PM 3 ----- //
+            var cell1stPressTop3Past = row1stPressTop.Cells[7];
+            cell1stPressTop3Past.Format.Font.Size = 6.5;
+            cell1stPressTop3Past.VerticalAlignment = VerticalAlignment.Center;
+            cell1stPressTop3Past.AddParagraph($"100");
+
+            var cell1stPressTop3Current = row1stPressTop.Cells[8];
+            cell1stPressTop3Current.Format.Font.Size = 6.5;
+            cell1stPressTop3Current.VerticalAlignment = VerticalAlignment.Center;
+            var firstPressTop3Age = 0;
+            if (clothing1stPressTop3 != null)
+            {
+                firstPressTop3Age = clothing1stPressTop3.Age != null ? Convert.ToInt32(clothing1stPressTop3.Age) : 0;
+            }
+            cell1stPressTop3Current.AddParagraph($"{firstPressTop3Age}");
+
+            var cell1stPressTop3Goal = row1stPressTop.Cells[9];
+            cell1stPressTop3Goal.Format.Font.Size = 6.5;
+            cell1stPressTop3Goal.VerticalAlignment = VerticalAlignment.Center;
+            var firstPressTop3Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 3 && g.PositionID == 18);
+            cell1stPressTop3Goal.AddParagraph($"{firstPressTop3Goal.Goal1}");
+
+            var cell1stPressTop3Info = row1stPressTop2.Cells[7];
+            cell1stPressTop3Info.Format.Font.Size = 6.5;
+            cell1stPressTop3Info.MergeRight = 2;
+            cell1stPressTop3Info.VerticalAlignment = VerticalAlignment.Center;
+            cell1stPressTop3Info.Shading.Color = Colors.LightBlue;
+            if (clothing1stPressTop3 != null)
+            {
+                cell1stPressTop3Info.AddParagraph($"{clothing1stPressTop3.Manufacturer} {clothing1stPressTop3.Serial_Number}");
+            }
+            else cell1stPressTop3Info.AddParagraph("NA");
+            #endregion
+
+            #region 1st Press Top PM 4
+            // ----- 1st Press Top Position PM 4 ----- //
+            var cell1stPressTop4Past = row1stPressTop.Cells[10];
+            cell1stPressTop4Past.Format.Font.Size = 6.5;
+            cell1stPressTop4Past.VerticalAlignment = VerticalAlignment.Center;
+            cell1stPressTop4Past.AddParagraph($"100");
+
+            var cell1stPressTop4Current = row1stPressTop.Cells[11];
+            cell1stPressTop4Current.Format.Font.Size = 6.5;
+            cell1stPressTop4Current.VerticalAlignment = VerticalAlignment.Center;
+            var firstPressTop4Age = 0;
+            if (clothing1stPressTop4 != null)
+            {
+                firstPressTop4Age = clothing1stPressTop4.Age != null ? Convert.ToInt32(clothing1stPressTop4.Age) : 0;
+            }
+            cell1stPressTop4Current.AddParagraph($"{firstPressTop4Age}");
+
+            var cell1stPressTop4Goal = row1stPressTop.Cells[12];
+            cell1stPressTop4Goal.Format.Font.Size = 6.5;
+            cell1stPressTop4Goal.VerticalAlignment = VerticalAlignment.Center;
+            var firstPressTop4Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 4 && g.PositionID == 18);
+            cell1stPressTop4Goal.AddParagraph($"{firstPressTop4Goal.Goal1}");
+
+            var cell1stPressTop4Info = row1stPressTop2.Cells[10];
+            cell1stPressTop4Info.Format.Font.Size = 6.5;
+            cell1stPressTop4Info.MergeRight = 2;
+            cell1stPressTop4Info.VerticalAlignment = VerticalAlignment.Center;
+            cell1stPressTop4Info.Shading.Color = Colors.LightBlue;
+            if (clothing1stPressTop4 != null)
+            {
+                cell1stPressTop4Info.AddParagraph($"{clothing1stPressTop4.Manufacturer} {clothing1stPressTop4.Serial_Number}");
+            }
+            else cell1stPressTop4Info.AddParagraph("NA");
+            #endregion
+
+            #endregion // 1st Press Top Position
 
             #region 1st Press Bottom Position
+            // add spacer row
+            spacer = weeklyPMTable.AddRow();
+            spacer.Height = 15;
+            cellSpacer = spacer.Cells[0];
+            cellSpacer.MergeRight = 12;
+            cellSpacer.AddParagraph("");
+
+            var clothing1stPressBottom1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press bottom" && c.PM_Number == 1);
+            var clothing1stPressBottom2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press bottom" && c.PM_Number == 2);
+            var clothing1stPressBottom3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press bottom" && c.PM_Number == 3);
+            var clothing1stPressBottom4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press bottom" && c.PM_Number == 4);
+            var row1stPressBottom = weeklyPMTable.AddRow();
+            row1stPressBottom.Height = 10;
+            var row1stPressBottom2 = weeklyPMTable.AddRow();
+            row1stPressBottom2.Height = 10;
+
+            //define 1st Press Bottom position row cells
+
+            var cell1stPressBottom = row1stPressBottom.Cells[0];
+            cell1stPressBottom.Format.Font.Size = 6.5;
+            cell1stPressBottom.VerticalAlignment = VerticalAlignment.Center;
+            cell1stPressBottom.MergeDown = 1;
+            cell1stPressBottom.AddParagraph("1ST PRESS BOTTOM");
+
+            #region 1st Press Bottom PM 1
+            // ----- 1st Press Bottom Position PM 1 ----- //
+            var cell1stPressBottom1Past = row1stPressBottom.Cells[1];
+            cell1stPressBottom1Past.Format.Font.Size = 6.5;
+            cell1stPressBottom1Past.VerticalAlignment = VerticalAlignment.Center;
+            cell1stPressBottom1Past.AddParagraph($"100");
+
+            var cell1stPressBottom1Current = row1stPressBottom.Cells[2];
+            cell1stPressBottom1Current.Format.Font.Size = 6.5;
+            cell1stPressBottom1Current.VerticalAlignment = VerticalAlignment.Center;
+            var firstPressBottom1Age = 0;
+            if (clothing1stPressBottom1 != null)
+            {
+                firstPressBottom1Age = clothing1stPressBottom1.Age != null ? Convert.ToInt32(clothing1stPressBottom1.Age) : 0;
+            }
+            cell1stPressBottom1Current.AddParagraph($"{firstPressBottom1Age}");
+
+            var cell1stPressBottom1Goal = row1stPressBottom.Cells[3];
+            cell1stPressBottom1Goal.Format.Font.Size = 6.5;
+            cell1stPressBottom1Goal.VerticalAlignment = VerticalAlignment.Center;
+            var firstPressBottomlGoal = db.Goals.SingleOrDefault(g => g.PM_ID == 1 && g.PositionID == 19);
+            cell1stPressBottom1Goal.AddParagraph($"{firstPressBottomlGoal.Goal1}");
+
+            var cell1stPressBottom1Info = row1stPressBottom2.Cells[1];
+            cell1stPressBottom1Info.Format.Font.Size = 6.5;
+            cell1stPressBottom1Info.MergeRight = 2;
+            cell1stPressBottom1Info.VerticalAlignment = VerticalAlignment.Center;
+            cell1stPressBottom1Info.Shading.Color = Colors.LightBlue;
+            if (clothing1stPressBottom1 != null)
+            {
+                cell1stPressBottom1Info.AddParagraph($"{clothing1stPressBottom1.Manufacturer} {clothing1stPressBottom1.Serial_Number}");
+            }
+            else cell1stPressBottom1Info.AddParagraph("NA");
+            #endregion
+            #endregion
+
+            #region 1st Press Bottom PM 2
 
             #endregion
+
+            #region 1st Press Bottom PM 3
+
+            #endregion
+
+            #region 1st Press Bottom PM 4
+
+            #endregion
+
+#endregion // 1st Press Bottom Position
 
             #region 2nd Press Top Position
 
