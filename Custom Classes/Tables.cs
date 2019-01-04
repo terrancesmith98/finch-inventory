@@ -255,6 +255,7 @@ namespace Finch_Inventory.Custom_Classes
             #endregion
 
             //define Content Rows
+
             #region Wire Position
             // ----- Wire Position Row ----- //
             var clothingWire1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "wire" && c.PM_Number == 1);
@@ -265,9 +266,6 @@ namespace Finch_Inventory.Custom_Classes
             rowWire.Height = 10;
             var rowWire2 = weeklyPMTable.AddRow();
             rowWire2.Height = 10;
-
-
-            //define wire position row cells
 
             var cellWire = rowWire.Cells[0];
             cellWire.Format.Font.Size = 6.5;
@@ -445,8 +443,6 @@ namespace Finch_Inventory.Custom_Classes
             var rowFirstPress2 = weeklyPMTable.AddRow();
             rowFirstPress2.Height = 10;
 
-            //define 1st Press position row cells
-
             var cell1Press = rowFirstPress.Cells[0];
             cell1Press.Format.Font.Size = 6.5;
             cell1Press.VerticalAlignment = VerticalAlignment.Center;
@@ -619,8 +615,6 @@ namespace Finch_Inventory.Custom_Classes
             rowSecondPress.Height = 10;
             var rowSecondPress2 = weeklyPMTable.AddRow();
             rowSecondPress2.Height = 10;
-
-            //define 2nd Press position row cells
 
             var cell2Press = rowSecondPress.Cells[0];
             cell2Press.Format.Font.Size = 6.5;
@@ -795,8 +789,6 @@ namespace Finch_Inventory.Custom_Classes
             var rowThirdPress2 = weeklyPMTable.AddRow();
             rowThirdPress2.Height = 10;
 
-            //define 3rd Press position row cells
-
             var cell3Press = rowThirdPress.Cells[0];
             cell3Press.Format.Font.Size = 6.5;
             cell3Press.VerticalAlignment = VerticalAlignment.Center;
@@ -951,7 +943,7 @@ namespace Finch_Inventory.Custom_Classes
             else cell3Press4Info.AddParagraph("NA");
             #endregion
 
-            #endregion
+            #endregion // 3rd Press Position
 
             #region 1st Top Dryer Position
             // add spacer row
@@ -969,8 +961,6 @@ namespace Finch_Inventory.Custom_Classes
             rowFirstTopDryer.Height = 10;
             var rowFirstTopDryer2 = weeklyPMTable.AddRow();
             rowFirstTopDryer2.Height = 10;
-
-            //define 1st Top position row cells
 
             var cellFirstTopDryer = rowFirstTopDryer.Cells[0];
             cellFirstTopDryer.Format.Font.Size = 6.5;
@@ -1126,7 +1116,7 @@ namespace Finch_Inventory.Custom_Classes
             else cellFirstTopDryer4Info.AddParagraph("NA");
             #endregion
 
-            #endregion
+            #endregion // 1st Top Dryer Position
 
             #region 2nd Top Dryer Position
             // add spacer row
@@ -1144,8 +1134,6 @@ namespace Finch_Inventory.Custom_Classes
             row2ndTopDryer.Height = 10;
             var row2ndTopDryer2 = weeklyPMTable.AddRow();
             row2ndTopDryer2.Height = 10;
-
-            //define 2nd Top position row cells
 
             var cell2ndTopDryer = row2ndTopDryer.Cells[0];
             cell2ndTopDryer.Format.Font.Size = 6.5;
@@ -1324,8 +1312,6 @@ namespace Finch_Inventory.Custom_Classes
             var row3rdTopDryer2 = weeklyPMTable.AddRow();
             row3rdTopDryer2.Height = 10;
 
-            //define 3rd Top position row cells
-
             var cell3rdTopDryer = row3rdTopDryer.Cells[0];
             cell3rdTopDryer.Format.Font.Size = 6.5;
             cell3rdTopDryer.VerticalAlignment = VerticalAlignment.Center;
@@ -1503,8 +1489,6 @@ namespace Finch_Inventory.Custom_Classes
             var row4thTopDryer2 = weeklyPMTable.AddRow();
             row4thTopDryer2.Height = 10;
 
-            //define 4th Top position row cells
-
             var cell4thTopDryer = row4thTopDryer.Cells[0];
             cell4thTopDryer.Format.Font.Size = 6.5;
             cell4thTopDryer.VerticalAlignment = VerticalAlignment.Center;
@@ -1664,7 +1648,7 @@ namespace Finch_Inventory.Custom_Classes
             else cell4thTopDryer4Info.AddParagraph("NA");
             #endregion
 
-            #endregion
+            #endregion // 4th Top Dryer Position
 
             #region 1st Bottom Dryer Position
             // add spacer row
@@ -1682,8 +1666,6 @@ namespace Finch_Inventory.Custom_Classes
             row1stBottomDryer.Height = 10;
             var row1stBottomDryer2 = weeklyPMTable.AddRow();
             row1stBottomDryer2.Height = 10;
-
-            //define 1st Bottom position row cells
 
             var cell1stBottomDryer = row1stBottomDryer.Cells[0];
             cell1stBottomDryer.Format.Font.Size = 6.5;
@@ -1843,7 +1825,7 @@ namespace Finch_Inventory.Custom_Classes
             else cell1stBottomDryer4Info.AddParagraph("NA");
             #endregion
 
-            #endregion
+            #endregion // 1st Bottom Dryer Position
 
             #region 2nd Bottom Dryer Position
             // add spacer row
@@ -1861,8 +1843,6 @@ namespace Finch_Inventory.Custom_Classes
             row2ndBottomDryer.Height = 10;
             var row2ndBottomDryer2 = weeklyPMTable.AddRow();
             row2ndBottomDryer2.Height = 10;
-
-            //define 1st Bottom position row cells
 
             var cell2ndBottomDryer = row2ndBottomDryer.Cells[0];
             cell2ndBottomDryer.Format.Font.Size = 6.5;
@@ -2022,7 +2002,7 @@ namespace Finch_Inventory.Custom_Classes
             else cell2ndBottomDryer4Info.AddParagraph("NA");
             #endregion
 
-            #endregion
+            #endregion // 2nd Bottom Dryer Position
 
             #region 3rd Bottom Dryer Position
             // add spacer row
@@ -2040,8 +2020,6 @@ namespace Finch_Inventory.Custom_Classes
             row3rdBottomDryer.Height = 10;
             var row3rdBottomDryer2 = weeklyPMTable.AddRow();
             row3rdBottomDryer2.Height = 10;
-
-            //define 3rd Bottom position row cells
 
             var cell3rdBottomDryer = row3rdBottomDryer.Cells[0];
             cell3rdBottomDryer.Format.Font.Size = 6.5;
@@ -2201,7 +2179,7 @@ namespace Finch_Inventory.Custom_Classes
             else cell3rdBottomDryer4Info.AddParagraph("NA");
             #endregion
 
-            #endregion
+            #endregion // 3rd Bottom Dryer Position
 
             #region 4th Bottom Dryer Position
             // add spacer row
@@ -2219,8 +2197,6 @@ namespace Finch_Inventory.Custom_Classes
             row4thBottomDryer.Height = 10;
             var row4thBottomDryer2 = weeklyPMTable.AddRow();
             row4thBottomDryer2.Height = 10;
-
-            //define 3rd Bottom position row cells
 
             var cell4thBottomDryer = row4thBottomDryer.Cells[0];
             cell4thBottomDryer.Format.Font.Size = 6.5;
@@ -2380,7 +2356,7 @@ namespace Finch_Inventory.Custom_Classes
             else cell4thBottomDryer4Info.AddParagraph("NA");
             #endregion
 
-            #endregion
+            #endregion // 4th Bottom Dryer Position
 
             #region Breast Roll Position
             // add spacer row
@@ -2398,8 +2374,6 @@ namespace Finch_Inventory.Custom_Classes
             rowBreast.Height = 10;
             var rowBreast2 = weeklyPMTable.AddRow();
             rowBreast2.Height = 10;
-
-            //define Breast position row cells
 
             var cellBreast = rowBreast.Cells[0];
             cellBreast.Format.Font.Size = 6.5;
@@ -2559,7 +2533,7 @@ namespace Finch_Inventory.Custom_Classes
             else cellBreast4Info.AddParagraph("NA");
             #endregion
 
-            #endregion
+            #endregion // Breast Roll Position
 
             #region Dandy Position
             // add spacer row
@@ -2569,16 +2543,14 @@ namespace Finch_Inventory.Custom_Classes
             cellSpacer.MergeRight = 12;
             cellSpacer.AddParagraph("");
 
-            var clothingDandy1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "dandy" && c.PM_Number == 1);
-            var clothingDandy2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "dandy" && c.PM_Number == 2);
-            var clothingDandy3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "dandy" && c.PM_Number == 3);
-            var clothingDandy4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "dandy" && c.PM_Number == 4);
+            var clothingDandy1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "dandy roll" && c.PM_Number == 1);
+            var clothingDandy2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "dandy roll" && c.PM_Number == 2);
+            var clothingDandy3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "dandy roll" && c.PM_Number == 3);
+            var clothingDandy4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "dandy roll" && c.PM_Number == 4);
             var rowDandy = weeklyPMTable.AddRow();
             rowDandy.Height = 10;
             var rowDandy2 = weeklyPMTable.AddRow();
             rowDandy2.Height = 10;
-
-            //define Dandy position row cells
 
             var cellDandy = rowDandy.Cells[0];
             cellDandy.Format.Font.Size = 6.5;
@@ -2738,20 +2710,18 @@ namespace Finch_Inventory.Custom_Classes
             else cellDandy4Info.AddParagraph("NA");
             #endregion
 
-            #endregion
+            #endregion // Dandy Roll Position
 
             #region Lumpbreaker Position
 
-            var clothingLumpbreaker1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "lumpbreaker" && c.PM_Number == 1);
-            var clothingLumpbreaker2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "lumpbreaker" && c.PM_Number == 2);
-            var clothingLumpbreaker3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "lumpbreaker" && c.PM_Number == 3);
-            var clothingLumpbreaker4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "lumpbreaker" && c.PM_Number == 4);
+            var clothingLumpbreaker1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "lumpbreaker roll" && c.PM_Number == 1);
+            var clothingLumpbreaker2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "lumpbreaker roll" && c.PM_Number == 2);
+            var clothingLumpbreaker3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "lumpbreaker roll" && c.PM_Number == 3);
+            var clothingLumpbreaker4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "lumpbreaker roll" && c.PM_Number == 4);
             var rowLumpbreaker = weeklyPMTable.AddRow();
             rowLumpbreaker.Height = 10;
             var rowLumpbreaker2 = weeklyPMTable.AddRow();
             rowLumpbreaker2.Height = 10;
-
-            //define Dandy position row cells
 
             var cellLumpbreaker = rowLumpbreaker.Cells[0];
             cellLumpbreaker.Format.Font.Size = 6.5;
@@ -2911,7 +2881,7 @@ namespace Finch_Inventory.Custom_Classes
             else cellLumpbreaker4Info.AddParagraph("NA");
             #endregion
 
-            #endregion
+            #endregion // Lumpbreaker Roll Position
 
             #region Suction Pickup Position
             // add spacer row
@@ -2921,16 +2891,14 @@ namespace Finch_Inventory.Custom_Classes
             cellSpacer.MergeRight = 12;
             cellSpacer.AddParagraph("");
 
-            var clothingSuction1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "suction pickup" && c.PM_Number == 1);
-            var clothingSuction2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "suction pickup" && c.PM_Number == 2);
-            var clothingSuction3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "suction pickup" && c.PM_Number == 3);
-            var clothingSuction4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "suction pickup" && c.PM_Number == 4);
+            var clothingSuction1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "suction pickup roll" && c.PM_Number == 1);
+            var clothingSuction2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "suction pickup roll" && c.PM_Number == 2);
+            var clothingSuction3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "suction pickup roll" && c.PM_Number == 3);
+            var clothingSuction4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "suction pickup roll" && c.PM_Number == 4);
             var rowSuction = weeklyPMTable.AddRow();
             rowSuction.Height = 10;
             var rowSuction2 = weeklyPMTable.AddRow();
             rowSuction2.Height = 10;
-
-            //define Dandy position row cells
 
             var cellSuction = rowSuction.Cells[0];
             cellSuction.Format.Font.Size = 6.5;
@@ -3099,16 +3067,14 @@ namespace Finch_Inventory.Custom_Classes
             cellSpacer.MergeRight = 12;
             cellSpacer.AddParagraph("");
 
-            var clothing1stPressTop1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press top" && c.PM_Number == 1);
-            var clothing1stPressTop2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press top" && c.PM_Number == 2);
-            var clothing1stPressTop3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press top" && c.PM_Number == 3);
-            var clothing1stPressTop4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press top" && c.PM_Number == 4);
+            var clothing1stPressTop1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press top roll" && c.PM_Number == 1);
+            var clothing1stPressTop2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press top roll" && c.PM_Number == 2);
+            var clothing1stPressTop3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press top roll" && c.PM_Number == 3);
+            var clothing1stPressTop4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press top roll" && c.PM_Number == 4);
             var row1stPressTop = weeklyPMTable.AddRow();
             row1stPressTop.Height = 10;
             var row1stPressTop2 = weeklyPMTable.AddRow();
             row1stPressTop2.Height = 10;
-
-            //define Dandy position row cells
 
             var cell1stPressTop = row1stPressTop.Cells[0];
             cell1stPressTop.Format.Font.Size = 6.5;
@@ -3274,16 +3240,14 @@ namespace Finch_Inventory.Custom_Classes
             cellSpacer.MergeRight = 12;
             cellSpacer.AddParagraph("");
 
-            var clothing1stPressBottom1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press bottom" && c.PM_Number == 1);
-            var clothing1stPressBottom2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press bottom" && c.PM_Number == 2);
-            var clothing1stPressBottom3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press bottom" && c.PM_Number == 3);
-            var clothing1stPressBottom4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press bottom" && c.PM_Number == 4);
+            var clothing1stPressBottom1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press bottom roll" && c.PM_Number == 1);
+            var clothing1stPressBottom2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press bottom roll" && c.PM_Number == 2);
+            var clothing1stPressBottom3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press bottom roll" && c.PM_Number == 3);
+            var clothing1stPressBottom4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "1st press bottom roll" && c.PM_Number == 4);
             var row1stPressBottom = weeklyPMTable.AddRow();
             row1stPressBottom.Height = 10;
             var row1stPressBottom2 = weeklyPMTable.AddRow();
             row1stPressBottom2.Height = 10;
-
-            //define 1st Press Bottom position row cells
 
             var cell1stPressBottom = row1stPressBottom.Cells[0];
             cell1stPressBottom.Format.Font.Size = 6.5;
@@ -3449,16 +3413,14 @@ namespace Finch_Inventory.Custom_Classes
             cellSpacer.MergeRight = 12;
             cellSpacer.AddParagraph("");
 
-            var clothing2ndPressTop1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd press top" && c.PM_Number == 1);
-            var clothing2ndPressTop2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd press top" && c.PM_Number == 2);
-            var clothing2ndPressTop3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd press top" && c.PM_Number == 3);
-            var clothing2ndPressTop4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd press top" && c.PM_Number == 4);
+            var clothing2ndPressTop1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd press top roll" && c.PM_Number == 1);
+            var clothing2ndPressTop2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd press top roll" && c.PM_Number == 2);
+            var clothing2ndPressTop3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd press top roll" && c.PM_Number == 3);
+            var clothing2ndPressTop4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd press top roll" && c.PM_Number == 4);
             var row2ndPressTop = weeklyPMTable.AddRow();
             row2ndPressTop.Height = 10;
             var row2ndPressTop2 = weeklyPMTable.AddRow();
             row2ndPressTop2.Height = 10;
-
-            //define 1st Press Bottom position row cells
 
             var cell2ndPressTop = row2ndPressTop.Cells[0];
             cell2ndPressTop.Format.Font.Size = 6.5;
@@ -3624,16 +3586,14 @@ namespace Finch_Inventory.Custom_Classes
             cellSpacer.MergeRight = 12;
             cellSpacer.AddParagraph("");
 
-            var clothing2ndPressBottom1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd press bottom" && c.PM_Number == 1);
-            var clothing2ndPressBottom2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd press bottom" && c.PM_Number == 2);
-            var clothing2ndPressBottom3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd press bottom" && c.PM_Number == 3);
-            var clothing2ndPressBottom4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd press bottom" && c.PM_Number == 4);
+            var clothing2ndPressBottom1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd press bottom roll" && c.PM_Number == 1);
+            var clothing2ndPressBottom2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd press bottom roll" && c.PM_Number == 2);
+            var clothing2ndPressBottom3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd press bottom roll" && c.PM_Number == 3);
+            var clothing2ndPressBottom4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "2nd press bottom roll" && c.PM_Number == 4);
             var row2ndPressBottom = weeklyPMTable.AddRow();
             row2ndPressBottom.Height = 10;
             var row2ndPressBottom2 = weeklyPMTable.AddRow();
             row2ndPressBottom2.Height = 10;
-
-            //define 1st Press Bottom position row cells
 
             var cell2ndPressBottom = row2ndPressBottom.Cells[0];
             cell2ndPressBottom.Format.Font.Size = 6.5;
@@ -3799,16 +3759,14 @@ namespace Finch_Inventory.Custom_Classes
             cellSpacer.MergeRight = 12;
             cellSpacer.AddParagraph("");
 
-            var clothing3rdPressTop1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd press top" && c.PM_Number == 1);
-            var clothing3rdPressTop2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd press top" && c.PM_Number == 2);
-            var clothing3rdPressTop3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd press top" && c.PM_Number == 3);
-            var clothing3rdPressTop4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd press top" && c.PM_Number == 4);
+            var clothing3rdPressTop1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd press top roll" && c.PM_Number == 1);
+            var clothing3rdPressTop2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd press top roll" && c.PM_Number == 2);
+            var clothing3rdPressTop3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd press top roll" && c.PM_Number == 3);
+            var clothing3rdPressTop4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd press top roll" && c.PM_Number == 4);
             var row3rdPressTop = weeklyPMTable.AddRow();
             row3rdPressTop.Height = 10;
             var row3rdPressTop2 = weeklyPMTable.AddRow();
             row3rdPressTop2.Height = 10;
-
-            //define 1st Press Bottom position row cells
 
             var cell3rdPressTop = row3rdPressTop.Cells[0];
             cell3rdPressTop.Format.Font.Size = 6.5;
@@ -3974,16 +3932,14 @@ namespace Finch_Inventory.Custom_Classes
             cellSpacer.MergeRight = 12;
             cellSpacer.AddParagraph("");
 
-            var clothing3rdPressBottom1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd press bottom" && c.PM_Number == 1);
-            var clothing3rdPressBottom2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd press bottom" && c.PM_Number == 2);
-            var clothing3rdPressBottom3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd press bottom" && c.PM_Number == 3);
-            var clothing3rdPressBottom4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd press bottom" && c.PM_Number == 4);
+            var clothing3rdPressBottom1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd press bottom roll" && c.PM_Number == 1);
+            var clothing3rdPressBottom2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd press bottom roll" && c.PM_Number == 2);
+            var clothing3rdPressBottom3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd press bottom roll" && c.PM_Number == 3);
+            var clothing3rdPressBottom4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "3rd press bottom roll" && c.PM_Number == 4);
             var row3rdPressBottom = weeklyPMTable.AddRow();
             row3rdPressBottom.Height = 10;
             var row3rdPressBottom2 = weeklyPMTable.AddRow();
             row3rdPressBottom2.Height = 10;
-
-            //define 3rd Press Bottom position row cells
 
             var cell3rdPressBottom = row3rdPressBottom.Cells[0];
             cell3rdPressBottom.Format.Font.Size = 6.5;
@@ -4149,16 +4105,14 @@ namespace Finch_Inventory.Custom_Classes
             cellSpacer.MergeRight = 12;
             cellSpacer.AddParagraph("");
 
-            var clothingSmoothTop1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "smooth top" && c.PM_Number == 1);
-            var clothingSmoothTop2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "smooth top" && c.PM_Number == 2);
-            var clothingSmoothTop3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "smooth top" && c.PM_Number == 3);
-            var clothingSmoothTop4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "smooth top" && c.PM_Number == 4);
+            var clothingSmoothTop1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "smoother top roll" && c.PM_Number == 1);
+            var clothingSmoothTop2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "smoother top roll" && c.PM_Number == 2);
+            var clothingSmoothTop3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "smoother top roll" && c.PM_Number == 3);
+            var clothingSmoothTop4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "smoother top roll" && c.PM_Number == 4);
             var rowSmoothTop = weeklyPMTable.AddRow();
             rowSmoothTop.Height = 10;
             var rowSmoothTop2 = weeklyPMTable.AddRow();
             rowSmoothTop2.Height = 10;
-
-            //define 3rd Press Bottom position row cells
 
             var cellSmoothTop = rowSmoothTop.Cells[0];
             cellSmoothTop.Format.Font.Size = 6.5;
@@ -4324,16 +4278,14 @@ namespace Finch_Inventory.Custom_Classes
             cellSpacer.MergeRight = 12;
             cellSpacer.AddParagraph("");
 
-            var clothingSmoothBottom1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "smooth bottom" && c.PM_Number == 1);
-            var clothingSmoothBottom2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "smooth bottom" && c.PM_Number == 2);
-            var clothingSmoothBottom3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "smooth bottom" && c.PM_Number == 3);
-            var clothingSmoothBottom4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "smooth bottom" && c.PM_Number == 4);
+            var clothingSmoothBottom1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "smoother bottom roll" && c.PM_Number == 1);
+            var clothingSmoothBottom2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "smoother bottom roll" && c.PM_Number == 2);
+            var clothingSmoothBottom3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "smoother bottom roll" && c.PM_Number == 3);
+            var clothingSmoothBottom4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "smoother bottom roll" && c.PM_Number == 4);
             var rowSmoothBottom = weeklyPMTable.AddRow();
             rowSmoothBottom.Height = 10;
             var rowSmoothBottom2 = weeklyPMTable.AddRow();
             rowSmoothBottom2.Height = 10;
-
-            //define 3rd Press Bottom position row cells
 
             var cellSmoothBottom = rowSmoothBottom.Cells[0];
             cellSmoothBottom.Format.Font.Size = 6.5;
@@ -4499,16 +4451,14 @@ namespace Finch_Inventory.Custom_Classes
             cellSpacer.MergeRight = 12;
             cellSpacer.AddParagraph("");
 
-            var clothingHardSizePress1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "hard size press (top)" && c.PM_Number == 1);
-            var clothingHardSizePress2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "hard size press (top)" && c.PM_Number == 2);
-            var clothingHardSizePress3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "hard size press (top)" && c.PM_Number == 3);
-            var clothingHardSizePress4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "hard size press (top)" && c.PM_Number == 4);
+            var clothingHardSizePress1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "hard size roll" && c.PM_Number == 1);
+            var clothingHardSizePress2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "hard size roll" && c.PM_Number == 2);
+            var clothingHardSizePress3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "hard size roll" && c.PM_Number == 3);
+            var clothingHardSizePress4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "hard size roll" && c.PM_Number == 4);
             var rowHardSizePress = weeklyPMTable.AddRow();
             rowHardSizePress.Height = 10;
             var rowHardSizePress2 = weeklyPMTable.AddRow();
             rowHardSizePress2.Height = 10;
-
-            //define 3rd Press Bottom position row cells
 
             var cellHardSizePress = rowHardSizePress.Cells[0];
             cellHardSizePress.Format.Font.Size = 6.5;
@@ -4674,16 +4624,14 @@ namespace Finch_Inventory.Custom_Classes
             cellSpacer.MergeRight = 12;
             cellSpacer.AddParagraph("");
 
-            var clothingSoftSizePress1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "soft size press (bottom)" && c.PM_Number == 1);
-            var clothingSoftSizePress2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "soft size press (bottom)" && c.PM_Number == 2);
-            var clothingSoftSizePress3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "soft size press (bottom)" && c.PM_Number == 3);
-            var clothingSoftSizePress4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "soft size press (bottom)" && c.PM_Number == 4);
+            var clothingSoftSizePress1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "soft size roll" && c.PM_Number == 1);
+            var clothingSoftSizePress2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "soft size roll" && c.PM_Number == 2);
+            var clothingSoftSizePress3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "soft size roll" && c.PM_Number == 3);
+            var clothingSoftSizePress4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "soft size roll" && c.PM_Number == 4);
             var rowSoftSizePress = weeklyPMTable.AddRow();
             rowSoftSizePress.Height = 10;
             var rowSoftSizePress2 = weeklyPMTable.AddRow();
             rowSoftSizePress2.Height = 10;
-
-            //define 3rd Press Bottom position row cells
 
             var cellSoftSizePress = rowSoftSizePress.Cells[0];
             cellSoftSizePress.Format.Font.Size = 6.5;
@@ -4849,22 +4797,20 @@ namespace Finch_Inventory.Custom_Classes
             cellSpacer.MergeRight = 12;
             cellSpacer.AddParagraph("");
 
-            var clothingAquithermTop1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "aquitherm top" && c.PM_Number == 1);
-            var clothingAquithermTop2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "aquitherm top" && c.PM_Number == 2);
-            var clothingAquithermTop3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "aquitherm top" && c.PM_Number == 3);
-            var clothingAquithermTop4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "aquitherm top" && c.PM_Number == 4);
+            var clothingAquithermTop1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "aquatherm roll" && c.PM_Number == 1);
+            var clothingAquithermTop2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "aquatherm roll" && c.PM_Number == 2);
+            var clothingAquithermTop3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "aquatherm roll" && c.PM_Number == 3);
+            var clothingAquithermTop4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "aquatherm roll" && c.PM_Number == 4);
             var rowAquithermTop = weeklyPMTable.AddRow();
             rowAquithermTop.Height = 10;
             var rowAquithermTop2 = weeklyPMTable.AddRow();
             rowAquithermTop2.Height = 10;
 
-            //define 3rd Press Bottom position row cells
-
             var cellAquithermTop = rowAquithermTop.Cells[0];
             cellAquithermTop.Format.Font.Size = 6.5;
             cellAquithermTop.VerticalAlignment = VerticalAlignment.Center;
             cellAquithermTop.MergeDown = 1;
-            cellAquithermTop.AddParagraph("AQUITHERM TOP");
+            cellAquithermTop.AddParagraph("AQUATHERM TOP");
 
             #region Aquitherm Top PM 1
             // ----- Aquitherm Top Position PM 1 ----- //
@@ -5024,10 +4970,10 @@ namespace Finch_Inventory.Custom_Classes
             cellSpacer.MergeRight = 12;
             cellSpacer.AddParagraph("");
 
-            var clothingNibcoBottom1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "nibco bottom" && c.PM_Number == 1);
-            var clothingNibcoBottom2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "nibco bottom" && c.PM_Number == 2);
-            var clothingNibcoBottom3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "nibco bottom" && c.PM_Number == 3);
-            var clothingNibcoBottom4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "nibco bottom" && c.PM_Number == 4);
+            var clothingNibcoBottom1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "nibco roll" && c.PM_Number == 1);
+            var clothingNibcoBottom2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "nibco roll" && c.PM_Number == 2);
+            var clothingNibcoBottom3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "nibco roll" && c.PM_Number == 3);
+            var clothingNibcoBottom4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "nibco roll" && c.PM_Number == 4);
             var rowNibcoBottom = weeklyPMTable.AddRow();
             rowNibcoBottom.Height = 10;
             var rowNibcoBottom2 = weeklyPMTable.AddRow();
@@ -5188,6 +5134,368 @@ namespace Finch_Inventory.Custom_Classes
             #endregion
 
             #endregion // Nibco Bottom Position
+
+            #region Couch Roll Position
+            // add spacer row
+            spacer = weeklyPMTable.AddRow();
+            spacer.Height = 12;
+            cellSpacer = spacer.Cells[0];
+            cellSpacer.MergeRight = 12;
+            cellSpacer.AddParagraph("");
+
+            var clothingCouch1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "couch roll" && c.PM_Number == 1);
+            var clothingCouch2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "couch roll" && c.PM_Number == 2);
+            var clothingCouch3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "couch roll" && c.PM_Number == 3);
+            var clothingCouch4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "couch roll" && c.PM_Number == 4);
+            var rowCouch = weeklyPMTable.AddRow();
+            rowCouch.Height = 10;
+            var rowCouch2 = weeklyPMTable.AddRow();
+            rowCouch2.Height = 10;
+
+            var cellCouch = rowCouch.Cells[0];
+            cellCouch.Format.Font.Size = 6.5;
+            cellCouch.VerticalAlignment = VerticalAlignment.Center;
+            cellCouch.MergeDown = 1;
+            cellCouch.AddParagraph("COUCH ROLL");
+
+            #region Couch Roll PM 1
+            // ----- Couch Position PM 1 ----- //
+            var cellCouch1Past = rowCouch.Cells[1];
+            cellCouch1Past.Format.Font.Size = 6.5;
+            cellCouch1Past.VerticalAlignment = VerticalAlignment.Center;
+            var couch1Past = db.Clothings.Where(c => c.PM_Number == 1 && c.PositionID == 30 && c.StatusID == 3).Select(c => c.Age).Average();
+            couch1Past = couch1Past != null ? Math.Round((double)couch1Past) : 0;
+            cellCouch1Past.AddParagraph($"{couch1Past}");
+
+            var cellCouch1Current = rowCouch.Cells[2];
+            cellCouch1Current.Format.Font.Size = 6.5;
+            cellCouch1Current.VerticalAlignment = VerticalAlignment.Center;
+            var couch1Age = 0;
+            if (clothingCouch1 != null)
+            {
+                couch1Age = clothingCouch1.Age != null ? Convert.ToInt32(clothingCouch1.Age) : 0;
+            }
+            cellCouch1Current.AddParagraph($"{couch1Age}");
+
+            var cellCouch1Goal = rowCouch.Cells[3];
+            cellCouch1Goal.Format.Font.Size = 6.5;
+            cellCouch1Goal.VerticalAlignment = VerticalAlignment.Center;
+            var couchlGoal = db.Goals.SingleOrDefault(g => g.PM_ID == 1 && g.PositionID == 30);
+            cellCouch1Goal.AddParagraph($"{couchlGoal.Goal1}");
+
+            var cellCouch1Info = rowCouch2.Cells[1];
+            cellCouch1Info.Format.Font.Size = 6.5;
+            cellCouch1Info.MergeRight = 2;
+            cellCouch1Info.VerticalAlignment = VerticalAlignment.Center;
+            cellCouch1Info.Shading.Color = Colors.LightBlue;
+            if (clothingCouch1 != null)
+            {
+                cellCouch1Info.AddParagraph($"{clothingCouch1.Manufacturer} {clothingCouch1.Serial_Number}");
+            }
+            else cellCouch1Info.AddParagraph("NA");
+            #endregion
+
+            #region Couch Roll PM 2
+            // ----- Couch Position PM 2 ----- //
+            var cellCouch2Past = rowCouch.Cells[4];
+            cellCouch2Past.Format.Font.Size = 6.5;
+            cellCouch2Past.VerticalAlignment = VerticalAlignment.Center;
+            var couch2Past = db.Clothings.Where(c => c.PM_Number == 2 && c.PositionID == 30 && c.StatusID == 3).Select(c => c.Age).Average();
+            couch2Past = couch2Past != null ? Math.Round((double)couch2Past) : 0;
+            cellCouch2Past.AddParagraph($"{couch2Past}");
+
+            var cellCouch2Current = rowCouch.Cells[5];
+            cellCouch2Current.Format.Font.Size = 6.5;
+            cellCouch2Current.VerticalAlignment = VerticalAlignment.Center;
+            var couch2Age = 0;
+            if (clothingCouch2 != null)
+            {
+                couch2Age = clothingCouch2.Age != null ? Convert.ToInt32(clothingCouch2.Age) : 0;
+            }
+            cellCouch2Current.AddParagraph($"{couch2Age}");
+
+            var cellCouch2Goal = rowCouch.Cells[6];
+            cellCouch2Goal.Format.Font.Size = 6.5;
+            cellCouch2Goal.VerticalAlignment = VerticalAlignment.Center;
+            var couch2Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 2 && g.PositionID == 30);
+            cellCouch2Goal.AddParagraph($"{couch2Goal.Goal1}");
+
+            var cellCouch2Info = rowCouch2.Cells[4];
+            cellCouch2Info.Format.Font.Size = 6.5;
+            cellCouch2Info.MergeRight = 2;
+            cellCouch2Info.VerticalAlignment = VerticalAlignment.Center;
+            cellCouch2Info.Shading.Color = Colors.LightBlue;
+            if (clothingCouch2 != null)
+            {
+                cellCouch2Info.AddParagraph($"{clothingCouch2.Manufacturer} {clothingCouch2.Serial_Number}");
+            }
+            else cellCouch2Info.AddParagraph("NA");
+            #endregion
+
+            #region Couch Roll PM 3
+            // ----- Couch Position PM 3 ----- //
+            var cellCouch3Past = rowCouch.Cells[7];
+            cellCouch3Past.Format.Font.Size = 6.5;
+            cellCouch3Past.VerticalAlignment = VerticalAlignment.Center;
+            var couch3Past = db.Clothings.Where(c => c.PM_Number == 3 && c.PositionID == 30 && c.StatusID == 3).Select(c => c.Age).Average();
+            couch3Past = couch3Past != null ? Math.Round((double)couch3Past) : 0;
+            cellCouch3Past.AddParagraph($"{couch3Past}");
+
+            var cellCouch3Current = rowCouch.Cells[8];
+            cellCouch3Current.Format.Font.Size = 6.5;
+            cellCouch3Current.VerticalAlignment = VerticalAlignment.Center;
+            var couch3Age = 0;
+            if (clothingCouch3 != null)
+            {
+                couch3Age = clothingCouch3.Age != null ? Convert.ToInt32(clothingCouch3.Age) : 0;
+            }
+            cellCouch3Current.AddParagraph($"{couch3Age}");
+
+            var cellCouch3Goal = rowCouch.Cells[9];
+            cellCouch3Goal.Format.Font.Size = 6.5;
+            cellCouch3Goal.VerticalAlignment = VerticalAlignment.Center;
+            var couch3Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 3 && g.PositionID == 30);
+            cellCouch3Goal.AddParagraph($"{couch3Goal.Goal1}");
+
+            var cellCouch3Info = rowCouch2.Cells[7];
+            cellCouch3Info.Format.Font.Size = 6.5;
+            cellCouch3Info.MergeRight = 2;
+            cellCouch3Info.VerticalAlignment = VerticalAlignment.Center;
+            cellCouch3Info.Shading.Color = Colors.LightBlue;
+            if (clothingCouch3 != null)
+            {
+                cellCouch3Info.AddParagraph($"{clothingCouch3.Manufacturer} {clothingCouch3.Serial_Number}");
+            }
+            else cellCouch3Info.AddParagraph("NA");
+            #endregion
+
+            #region Couch Roll PM 4
+            // ----- Couch Position PM 4 ----- //
+            var cellCouch4Past = rowCouch.Cells[10];
+            cellCouch4Past.Format.Font.Size = 6.5;
+            cellCouch4Past.VerticalAlignment = VerticalAlignment.Center;
+            var couch4Past = db.Clothings.Where(c => c.PM_Number == 4 && c.PositionID == 30 && c.StatusID == 3).Select(c => c.Age).Average();
+            couch4Past = couch4Past != null ? Math.Round((double)couch4Past) : 0;
+            cellCouch4Past.AddParagraph($"{couch4Past}");
+
+            var cellCouch4Current = rowCouch.Cells[11];
+            cellCouch4Current.Format.Font.Size = 6.5;
+            cellCouch4Current.VerticalAlignment = VerticalAlignment.Center;
+            var couch4Age = 0;
+            if (clothingCouch4 != null)
+            {
+                couch4Age = clothingCouch4.Age != null ? Convert.ToInt32(clothingCouch4.Age) : 0;
+            }
+            cellCouch4Current.AddParagraph($"{couch4Age}");
+
+            var cellCouch4Goal = rowCouch.Cells[12];
+            cellCouch4Goal.Format.Font.Size = 6.5;
+            cellCouch4Goal.VerticalAlignment = VerticalAlignment.Center;
+            var couch4Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 4 && g.PositionID == 30);
+            cellCouch4Goal.AddParagraph($"{couch4Goal.Goal1}");
+
+            var cellCouch4Info = rowCouch2.Cells[10];
+            cellCouch4Info.Format.Font.Size = 6.5;
+            cellCouch4Info.MergeRight = 2;
+            cellCouch4Info.VerticalAlignment = VerticalAlignment.Center;
+            cellCouch4Info.Shading.Color = Colors.LightBlue;
+            if (clothingCouch4 != null)
+            {
+                cellCouch4Info.AddParagraph($"{clothingCouch4.Manufacturer} {clothingCouch4.Serial_Number}");
+            }
+            else cellCouch4Info.AddParagraph("NA");
+            #endregion
+
+            #endregion // Couch Roll Position
+
+            #region L_In Hope Roll Position
+            // add spacer row
+            spacer = weeklyPMTable.AddRow();
+            spacer.Height = 12;
+            cellSpacer = spacer.Cells[0];
+            cellSpacer.MergeRight = 12;
+            cellSpacer.AddParagraph("");
+
+            var clothingLInHope1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "l_in hope roll" && c.PM_Number == 1);
+            var clothingLInHope2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "l_in hope roll" && c.PM_Number == 2);
+            var clothingLInHope3 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "l_in hope roll" && c.PM_Number == 3);
+            var clothingLInHope4 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "l_in hope roll" && c.PM_Number == 4);
+            var rowLInHope = weeklyPMTable.AddRow();
+            rowLInHope.Height = 10;
+            var rowLInHope2 = weeklyPMTable.AddRow();
+            rowLInHope2.Height = 10;
+
+            var cellLInHope = rowLInHope.Cells[0];
+            cellLInHope.Format.Font.Size = 6.5;
+            cellLInHope.VerticalAlignment = VerticalAlignment.Center;
+            cellLInHope.MergeDown = 1;
+            cellLInHope.AddParagraph("L-IN HOPE ROLL");
+
+            #region L_In Hope Roll PM 1
+            // ----- L_In Hope Roll Position PM 1 ----- //
+            var cellLInHope1Past = rowLInHope.Cells[1];
+            cellLInHope1Past.Format.Font.Size = 6.5;
+            cellLInHope1Past.VerticalAlignment = VerticalAlignment.Center;
+            var lInHope1Past = db.Clothings.Where(c => c.PM_Number == 1 && c.PositionID == 31 && c.StatusID == 3).Select(c => c.Age).Average();
+            lInHope1Past = lInHope1Past != null ? Math.Round((double)lInHope1Past) : 0;
+            cellLInHope1Past.AddParagraph($"{lInHope1Past}");
+
+            var cellLInHope1Current = rowLInHope.Cells[2];
+            cellLInHope1Current.Format.Font.Size = 6.5;
+            cellLInHope1Current.VerticalAlignment = VerticalAlignment.Center;
+            var lInHope1Age = 0;
+            if (clothingLInHope1 != null)
+            {
+                lInHope1Age = clothingLInHope1.Age != null ? Convert.ToInt32(clothingLInHope1.Age) : 0;
+            }
+            cellLInHope1Current.AddParagraph($"{lInHope1Age}");
+
+            var cellLInHope1Goal = rowLInHope.Cells[3];
+            cellLInHope1Goal.Format.Font.Size = 6.5;
+            cellLInHope1Goal.VerticalAlignment = VerticalAlignment.Center;
+            var lInHopelGoal = db.Goals.SingleOrDefault(g => g.PM_ID == 1 && g.PositionID == 31);
+            cellLInHope1Goal.AddParagraph($"{lInHopelGoal.Goal1}");
+
+            var cellLInHope1Info = rowLInHope2.Cells[1];
+            cellLInHope1Info.Format.Font.Size = 6.5;
+            cellLInHope1Info.MergeRight = 2;
+            cellLInHope1Info.VerticalAlignment = VerticalAlignment.Center;
+            cellLInHope1Info.Shading.Color = Colors.LightBlue;
+            if (clothingLInHope1 != null)
+            {
+                cellLInHope1Info.AddParagraph($"{clothingLInHope1.Manufacturer} {clothingLInHope1.Serial_Number}");
+            }
+            else cellLInHope1Info.AddParagraph("NA");
+            #endregion
+
+            #region L_In Hope Roll PM 2
+            // ----- L_In Hope Roll Position PM 2 ----- //
+            var cellLInHope2Past = rowLInHope.Cells[4];
+            cellLInHope2Past.Format.Font.Size = 6.5;
+            cellLInHope2Past.VerticalAlignment = VerticalAlignment.Center;
+            var lInHope2Past = db.Clothings.Where(c => c.PM_Number == 2 && c.PositionID == 31 && c.StatusID == 3).Select(c => c.Age).Average();
+            lInHope2Past = lInHope2Past != null ? Math.Round((double)lInHope2Past) : 0;
+            cellLInHope2Past.AddParagraph($"{lInHope2Past}");
+
+            var cellLInHope2Current = rowLInHope.Cells[5];
+            cellLInHope2Current.Format.Font.Size = 6.5;
+            cellLInHope2Current.VerticalAlignment = VerticalAlignment.Center;
+            var lInHope2Age = 0;
+            if (clothingLInHope2 != null)
+            {
+                lInHope2Age = clothingLInHope2.Age != null ? Convert.ToInt32(clothingLInHope2.Age) : 0;
+            }
+            cellLInHope2Current.AddParagraph($"{lInHope2Age}");
+
+            var cellLInHope2Goal = rowLInHope.Cells[6];
+            cellLInHope2Goal.Format.Font.Size = 6.5;
+            cellLInHope2Goal.VerticalAlignment = VerticalAlignment.Center;
+            var lInHope2Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 2 && g.PositionID == 31);
+            cellLInHope2Goal.AddParagraph($"{lInHope2Goal.Goal1}");
+
+            var cellLInHope2Info = rowLInHope2.Cells[4];
+            cellLInHope2Info.Format.Font.Size = 6.5;
+            cellLInHope2Info.MergeRight = 2;
+            cellLInHope2Info.VerticalAlignment = VerticalAlignment.Center;
+            cellLInHope2Info.Shading.Color = Colors.LightBlue;
+            if (clothingLInHope2 != null)
+            {
+                cellLInHope2Info.AddParagraph($"{clothingLInHope2.Manufacturer} {clothingLInHope2.Serial_Number}");
+            }
+            else cellLInHope2Info.AddParagraph("NA");
+            #endregion
+
+            #region L_In Hope Roll PM 3
+            // ----- L_In Hope Roll Position PM 3 ----- //
+            var cellLInHope3Past = rowLInHope.Cells[7];
+            cellLInHope3Past.Format.Font.Size = 6.5;
+            cellLInHope3Past.VerticalAlignment = VerticalAlignment.Center;
+            var lInHope3Past = db.Clothings.Where(c => c.PM_Number == 3 && c.PositionID == 31 && c.StatusID == 3).Select(c => c.Age).Average();
+            lInHope3Past = lInHope3Past != null ? Math.Round((double)lInHope3Past) : 0;
+            cellLInHope3Past.AddParagraph($"{lInHope3Past}");
+
+            var cellLInHope3Current = rowLInHope.Cells[8];
+            cellLInHope3Current.Format.Font.Size = 6.5;
+            cellLInHope3Current.VerticalAlignment = VerticalAlignment.Center;
+            var lInHope3Age = 0;
+            if (clothingLInHope3 != null)
+            {
+                lInHope3Age = clothingLInHope3.Age != null ? Convert.ToInt32(clothingLInHope3.Age) : 0;
+            }
+            cellLInHope3Current.AddParagraph($"{lInHope3Age}");
+
+            var cellLInHope3Goal = rowLInHope.Cells[9];
+            cellLInHope3Goal.Format.Font.Size = 6.5;
+            cellLInHope3Goal.VerticalAlignment = VerticalAlignment.Center;
+            var lInHope3Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 3 && g.PositionID == 31);
+            cellLInHope3Goal.AddParagraph($"{lInHope3Goal.Goal1}");
+
+            var cellLInHope3Info = rowLInHope2.Cells[7];
+            cellLInHope3Info.Format.Font.Size = 6.5;
+            cellLInHope3Info.MergeRight = 2;
+            cellLInHope3Info.VerticalAlignment = VerticalAlignment.Center;
+            cellLInHope3Info.Shading.Color = Colors.LightBlue;
+            if (clothingLInHope3 != null)
+            {
+                cellLInHope3Info.AddParagraph($"{clothingLInHope3.Manufacturer} {clothingLInHope3.Serial_Number}");
+            }
+            else cellLInHope3Info.AddParagraph("NA");
+            #endregion
+
+            #region L_In Hope Roll PM 4
+            // ----- L_In Hope Roll Position PM 4 ----- //
+            var cellLInHope4Past = rowLInHope.Cells[10];
+            cellLInHope4Past.Format.Font.Size = 6.5;
+            cellLInHope4Past.VerticalAlignment = VerticalAlignment.Center;
+            var lInHope4Past = db.Clothings.Where(c => c.PM_Number == 4 && c.PositionID == 31 && c.StatusID == 3).Select(c => c.Age).Average();
+            lInHope4Past = lInHope4Past != null ? Math.Round((double)lInHope4Past) : 0;
+            cellLInHope4Past.AddParagraph($"{lInHope4Past}");
+
+            var cellLInHope4Current = rowLInHope.Cells[11];
+            cellLInHope4Current.Format.Font.Size = 6.5;
+            cellLInHope4Current.VerticalAlignment = VerticalAlignment.Center;
+            var lInHope4Age = 0;
+            if (clothingLInHope4 != null)
+            {
+                lInHope4Age = clothingLInHope4.Age != null ? Convert.ToInt32(clothingLInHope4.Age) : 0;
+            }
+            cellLInHope4Current.AddParagraph($"{lInHope4Age}");
+
+            var cellLInHope4Goal = rowLInHope.Cells[12];
+            cellLInHope4Goal.Format.Font.Size = 6.5;
+            cellLInHope4Goal.VerticalAlignment = VerticalAlignment.Center;
+            var lInHope4Goal = db.Goals.SingleOrDefault(g => g.PM_ID == 4 && g.PositionID == 31);
+            cellLInHope4Goal.AddParagraph($"{lInHope4Goal.Goal1}");
+
+            var cellLInHope4Info = rowLInHope2.Cells[10];
+            cellLInHope4Info.Format.Font.Size = 6.5;
+            cellLInHope4Info.MergeRight = 2;
+            cellLInHope4Info.VerticalAlignment = VerticalAlignment.Center;
+            cellLInHope4Info.Shading.Color = Colors.LightBlue;
+            if (clothingLInHope4 != null)
+            {
+                cellLInHope4Info.AddParagraph($"{clothingLInHope4.Manufacturer} {clothingLInHope4.Serial_Number}");
+            }
+            else cellLInHope4Info.AddParagraph("NA");
+            #endregion
+
+            #endregion // L_In Hope Roll Position
+
+            #region L_Out Hope Roll Position
+
+            #endregion // L_Out Hope Roll Position
+
+            #region Bottom Press Wringer Position
+
+            #endregion // Bottom Press Wringer Position
+
+            #region Top Press Wringer Position
+
+            #endregion // Top Press Wringer Position
+
+            #region Couch Paper Roll Position
+
+            #endregion // Couch Paper Roll Position
 
             return weeklyPMTable;
         }

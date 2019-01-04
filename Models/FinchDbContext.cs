@@ -30,6 +30,18 @@ namespace Finch_Inventory.Models
                 .Property(e => e.Dimensions)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Clothing>()
+                .Property(e => e.CurrentDia)
+                .HasPrecision(5, 3);
+
+            modelBuilder.Entity<Clothing>()
+                .Property(e => e.MinDia)
+                .HasPrecision(5, 3);
+
+            modelBuilder.Entity<Clothing>()
+                .Property(e => e.Crown)
+                .HasPrecision(5, 3);
+
             modelBuilder.Entity<Machine>()
                 .HasMany(e => e.Clothings)
                 .WithRequired(e => e.Machine)

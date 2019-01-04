@@ -46,6 +46,31 @@ namespace Finch_Inventory.Models
 
         public int RollTypeID { get; set; }
 
+        public int? RollWeight { get; set; }
+
+        public decimal? CurrentDia { get; set; }
+
+        public decimal? MinDia { get; set; }
+
+        public decimal? Crown { get; set; }
+
+        [StringLength(50)]
+        public string CoverMaterial { get; set; }
+
+        [StringLength(50)]
+        public string HoleGroovePattern { get; set; }
+
+        public int? SpecifiedHardness { get; set; }
+
+        public int? MeasuredHardness { get; set; }
+
+        public int? SpecifiedRa { get; set; }
+
+        public int? MeasuredRa { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? CoverDate { get; set; }
+
         public virtual Location Location { get; set; }
 
         public virtual Machine Machine { get; set; }

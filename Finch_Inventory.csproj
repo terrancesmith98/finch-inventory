@@ -219,6 +219,8 @@
     <Content Include="Content\Reports\Finch_Weekly_PM_Report.pdf" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Properties\PublishProfiles\FTPFinch.pubxml" />
+    <None Include="Properties\PublishProfiles\Staging.pubxml" />
+    <None Include="Properties\PublishProfiles\TestFolderDeploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
