@@ -20,11 +20,13 @@ namespace Finch_Inventory.Controllers
 #if (!DEBUG)
             var manager = new ActiveDirectoryManager();
             var currWinUser = manager.GetCurrentWindowUser();
+            var currUser = db.Users.SingleOrDefault(u => u.UserName == currWinUser.EmailAddress);
 #endif
 #if (DEBUG)
             var currWinUser = "tsmith@otiservices.com";
-#endif
             var currUser = db.Users.SingleOrDefault(u => u.UserName == currWinUser);
+#endif
+
 
             var roles = db.UserRoles.Where(r => r.UserID == currUser.ID).Select(r => r.RoleID).ToList();
             ViewBag.CurrUser = currUser;
