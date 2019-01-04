@@ -36,6 +36,12 @@
                             <a class="nav-link" href="~/Users/Index" id="users-link">Users</a>
                         </li>
                     }
+                    if (ViewBag.UserRoles.Contains(3) || ViewBag.UserRoles.Contains(4))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Goals/Index" id="goals-link">Goals</a>
+                        </li>
+                    }
                 }
 
             </ul>
@@ -72,6 +78,11 @@
             if (window.location.href.indexOf("Users") > -1) {
                 $('#users-link').addClass('active');
                 $('#users-link').siblings().removeClass('active');
+            }
+
+            if (window.location.href.indexOf("Goals") > -1) {
+                $('#goals-link').addClass('active');
+                $('#goals-link').siblings().removeClass('active');
             }
 
             if (window.location.href.indexOf("Home") > -1) {

@@ -102,8 +102,8 @@ C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\de\MigraDoc.Ren
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\de\MigraDoc.RtfRendering.resources.dll
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\de\PdfSharp.resources.dll
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\bin\de\PdfSharp.Charting.resources.dll
+C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\obj\Debug\Finch_Inventory.csprojAssemblyReference.cache
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\obj\Debug\Finch_Inventory.csproj.CoreCompileInputs.cache
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\obj\Debug\Finch_Inventory.csproj.CopyComplete
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\obj\Debug\Finch_Inventory.dll
 C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\obj\Debug\Finch_Inventory.pdb
-C:\Users\tsmith.OTI\Projects\Finch_Inventory\Finch_Inventory\obj\Debug\Finch_Inventory.csprojAssemblyReference.cache
