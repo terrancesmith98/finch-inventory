@@ -288,7 +288,16 @@ namespace Finch_Inventory.Custom_Classes
             var cellWire1Age = 0;
             if (clothingWire1 != null)
             {
-                cellWire1Age = clothingWire1.Age != null ? Convert.ToInt32(clothingWire1.Age) : 0;
+                if (clothingWire1.Age > 0)
+                {
+                    cellWire1Age = Convert.ToInt32(clothingWire1.Age);
+                }
+                else if (clothingWire1.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingWire1.Date_Placed_On_Mac;
+                    cellWire1Age = age.Days;
+                }
+                else cellWire1Age = 0;
             }
 
             cellWire1Current.AddParagraph($"{cellWire1Age}");
@@ -326,7 +335,16 @@ namespace Finch_Inventory.Custom_Classes
             var cellWire2Age = 0;
             if (clothingWire2 != null)
             {
-                cellWire2Age = clothingWire2.Age != null ? Convert.ToInt32(clothingWire2.Age) : 0;
+                if (clothingWire2.Age > 0)
+                {
+                    cellWire2Age = Convert.ToInt32(clothingWire2.Age);
+                }
+                else if (clothingWire2.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingWire2.Date_Placed_On_Mac;
+                    cellWire2Age = age.Days;
+                }
+                else cellWire2Age = 0;
             }
 
             cellWire2Current.AddParagraph($"{cellWire2Age}");
@@ -363,7 +381,16 @@ namespace Finch_Inventory.Custom_Classes
             var cellWire3Age = 0;
             if (clothingWire3 != null)
             {
-                cellWire3Age = clothingWire3.Age != null ? Convert.ToInt32(clothingWire3.Age) : 0;
+                if (clothingWire3.Age > 0)
+                {
+                    cellWire3Age = Convert.ToInt32(clothingWire3.Age);
+                }
+                else if (clothingWire3.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingWire3.Date_Placed_On_Mac;
+                    cellWire3Age = age.Days;
+                }
+                else cellWire3Age = 0;
             }
 
             cellWire3Current.AddParagraph($"{cellWire3Age}");
@@ -400,7 +427,16 @@ namespace Finch_Inventory.Custom_Classes
             var cellWire4Age = 0;
             if (clothingWire4 != null)
             {
-                cellWire4Age = clothingWire4.Age != null ? Convert.ToInt32(clothingWire4.Age) : 0;
+                if (clothingWire4.Age > 0)
+                {
+                    cellWire4Age = Convert.ToInt32(clothingWire4.Age);
+                }
+                else if (clothingWire4.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingWire4.Date_Placed_On_Mac;
+                    cellWire4Age = age.Days;
+                }
+                else cellWire4Age = 0;
             }
 
             cellWire4Current.AddParagraph($"{cellWire4Age}");
@@ -464,7 +500,16 @@ namespace Finch_Inventory.Custom_Classes
             var firstPress1Age = 0;
             if (clothingFirstPress1 != null)
             {
-                firstPress1Age = clothingFirstPress1.Age != null ? Convert.ToInt32(clothingFirstPress1.Age) : 0;
+                if (clothingFirstPress1.Age > 0)
+                {
+                    firstPress1Age = Convert.ToInt32(clothingFirstPress1.Age);
+                }
+                else if (clothingFirstPress1.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingFirstPress1.Date_Placed_On_Mac;
+                    firstPress1Age = age.Days;
+                }
+                else firstPress1Age = 0;
             }
 
             cell1Press1Current.AddParagraph($"{firstPress1Age}");
@@ -501,7 +546,16 @@ namespace Finch_Inventory.Custom_Classes
             var firstPress2Age = 0;
             if (clothingFirstPress2 != null)
             {
-                firstPress2Age = clothingFirstPress2.Age != null ? Convert.ToInt32(clothingFirstPress2.Age) : 0;
+                if (clothingFirstPress2.Age > 0)
+                {
+                    firstPress2Age = Convert.ToInt32(clothingFirstPress2.Age);
+                }
+                else if (clothingFirstPress2.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingFirstPress2.Date_Placed_On_Mac;
+                    firstPress2Age = age.Days;
+                }
+                else firstPress2Age = 0;
             }
 
             cell1Press2Current.AddParagraph($"{firstPress2Age}");
@@ -538,7 +592,16 @@ namespace Finch_Inventory.Custom_Classes
             var firstPress3Age = 0;
             if (clothingFirstPress3 != null)
             {
-                firstPress3Age = clothingFirstPress3.Age != null ? Convert.ToInt32(clothingFirstPress3.Age) : 0;
+                if (clothingFirstPress3.Age > 0)
+                {
+                    firstPress3Age = Convert.ToInt32(clothingFirstPress3.Age);
+                }
+                else if (clothingFirstPress3.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingFirstPress3.Date_Placed_On_Mac;
+                    firstPress3Age = age.Days;
+                }
+                else firstPress3Age = 0;
             }
 
             cell1Press3Current.AddParagraph($"{firstPress3Age}");
@@ -575,7 +638,16 @@ namespace Finch_Inventory.Custom_Classes
             var firstPress4Age = 0;
             if (clothingFirstPress4 != null)
             {
-                firstPress4Age = clothingFirstPress4.Age != null ? Convert.ToInt32(clothingFirstPress4.Age) : 0;
+                if (clothingFirstPress4.Age > 0)
+                {
+                    firstPress4Age = Convert.ToInt32(clothingFirstPress4.Age);
+                }
+                else if (clothingFirstPress4.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingFirstPress4.Date_Placed_On_Mac;
+                    firstPress4Age = age.Days;
+                }
+                else firstPress4Age = 0;
             }
 
             cell1Press4Current.AddParagraph($"{firstPress4Age}");
@@ -637,7 +709,16 @@ namespace Finch_Inventory.Custom_Classes
             var secondPress1Age = 0;
             if (clothingSecondPress1 != null)
             {
-                secondPress1Age = clothingSecondPress1.Age != null ? Convert.ToInt32(clothingSecondPress1.Age) : 0;
+                if (clothingSecondPress1.Age > 0)
+                {
+                    secondPress1Age = Convert.ToInt32(clothingSecondPress1.Age);
+                }
+                else if (clothingSecondPress1.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingSecondPress1.Date_Placed_On_Mac;
+                    secondPress1Age = age.Days;
+                }
+                else secondPress1Age = 0;
             }
 
             cell2Press1Current.AddParagraph($"{secondPress1Age}");
@@ -674,7 +755,16 @@ namespace Finch_Inventory.Custom_Classes
             var secondPress2Age = 0;
             if (clothingSecondPress2 != null)
             {
-                secondPress2Age = clothingSecondPress2.Age != null ? Convert.ToInt32(clothingSecondPress2.Age) : 0;
+                if (clothingSecondPress2.Age > 0)
+                {
+                    secondPress2Age = Convert.ToInt32(clothingSecondPress2.Age);
+                }
+                else if (clothingSecondPress2.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingSecondPress2.Date_Placed_On_Mac;
+                    secondPress2Age = age.Days;
+                }
+                else secondPress2Age = 0;
             }
 
             cell2Press2Current.AddParagraph($"{secondPress2Age}");
@@ -711,7 +801,16 @@ namespace Finch_Inventory.Custom_Classes
             var secondPress3Age = 0;
             if (clothingSecondPress3 != null)
             {
-                secondPress3Age = clothingSecondPress3.Age != null ? Convert.ToInt32(clothingSecondPress3.Age) : 0;
+                if (clothingSecondPress3.Age > 0)
+                {
+                    secondPress3Age = Convert.ToInt32(clothingSecondPress3.Age);
+                }
+                else if (clothingSecondPress3.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingSecondPress3.Date_Placed_On_Mac;
+                    secondPress3Age = age.Days;
+                }
+                else secondPress3Age = 0;
             }
 
             cell2Press3Current.AddParagraph($"{secondPress3Age}");
@@ -748,8 +847,18 @@ namespace Finch_Inventory.Custom_Classes
             var secondPress4Age = 0;
             if (clothingSecondPress4 != null)
             {
-                secondPress4Age = clothingSecondPress4.Age != null ? Convert.ToInt32(clothingSecondPress4.Age) : 0;
+                if (clothingSecondPress4.Age > 0)
+                {
+                    secondPress4Age = Convert.ToInt32(clothingSecondPress4.Age);
+                }
+                else if (clothingSecondPress4.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingSecondPress4.Date_Placed_On_Mac;
+                    secondPress4Age = age.Days;
+                }
+                else secondPress4Age = 0;
             }
+
             cell2Press4Current.AddParagraph($"{secondPress4Age}");
 
             var cell2Press4Goal = rowSecondPress.Cells[12];
@@ -810,7 +919,16 @@ namespace Finch_Inventory.Custom_Classes
             var thirdPress1Age = 0;
             if (clothingThirdPress1 != null)
             {
-                thirdPress1Age = clothingThirdPress1.Age != null ? Convert.ToInt32(clothingThirdPress1.Age) : 0;
+                if (clothingThirdPress1.Age > 0)
+                {
+                    thirdPress1Age = Convert.ToInt32(clothingThirdPress1.Age);
+                }
+                else if (clothingThirdPress1.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingThirdPress1.Date_Placed_On_Mac;
+                    thirdPress1Age = age.Days;
+                }
+                else thirdPress1Age = 0;
             }
 
             cell3Press1Current.AddParagraph($"{thirdPress1Age}");
@@ -847,7 +965,16 @@ namespace Finch_Inventory.Custom_Classes
             var thirdPress2Age = 0;
             if (clothingThirdPress2 != null)
             {
-                thirdPress2Age = clothingThirdPress2.Age != null ? Convert.ToInt32(clothingThirdPress2.Age) : 0;
+                if (clothingThirdPress2.Age > 0)
+                {
+                    thirdPress2Age = Convert.ToInt32(clothingThirdPress2.Age);
+                }
+                else if (clothingThirdPress2.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingThirdPress2.Date_Placed_On_Mac;
+                    thirdPress2Age = age.Days;
+                }
+                else thirdPress2Age = 0;
             }
 
             cell3Press2Current.AddParagraph($"{thirdPress2Age}");
@@ -884,7 +1011,16 @@ namespace Finch_Inventory.Custom_Classes
             var thirdPress3Age = 0;
             if (clothingThirdPress3 != null)
             {
-                thirdPress3Age = clothingThirdPress3.Age != null ? Convert.ToInt32(clothingThirdPress3.Age) : 0;
+                if (clothingThirdPress3.Age > 0)
+                {
+                    thirdPress3Age = Convert.ToInt32(clothingThirdPress3.Age);
+                }
+                else if (clothingThirdPress3.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingThirdPress3.Date_Placed_On_Mac;
+                    thirdPress3Age = age.Days;
+                }
+                else thirdPress3Age = 0;
             }
 
             cell3Press3Current.AddParagraph($"{thirdPress3Age}");
@@ -921,7 +1057,16 @@ namespace Finch_Inventory.Custom_Classes
             var thirdPress4Age = 0;
             if (clothingThirdPress4 != null)
             {
-                thirdPress4Age = clothingThirdPress4.Age != null ? Convert.ToInt32(clothingThirdPress4.Age) : 0;
+                if (clothingThirdPress4.Age > 0)
+                {
+                    thirdPress4Age = Convert.ToInt32(clothingThirdPress4.Age);
+                }
+                else if (clothingThirdPress4.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingThirdPress4.Date_Placed_On_Mac;
+                    thirdPress4Age = age.Days;
+                }
+                else thirdPress4Age = 0;
             }
 
             cell3Press4Current.AddParagraph($"{thirdPress4Age}");
@@ -983,7 +1128,16 @@ namespace Finch_Inventory.Custom_Classes
             var firstTopDryer1Age = 0;
             if (clothingFirstTopDryer1 != null)
             {
-                firstTopDryer1Age = clothingFirstTopDryer1.Age != null ? Convert.ToInt32(clothingFirstTopDryer1.Age) : 0;
+                if (clothingFirstTopDryer1.Age > 0)
+                {
+                    firstTopDryer1Age = Convert.ToInt32(clothingFirstTopDryer1.Age);
+                }
+                else if (clothingFirstTopDryer1.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingFirstTopDryer1.Date_Placed_On_Mac;
+                    firstTopDryer1Age = age.Days;
+                }
+                else firstTopDryer1Age = 0;
             }
 
             cellFirstTopDryer1Current.AddParagraph($"{firstTopDryer1Age}");
@@ -1020,7 +1174,16 @@ namespace Finch_Inventory.Custom_Classes
             var firstTopDryer2Age = 0;
             if (clothingFirstTopDryer2 != null)
             {
-                firstTopDryer2Age = clothingFirstTopDryer2.Age != null ? Convert.ToInt32(clothingFirstTopDryer2.Age) : 0;
+                if (clothingFirstTopDryer2.Age > 0)
+                {
+                    firstTopDryer2Age = Convert.ToInt32(clothingFirstTopDryer2.Age);
+                }
+                else if (clothingFirstTopDryer2.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingFirstTopDryer2.Date_Placed_On_Mac;
+                    firstTopDryer2Age = age.Days;
+                }
+                else firstTopDryer2Age = 0;
             }
 
             cellFirstTopDryer2Current.AddParagraph($"{firstTopDryer2Age}");
@@ -1057,7 +1220,16 @@ namespace Finch_Inventory.Custom_Classes
             var firstTopDryer3Age = 0;
             if (clothingFirstTopDryer3 != null)
             {
-                firstTopDryer3Age = clothingFirstTopDryer3.Age != null ? Convert.ToInt32(clothingFirstTopDryer3.Age) : 0;
+                if (clothingFirstTopDryer3.Age > 0)
+                {
+                    firstTopDryer3Age = Convert.ToInt32(clothingFirstTopDryer3.Age);
+                }
+                else if (clothingFirstTopDryer3.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingFirstTopDryer3.Date_Placed_On_Mac;
+                    firstTopDryer3Age = age.Days;
+                }
+                else firstTopDryer3Age = 0;
             }
 
             cellFirstTopDryer3Current.AddParagraph($"{firstTopDryer3Age}");
@@ -1094,7 +1266,16 @@ namespace Finch_Inventory.Custom_Classes
             var firstTopDryer4Age = 0;
             if (clothingFirstTopDryer4 != null)
             {
-                firstTopDryer4Age = clothingFirstTopDryer4.Age != null ? Convert.ToInt32(clothingFirstTopDryer4.Age) : 0;
+                if (clothingFirstTopDryer4.Age > 0)
+                {
+                    firstTopDryer4Age = Convert.ToInt32(clothingFirstTopDryer4.Age);
+                }
+                else if (clothingFirstTopDryer4.Date_Placed_On_Mac != null)
+                {
+                    var age = DateTime.Now - (DateTime)clothingFirstTopDryer4.Date_Placed_On_Mac;
+                    firstTopDryer4Age = age.Days;
+                }
+                else firstTopDryer4Age = 0;
             }
 
             cellFirstTopDryer4Current.AddParagraph($"{firstTopDryer4Age}");
@@ -1361,7 +1542,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdTopDryer2Past = row3rdTopDryer.Cells[4];
             cell3rdTopDryer2Past.Format.Font.Size = 6.5;
             cell3rdTopDryer2Past.VerticalAlignment = VerticalAlignment.Center;
-            var thirdTopDryer2Past = db.Clothings.Where(c => c.PM_Number == 2  && c.PositionID == 8 && c.StatusID == 3).Select(c => c.Age).Average();
+            var thirdTopDryer2Past = db.Clothings.Where(c => c.PM_Number == 2 && c.PositionID == 8 && c.StatusID == 3).Select(c => c.Age).Average();
             thirdTopDryer2Past = thirdTopDryer2Past != null ? Math.Round((double)thirdTopDryer2Past) : 0;
             cell3rdTopDryer2Past.AddParagraph($"{thirdTopDryer2Past}");
 
