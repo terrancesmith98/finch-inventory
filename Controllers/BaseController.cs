@@ -17,14 +17,14 @@ namespace Finch_Inventory.Controllers
             db.Dispose();
             db = new FinchDbContext();
             var inventory = db.Clothings.ToList();
-#if (!DEBUG)
+
             var manager = new ActiveDirectoryManager();
             var currWinUser = manager.GetCurrentWindowUser();
-            var currUser = db.Users.SingleOrDefault(u => u.UserName == currWinUser.EmailAddress);
-#endif
+            var currUser = db.Users.SingleOrDefault(u => u.UserName == currWinUser.UserPrincipalName);
+
 #if (DEBUG)
-            var currWinUser = "tsmith@otiservices.com";
-            var currUser = db.Users.SingleOrDefault(u => u.UserName == currWinUser);
+            //var currWinUser = "tsmith@otiservices.com";
+            //var currUser = db.Users.SingleOrDefault(u => u.UserName == currWinUser);
 #endif
 
 
