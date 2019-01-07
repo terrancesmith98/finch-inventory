@@ -84,7 +84,7 @@ namespace Finch_Inventory.Custom_Classes
             return auditTable;
         }
 
-        internal static Table BuildWeeklyPMTable(List<Clothing> clothings)
+        internal static Table BuildWeeklyPMClothingTable(List<Clothing> clothings)
         {
             var weeklyPMTable = new Table
             {
@@ -1744,11 +1744,188 @@ namespace Finch_Inventory.Custom_Classes
 
             #endregion // 4th Bottom Dryer Position
 
+            
+
+            return weeklyPMTable;
+        }
+
+        internal static Table BuildWeeklyPMRollsTable(List<Clothing> clothings)
+        {
+            var weeklyPMTable = new Table
+            {
+                Style = "Table"
+            };
+            weeklyPMTable.Borders.Width = .075;
+            weeklyPMTable.Rows.Alignment = RowAlignment.Left;
+            weeklyPMTable.Rows.LeftIndent = 20;
+
+            #region Header Columns
+            //define header columns
+            var posCol = weeklyPMTable.AddColumn(Unit.FromCentimeter(3.5));
+            posCol.Format.Alignment = ParagraphAlignment.Center;
+            posCol.Format.Font.Size = 6.5;
+
+            var pm1Col = weeklyPMTable.AddColumn(Unit.FromCentimeter(1.5));
+            pm1Col.Format.Alignment = ParagraphAlignment.Center;
+            pm1Col.Format.Font.Size = 6.5;
+
+            var pm1Colb = weeklyPMTable.AddColumn(Unit.FromCentimeter(1.5));
+            pm1Colb.Format.Alignment = ParagraphAlignment.Center;
+            pm1Colb.Format.Font.Size = 6.5;
+
+            var pm1Colc = weeklyPMTable.AddColumn(Unit.FromCentimeter(1.5));
+            pm1Colc.Format.Alignment = ParagraphAlignment.Center;
+            pm1Colc.Format.Font.Size = 6.5;
+
+            var pm2col = weeklyPMTable.AddColumn(Unit.FromCentimeter(1.5));
+            pm2col.Format.Alignment = ParagraphAlignment.Center;
+            pm2col.Format.Font.Size = 6.5;
+
+            var pm2colb = weeklyPMTable.AddColumn(Unit.FromCentimeter(1.5));
+            pm2colb.Format.Alignment = ParagraphAlignment.Center;
+            pm2colb.Format.Font.Size = 6.5;
+
+            var pm2colc = weeklyPMTable.AddColumn(Unit.FromCentimeter(1.5));
+            pm2colc.Format.Alignment = ParagraphAlignment.Center;
+            pm2colc.Format.Font.Size = 6.5;
+
+            var pm3col = weeklyPMTable.AddColumn(Unit.FromCentimeter(1.5));
+            pm3col.Format.Alignment = ParagraphAlignment.Center;
+            pm3col.Format.Font.Size = 6.5;
+
+            var pm3colb = weeklyPMTable.AddColumn(Unit.FromCentimeter(1.5));
+            pm3colb.Format.Alignment = ParagraphAlignment.Center;
+            pm3colb.Format.Font.Size = 6.5;
+
+            var pm3colc = weeklyPMTable.AddColumn(Unit.FromCentimeter(1.5));
+            pm3colc.Format.Alignment = ParagraphAlignment.Center;
+            pm3colc.Format.Font.Size = 6.5;
+
+            var pm4col = weeklyPMTable.AddColumn(Unit.FromCentimeter(1.5));
+            pm4col.Format.Alignment = ParagraphAlignment.Center;
+            pm4col.Format.Font.Size = 6.5;
+
+            var pm4colb = weeklyPMTable.AddColumn(Unit.FromCentimeter(1.5));
+            pm4colb.Format.Alignment = ParagraphAlignment.Center;
+            pm4colb.Format.Font.Size = 6.5;
+
+            var pm4colc = weeklyPMTable.AddColumn(Unit.FromCentimeter(1.5));
+            pm4colc.Format.Alignment = ParagraphAlignment.Center;
+            pm4colc.Format.Font.Size = 6.5;
+
+            #endregion
+
+            #region Header Rows
+
+            //define headers row
+            var headers = weeklyPMTable.AddRow();
+            headers.Shading.Color = Colors.LightGray;
+            headers.Height = 15;
+
+            //define header row cells
+            var posHeader = headers.Cells[0];
+            posHeader.Format.Font.Size = 6.5;
+            posHeader.VerticalAlignment = VerticalAlignment.Center;
+            posHeader.MergeDown = 1;
+            posHeader.AddParagraph("Position");
+
+            var pm1Header = headers.Cells[1];
+            pm1Header.Format.Font.Size = 6.5;
+            pm1Header.MergeRight = 2;
+            pm1Header.VerticalAlignment = VerticalAlignment.Center;
+            pm1Header.AddParagraph("#1 PM Days Run");
+
+            var pm2Header = headers.Cells[4];
+            pm2Header.Format.Font.Size = 6.5;
+            pm2Header.MergeRight = 2;
+            pm2Header.VerticalAlignment = VerticalAlignment.Center;
+            pm2Header.AddParagraph("#2 PM Days Run");
+
+            var pm3Header = headers.Cells[7];
+            pm3Header.Format.Font.Size = 6.5;
+            pm3Header.MergeRight = 2;
+            pm3Header.VerticalAlignment = VerticalAlignment.Center;
+            pm3Header.AddParagraph("#3 PM Days Run");
+
+            var pm4Header = headers.Cells[10];
+            pm4Header.Format.Font.Size = 6.5;
+            pm4Header.MergeRight = 2;
+            pm4Header.VerticalAlignment = VerticalAlignment.Center;
+            pm4Header.AddParagraph("#4 PM Days Run");
+
+            //define header row 2
+            var headers2 = weeklyPMTable.AddRow();
+            headers2.Height = 10;
+
+            //define 2nd header row cells
+            var pm1PastHeader = headers2.Cells[1];
+            pm1PastHeader.Format.Font.Size = 6.5;
+            pm1PastHeader.VerticalAlignment = VerticalAlignment.Center;
+            pm1PastHeader.AddParagraph("PAST");
+
+            var pm1CurrentHeader = headers2.Cells[2];
+            pm1CurrentHeader.Format.Font.Size = 6.5;
+            pm1CurrentHeader.VerticalAlignment = VerticalAlignment.Center;
+            pm1CurrentHeader.AddParagraph("CURRENT");
+
+            var pm1GoalHeader = headers2.Cells[3];
+            pm1GoalHeader.Format.Font.Size = 6.5;
+            pm1GoalHeader.VerticalAlignment = VerticalAlignment.Center;
+            pm1GoalHeader.AddParagraph("GOAL");
+
+            var pm2PastHeader = headers2.Cells[4];
+            pm2PastHeader.Format.Font.Size = 6.5;
+            pm2PastHeader.VerticalAlignment = VerticalAlignment.Center;
+            pm2PastHeader.AddParagraph("PAST");
+
+            var pm2CurrentHeader = headers2.Cells[5];
+            pm2CurrentHeader.Format.Font.Size = 6.5;
+            pm2CurrentHeader.VerticalAlignment = VerticalAlignment.Center;
+            pm2CurrentHeader.AddParagraph("CURRENT");
+
+            var pm2GoalHeader = headers2.Cells[6];
+            pm2GoalHeader.Format.Font.Size = 6.5;
+            pm2GoalHeader.VerticalAlignment = VerticalAlignment.Center;
+            pm2GoalHeader.AddParagraph("GOAL");
+
+            var pm3PastHeader = headers2.Cells[7];
+            pm3PastHeader.Format.Font.Size = 6.5;
+            pm3PastHeader.VerticalAlignment = VerticalAlignment.Center;
+            pm3PastHeader.AddParagraph("PAST");
+
+            var pm3CurrentHeader = headers2.Cells[8];
+            pm3CurrentHeader.Format.Font.Size = 6.5;
+            pm3CurrentHeader.VerticalAlignment = VerticalAlignment.Center;
+            pm3CurrentHeader.AddParagraph("CURRENT");
+
+            var pm3GoalHeader = headers2.Cells[9];
+            pm3GoalHeader.Format.Font.Size = 6.5;
+            pm3GoalHeader.VerticalAlignment = VerticalAlignment.Center;
+            pm3GoalHeader.AddParagraph("GOAL");
+
+            var pm4PastHeader = headers2.Cells[10];
+            pm4PastHeader.Format.Font.Size = 6.5;
+            pm4PastHeader.VerticalAlignment = VerticalAlignment.Center;
+            pm4PastHeader.AddParagraph("PAST");
+
+            var pm4CurrentHeader = headers2.Cells[11];
+            pm4CurrentHeader.Format.Font.Size = 6.5;
+            pm4CurrentHeader.VerticalAlignment = VerticalAlignment.Center;
+            pm4CurrentHeader.AddParagraph("CURRENT");
+
+            var pm4GoalHeader = headers2.Cells[12];
+            pm4GoalHeader.Format.Font.Size = 6.5;
+            pm4GoalHeader.VerticalAlignment = VerticalAlignment.Center;
+            pm4GoalHeader.AddParagraph("GOAL");
+            #endregion
+
+            //Rolls start here
+
             #region Breast Roll Position
             // add spacer row
-            spacer = weeklyPMTable.AddRow();
+            var spacer = weeklyPMTable.AddRow();
             spacer.Height = 12;
-            cellSpacer = spacer.Cells[0];
+            var cellSpacer = spacer.Cells[0];
             cellSpacer.MergeRight = 12;
             cellSpacer.AddParagraph("");
 
@@ -1772,7 +1949,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellBreast1Past = rowBreast.Cells[1];
             cellBreast1Past.Format.Font.Size = 6.5;
             cellBreast1Past.VerticalAlignment = VerticalAlignment.Center;
-            cellBreast1Past.AddParagraph($"{GetPastAverage(1,14)}");
+            cellBreast1Past.AddParagraph($"{GetPastAverage(1, 14)}");
 
             var cellBreast1Current = rowBreast.Cells[2];
             cellBreast1Current.Format.Font.Size = 6.5;
@@ -1782,7 +1959,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellBreast1Goal = rowBreast.Cells[3];
             cellBreast1Goal.Format.Font.Size = 6.5;
             cellBreast1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellBreast1Goal.AddParagraph($"{GetPositionGoal(1,14)}");
+            cellBreast1Goal.AddParagraph($"{GetPositionGoal(1, 14)}");
 
             var cellBreast1Info = rowBreast2.Cells[1];
             cellBreast1Info.Format.Font.Size = 6.5;
@@ -1797,7 +1974,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellBreast2Past = rowBreast.Cells[4];
             cellBreast2Past.Format.Font.Size = 6.5;
             cellBreast2Past.VerticalAlignment = VerticalAlignment.Center;
-            cellBreast2Past.AddParagraph($"{GetPastAverage(2,14)}");
+            cellBreast2Past.AddParagraph($"{GetPastAverage(2, 14)}");
 
             var cellBreast2Current = rowBreast.Cells[5];
             cellBreast2Current.Format.Font.Size = 6.5;
@@ -1807,7 +1984,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellBreast2Goal = rowBreast.Cells[6];
             cellBreast2Goal.Format.Font.Size = 6.5;
             cellBreast2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellBreast2Goal.AddParagraph($"{GetPositionGoal(2,14)}");
+            cellBreast2Goal.AddParagraph($"{GetPositionGoal(2, 14)}");
 
             var cellBreast2Info = rowBreast2.Cells[4];
             cellBreast2Info.Format.Font.Size = 6.5;
@@ -1822,7 +1999,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellBreast3Past = rowBreast.Cells[7];
             cellBreast3Past.Format.Font.Size = 6.5;
             cellBreast3Past.VerticalAlignment = VerticalAlignment.Center;
-            cellBreast3Past.AddParagraph($"{GetPastAverage(3,13)}");
+            cellBreast3Past.AddParagraph($"{GetPastAverage(3, 13)}");
 
             var cellBreast3Current = rowBreast.Cells[8];
             cellBreast3Current.Format.Font.Size = 6.5;
@@ -1832,7 +2009,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellBreast3Goal = rowBreast.Cells[9];
             cellBreast3Goal.Format.Font.Size = 6.5;
             cellBreast3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellBreast3Goal.AddParagraph($"{GetPositionGoal(3,14)}");
+            cellBreast3Goal.AddParagraph($"{GetPositionGoal(3, 14)}");
 
             var cellBreast3Info = rowBreast2.Cells[7];
             cellBreast3Info.Format.Font.Size = 6.5;
@@ -1847,7 +2024,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellBreast4Past = rowBreast.Cells[10];
             cellBreast4Past.Format.Font.Size = 6.5;
             cellBreast4Past.VerticalAlignment = VerticalAlignment.Center;
-            cellBreast4Past.AddParagraph($"{GetPastAverage(4,14)}");
+            cellBreast4Past.AddParagraph($"{GetPastAverage(4, 14)}");
 
             var cellBreast4Current = rowBreast.Cells[11];
             cellBreast4Current.Format.Font.Size = 6.5;
@@ -1857,7 +2034,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellBreast4Goal = rowBreast.Cells[12];
             cellBreast4Goal.Format.Font.Size = 6.5;
             cellBreast4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellBreast4Goal.AddParagraph($"{GetPositionGoal(3,14)}");
+            cellBreast4Goal.AddParagraph($"{GetPositionGoal(3, 14)}");
 
             var cellBreast4Info = rowBreast2.Cells[10];
             cellBreast4Info.Format.Font.Size = 6.5;
@@ -1873,6 +2050,7 @@ namespace Finch_Inventory.Custom_Classes
             // add spacer row
             spacer = weeklyPMTable.AddRow();
             spacer.Height = 12;
+            cellSpacer = spacer.Cells[0];
             cellSpacer = spacer.Cells[0];
             cellSpacer.MergeRight = 12;
             cellSpacer.AddParagraph("");
@@ -1897,7 +2075,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellDandy1Past = rowDandy.Cells[1];
             cellDandy1Past.Format.Font.Size = 6.5;
             cellDandy1Past.VerticalAlignment = VerticalAlignment.Center;
-            cellDandy1Past.AddParagraph($"{GetPastAverage(1,15)}");
+            cellDandy1Past.AddParagraph($"{GetPastAverage(1, 15)}");
 
             var cellDandy1Current = rowDandy.Cells[2];
             cellDandy1Current.Format.Font.Size = 6.5;
@@ -1907,7 +2085,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellDandy1Goal = rowDandy.Cells[3];
             cellDandy1Goal.Format.Font.Size = 6.5;
             cellDandy1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellDandy1Goal.AddParagraph($"{GetPositionGoal(1,15)}");
+            cellDandy1Goal.AddParagraph($"{GetPositionGoal(1, 15)}");
 
             var cellDandy1Info = rowDandy2.Cells[1];
             cellDandy1Info.Format.Font.Size = 6.5;
@@ -1922,7 +2100,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellDandy2Past = rowDandy.Cells[4];
             cellDandy2Past.Format.Font.Size = 6.5;
             cellDandy2Past.VerticalAlignment = VerticalAlignment.Center;
-            cellDandy2Past.AddParagraph($"{GetPastAverage(2,15)}");
+            cellDandy2Past.AddParagraph($"{GetPastAverage(2, 15)}");
 
             var cellDandy2Current = rowDandy.Cells[5];
             cellDandy2Current.Format.Font.Size = 6.5;
@@ -1932,7 +2110,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellDandy2Goal = rowDandy.Cells[6];
             cellDandy2Goal.Format.Font.Size = 6.5;
             cellDandy2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellDandy2Goal.AddParagraph($"{GetPositionGoal(2,15)}");
+            cellDandy2Goal.AddParagraph($"{GetPositionGoal(2, 15)}");
 
             var cellDandy2Info = rowDandy2.Cells[4];
             cellDandy2Info.Format.Font.Size = 6.5;
@@ -1947,7 +2125,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellDandy3Past = rowDandy.Cells[7];
             cellDandy3Past.Format.Font.Size = 6.5;
             cellDandy3Past.VerticalAlignment = VerticalAlignment.Center;
-            cellDandy3Past.AddParagraph($"{GetPastAverage(3,15)}");
+            cellDandy3Past.AddParagraph($"{GetPastAverage(3, 15)}");
 
             var cellDandy3Current = rowDandy.Cells[8];
             cellDandy3Current.Format.Font.Size = 6.5;
@@ -1957,7 +2135,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellDandy3Goal = rowDandy.Cells[9];
             cellDandy3Goal.Format.Font.Size = 6.5;
             cellDandy3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellDandy3Goal.AddParagraph($"{GetPositionGoal(3,15)}");
+            cellDandy3Goal.AddParagraph($"{GetPositionGoal(3, 15)}");
 
             var cellDandy3Info = rowDandy2.Cells[7];
             cellDandy3Info.Format.Font.Size = 6.5;
@@ -1972,7 +2150,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellDandy4Past = rowDandy.Cells[10];
             cellDandy4Past.Format.Font.Size = 6.5;
             cellDandy4Past.VerticalAlignment = VerticalAlignment.Center;
-            cellDandy4Past.AddParagraph($"{GetPastAverage(4,15)}");
+            cellDandy4Past.AddParagraph($"{GetPastAverage(4, 15)}");
 
             var cellDandy4Current = rowDandy.Cells[11];
             cellDandy4Current.Format.Font.Size = 6.5;
@@ -1982,7 +2160,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellDandy4Goal = rowDandy.Cells[12];
             cellDandy4Goal.Format.Font.Size = 6.5;
             cellDandy4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellDandy4Goal.AddParagraph($"{GetPositionGoal(4,15)}");
+            cellDandy4Goal.AddParagraph($"{GetPositionGoal(4, 15)}");
 
             var cellDandy4Info = rowDandy2.Cells[10];
             cellDandy4Info.Format.Font.Size = 6.5;
@@ -2016,7 +2194,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLumpbreaker1Past = rowLumpbreaker.Cells[1];
             cellLumpbreaker1Past.Format.Font.Size = 6.5;
             cellLumpbreaker1Past.VerticalAlignment = VerticalAlignment.Center;
-            cellLumpbreaker1Past.AddParagraph($"{GetPastAverage(1,16)}");
+            cellLumpbreaker1Past.AddParagraph($"{GetPastAverage(1, 16)}");
 
             var cellLumpbreaker1Current = rowLumpbreaker.Cells[2];
             cellLumpbreaker1Current.Format.Font.Size = 6.5;
@@ -2026,7 +2204,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLumpbreaker1Goal = rowLumpbreaker.Cells[3];
             cellLumpbreaker1Goal.Format.Font.Size = 6.5;
             cellLumpbreaker1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellLumpbreaker1Goal.AddParagraph($"{GetPositionGoal(1,16)}");
+            cellLumpbreaker1Goal.AddParagraph($"{GetPositionGoal(1, 16)}");
 
             var cellLumpbreaker1Info = rowLumpbreaker2.Cells[1];
             cellLumpbreaker1Info.Format.Font.Size = 6.5;
@@ -2041,7 +2219,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLumpbreaker2Past = rowLumpbreaker.Cells[4];
             cellLumpbreaker2Past.Format.Font.Size = 6.5;
             cellLumpbreaker2Past.VerticalAlignment = VerticalAlignment.Center;
-            cellLumpbreaker2Past.AddParagraph($"{GetPastAverage(2,16)}");
+            cellLumpbreaker2Past.AddParagraph($"{GetPastAverage(2, 16)}");
 
             var cellLumpbreaker2Current = rowLumpbreaker.Cells[5];
             cellLumpbreaker2Current.Format.Font.Size = 6.5;
@@ -2051,7 +2229,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLumpbreaker2Goal = rowLumpbreaker.Cells[6];
             cellLumpbreaker2Goal.Format.Font.Size = 6.5;
             cellLumpbreaker2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellLumpbreaker2Goal.AddParagraph($"{GetPositionGoal(2,16)}");
+            cellLumpbreaker2Goal.AddParagraph($"{GetPositionGoal(2, 16)}");
 
             var cellLumpbreaker2Info = rowLumpbreaker2.Cells[4];
             cellLumpbreaker2Info.Format.Font.Size = 6.5;
@@ -2066,7 +2244,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLumpbreaker3Past = rowLumpbreaker.Cells[7];
             cellLumpbreaker3Past.Format.Font.Size = 6.5;
             cellLumpbreaker3Past.VerticalAlignment = VerticalAlignment.Center;
-            cellLumpbreaker3Past.AddParagraph($"{GetPastAverage(3,16)}");
+            cellLumpbreaker3Past.AddParagraph($"{GetPastAverage(3, 16)}");
 
             var cellLumpbreaker3Current = rowLumpbreaker.Cells[8];
             cellLumpbreaker3Current.Format.Font.Size = 6.5;
@@ -2076,7 +2254,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLumpbreaker3Goal = rowLumpbreaker.Cells[9];
             cellLumpbreaker3Goal.Format.Font.Size = 6.5;
             cellLumpbreaker3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellLumpbreaker3Goal.AddParagraph($"{GetPositionGoal(3,16)}");
+            cellLumpbreaker3Goal.AddParagraph($"{GetPositionGoal(3, 16)}");
 
             var cellLumpbreaker3Info = rowLumpbreaker2.Cells[7];
             cellLumpbreaker3Info.Format.Font.Size = 6.5;
@@ -2091,7 +2269,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLumpbreaker4Past = rowLumpbreaker.Cells[10];
             cellLumpbreaker4Past.Format.Font.Size = 6.5;
             cellLumpbreaker4Past.VerticalAlignment = VerticalAlignment.Center;
-            cellLumpbreaker4Past.AddParagraph($"{GetPastAverage(4,16)}");
+            cellLumpbreaker4Past.AddParagraph($"{GetPastAverage(4, 16)}");
 
             var cellLumpbreaker4Current = rowLumpbreaker.Cells[11];
             cellLumpbreaker4Current.Format.Font.Size = 6.5;
@@ -2101,7 +2279,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLumpbreaker4Goal = rowLumpbreaker.Cells[12];
             cellLumpbreaker4Goal.Format.Font.Size = 6.5;
             cellLumpbreaker4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellLumpbreaker4Goal.AddParagraph($"{GetPositionGoal(4,16)}");
+            cellLumpbreaker4Goal.AddParagraph($"{GetPositionGoal(4, 16)}");
 
             var cellLumpbreaker4Info = rowLumpbreaker2.Cells[10];
             cellLumpbreaker4Info.Format.Font.Size = 6.5;
@@ -2141,7 +2319,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSuction1Past = rowSuction.Cells[1];
             cellSuction1Past.Format.Font.Size = 6.5;
             cellSuction1Past.VerticalAlignment = VerticalAlignment.Center;
-            cellSuction1Past.AddParagraph($"{GetPastAverage(1,17)}");
+            cellSuction1Past.AddParagraph($"{GetPastAverage(1, 17)}");
 
             var cellSuction1Current = rowSuction.Cells[2];
             cellSuction1Current.Format.Font.Size = 6.5;
@@ -2151,7 +2329,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSuction1Goal = rowSuction.Cells[3];
             cellSuction1Goal.Format.Font.Size = 6.5;
             cellSuction1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellSuction1Goal.AddParagraph($"{GetPositionGoal(1,17)}");
+            cellSuction1Goal.AddParagraph($"{GetPositionGoal(1, 17)}");
 
             var cellSuction1Info = rowSuction2.Cells[1];
             cellSuction1Info.Format.Font.Size = 6.5;
@@ -2166,7 +2344,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSuction2Past = rowSuction.Cells[4];
             cellSuction2Past.Format.Font.Size = 6.5;
             cellSuction2Past.VerticalAlignment = VerticalAlignment.Center;
-            cellSuction2Past.AddParagraph($"{GetPastAverage(2,17)}");
+            cellSuction2Past.AddParagraph($"{GetPastAverage(2, 17)}");
 
             var cellSuction2Current = rowSuction.Cells[5];
             cellSuction2Current.Format.Font.Size = 6.5;
@@ -2176,7 +2354,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSuction2Goal = rowSuction.Cells[6];
             cellSuction2Goal.Format.Font.Size = 6.5;
             cellSuction2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellSuction2Goal.AddParagraph($"{GetPositionGoal(2,17)}");
+            cellSuction2Goal.AddParagraph($"{GetPositionGoal(2, 17)}");
 
             var cellSuction2Info = rowSuction2.Cells[4];
             cellSuction2Info.Format.Font.Size = 6.5;
@@ -2191,7 +2369,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSuction3Past = rowSuction.Cells[7];
             cellSuction3Past.Format.Font.Size = 6.5;
             cellSuction3Past.VerticalAlignment = VerticalAlignment.Center;
-            cellSuction3Past.AddParagraph($"{GetPastAverage(3,17)}");
+            cellSuction3Past.AddParagraph($"{GetPastAverage(3, 17)}");
 
             var cellSuction3Current = rowSuction.Cells[8];
             cellSuction3Current.Format.Font.Size = 6.5;
@@ -2201,7 +2379,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSuction3Goal = rowSuction.Cells[9];
             cellSuction3Goal.Format.Font.Size = 6.5;
             cellSuction3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellSuction3Goal.AddParagraph($"{GetPositionGoal(3,17)}");
+            cellSuction3Goal.AddParagraph($"{GetPositionGoal(3, 17)}");
 
             var cellSuction3Info = rowSuction2.Cells[7];
             cellSuction3Info.Format.Font.Size = 6.5;
@@ -2216,7 +2394,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSuction4Past = rowSuction.Cells[10];
             cellSuction4Past.Format.Font.Size = 6.5;
             cellSuction4Past.VerticalAlignment = VerticalAlignment.Center;
-            cellSuction4Past.AddParagraph($"{GetPastAverage(4,17)}");
+            cellSuction4Past.AddParagraph($"{GetPastAverage(4, 17)}");
 
             var cellSuction4Current = rowSuction.Cells[11];
             cellSuction4Current.Format.Font.Size = 6.5;
@@ -2226,7 +2404,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSuction4Goal = rowSuction.Cells[12];
             cellSuction4Goal.Format.Font.Size = 6.5;
             cellSuction4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellSuction4Goal.AddParagraph($"{GetPositionGoal(4,17)}");
+            cellSuction4Goal.AddParagraph($"{GetPositionGoal(4, 17)}");
 
             var cellSuction4Info = rowSuction2.Cells[10];
             cellSuction4Info.Format.Font.Size = 6.5;
@@ -2265,7 +2443,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell1stPressTop1Past = row1stPressTop.Cells[1];
             cell1stPressTop1Past.Format.Font.Size = 6.5;
             cell1stPressTop1Past.VerticalAlignment = VerticalAlignment.Center;
-            cell1stPressTop1Past.AddParagraph($"{GetPastAverage(1,18)}");
+            cell1stPressTop1Past.AddParagraph($"{GetPastAverage(1, 18)}");
 
             var cell1stPressTop1Current = row1stPressTop.Cells[2];
             cell1stPressTop1Current.Format.Font.Size = 6.5;
@@ -2275,7 +2453,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell1stPressTop1Goal = row1stPressTop.Cells[3];
             cell1stPressTop1Goal.Format.Font.Size = 6.5;
             cell1stPressTop1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell1stPressTop1Goal.AddParagraph($"{GetPositionGoal(1,18)}");
+            cell1stPressTop1Goal.AddParagraph($"{GetPositionGoal(1, 18)}");
 
             var cell1stPressTop1Info = row1stPressTop2.Cells[1];
             cell1stPressTop1Info.Format.Font.Size = 6.5;
@@ -2290,7 +2468,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell1stPressTop2Past = row1stPressTop.Cells[4];
             cell1stPressTop2Past.Format.Font.Size = 6.5;
             cell1stPressTop2Past.VerticalAlignment = VerticalAlignment.Center;
-            cell1stPressTop2Past.AddParagraph($"{GetPastAverage(2,18)}");
+            cell1stPressTop2Past.AddParagraph($"{GetPastAverage(2, 18)}");
 
             var cell1stPressTop2Current = row1stPressTop.Cells[5];
             cell1stPressTop2Current.Format.Font.Size = 6.5;
@@ -2300,7 +2478,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell1stPressTop2Goal = row1stPressTop.Cells[6];
             cell1stPressTop2Goal.Format.Font.Size = 6.5;
             cell1stPressTop2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell1stPressTop2Goal.AddParagraph($"{GetPositionGoal(2,18)}");
+            cell1stPressTop2Goal.AddParagraph($"{GetPositionGoal(2, 18)}");
 
             var cell1stPressTop2Info = row1stPressTop2.Cells[4];
             cell1stPressTop2Info.Format.Font.Size = 6.5;
@@ -2315,7 +2493,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell1stPressTop3Past = row1stPressTop.Cells[7];
             cell1stPressTop3Past.Format.Font.Size = 6.5;
             cell1stPressTop3Past.VerticalAlignment = VerticalAlignment.Center;
-            cell1stPressTop3Past.AddParagraph($"{GetPastAverage(3,18)}");
+            cell1stPressTop3Past.AddParagraph($"{GetPastAverage(3, 18)}");
 
             var cell1stPressTop3Current = row1stPressTop.Cells[8];
             cell1stPressTop3Current.Format.Font.Size = 6.5;
@@ -2325,7 +2503,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell1stPressTop3Goal = row1stPressTop.Cells[9];
             cell1stPressTop3Goal.Format.Font.Size = 6.5;
             cell1stPressTop3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell1stPressTop3Goal.AddParagraph($"{GetPositionGoal(3,18)}");
+            cell1stPressTop3Goal.AddParagraph($"{GetPositionGoal(3, 18)}");
 
             var cell1stPressTop3Info = row1stPressTop2.Cells[7];
             cell1stPressTop3Info.Format.Font.Size = 6.5;
@@ -2340,7 +2518,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell1stPressTop4Past = row1stPressTop.Cells[10];
             cell1stPressTop4Past.Format.Font.Size = 6.5;
             cell1stPressTop4Past.VerticalAlignment = VerticalAlignment.Center;
-            cell1stPressTop4Past.AddParagraph($"{GetPastAverage(4,18)}");
+            cell1stPressTop4Past.AddParagraph($"{GetPastAverage(4, 18)}");
 
             var cell1stPressTop4Current = row1stPressTop.Cells[11];
             cell1stPressTop4Current.Format.Font.Size = 6.5;
@@ -2350,7 +2528,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell1stPressTop4Goal = row1stPressTop.Cells[12];
             cell1stPressTop4Goal.Format.Font.Size = 6.5;
             cell1stPressTop4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell1stPressTop4Goal.AddParagraph($"{GetPositionGoal(4,18)}");
+            cell1stPressTop4Goal.AddParagraph($"{GetPositionGoal(4, 18)}");
 
             var cell1stPressTop4Info = row1stPressTop2.Cells[10];
             cell1stPressTop4Info.Format.Font.Size = 6.5;
@@ -2390,7 +2568,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell1stPressBottom1Past = row1stPressBottom.Cells[1];
             cell1stPressBottom1Past.Format.Font.Size = 6.5;
             cell1stPressBottom1Past.VerticalAlignment = VerticalAlignment.Center;
-            cell1stPressBottom1Past.AddParagraph($"{GetPastAverage(1,19)}");
+            cell1stPressBottom1Past.AddParagraph($"{GetPastAverage(1, 19)}");
 
             var cell1stPressBottom1Current = row1stPressBottom.Cells[2];
             cell1stPressBottom1Current.Format.Font.Size = 6.5;
@@ -2400,7 +2578,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell1stPressBottom1Goal = row1stPressBottom.Cells[3];
             cell1stPressBottom1Goal.Format.Font.Size = 6.5;
             cell1stPressBottom1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell1stPressBottom1Goal.AddParagraph($"{GetPositionGoal(1,19)}");
+            cell1stPressBottom1Goal.AddParagraph($"{GetPositionGoal(1, 19)}");
 
             var cell1stPressBottom1Info = row1stPressBottom2.Cells[1];
             cell1stPressBottom1Info.Format.Font.Size = 6.5;
@@ -2415,7 +2593,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell1stPressBottom2Past = row1stPressBottom.Cells[4];
             cell1stPressBottom2Past.Format.Font.Size = 6.5;
             cell1stPressBottom2Past.VerticalAlignment = VerticalAlignment.Center;
-            cell1stPressBottom2Past.AddParagraph($"{GetPastAverage(2,19)}");
+            cell1stPressBottom2Past.AddParagraph($"{GetPastAverage(2, 19)}");
 
             var cell1stPressBottom2Current = row1stPressBottom.Cells[5];
             cell1stPressBottom2Current.Format.Font.Size = 6.5;
@@ -2425,7 +2603,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell1stPressBottom2Goal = row1stPressBottom.Cells[6];
             cell1stPressBottom2Goal.Format.Font.Size = 6.5;
             cell1stPressBottom2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell1stPressBottom2Goal.AddParagraph($"{GetPositionGoal(2,19)}");
+            cell1stPressBottom2Goal.AddParagraph($"{GetPositionGoal(2, 19)}");
 
             var cell1stPressBottom2Info = row1stPressBottom2.Cells[4];
             cell1stPressBottom2Info.Format.Font.Size = 6.5;
@@ -2440,7 +2618,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell1stPressBottom3Past = row1stPressBottom.Cells[7];
             cell1stPressBottom3Past.Format.Font.Size = 6.5;
             cell1stPressBottom3Past.VerticalAlignment = VerticalAlignment.Center;
-            cell1stPressBottom3Past.AddParagraph($"{GetPastAverage(3,19)}");
+            cell1stPressBottom3Past.AddParagraph($"{GetPastAverage(3, 19)}");
 
             var cell1stPressBottom3Current = row1stPressBottom.Cells[8];
             cell1stPressBottom3Current.Format.Font.Size = 6.5;
@@ -2450,7 +2628,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell1stPressBottom3Goal = row1stPressBottom.Cells[9];
             cell1stPressBottom3Goal.Format.Font.Size = 6.5;
             cell1stPressBottom3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell1stPressBottom3Goal.AddParagraph($"{GetPositionGoal(3,19)}");
+            cell1stPressBottom3Goal.AddParagraph($"{GetPositionGoal(3, 19)}");
 
             var cell1stPressBottom3Info = row1stPressBottom2.Cells[7];
             cell1stPressBottom3Info.Format.Font.Size = 6.5;
@@ -2465,7 +2643,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell1stPressBottom4Past = row1stPressBottom.Cells[10];
             cell1stPressBottom4Past.Format.Font.Size = 6.5;
             cell1stPressBottom4Past.VerticalAlignment = VerticalAlignment.Center;
-            cell1stPressBottom4Past.AddParagraph($"{GetPastAverage(4,19)}");
+            cell1stPressBottom4Past.AddParagraph($"{GetPastAverage(4, 19)}");
 
             var cell1stPressBottom4Current = row1stPressBottom.Cells[11];
             cell1stPressBottom4Current.Format.Font.Size = 6.5;
@@ -2475,7 +2653,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell1stPressBottom4Goal = row1stPressBottom.Cells[12];
             cell1stPressBottom4Goal.Format.Font.Size = 6.5;
             cell1stPressBottom4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell1stPressBottom4Goal.AddParagraph($"{GetPositionGoal(4,19)}");
+            cell1stPressBottom4Goal.AddParagraph($"{GetPositionGoal(4, 19)}");
 
             var cell1stPressBottom4Info = row1stPressBottom2.Cells[10];
             cell1stPressBottom4Info.Format.Font.Size = 6.5;
@@ -2515,7 +2693,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell2ndPressTop1Past = row2ndPressTop.Cells[1];
             cell2ndPressTop1Past.Format.Font.Size = 6.5;
             cell2ndPressTop1Past.VerticalAlignment = VerticalAlignment.Center;
-            cell2ndPressTop1Past.AddParagraph($"{GetPastAverage(1,20)}");
+            cell2ndPressTop1Past.AddParagraph($"{GetPastAverage(1, 20)}");
 
             var cell2ndPressTop1Current = row2ndPressTop.Cells[2];
             cell2ndPressTop1Current.Format.Font.Size = 6.5;
@@ -2525,7 +2703,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell2ndPressTop1Goal = row2ndPressTop.Cells[3];
             cell2ndPressTop1Goal.Format.Font.Size = 6.5;
             cell2ndPressTop1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell2ndPressTop1Goal.AddParagraph($"{GetPositionGoal(1,20)}");
+            cell2ndPressTop1Goal.AddParagraph($"{GetPositionGoal(1, 20)}");
 
             var cell2ndPressTop1Info = row2ndPressTop2.Cells[1];
             cell2ndPressTop1Info.Format.Font.Size = 6.5;
@@ -2540,7 +2718,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell2ndPressTop2Past = row2ndPressTop.Cells[4];
             cell2ndPressTop2Past.Format.Font.Size = 6.5;
             cell2ndPressTop2Past.VerticalAlignment = VerticalAlignment.Center;
-            cell2ndPressTop2Past.AddParagraph($"{GetPastAverage(2,20)}");
+            cell2ndPressTop2Past.AddParagraph($"{GetPastAverage(2, 20)}");
 
             var cell2ndPressTop2Current = row2ndPressTop.Cells[5];
             cell2ndPressTop2Current.Format.Font.Size = 6.5;
@@ -2550,7 +2728,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell2ndPressTop2Goal = row2ndPressTop.Cells[6];
             cell2ndPressTop2Goal.Format.Font.Size = 6.5;
             cell2ndPressTop2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell2ndPressTop2Goal.AddParagraph($"{GetPositionGoal(2,20)}");
+            cell2ndPressTop2Goal.AddParagraph($"{GetPositionGoal(2, 20)}");
 
             var cell2ndPressTop2Info = row2ndPressTop2.Cells[4];
             cell2ndPressTop2Info.Format.Font.Size = 6.5;
@@ -2565,7 +2743,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell2ndPressTop3Past = row2ndPressTop.Cells[7];
             cell2ndPressTop3Past.Format.Font.Size = 6.5;
             cell2ndPressTop3Past.VerticalAlignment = VerticalAlignment.Center;
-            cell2ndPressTop3Past.AddParagraph($"{GetPastAverage(3,20)}");
+            cell2ndPressTop3Past.AddParagraph($"{GetPastAverage(3, 20)}");
 
             var cell2ndPressTop3Current = row2ndPressTop.Cells[8];
             cell2ndPressTop3Current.Format.Font.Size = 6.5;
@@ -2575,7 +2753,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell2ndPressTop3Goal = row2ndPressTop.Cells[9];
             cell2ndPressTop3Goal.Format.Font.Size = 6.5;
             cell2ndPressTop3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell2ndPressTop3Goal.AddParagraph($"{GetPositionGoal(3,20)}");
+            cell2ndPressTop3Goal.AddParagraph($"{GetPositionGoal(3, 20)}");
 
             var cell2ndPressTop3Info = row2ndPressTop2.Cells[7];
             cell2ndPressTop3Info.Format.Font.Size = 6.5;
@@ -2590,7 +2768,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell2ndPressTop4Past = row2ndPressTop.Cells[10];
             cell2ndPressTop4Past.Format.Font.Size = 6.5;
             cell2ndPressTop4Past.VerticalAlignment = VerticalAlignment.Center;
-            cell2ndPressTop4Past.AddParagraph($"{GetPastAverage(4,20)}");
+            cell2ndPressTop4Past.AddParagraph($"{GetPastAverage(4, 20)}");
 
             var cell2ndPressTop4Current = row2ndPressTop.Cells[11];
             cell2ndPressTop4Current.Format.Font.Size = 6.5;
@@ -2600,7 +2778,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell2ndPressTop4Goal = row2ndPressTop.Cells[12];
             cell2ndPressTop4Goal.Format.Font.Size = 6.5;
             cell2ndPressTop4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell2ndPressTop4Goal.AddParagraph($"{GetPositionGoal(4,20)}");
+            cell2ndPressTop4Goal.AddParagraph($"{GetPositionGoal(4, 20)}");
 
             var cell2ndPressTop4Info = row2ndPressTop2.Cells[10];
             cell2ndPressTop4Info.Format.Font.Size = 6.5;
@@ -2640,7 +2818,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell2ndPressBottom1Past = row2ndPressBottom.Cells[1];
             cell2ndPressBottom1Past.Format.Font.Size = 6.5;
             cell2ndPressBottom1Past.VerticalAlignment = VerticalAlignment.Center;
-            cell2ndPressBottom1Past.AddParagraph($"{GetPastAverage(1,21)}");
+            cell2ndPressBottom1Past.AddParagraph($"{GetPastAverage(1, 21)}");
 
             var cell2ndPressBottom1Current = row2ndPressBottom.Cells[2];
             cell2ndPressBottom1Current.Format.Font.Size = 6.5;
@@ -2650,7 +2828,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell2ndPressBottom1Goal = row2ndPressBottom.Cells[3];
             cell2ndPressBottom1Goal.Format.Font.Size = 6.5;
             cell2ndPressBottom1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell2ndPressBottom1Goal.AddParagraph($"{GetPositionGoal(1,21)}");
+            cell2ndPressBottom1Goal.AddParagraph($"{GetPositionGoal(1, 21)}");
 
             var cell2ndPressBottom1Info = row2ndPressBottom2.Cells[1];
             cell2ndPressBottom1Info.Format.Font.Size = 6.5;
@@ -2665,7 +2843,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell2ndPressBottom2Past = row2ndPressBottom.Cells[4];
             cell2ndPressBottom2Past.Format.Font.Size = 6.5;
             cell2ndPressBottom2Past.VerticalAlignment = VerticalAlignment.Center;
-            cell2ndPressBottom2Past.AddParagraph($"{GetPastAverage(2,21)}");
+            cell2ndPressBottom2Past.AddParagraph($"{GetPastAverage(2, 21)}");
 
             var cell2ndPressBottom2Current = row2ndPressBottom.Cells[5];
             cell2ndPressBottom2Current.Format.Font.Size = 6.5;
@@ -2675,7 +2853,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell2ndPressBottom2Goal = row2ndPressBottom.Cells[6];
             cell2ndPressBottom2Goal.Format.Font.Size = 6.5;
             cell2ndPressBottom2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell2ndPressBottom2Goal.AddParagraph($"{GetPositionGoal(2,21)}");
+            cell2ndPressBottom2Goal.AddParagraph($"{GetPositionGoal(2, 21)}");
 
             var cell2ndPressBottom2Info = row2ndPressBottom2.Cells[4];
             cell2ndPressBottom2Info.Format.Font.Size = 6.5;
@@ -2690,7 +2868,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell2ndPressBottom3Past = row2ndPressBottom.Cells[7];
             cell2ndPressBottom3Past.Format.Font.Size = 6.5;
             cell2ndPressBottom3Past.VerticalAlignment = VerticalAlignment.Center;
-            cell2ndPressBottom3Past.AddParagraph($"{GetPastAverage(3,21)}");
+            cell2ndPressBottom3Past.AddParagraph($"{GetPastAverage(3, 21)}");
 
             var cell2ndPressBottom3Current = row2ndPressBottom.Cells[8];
             cell2ndPressBottom3Current.Format.Font.Size = 6.5;
@@ -2700,7 +2878,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell2ndPressBottom3Goal = row2ndPressBottom.Cells[9];
             cell2ndPressBottom3Goal.Format.Font.Size = 6.5;
             cell2ndPressBottom3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell2ndPressBottom3Goal.AddParagraph($"{GetPositionGoal(3,21)}");
+            cell2ndPressBottom3Goal.AddParagraph($"{GetPositionGoal(3, 21)}");
 
             var cell2ndPressBottom3Info = row2ndPressBottom2.Cells[7];
             cell2ndPressBottom3Info.Format.Font.Size = 6.5;
@@ -2715,7 +2893,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell2ndPressBottom4Past = row2ndPressBottom.Cells[10];
             cell2ndPressBottom4Past.Format.Font.Size = 6.5;
             cell2ndPressBottom4Past.VerticalAlignment = VerticalAlignment.Center;
-            cell2ndPressBottom4Past.AddParagraph($"{GetPastAverage(4,21)}");
+            cell2ndPressBottom4Past.AddParagraph($"{GetPastAverage(4, 21)}");
 
             var cell2ndPressBottom4Current = row2ndPressBottom.Cells[11];
             cell2ndPressBottom4Current.Format.Font.Size = 6.5;
@@ -2725,7 +2903,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell2ndPressBottom4Goal = row2ndPressBottom.Cells[12];
             cell2ndPressBottom4Goal.Format.Font.Size = 6.5;
             cell2ndPressBottom4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell2ndPressBottom4Goal.AddParagraph($"{GetPositionGoal(4,21)}");
+            cell2ndPressBottom4Goal.AddParagraph($"{GetPositionGoal(4, 21)}");
 
             var cell2ndPressBottom4Info = row2ndPressBottom2.Cells[10];
             cell2ndPressBottom4Info.Format.Font.Size = 6.5;
@@ -2765,7 +2943,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdPressTop1Past = row3rdPressTop.Cells[1];
             cell3rdPressTop1Past.Format.Font.Size = 6.5;
             cell3rdPressTop1Past.VerticalAlignment = VerticalAlignment.Center;
-            cell3rdPressTop1Past.AddParagraph($"{GetPastAverage(1,22)}");
+            cell3rdPressTop1Past.AddParagraph($"{GetPastAverage(1, 22)}");
 
             var cell3rdPressTop1Current = row3rdPressTop.Cells[2];
             cell3rdPressTop1Current.Format.Font.Size = 6.5;
@@ -2780,7 +2958,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdPressTop1Goal = row3rdPressTop.Cells[3];
             cell3rdPressTop1Goal.Format.Font.Size = 6.5;
             cell3rdPressTop1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell3rdPressTop1Goal.AddParagraph($"{GetPositionGoal(1,22)}");
+            cell3rdPressTop1Goal.AddParagraph($"{GetPositionGoal(1, 22)}");
 
             var cell3rdPressTop1Info = row3rdPressTop2.Cells[1];
             cell3rdPressTop1Info.Format.Font.Size = 6.5;
@@ -2795,7 +2973,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdPressTop2Past = row3rdPressTop.Cells[4];
             cell3rdPressTop2Past.Format.Font.Size = 6.5;
             cell3rdPressTop2Past.VerticalAlignment = VerticalAlignment.Center;
-            cell3rdPressTop2Past.AddParagraph($"{GetPastAverage(2,22)}");
+            cell3rdPressTop2Past.AddParagraph($"{GetPastAverage(2, 22)}");
 
             var cell3rdPressTop2Current = row3rdPressTop.Cells[5];
             cell3rdPressTop2Current.Format.Font.Size = 6.5;
@@ -2805,7 +2983,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdPressTop2Goal = row3rdPressTop.Cells[6];
             cell3rdPressTop2Goal.Format.Font.Size = 6.5;
             cell3rdPressTop2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell3rdPressTop2Goal.AddParagraph($"{GetPositionGoal(2,22)}");
+            cell3rdPressTop2Goal.AddParagraph($"{GetPositionGoal(2, 22)}");
 
             var cell3rdPressTop2Info = row3rdPressTop2.Cells[4];
             cell3rdPressTop2Info.Format.Font.Size = 6.5;
@@ -2820,7 +2998,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdPressTop3Past = row3rdPressTop.Cells[7];
             cell3rdPressTop3Past.Format.Font.Size = 6.5;
             cell3rdPressTop3Past.VerticalAlignment = VerticalAlignment.Center;
-            cell3rdPressTop3Past.AddParagraph($"{GetPastAverage(3,22)}");
+            cell3rdPressTop3Past.AddParagraph($"{GetPastAverage(3, 22)}");
 
             var cell3rdPressTop3Current = row3rdPressTop.Cells[8];
             cell3rdPressTop3Current.Format.Font.Size = 6.5;
@@ -2830,7 +3008,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdPressTop3Goal = row3rdPressTop.Cells[9];
             cell3rdPressTop3Goal.Format.Font.Size = 6.5;
             cell3rdPressTop3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell3rdPressTop3Goal.AddParagraph($"{GetPositionGoal(3,22)}");
+            cell3rdPressTop3Goal.AddParagraph($"{GetPositionGoal(3, 22)}");
 
             var cell3rdPressTop3Info = row3rdPressTop2.Cells[7];
             cell3rdPressTop3Info.Format.Font.Size = 6.5;
@@ -2845,7 +3023,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdPressTop4Past = row3rdPressTop.Cells[10];
             cell3rdPressTop4Past.Format.Font.Size = 6.5;
             cell3rdPressTop4Past.VerticalAlignment = VerticalAlignment.Center;
-            cell3rdPressTop4Past.AddParagraph($"{GetPastAverage(4,22)}");
+            cell3rdPressTop4Past.AddParagraph($"{GetPastAverage(4, 22)}");
 
             var cell3rdPressTop4Current = row3rdPressTop.Cells[11];
             cell3rdPressTop4Current.Format.Font.Size = 6.5;
@@ -2855,7 +3033,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdPressTop4Goal = row3rdPressTop.Cells[12];
             cell3rdPressTop4Goal.Format.Font.Size = 6.5;
             cell3rdPressTop4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell3rdPressTop4Goal.AddParagraph($"{GetPositionGoal(4,22)}");
+            cell3rdPressTop4Goal.AddParagraph($"{GetPositionGoal(4, 22)}");
 
             var cell3rdPressTop4Info = row3rdPressTop2.Cells[10];
             cell3rdPressTop4Info.Format.Font.Size = 6.5;
@@ -2895,7 +3073,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdPressBottom1Past = row3rdPressBottom.Cells[1];
             cell3rdPressBottom1Past.Format.Font.Size = 6.5;
             cell3rdPressBottom1Past.VerticalAlignment = VerticalAlignment.Center;
-            cell3rdPressBottom1Past.AddParagraph($"{GetPastAverage(1,23)}");
+            cell3rdPressBottom1Past.AddParagraph($"{GetPastAverage(1, 23)}");
 
             var cell3rdPressBottom1Current = row3rdPressBottom.Cells[2];
             cell3rdPressBottom1Current.Format.Font.Size = 6.5;
@@ -2905,7 +3083,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdPressBottom1Goal = row3rdPressBottom.Cells[3];
             cell3rdPressBottom1Goal.Format.Font.Size = 6.5;
             cell3rdPressBottom1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell3rdPressBottom1Goal.AddParagraph($"{GetPositionGoal(1,23)}");
+            cell3rdPressBottom1Goal.AddParagraph($"{GetPositionGoal(1, 23)}");
 
             var cell3rdPressBottom1Info = row3rdPressBottom2.Cells[1];
             cell3rdPressBottom1Info.Format.Font.Size = 6.5;
@@ -2920,7 +3098,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdPressBottom2Past = row3rdPressBottom.Cells[4];
             cell3rdPressBottom2Past.Format.Font.Size = 6.5;
             cell3rdPressBottom2Past.VerticalAlignment = VerticalAlignment.Center;
-            cell3rdPressBottom2Past.AddParagraph($"{GetPastAverage(2,23)}");
+            cell3rdPressBottom2Past.AddParagraph($"{GetPastAverage(2, 23)}");
 
             var cell3rdPressBottom2Current = row3rdPressBottom.Cells[5];
             cell3rdPressBottom2Current.Format.Font.Size = 6.5;
@@ -2930,7 +3108,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdPressBottom2Goal = row3rdPressBottom.Cells[6];
             cell3rdPressBottom2Goal.Format.Font.Size = 6.5;
             cell3rdPressBottom2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell3rdPressBottom2Goal.AddParagraph($"{GetPositionGoal(2,23)}");
+            cell3rdPressBottom2Goal.AddParagraph($"{GetPositionGoal(2, 23)}");
 
             var cell3rdPressBottom2Info = row3rdPressBottom2.Cells[4];
             cell3rdPressBottom2Info.Format.Font.Size = 6.5;
@@ -2945,7 +3123,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdPressBottom3Past = row3rdPressBottom.Cells[7];
             cell3rdPressBottom3Past.Format.Font.Size = 6.5;
             cell3rdPressBottom3Past.VerticalAlignment = VerticalAlignment.Center;
-            cell3rdPressBottom3Past.AddParagraph($"{GetPastAverage(3,23)}");
+            cell3rdPressBottom3Past.AddParagraph($"{GetPastAverage(3, 23)}");
 
             var cell3rdPressBottom3Current = row3rdPressBottom.Cells[8];
             cell3rdPressBottom3Current.Format.Font.Size = 6.5;
@@ -2955,7 +3133,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdPressBottom3Goal = row3rdPressBottom.Cells[9];
             cell3rdPressBottom3Goal.Format.Font.Size = 6.5;
             cell3rdPressBottom3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell3rdPressBottom3Goal.AddParagraph($"{GetPositionGoal(3,23)}");
+            cell3rdPressBottom3Goal.AddParagraph($"{GetPositionGoal(3, 23)}");
 
             var cell3rdPressBottom3Info = row3rdPressBottom2.Cells[7];
             cell3rdPressBottom3Info.Format.Font.Size = 6.5;
@@ -2970,7 +3148,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdPressBottom4Past = row3rdPressBottom.Cells[10];
             cell3rdPressBottom4Past.Format.Font.Size = 6.5;
             cell3rdPressBottom4Past.VerticalAlignment = VerticalAlignment.Center;
-            cell3rdPressBottom4Past.AddParagraph($"{GetPastAverage(4,23)}");
+            cell3rdPressBottom4Past.AddParagraph($"{GetPastAverage(4, 23)}");
 
             var cell3rdPressBottom4Current = row3rdPressBottom.Cells[11];
             cell3rdPressBottom4Current.Format.Font.Size = 6.5;
@@ -2980,7 +3158,7 @@ namespace Finch_Inventory.Custom_Classes
             var cell3rdPressBottom4Goal = row3rdPressBottom.Cells[12];
             cell3rdPressBottom4Goal.Format.Font.Size = 6.5;
             cell3rdPressBottom4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cell3rdPressBottom4Goal.AddParagraph($"{GetPositionGoal(4,23)}");
+            cell3rdPressBottom4Goal.AddParagraph($"{GetPositionGoal(4, 23)}");
 
             var cell3rdPressBottom4Info = row3rdPressBottom2.Cells[10];
             cell3rdPressBottom4Info.Format.Font.Size = 6.5;
@@ -3020,7 +3198,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSmoothTop1Past = rowSmoothTop.Cells[1];
             cellSmoothTop1Past.Format.Font.Size = 6.5;
             cellSmoothTop1Past.VerticalAlignment = VerticalAlignment.Center;
-            cellSmoothTop1Past.AddParagraph($"{GetPastAverage(1,24)}");
+            cellSmoothTop1Past.AddParagraph($"{GetPastAverage(1, 24)}");
 
             var cellSmoothTop1Current = rowSmoothTop.Cells[2];
             cellSmoothTop1Current.Format.Font.Size = 6.5;
@@ -3030,7 +3208,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSmoothTop1Goal = rowSmoothTop.Cells[3];
             cellSmoothTop1Goal.Format.Font.Size = 6.5;
             cellSmoothTop1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellSmoothTop1Goal.AddParagraph($"{GetPositionGoal(1,24)}");
+            cellSmoothTop1Goal.AddParagraph($"{GetPositionGoal(1, 24)}");
 
             var cellSmoothTop1Info = rowSmoothTop2.Cells[1];
             cellSmoothTop1Info.Format.Font.Size = 6.5;
@@ -3045,7 +3223,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSmoothTop2Past = rowSmoothTop.Cells[4];
             cellSmoothTop2Past.Format.Font.Size = 6.5;
             cellSmoothTop2Past.VerticalAlignment = VerticalAlignment.Center;
-            cellSmoothTop2Past.AddParagraph($"{GetPastAverage(2,24)}");
+            cellSmoothTop2Past.AddParagraph($"{GetPastAverage(2, 24)}");
 
             var cellSmoothTop2Current = rowSmoothTop.Cells[5];
             cellSmoothTop2Current.Format.Font.Size = 6.5;
@@ -3055,7 +3233,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSmoothTop2Goal = rowSmoothTop.Cells[6];
             cellSmoothTop2Goal.Format.Font.Size = 6.5;
             cellSmoothTop2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellSmoothTop2Goal.AddParagraph($"{GetPositionGoal(2,24)}");
+            cellSmoothTop2Goal.AddParagraph($"{GetPositionGoal(2, 24)}");
 
             var cellSmoothTop2Info = rowSmoothTop2.Cells[4];
             cellSmoothTop2Info.Format.Font.Size = 6.5;
@@ -3070,7 +3248,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSmoothTop3Past = rowSmoothTop.Cells[7];
             cellSmoothTop3Past.Format.Font.Size = 6.5;
             cellSmoothTop3Past.VerticalAlignment = VerticalAlignment.Center;
-            cellSmoothTop3Past.AddParagraph($"{GetPastAverage(3,24)}");
+            cellSmoothTop3Past.AddParagraph($"{GetPastAverage(3, 24)}");
 
             var cellSmoothTop3Current = rowSmoothTop.Cells[8];
             cellSmoothTop3Current.Format.Font.Size = 6.5;
@@ -3080,7 +3258,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSmoothTop3Goal = rowSmoothTop.Cells[9];
             cellSmoothTop3Goal.Format.Font.Size = 6.5;
             cellSmoothTop3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellSmoothTop3Goal.AddParagraph($"{GetPositionGoal(3,24)}");
+            cellSmoothTop3Goal.AddParagraph($"{GetPositionGoal(3, 24)}");
 
             var cellSmoothTop3Info = rowSmoothTop2.Cells[7];
             cellSmoothTop3Info.Format.Font.Size = 6.5;
@@ -3095,7 +3273,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSmoothTop4Past = rowSmoothTop.Cells[10];
             cellSmoothTop4Past.Format.Font.Size = 6.5;
             cellSmoothTop4Past.VerticalAlignment = VerticalAlignment.Center;
-            cellSmoothTop4Past.AddParagraph($"{GetPastAverage(4,24)}");
+            cellSmoothTop4Past.AddParagraph($"{GetPastAverage(4, 24)}");
 
             var cellSmoothTop4Current = rowSmoothTop.Cells[11];
             cellSmoothTop4Current.Format.Font.Size = 6.5;
@@ -3105,7 +3283,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSmoothTop4Goal = rowSmoothTop.Cells[12];
             cellSmoothTop4Goal.Format.Font.Size = 6.5;
             cellSmoothTop4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellSmoothTop4Goal.AddParagraph($"{GetPositionGoal(4,24)}");
+            cellSmoothTop4Goal.AddParagraph($"{GetPositionGoal(4, 24)}");
 
             var cellSmoothTop4Info = rowSmoothTop2.Cells[10];
             cellSmoothTop4Info.Format.Font.Size = 6.5;
@@ -3145,7 +3323,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSmoothBottom1Past = rowSmoothBottom.Cells[1];
             cellSmoothBottom1Past.Format.Font.Size = 6.5;
             cellSmoothBottom1Past.VerticalAlignment = VerticalAlignment.Center;
-            cellSmoothBottom1Past.AddParagraph($"{GetPastAverage(1,25)}");
+            cellSmoothBottom1Past.AddParagraph($"{GetPastAverage(1, 25)}");
 
             var cellSmoothBottom1Current = rowSmoothBottom.Cells[2];
             cellSmoothBottom1Current.Format.Font.Size = 6.5;
@@ -3155,7 +3333,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSmoothBottom1Goal = rowSmoothBottom.Cells[3];
             cellSmoothBottom1Goal.Format.Font.Size = 6.5;
             cellSmoothBottom1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellSmoothBottom1Goal.AddParagraph($"{GetPositionGoal(1,25)}");
+            cellSmoothBottom1Goal.AddParagraph($"{GetPositionGoal(1, 25)}");
 
             var cellSmoothBottom1Info = rowSmoothBottom2.Cells[1];
             cellSmoothBottom1Info.Format.Font.Size = 6.5;
@@ -3170,7 +3348,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSmoothBottom2Past = rowSmoothBottom.Cells[4];
             cellSmoothBottom2Past.Format.Font.Size = 6.5;
             cellSmoothBottom2Past.VerticalAlignment = VerticalAlignment.Center;
-            cellSmoothBottom2Past.AddParagraph($"{GetPastAverage(2,25)}");
+            cellSmoothBottom2Past.AddParagraph($"{GetPastAverage(2, 25)}");
 
             var cellSmoothBottom2Current = rowSmoothBottom.Cells[5];
             cellSmoothBottom2Current.Format.Font.Size = 6.5;
@@ -3180,7 +3358,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSmoothBottom2Goal = rowSmoothBottom.Cells[6];
             cellSmoothBottom2Goal.Format.Font.Size = 6.5;
             cellSmoothBottom2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellSmoothBottom2Goal.AddParagraph($"{GetPositionGoal(2,25)}");
+            cellSmoothBottom2Goal.AddParagraph($"{GetPositionGoal(2, 25)}");
 
             var cellSmoothBottom2Info = rowSmoothBottom2.Cells[4];
             cellSmoothBottom2Info.Format.Font.Size = 6.5;
@@ -3195,7 +3373,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSmoothBottom3Past = rowSmoothBottom.Cells[7];
             cellSmoothBottom3Past.Format.Font.Size = 6.5;
             cellSmoothBottom3Past.VerticalAlignment = VerticalAlignment.Center;
-            cellSmoothBottom3Past.AddParagraph($"{GetPastAverage(3,25)}");
+            cellSmoothBottom3Past.AddParagraph($"{GetPastAverage(3, 25)}");
 
             var cellSmoothBottom3Current = rowSmoothBottom.Cells[8];
             cellSmoothBottom3Current.Format.Font.Size = 6.5;
@@ -3205,7 +3383,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSmoothBottom3Goal = rowSmoothBottom.Cells[9];
             cellSmoothBottom3Goal.Format.Font.Size = 6.5;
             cellSmoothBottom3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellSmoothBottom3Goal.AddParagraph($"{GetPositionGoal(3,25)}");
+            cellSmoothBottom3Goal.AddParagraph($"{GetPositionGoal(3, 25)}");
 
             var cellSmoothBottom3Info = rowSmoothBottom2.Cells[7];
             cellSmoothBottom3Info.Format.Font.Size = 6.5;
@@ -3220,7 +3398,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSmoothBottom4Past = rowSmoothBottom.Cells[10];
             cellSmoothBottom4Past.Format.Font.Size = 6.5;
             cellSmoothBottom4Past.VerticalAlignment = VerticalAlignment.Center;
-            cellSmoothBottom4Past.AddParagraph($"{GetPastAverage(4,25)}");
+            cellSmoothBottom4Past.AddParagraph($"{GetPastAverage(4, 25)}");
 
             var cellSmoothBottom4Current = rowSmoothBottom.Cells[11];
             cellSmoothBottom4Current.Format.Font.Size = 6.5;
@@ -3230,7 +3408,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSmoothBottom4Goal = rowSmoothBottom.Cells[12];
             cellSmoothBottom4Goal.Format.Font.Size = 6.5;
             cellSmoothBottom4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellSmoothBottom4Goal.AddParagraph($"{GetPositionGoal(4,25)}");
+            cellSmoothBottom4Goal.AddParagraph($"{GetPositionGoal(4, 25)}");
 
             var cellSmoothBottom4Info = rowSmoothBottom2.Cells[10];
             cellSmoothBottom4Info.Format.Font.Size = 6.5;
@@ -3270,7 +3448,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellHardSizePress1Past = rowHardSizePress.Cells[1];
             cellHardSizePress1Past.Format.Font.Size = 6.5;
             cellHardSizePress1Past.VerticalAlignment = VerticalAlignment.Center;
-            cellHardSizePress1Past.AddParagraph($"{GetPastAverage(1,26)}");
+            cellHardSizePress1Past.AddParagraph($"{GetPastAverage(1, 26)}");
 
             var cellHardSizePress1Current = rowHardSizePress.Cells[2];
             cellHardSizePress1Current.Format.Font.Size = 6.5;
@@ -3280,7 +3458,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellHardSizePress1Goal = rowHardSizePress.Cells[3];
             cellHardSizePress1Goal.Format.Font.Size = 6.5;
             cellHardSizePress1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellHardSizePress1Goal.AddParagraph($"{GetPositionGoal(1,26)}");
+            cellHardSizePress1Goal.AddParagraph($"{GetPositionGoal(1, 26)}");
 
             var cellHardSizePress1Info = rowHardSizePress2.Cells[1];
             cellHardSizePress1Info.Format.Font.Size = 6.5;
@@ -3295,7 +3473,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellHardSizePress2Past = rowHardSizePress.Cells[4];
             cellHardSizePress2Past.Format.Font.Size = 6.5;
             cellHardSizePress2Past.VerticalAlignment = VerticalAlignment.Center;
-            cellHardSizePress2Past.AddParagraph($"{GetPastAverage(2,26)}");
+            cellHardSizePress2Past.AddParagraph($"{GetPastAverage(2, 26)}");
 
             var cellHardSizePress2Current = rowHardSizePress.Cells[5];
             cellHardSizePress2Current.Format.Font.Size = 6.5;
@@ -3305,7 +3483,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellHardSizePress2Goal = rowHardSizePress.Cells[6];
             cellHardSizePress2Goal.Format.Font.Size = 6.5;
             cellHardSizePress2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellHardSizePress2Goal.AddParagraph($"{GetPositionGoal(2,26)}");
+            cellHardSizePress2Goal.AddParagraph($"{GetPositionGoal(2, 26)}");
 
             var cellHardSizePress2Info = rowHardSizePress2.Cells[4];
             cellHardSizePress2Info.Format.Font.Size = 6.5;
@@ -3320,7 +3498,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellHardSizePress3Past = rowHardSizePress.Cells[7];
             cellHardSizePress3Past.Format.Font.Size = 6.5;
             cellHardSizePress3Past.VerticalAlignment = VerticalAlignment.Center;
-            cellHardSizePress3Past.AddParagraph($"{GetPastAverage(3,26)}");
+            cellHardSizePress3Past.AddParagraph($"{GetPastAverage(3, 26)}");
 
             var cellHardSizePress3Current = rowHardSizePress.Cells[8];
             cellHardSizePress3Current.Format.Font.Size = 6.5;
@@ -3330,7 +3508,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellHardSizePress3Goal = rowHardSizePress.Cells[9];
             cellHardSizePress3Goal.Format.Font.Size = 6.5;
             cellHardSizePress3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellHardSizePress3Goal.AddParagraph($"{GetPositionGoal(3,26)}");
+            cellHardSizePress3Goal.AddParagraph($"{GetPositionGoal(3, 26)}");
 
             var cellHardSizePress3Info = rowHardSizePress2.Cells[7];
             cellHardSizePress3Info.Format.Font.Size = 6.5;
@@ -3345,7 +3523,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellHardSizePress4Past = rowHardSizePress.Cells[10];
             cellHardSizePress4Past.Format.Font.Size = 6.5;
             cellHardSizePress4Past.VerticalAlignment = VerticalAlignment.Center;
-            cellHardSizePress4Past.AddParagraph($"{GetPastAverage(4,26)}");
+            cellHardSizePress4Past.AddParagraph($"{GetPastAverage(4, 26)}");
 
             var cellHardSizePress4Current = rowHardSizePress.Cells[11];
             cellHardSizePress4Current.Format.Font.Size = 6.5;
@@ -3355,7 +3533,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellHardSizePress4Goal = rowHardSizePress.Cells[12];
             cellHardSizePress4Goal.Format.Font.Size = 6.5;
             cellHardSizePress4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellHardSizePress4Goal.AddParagraph($"{GetPositionGoal(4,26)}");
+            cellHardSizePress4Goal.AddParagraph($"{GetPositionGoal(4, 26)}");
 
             var cellHardSizePress4Info = rowHardSizePress2.Cells[10];
             cellHardSizePress4Info.Format.Font.Size = 6.5;
@@ -3395,7 +3573,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSoftSizePress1Past = rowSoftSizePress.Cells[1];
             cellSoftSizePress1Past.Format.Font.Size = 6.5;
             cellSoftSizePress1Past.VerticalAlignment = VerticalAlignment.Center;
-            cellSoftSizePress1Past.AddParagraph($"{GetPastAverage(1,27)}");
+            cellSoftSizePress1Past.AddParagraph($"{GetPastAverage(1, 27)}");
 
             var cellSoftSizePress1Current = rowSoftSizePress.Cells[2];
             cellSoftSizePress1Current.Format.Font.Size = 6.5;
@@ -3405,7 +3583,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSoftSizePress1Goal = rowSoftSizePress.Cells[3];
             cellSoftSizePress1Goal.Format.Font.Size = 6.5;
             cellSoftSizePress1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellSoftSizePress1Goal.AddParagraph($"{GetPositionGoal(1,27)}");
+            cellSoftSizePress1Goal.AddParagraph($"{GetPositionGoal(1, 27)}");
 
             var cellSoftSizePress1Info = rowSoftSizePress2.Cells[1];
             cellSoftSizePress1Info.Format.Font.Size = 6.5;
@@ -3420,7 +3598,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSoftSizePress2Past = rowSoftSizePress.Cells[4];
             cellSoftSizePress2Past.Format.Font.Size = 6.5;
             cellSoftSizePress2Past.VerticalAlignment = VerticalAlignment.Center;
-            cellSoftSizePress2Past.AddParagraph($"{GetPastAverage(2,27)}");
+            cellSoftSizePress2Past.AddParagraph($"{GetPastAverage(2, 27)}");
 
             var cellSoftSizePress2Current = rowSoftSizePress.Cells[5];
             cellSoftSizePress2Current.Format.Font.Size = 6.5;
@@ -3430,7 +3608,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSoftSizePress2Goal = rowSoftSizePress.Cells[6];
             cellSoftSizePress2Goal.Format.Font.Size = 6.5;
             cellSoftSizePress2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellSoftSizePress2Goal.AddParagraph($"{GetPositionGoal(2,27)}");
+            cellSoftSizePress2Goal.AddParagraph($"{GetPositionGoal(2, 27)}");
 
             var cellSoftSizePress2Info = rowSoftSizePress2.Cells[4];
             cellSoftSizePress2Info.Format.Font.Size = 6.5;
@@ -3445,7 +3623,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSoftSizePress3Past = rowSoftSizePress.Cells[7];
             cellSoftSizePress3Past.Format.Font.Size = 6.5;
             cellSoftSizePress3Past.VerticalAlignment = VerticalAlignment.Center;
-            cellSoftSizePress3Past.AddParagraph($"{GetPastAverage(3,27)}");
+            cellSoftSizePress3Past.AddParagraph($"{GetPastAverage(3, 27)}");
 
             var cellSoftSizePress3Current = rowSoftSizePress.Cells[8];
             cellSoftSizePress3Current.Format.Font.Size = 6.5;
@@ -3455,7 +3633,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSoftSizePress3Goal = rowSoftSizePress.Cells[9];
             cellSoftSizePress3Goal.Format.Font.Size = 6.5;
             cellSoftSizePress3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellSoftSizePress3Goal.AddParagraph($"{GetPositionGoal(3,27)}");
+            cellSoftSizePress3Goal.AddParagraph($"{GetPositionGoal(3, 27)}");
 
             var cellSoftSizePress3Info = rowSoftSizePress2.Cells[7];
             cellSoftSizePress3Info.Format.Font.Size = 6.5;
@@ -3470,7 +3648,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSoftSizePress4Past = rowSoftSizePress.Cells[10];
             cellSoftSizePress4Past.Format.Font.Size = 6.5;
             cellSoftSizePress4Past.VerticalAlignment = VerticalAlignment.Center;
-            cellSoftSizePress4Past.AddParagraph($"{GetPastAverage(4,27)}");
+            cellSoftSizePress4Past.AddParagraph($"{GetPastAverage(4, 27)}");
 
             var cellSoftSizePress4Current = rowSoftSizePress.Cells[11];
             cellSoftSizePress4Current.Format.Font.Size = 6.5;
@@ -3480,7 +3658,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellSoftSizePress4Goal = rowSoftSizePress.Cells[12];
             cellSoftSizePress4Goal.Format.Font.Size = 6.5;
             cellSoftSizePress4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellSoftSizePress4Goal.AddParagraph($"{GetPositionGoal(4,27)}");
+            cellSoftSizePress4Goal.AddParagraph($"{GetPositionGoal(4, 27)}");
 
             var cellSoftSizePress4Info = rowSoftSizePress2.Cells[10];
             cellSoftSizePress4Info.Format.Font.Size = 6.5;
@@ -3493,12 +3671,6 @@ namespace Finch_Inventory.Custom_Classes
             #endregion // Soft Size Press Position
 
             #region Aquitherm Top Position
-            // add spacer row
-            spacer = weeklyPMTable.AddRow();
-            spacer.Height = 12;
-            cellSpacer = spacer.Cells[0];
-            cellSpacer.MergeRight = 12;
-            cellSpacer.AddParagraph("");
 
             var clothingAquithermTop1 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "aquatherm roll" && c.PM_Number == 1);
             var clothingAquithermTop2 = clothings.SingleOrDefault(c => c.Position.Position1.ToLower() == "aquatherm roll" && c.PM_Number == 2);
@@ -3520,7 +3692,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellAquithermTop1Past = rowAquithermTop.Cells[1];
             cellAquithermTop1Past.Format.Font.Size = 6.5;
             cellAquithermTop1Past.VerticalAlignment = VerticalAlignment.Center;
-            cellAquithermTop1Past.AddParagraph($"{GetPastAverage(1,28)}");
+            cellAquithermTop1Past.AddParagraph($"{GetPastAverage(1, 28)}");
 
             var cellAquithermTop1Current = rowAquithermTop.Cells[2];
             cellAquithermTop1Current.Format.Font.Size = 6.5;
@@ -3530,7 +3702,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellAquithermTop1Goal = rowAquithermTop.Cells[3];
             cellAquithermTop1Goal.Format.Font.Size = 6.5;
             cellAquithermTop1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellAquithermTop1Goal.AddParagraph($"{GetPositionGoal(1,28)}");
+            cellAquithermTop1Goal.AddParagraph($"{GetPositionGoal(1, 28)}");
 
             var cellAquithermTop1Info = rowAquithermTop2.Cells[1];
             cellAquithermTop1Info.Format.Font.Size = 6.5;
@@ -3545,7 +3717,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellAquithermTop2Past = rowAquithermTop.Cells[4];
             cellAquithermTop2Past.Format.Font.Size = 6.5;
             cellAquithermTop2Past.VerticalAlignment = VerticalAlignment.Center;
-            cellAquithermTop2Past.AddParagraph($"{GetPastAverage(2,28)}");
+            cellAquithermTop2Past.AddParagraph($"{GetPastAverage(2, 28)}");
 
             var cellAquithermTop2Current = rowAquithermTop.Cells[5];
             cellAquithermTop2Current.Format.Font.Size = 6.5;
@@ -3555,7 +3727,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellAquithermTop2Goal = rowAquithermTop.Cells[6];
             cellAquithermTop2Goal.Format.Font.Size = 6.5;
             cellAquithermTop2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellAquithermTop2Goal.AddParagraph($"{GetPositionGoal(2,28)}");
+            cellAquithermTop2Goal.AddParagraph($"{GetPositionGoal(2, 28)}");
 
             var cellAquithermTop2Info = rowAquithermTop2.Cells[4];
             cellAquithermTop2Info.Format.Font.Size = 6.5;
@@ -3570,7 +3742,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellAquithermTop3Past = rowAquithermTop.Cells[7];
             cellAquithermTop3Past.Format.Font.Size = 6.5;
             cellAquithermTop3Past.VerticalAlignment = VerticalAlignment.Center;
-            cellAquithermTop3Past.AddParagraph($"{GetPastAverage(3,28)}");
+            cellAquithermTop3Past.AddParagraph($"{GetPastAverage(3, 28)}");
 
             var cellAquithermTop3Current = rowAquithermTop.Cells[8];
             cellAquithermTop3Current.Format.Font.Size = 6.5;
@@ -3580,7 +3752,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellAquithermTop3Goal = rowAquithermTop.Cells[9];
             cellAquithermTop3Goal.Format.Font.Size = 6.5;
             cellAquithermTop3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellAquithermTop3Goal.AddParagraph($"{GetPositionGoal(3,28)}");
+            cellAquithermTop3Goal.AddParagraph($"{GetPositionGoal(3, 28)}");
 
             var cellAquithermTop3Info = rowAquithermTop2.Cells[7];
             cellAquithermTop3Info.Format.Font.Size = 6.5;
@@ -3595,7 +3767,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellAquithermTop4Past = rowAquithermTop.Cells[10];
             cellAquithermTop4Past.Format.Font.Size = 6.5;
             cellAquithermTop4Past.VerticalAlignment = VerticalAlignment.Center;
-            cellAquithermTop4Past.AddParagraph($"{GetPastAverage(4,28)}");
+            cellAquithermTop4Past.AddParagraph($"{GetPastAverage(4, 28)}");
 
             var cellAquithermTop4Current = rowAquithermTop.Cells[11];
             cellAquithermTop4Current.Format.Font.Size = 6.5;
@@ -3605,7 +3777,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellAquithermTop4Goal = rowAquithermTop.Cells[12];
             cellAquithermTop4Goal.Format.Font.Size = 6.5;
             cellAquithermTop4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellAquithermTop4Goal.AddParagraph($"{GetPositionGoal(4,28)}");
+            cellAquithermTop4Goal.AddParagraph($"{GetPositionGoal(4, 28)}");
 
             var cellAquithermTop4Info = rowAquithermTop2.Cells[10];
             cellAquithermTop4Info.Format.Font.Size = 6.5;
@@ -3645,7 +3817,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellNibcoBottom1Past = rowNibcoBottom.Cells[1];
             cellNibcoBottom1Past.Format.Font.Size = 6.5;
             cellNibcoBottom1Past.VerticalAlignment = VerticalAlignment.Center;
-            cellNibcoBottom1Past.AddParagraph($"{GetPastAverage(1,29)}");
+            cellNibcoBottom1Past.AddParagraph($"{GetPastAverage(1, 29)}");
 
             var cellNibcoBottom1Current = rowNibcoBottom.Cells[2];
             cellNibcoBottom1Current.Format.Font.Size = 6.5;
@@ -3655,7 +3827,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellNibcoBottom1Goal = rowNibcoBottom.Cells[3];
             cellNibcoBottom1Goal.Format.Font.Size = 6.5;
             cellNibcoBottom1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellNibcoBottom1Goal.AddParagraph($"{GetPositionGoal(1,29)}");
+            cellNibcoBottom1Goal.AddParagraph($"{GetPositionGoal(1, 29)}");
 
             var cellNibcoBottom1Info = rowNibcoBottom2.Cells[1];
             cellNibcoBottom1Info.Format.Font.Size = 6.5;
@@ -3670,7 +3842,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellNibcoBottom2Past = rowNibcoBottom.Cells[4];
             cellNibcoBottom2Past.Format.Font.Size = 6.5;
             cellNibcoBottom2Past.VerticalAlignment = VerticalAlignment.Center;
-            cellNibcoBottom2Past.AddParagraph($"{GetPastAverage(2,29)}");
+            cellNibcoBottom2Past.AddParagraph($"{GetPastAverage(2, 29)}");
 
             var cellNibcoBottom2Current = rowNibcoBottom.Cells[5];
             cellNibcoBottom2Current.Format.Font.Size = 6.5;
@@ -3685,7 +3857,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellNibcoBottom2Goal = rowNibcoBottom.Cells[6];
             cellNibcoBottom2Goal.Format.Font.Size = 6.5;
             cellNibcoBottom2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellNibcoBottom2Goal.AddParagraph($"{GetPositionGoal(2,29)}");
+            cellNibcoBottom2Goal.AddParagraph($"{GetPositionGoal(2, 29)}");
 
             var cellNibcoBottom2Info = rowNibcoBottom2.Cells[4];
             cellNibcoBottom2Info.Format.Font.Size = 6.5;
@@ -3700,7 +3872,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellNibcoBottom3Past = rowNibcoBottom.Cells[7];
             cellNibcoBottom3Past.Format.Font.Size = 6.5;
             cellNibcoBottom3Past.VerticalAlignment = VerticalAlignment.Center;
-            cellNibcoBottom3Past.AddParagraph($"{GetPastAverage(3,29)}");
+            cellNibcoBottom3Past.AddParagraph($"{GetPastAverage(3, 29)}");
 
             var cellNibcoBottom3Current = rowNibcoBottom.Cells[8];
             cellNibcoBottom3Current.Format.Font.Size = 6.5;
@@ -3710,7 +3882,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellNibcoBottom3Goal = rowNibcoBottom.Cells[9];
             cellNibcoBottom3Goal.Format.Font.Size = 6.5;
             cellNibcoBottom3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellNibcoBottom3Goal.AddParagraph($"{GetPositionGoal(3,29)}");
+            cellNibcoBottom3Goal.AddParagraph($"{GetPositionGoal(3, 29)}");
 
             var cellNibcoBottom3Info = rowNibcoBottom2.Cells[7];
             cellNibcoBottom3Info.Format.Font.Size = 6.5;
@@ -3725,7 +3897,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellNibcoBottom4Past = rowNibcoBottom.Cells[10];
             cellNibcoBottom4Past.Format.Font.Size = 6.5;
             cellNibcoBottom4Past.VerticalAlignment = VerticalAlignment.Center;
-            cellNibcoBottom4Past.AddParagraph($"{GetPastAverage(4,29)}");
+            cellNibcoBottom4Past.AddParagraph($"{GetPastAverage(4, 29)}");
 
             var cellNibcoBottom4Current = rowNibcoBottom.Cells[11];
             cellNibcoBottom4Current.Format.Font.Size = 6.5;
@@ -3735,7 +3907,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellNibcoBottom4Goal = rowNibcoBottom.Cells[12];
             cellNibcoBottom4Goal.Format.Font.Size = 6.5;
             cellNibcoBottom4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellNibcoBottom4Goal.AddParagraph($"{GetPositionGoal(4,29)}");
+            cellNibcoBottom4Goal.AddParagraph($"{GetPositionGoal(4, 29)}");
 
             var cellNibcoBottom4Info = rowNibcoBottom2.Cells[10];
             cellNibcoBottom4Info.Format.Font.Size = 6.5;
@@ -3775,7 +3947,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellCouch1Past = rowCouch.Cells[1];
             cellCouch1Past.Format.Font.Size = 6.5;
             cellCouch1Past.VerticalAlignment = VerticalAlignment.Center;
-            cellCouch1Past.AddParagraph($"{GetPastAverage(1,30)}");
+            cellCouch1Past.AddParagraph($"{GetPastAverage(1, 30)}");
 
             var cellCouch1Current = rowCouch.Cells[2];
             cellCouch1Current.Format.Font.Size = 6.5;
@@ -3785,7 +3957,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellCouch1Goal = rowCouch.Cells[3];
             cellCouch1Goal.Format.Font.Size = 6.5;
             cellCouch1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellCouch1Goal.AddParagraph($"{GetPositionGoal(1,30)}");
+            cellCouch1Goal.AddParagraph($"{GetPositionGoal(1, 30)}");
 
             var cellCouch1Info = rowCouch2.Cells[1];
             cellCouch1Info.Format.Font.Size = 6.5;
@@ -3800,7 +3972,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellCouch2Past = rowCouch.Cells[4];
             cellCouch2Past.Format.Font.Size = 6.5;
             cellCouch2Past.VerticalAlignment = VerticalAlignment.Center;
-            cellCouch2Past.AddParagraph($"{GetPastAverage(2,30)}");
+            cellCouch2Past.AddParagraph($"{GetPastAverage(2, 30)}");
 
             var cellCouch2Current = rowCouch.Cells[5];
             cellCouch2Current.Format.Font.Size = 6.5;
@@ -3810,7 +3982,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellCouch2Goal = rowCouch.Cells[6];
             cellCouch2Goal.Format.Font.Size = 6.5;
             cellCouch2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellCouch2Goal.AddParagraph($"{GetPositionGoal(2,30)}");
+            cellCouch2Goal.AddParagraph($"{GetPositionGoal(2, 30)}");
 
             var cellCouch2Info = rowCouch2.Cells[4];
             cellCouch2Info.Format.Font.Size = 6.5;
@@ -3825,7 +3997,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellCouch3Past = rowCouch.Cells[7];
             cellCouch3Past.Format.Font.Size = 6.5;
             cellCouch3Past.VerticalAlignment = VerticalAlignment.Center;
-            cellCouch3Past.AddParagraph($"{GetPastAverage(3,30)}");
+            cellCouch3Past.AddParagraph($"{GetPastAverage(3, 30)}");
 
             var cellCouch3Current = rowCouch.Cells[8];
             cellCouch3Current.Format.Font.Size = 6.5;
@@ -3835,7 +4007,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellCouch3Goal = rowCouch.Cells[9];
             cellCouch3Goal.Format.Font.Size = 6.5;
             cellCouch3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellCouch3Goal.AddParagraph($"{GetPositionGoal(3,30)}");
+            cellCouch3Goal.AddParagraph($"{GetPositionGoal(3, 30)}");
 
             var cellCouch3Info = rowCouch2.Cells[7];
             cellCouch3Info.Format.Font.Size = 6.5;
@@ -3850,7 +4022,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellCouch4Past = rowCouch.Cells[10];
             cellCouch4Past.Format.Font.Size = 6.5;
             cellCouch4Past.VerticalAlignment = VerticalAlignment.Center;
-            cellCouch4Past.AddParagraph($"{GetPastAverage(4,30)}");
+            cellCouch4Past.AddParagraph($"{GetPastAverage(4, 30)}");
 
             var cellCouch4Current = rowCouch.Cells[11];
             cellCouch4Current.Format.Font.Size = 6.5;
@@ -3860,7 +4032,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellCouch4Goal = rowCouch.Cells[12];
             cellCouch4Goal.Format.Font.Size = 6.5;
             cellCouch4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellCouch4Goal.AddParagraph($"{GetPositionGoal(4,30)}");
+            cellCouch4Goal.AddParagraph($"{GetPositionGoal(4, 30)}");
 
             var cellCouch4Info = rowCouch2.Cells[10];
             cellCouch4Info.Format.Font.Size = 6.5;
@@ -3900,7 +4072,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLInHope1Past = rowLInHope.Cells[1];
             cellLInHope1Past.Format.Font.Size = 6.5;
             cellLInHope1Past.VerticalAlignment = VerticalAlignment.Center;
-            cellLInHope1Past.AddParagraph($"{GetPastAverage(1,31)}");
+            cellLInHope1Past.AddParagraph($"{GetPastAverage(1, 31)}");
 
             var cellLInHope1Current = rowLInHope.Cells[2];
             cellLInHope1Current.Format.Font.Size = 6.5;
@@ -3910,7 +4082,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLInHope1Goal = rowLInHope.Cells[3];
             cellLInHope1Goal.Format.Font.Size = 6.5;
             cellLInHope1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellLInHope1Goal.AddParagraph($"{GetPositionGoal(1,31)}");
+            cellLInHope1Goal.AddParagraph($"{GetPositionGoal(1, 31)}");
 
             var cellLInHope1Info = rowLInHope2.Cells[1];
             cellLInHope1Info.Format.Font.Size = 6.5;
@@ -3925,7 +4097,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLInHope2Past = rowLInHope.Cells[4];
             cellLInHope2Past.Format.Font.Size = 6.5;
             cellLInHope2Past.VerticalAlignment = VerticalAlignment.Center;
-            cellLInHope2Past.AddParagraph($"{GetPastAverage(2,31)}");
+            cellLInHope2Past.AddParagraph($"{GetPastAverage(2, 31)}");
 
             var cellLInHope2Current = rowLInHope.Cells[5];
             cellLInHope2Current.Format.Font.Size = 6.5;
@@ -3935,7 +4107,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLInHope2Goal = rowLInHope.Cells[6];
             cellLInHope2Goal.Format.Font.Size = 6.5;
             cellLInHope2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellLInHope2Goal.AddParagraph($"{GetPositionGoal(2,31)}");
+            cellLInHope2Goal.AddParagraph($"{GetPositionGoal(2, 31)}");
 
             var cellLInHope2Info = rowLInHope2.Cells[4];
             cellLInHope2Info.Format.Font.Size = 6.5;
@@ -3950,7 +4122,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLInHope3Past = rowLInHope.Cells[7];
             cellLInHope3Past.Format.Font.Size = 6.5;
             cellLInHope3Past.VerticalAlignment = VerticalAlignment.Center;
-            cellLInHope3Past.AddParagraph($"{GetPastAverage(3,31)}");
+            cellLInHope3Past.AddParagraph($"{GetPastAverage(3, 31)}");
 
             var cellLInHope3Current = rowLInHope.Cells[8];
             cellLInHope3Current.Format.Font.Size = 6.5;
@@ -3960,7 +4132,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLInHope3Goal = rowLInHope.Cells[9];
             cellLInHope3Goal.Format.Font.Size = 6.5;
             cellLInHope3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellLInHope3Goal.AddParagraph($"{GetPositionGoal(3,31)}");
+            cellLInHope3Goal.AddParagraph($"{GetPositionGoal(3, 31)}");
 
             var cellLInHope3Info = rowLInHope2.Cells[7];
             cellLInHope3Info.Format.Font.Size = 6.5;
@@ -3975,7 +4147,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLInHope4Past = rowLInHope.Cells[10];
             cellLInHope4Past.Format.Font.Size = 6.5;
             cellLInHope4Past.VerticalAlignment = VerticalAlignment.Center;
-            cellLInHope4Past.AddParagraph($"{GetPastAverage(4,31)}");
+            cellLInHope4Past.AddParagraph($"{GetPastAverage(4, 31)}");
 
             var cellLInHope4Current = rowLInHope.Cells[11];
             cellLInHope4Current.Format.Font.Size = 6.5;
@@ -3985,7 +4157,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLInHope4Goal = rowLInHope.Cells[12];
             cellLInHope4Goal.Format.Font.Size = 6.5;
             cellLInHope4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellLInHope4Goal.AddParagraph($"{GetPositionGoal(4,31)}");
+            cellLInHope4Goal.AddParagraph($"{GetPositionGoal(4, 31)}");
 
             var cellLInHope4Info = rowLInHope2.Cells[10];
             cellLInHope4Info.Format.Font.Size = 6.5;
@@ -4025,7 +4197,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLOutHope1Past = rowLOutHope.Cells[1];
             cellLOutHope1Past.Format.Font.Size = 6.5;
             cellLOutHope1Past.VerticalAlignment = VerticalAlignment.Center;
-            cellLOutHope1Past.AddParagraph($"{GetPastAverage(1,32)}");
+            cellLOutHope1Past.AddParagraph($"{GetPastAverage(1, 32)}");
 
             var cellLOutHope1Current = rowLOutHope.Cells[2];
             cellLOutHope1Current.Format.Font.Size = 6.5;
@@ -4035,7 +4207,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLOutHope1Goal = rowLOutHope.Cells[3];
             cellLOutHope1Goal.Format.Font.Size = 6.5;
             cellLOutHope1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellLOutHope1Goal.AddParagraph($"{GetPositionGoal(1,32)}");
+            cellLOutHope1Goal.AddParagraph($"{GetPositionGoal(1, 32)}");
 
             var cellLOutHope1Info = rowLOutHope2.Cells[1];
             cellLOutHope1Info.Format.Font.Size = 6.5;
@@ -4050,7 +4222,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLOutHope2Past = rowLOutHope.Cells[4];
             cellLOutHope2Past.Format.Font.Size = 6.5;
             cellLOutHope2Past.VerticalAlignment = VerticalAlignment.Center;
-            cellLOutHope2Past.AddParagraph($"{GetPastAverage(2,32)}");
+            cellLOutHope2Past.AddParagraph($"{GetPastAverage(2, 32)}");
 
             var cellLOutHope2Current = rowLOutHope.Cells[5];
             cellLOutHope2Current.Format.Font.Size = 6.5;
@@ -4060,7 +4232,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLOutHope2Goal = rowLOutHope.Cells[6];
             cellLOutHope2Goal.Format.Font.Size = 6.5;
             cellLOutHope2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellLOutHope2Goal.AddParagraph($"{GetPositionGoal(2,32)}");
+            cellLOutHope2Goal.AddParagraph($"{GetPositionGoal(2, 32)}");
 
             var cellLOutHope2Info = rowLOutHope2.Cells[4];
             cellLOutHope2Info.Format.Font.Size = 6.5;
@@ -4075,7 +4247,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLOutHope3Past = rowLOutHope.Cells[7];
             cellLOutHope3Past.Format.Font.Size = 6.5;
             cellLOutHope3Past.VerticalAlignment = VerticalAlignment.Center;
-            cellLOutHope3Past.AddParagraph($"{GetPastAverage(3,32)}");
+            cellLOutHope3Past.AddParagraph($"{GetPastAverage(3, 32)}");
 
             var cellLOutHope3Current = rowLOutHope.Cells[8];
             cellLOutHope3Current.Format.Font.Size = 6.5;
@@ -4085,7 +4257,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLOutHope3Goal = rowLOutHope.Cells[9];
             cellLOutHope3Goal.Format.Font.Size = 6.5;
             cellLOutHope3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellLOutHope3Goal.AddParagraph($"{GetPositionGoal(3,32)}");
+            cellLOutHope3Goal.AddParagraph($"{GetPositionGoal(3, 32)}");
 
             var cellLOutHope3Info = rowLOutHope2.Cells[7];
             cellLOutHope3Info.Format.Font.Size = 6.5;
@@ -4100,7 +4272,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLOutHope4Past = rowLOutHope.Cells[10];
             cellLOutHope4Past.Format.Font.Size = 6.5;
             cellLOutHope4Past.VerticalAlignment = VerticalAlignment.Center;
-            cellLOutHope4Past.AddParagraph($"{GetPastAverage(4,32)}");
+            cellLOutHope4Past.AddParagraph($"{GetPastAverage(4, 32)}");
 
             var cellLOutHope4Current = rowLOutHope.Cells[11];
             cellLOutHope4Current.Format.Font.Size = 6.5;
@@ -4110,7 +4282,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellLOutHope4Goal = rowLOutHope.Cells[12];
             cellLOutHope4Goal.Format.Font.Size = 6.5;
             cellLOutHope4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellLOutHope4Goal.AddParagraph($"{GetPositionGoal(4,32)}");
+            cellLOutHope4Goal.AddParagraph($"{GetPositionGoal(4, 32)}");
 
             var cellLOutHope4Info = rowLOutHope2.Cells[10];
             cellLOutHope4Info.Format.Font.Size = 6.5;
@@ -4150,7 +4322,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellBottomPressWringer1Past = rowBottomPressWringer.Cells[1];
             cellBottomPressWringer1Past.Format.Font.Size = 6.5;
             cellBottomPressWringer1Past.VerticalAlignment = VerticalAlignment.Center;
-            cellBottomPressWringer1Past.AddParagraph($"{GetPastAverage(1,33)}");
+            cellBottomPressWringer1Past.AddParagraph($"{GetPastAverage(1, 33)}");
 
             var cellBottomPressWringer1Current = rowBottomPressWringer.Cells[2];
             cellBottomPressWringer1Current.Format.Font.Size = 6.5;
@@ -4160,7 +4332,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellBottomPressWringer1Goal = rowBottomPressWringer.Cells[3];
             cellBottomPressWringer1Goal.Format.Font.Size = 6.5;
             cellBottomPressWringer1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellBottomPressWringer1Goal.AddParagraph($"{GetPositionGoal(1,33)}");
+            cellBottomPressWringer1Goal.AddParagraph($"{GetPositionGoal(1, 33)}");
 
             var cellBottomPressWringer1Info = rowBottomPressWringer2.Cells[1];
             cellBottomPressWringer1Info.Format.Font.Size = 6.5;
@@ -4175,7 +4347,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellBottomPressWringer2Past = rowBottomPressWringer.Cells[4];
             cellBottomPressWringer2Past.Format.Font.Size = 6.5;
             cellBottomPressWringer2Past.VerticalAlignment = VerticalAlignment.Center;
-            cellBottomPressWringer2Past.AddParagraph($"{GetPastAverage(2,33)}");
+            cellBottomPressWringer2Past.AddParagraph($"{GetPastAverage(2, 33)}");
 
             var cellBottomPressWringer2Current = rowBottomPressWringer.Cells[5];
             cellBottomPressWringer2Current.Format.Font.Size = 6.5;
@@ -4185,7 +4357,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellBottomPressWringer2Goal = rowBottomPressWringer.Cells[6];
             cellBottomPressWringer2Goal.Format.Font.Size = 6.5;
             cellBottomPressWringer2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellBottomPressWringer2Goal.AddParagraph($"{GetPositionGoal(2,33)}");
+            cellBottomPressWringer2Goal.AddParagraph($"{GetPositionGoal(2, 33)}");
 
             var cellBottomPressWringer2Info = rowBottomPressWringer2.Cells[4];
             cellBottomPressWringer2Info.Format.Font.Size = 6.5;
@@ -4200,7 +4372,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellBottomPressWringer3Past = rowBottomPressWringer.Cells[7];
             cellBottomPressWringer3Past.Format.Font.Size = 6.5;
             cellBottomPressWringer3Past.VerticalAlignment = VerticalAlignment.Center;
-            cellBottomPressWringer3Past.AddParagraph($"{GetPastAverage(3,33)}");
+            cellBottomPressWringer3Past.AddParagraph($"{GetPastAverage(3, 33)}");
 
             var cellBottomPressWringer3Current = rowBottomPressWringer.Cells[8];
             cellBottomPressWringer3Current.Format.Font.Size = 6.5;
@@ -4210,7 +4382,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellBottomPressWringer3Goal = rowBottomPressWringer.Cells[9];
             cellBottomPressWringer3Goal.Format.Font.Size = 6.5;
             cellBottomPressWringer3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellBottomPressWringer3Goal.AddParagraph($"{GetPositionGoal(3,33)}");
+            cellBottomPressWringer3Goal.AddParagraph($"{GetPositionGoal(3, 33)}");
 
             var cellBottomPressWringer3Info = rowBottomPressWringer2.Cells[7];
             cellBottomPressWringer3Info.Format.Font.Size = 6.5;
@@ -4225,7 +4397,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellBottomPressWringer4Past = rowBottomPressWringer.Cells[10];
             cellBottomPressWringer4Past.Format.Font.Size = 6.5;
             cellBottomPressWringer4Past.VerticalAlignment = VerticalAlignment.Center;
-            cellBottomPressWringer4Past.AddParagraph($"{GetPastAverage(4,33)}");
+            cellBottomPressWringer4Past.AddParagraph($"{GetPastAverage(4, 33)}");
 
             var cellBottomPressWringer4Current = rowBottomPressWringer.Cells[11];
             cellBottomPressWringer4Current.Format.Font.Size = 6.5;
@@ -4235,7 +4407,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellBottomPressWringer4Goal = rowBottomPressWringer.Cells[12];
             cellBottomPressWringer4Goal.Format.Font.Size = 6.5;
             cellBottomPressWringer4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellBottomPressWringer4Goal.AddParagraph($"{GetPositionGoal(4,33)}");
+            cellBottomPressWringer4Goal.AddParagraph($"{GetPositionGoal(4, 33)}");
 
             var cellBottomPressWringer4Info = rowBottomPressWringer2.Cells[10];
             cellBottomPressWringer4Info.Format.Font.Size = 6.5;
@@ -4275,7 +4447,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellTopPressWringer1Past = rowTopPressWringer.Cells[1];
             cellTopPressWringer1Past.Format.Font.Size = 6.5;
             cellTopPressWringer1Past.VerticalAlignment = VerticalAlignment.Center;
-            cellTopPressWringer1Past.AddParagraph($"{GetPastAverage(1,34)}");
+            cellTopPressWringer1Past.AddParagraph($"{GetPastAverage(1, 34)}");
 
             var cellTopPressWringer1Current = rowTopPressWringer.Cells[2];
             cellTopPressWringer1Current.Format.Font.Size = 6.5;
@@ -4285,7 +4457,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellTopPressWringer1Goal = rowTopPressWringer.Cells[3];
             cellTopPressWringer1Goal.Format.Font.Size = 6.5;
             cellTopPressWringer1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellTopPressWringer1Goal.AddParagraph($"{GetPositionGoal(1,34)}");
+            cellTopPressWringer1Goal.AddParagraph($"{GetPositionGoal(1, 34)}");
 
             var cellTopPressWringer1Info = rowTopPressWringer2.Cells[1];
             cellTopPressWringer1Info.Format.Font.Size = 6.5;
@@ -4300,7 +4472,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellTopPressWringer2Past = rowTopPressWringer.Cells[4];
             cellTopPressWringer2Past.Format.Font.Size = 6.5;
             cellTopPressWringer2Past.VerticalAlignment = VerticalAlignment.Center;
-            cellTopPressWringer2Past.AddParagraph($"{GetPastAverage(2,34)}");
+            cellTopPressWringer2Past.AddParagraph($"{GetPastAverage(2, 34)}");
 
             var cellTopPressWringer2Current = rowTopPressWringer.Cells[5];
             cellTopPressWringer2Current.Format.Font.Size = 6.5;
@@ -4310,7 +4482,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellTopPressWringer2Goal = rowTopPressWringer.Cells[6];
             cellTopPressWringer2Goal.Format.Font.Size = 6.5;
             cellTopPressWringer2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellTopPressWringer2Goal.AddParagraph($"{GetPositionGoal(2,34)}");
+            cellTopPressWringer2Goal.AddParagraph($"{GetPositionGoal(2, 34)}");
 
             var cellTopPressWringer2Info = rowTopPressWringer2.Cells[4];
             cellTopPressWringer2Info.Format.Font.Size = 6.5;
@@ -4325,7 +4497,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellTopPressWringer3Past = rowTopPressWringer.Cells[7];
             cellTopPressWringer3Past.Format.Font.Size = 6.5;
             cellTopPressWringer3Past.VerticalAlignment = VerticalAlignment.Center;
-            cellTopPressWringer3Past.AddParagraph($"{GetPastAverage(3,34)}");
+            cellTopPressWringer3Past.AddParagraph($"{GetPastAverage(3, 34)}");
 
             var cellTopPressWringer3Current = rowTopPressWringer.Cells[8];
             cellTopPressWringer3Current.Format.Font.Size = 6.5;
@@ -4335,7 +4507,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellTopPressWringer3Goal = rowTopPressWringer.Cells[9];
             cellTopPressWringer3Goal.Format.Font.Size = 6.5;
             cellTopPressWringer3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellTopPressWringer3Goal.AddParagraph($"{GetPositionGoal(3,34)}");
+            cellTopPressWringer3Goal.AddParagraph($"{GetPositionGoal(3, 34)}");
 
             var cellTopPressWringer3Info = rowTopPressWringer2.Cells[7];
             cellTopPressWringer3Info.Format.Font.Size = 6.5;
@@ -4350,7 +4522,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellTopPressWringer4Past = rowTopPressWringer.Cells[10];
             cellTopPressWringer4Past.Format.Font.Size = 6.5;
             cellTopPressWringer4Past.VerticalAlignment = VerticalAlignment.Center;
-            cellTopPressWringer4Past.AddParagraph($"{GetPastAverage(4,34)}");
+            cellTopPressWringer4Past.AddParagraph($"{GetPastAverage(4, 34)}");
 
             var cellTopPressWringer4Current = rowTopPressWringer.Cells[11];
             cellTopPressWringer4Current.Format.Font.Size = 6.5;
@@ -4360,7 +4532,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellTopPressWringer4Goal = rowTopPressWringer.Cells[12];
             cellTopPressWringer4Goal.Format.Font.Size = 6.5;
             cellTopPressWringer4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellTopPressWringer4Goal.AddParagraph($"{GetPositionGoal(4,34)}");
+            cellTopPressWringer4Goal.AddParagraph($"{GetPositionGoal(4, 34)}");
 
             var cellTopPressWringer4Info = rowTopPressWringer2.Cells[10];
             cellTopPressWringer4Info.Format.Font.Size = 6.5;
@@ -4400,7 +4572,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellCouchPaper1Past = rowCouchPaper.Cells[1];
             cellCouchPaper1Past.Format.Font.Size = 6.5;
             cellCouchPaper1Past.VerticalAlignment = VerticalAlignment.Center;
-            cellCouchPaper1Past.AddParagraph($"{GetPastAverage(1,36)}");
+            cellCouchPaper1Past.AddParagraph($"{GetPastAverage(1, 36)}");
 
             var cellCouchPaper1Current = rowCouchPaper.Cells[2];
             cellCouchPaper1Current.Format.Font.Size = 6.5;
@@ -4410,7 +4582,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellCouchPaper1Goal = rowCouchPaper.Cells[3];
             cellCouchPaper1Goal.Format.Font.Size = 6.5;
             cellCouchPaper1Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellCouchPaper1Goal.AddParagraph($"{GetPositionGoal(1,36)}");
+            cellCouchPaper1Goal.AddParagraph($"{GetPositionGoal(1, 36)}");
 
             var cellCouchPaper1Info = rowCouchPaper2.Cells[1];
             cellCouchPaper1Info.Format.Font.Size = 6.5;
@@ -4427,7 +4599,7 @@ namespace Finch_Inventory.Custom_Classes
             cellCouchPaper2Past.VerticalAlignment = VerticalAlignment.Center;
             var couchPaper2Past = db.Clothings.Where(c => c.PM_Number == 2 && c.PositionID == 36 && c.StatusID == 3).Select(c => c.Age).Average();
             couchPaper2Past = couchPaper2Past != null ? Math.Round((double)couchPaper2Past) : 0;
-            cellCouchPaper2Past.AddParagraph($"{GetPastAverage(2,36)}");
+            cellCouchPaper2Past.AddParagraph($"{GetPastAverage(2, 36)}");
 
             var cellCouchPaper2Current = rowCouchPaper.Cells[5];
             cellCouchPaper2Current.Format.Font.Size = 6.5;
@@ -4437,7 +4609,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellCouchPaper2Goal = rowCouchPaper.Cells[6];
             cellCouchPaper2Goal.Format.Font.Size = 6.5;
             cellCouchPaper2Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellCouchPaper2Goal.AddParagraph($"{GetPositionGoal(2,36)}");
+            cellCouchPaper2Goal.AddParagraph($"{GetPositionGoal(2, 36)}");
 
             var cellCouchPaper2Info = rowCouchPaper2.Cells[4];
             cellCouchPaper2Info.Format.Font.Size = 6.5;
@@ -4452,7 +4624,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellCouchPaper3Past = rowCouchPaper.Cells[7];
             cellCouchPaper3Past.Format.Font.Size = 6.5;
             cellCouchPaper3Past.VerticalAlignment = VerticalAlignment.Center;
-            cellCouchPaper3Past.AddParagraph($"{GetPastAverage(3,36)}");
+            cellCouchPaper3Past.AddParagraph($"{GetPastAverage(3, 36)}");
 
             var cellCouchPaper3Current = rowCouchPaper.Cells[8];
             cellCouchPaper3Current.Format.Font.Size = 6.5;
@@ -4462,7 +4634,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellCouchPaper3Goal = rowCouchPaper.Cells[9];
             cellCouchPaper3Goal.Format.Font.Size = 6.5;
             cellCouchPaper3Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellCouchPaper3Goal.AddParagraph($"{GetPositionGoal(3,36)}");
+            cellCouchPaper3Goal.AddParagraph($"{GetPositionGoal(3, 36)}");
 
             var cellCouchPaper3Info = rowCouchPaper2.Cells[7];
             cellCouchPaper3Info.Format.Font.Size = 6.5;
@@ -4477,7 +4649,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellCouchPaper4Past = rowCouchPaper.Cells[10];
             cellCouchPaper4Past.Format.Font.Size = 6.5;
             cellCouchPaper4Past.VerticalAlignment = VerticalAlignment.Center;
-            cellCouchPaper4Past.AddParagraph($"{GetPastAverage(4,36)}");
+            cellCouchPaper4Past.AddParagraph($"{GetPastAverage(4, 36)}");
 
             var cellCouchPaper4Current = rowCouchPaper.Cells[11];
             cellCouchPaper4Current.Format.Font.Size = 6.5;
@@ -4487,7 +4659,7 @@ namespace Finch_Inventory.Custom_Classes
             var cellCouchPaper4Goal = rowCouchPaper.Cells[12];
             cellCouchPaper4Goal.Format.Font.Size = 6.5;
             cellCouchPaper4Goal.VerticalAlignment = VerticalAlignment.Center;
-            cellCouchPaper4Goal.AddParagraph($"{GetPositionGoal(4,36)}");
+            cellCouchPaper4Goal.AddParagraph($"{GetPositionGoal(4, 36)}");
 
             var cellCouchPaper4Info = rowCouchPaper2.Cells[10];
             cellCouchPaper4Info.Format.Font.Size = 6.5;

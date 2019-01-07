@@ -43,9 +43,10 @@ namespace Finch_Inventory.Controllers
 
         public string CreateWeeklyPMReport()
         {
-            var currentItems = db.Clothings.Where(c => c.StatusID == 2).ToList();
+            var currentClothing = db.Clothings.Where(c => c.StatusID == 2 && c.RollTypeID == 2).ToList();
+            var currentRolls = db.Clothings.Where(c => c.StatusID == 2 && c.RollTypeID == 1).ToList();
             //create Migradoc Document
-            Document document = Documents.WeeklyPMReport(currentItems);
+            Document document = Documents.WeeklyPMReport(currentClothing, currentRolls);
             PageSetup pageSetup = document.DefaultPageSetup.Clone();
             // set orientation
             pageSetup.Orientation = Orientation.Landscape;
