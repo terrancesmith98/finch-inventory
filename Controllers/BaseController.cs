@@ -20,17 +20,18 @@ namespace Finch_Inventory.Controllers
 
             var manager = new ActiveDirectoryManager();
             var currWinUser = manager.GetCurrentWindowUser();
-            var currUser = db.Users.SingleOrDefault(u => u.UserName == currWinUser.UserPrincipalName);
+            if (currWinUser != null)
+            {
+                var currUser = db.Users.SingleOrDefault(u => u.UserName == currWinUser.UserPrincipalName);
+                var roles = db.UserRoles.Where(r => r.UserID == currUser.ID).Select(r => r.RoleID).ToList();
+                ViewBag.CurrUser = currUser;
+                ViewBag.UserRoles = roles;
 
-#if (DEBUG)
-            //var currWinUser = "tsmith@otiservices.com";
-            //var currUser = db.Users.SingleOrDefault(u => u.UserName == currWinUser);
-#endif
+            }
 
 
-            var roles = db.UserRoles.Where(r => r.UserID == currUser.ID).Select(r => r.RoleID).ToList();
-            ViewBag.CurrUser = currUser;
-            ViewBag.UserRoles = roles;
+            
+            
             ViewBag.RolesList = new MultiSelectList(db.Roles.OrderBy(r => r.ID).Select(r => r.Role1).ToList());
             ViewBag.Inventory = inventory;
         }

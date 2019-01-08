@@ -29,26 +29,38 @@
                 <li class="nav-item">
                     <a class="nav-link" href="~/Home/Index" id="home-link">Home <span class="sr-only">(current)</span></a>
                 </li>
-                @{
-                    if (ViewBag.UserRoles.Contains(3) || ViewBag.UserRoles.Contains(4))
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" href="~/Users/Index" id="users-link">Users</a>
-                        </li>
-                    }
-                    if (ViewBag.UserRoles.Contains(3) || ViewBag.UserRoles.Contains(4))
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" href="~/Goals/Index" id="goals-link">Goals</a>
-                        </li>
-                    }
-                }
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Users/Index" id="users-link">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Goals/Index" id="goals-link">Goals</a>
+                </li>
+                @*@{
+            if (ViewBag.UserRoles.Contains(3) || ViewBag.UserRoles.Contains(4))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Users/Index" id="users-link">Users</a>
+                </li>
+            }
+            if (ViewBag.UserRoles.Contains(3) || ViewBag.UserRoles.Contains(4))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Goals/Index" id="goals-link">Goals</a>
+                </li>
+            }
+        }*@
 
             </ul>
 
         </div>
         <div id="welcome-message" class="px-3">
-            <h3>Welcome, @ViewBag.CurrUser.FirstName</h3>
+            @{
+                if (ViewBag.CurrUser != null)
+                {
+                    <h3>Welcome, @ViewBag.CurrUser.FirstName</h3>
+
+                }
+            }
         </div>
     </nav>
     <div class="container body-content my-5">

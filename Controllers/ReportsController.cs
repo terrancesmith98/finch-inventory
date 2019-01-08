@@ -24,7 +24,7 @@ namespace Finch_Inventory.Controllers
             return View();
         }
 
-
+        [HttpPost]
         public string CreateInventoryAuditReport()
         {
             var inventoryItems = db.Clothings.Where(c => c.StatusID != 2 && c.StatusID != 3).ToList();
@@ -41,6 +41,7 @@ namespace Finch_Inventory.Controllers
             return fileName;
         }
 
+        [HttpPost]
         public string CreateWeeklyPMReport()
         {
             var currentClothing = db.Clothings.Where(c => c.StatusID == 2 && c.RollTypeID == 2).ToList();
