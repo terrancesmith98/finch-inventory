@@ -14,13 +14,13 @@
                         <div class="col-lg-4 main-console">
                             <a href="~/Clothing/Create" class="btn btn-success mx-2" title="Receive Clothing/Roll"><i class="fas fa-plus mx-2"></i>Receive Roll</a>
                         </div>
-                        <div class="col-lg-6 offset-2 main-console">
+                        <div class="col-lg-8 main-console">
                             <a href="#" id="audit-report-btn" class="btn btn-secondary ml-5 mr-2 pull-right" title="Generate Inventory Audit Report"><i class="fas fa-file-pdf mx-2"></i>Inventory Audit</a>
                             <a href="#" id="weekly-pm-report-btn" class="btn btn-secondary mx-2 pull-right" title="Generate Weekly PM Clothing Report"><i class="fas fa-file-pdf mx-2"></i>Weekly PM Clothing</a>
                         </div>
                     </div>
-                    
-                    
+
+
                 </div>
 
             </div>
@@ -77,13 +77,23 @@
                                     <td>@item.Age</td>
                                     <td class="text-right">
                                         <div class="pull-right">
+
                                             @if (item.StatusID != 1 && item.StatusID != 3)
                                             {
-                                                <a href="@Url.Action("ReplaceForm", "Clothing", new { id = item.ID})" id="replace-roll" class="btn btn-success btn-sm" title="Replace Clothing/Roll"><i class="fas fa-exchange-alt mx-2"></i></a>
+                                                if (ViewBag.UserRoles.Contains(3) || ViewBag.UserRoles.Contains(2) || ViewBag.UserRoles.Contains(4))
+                                                {
+                                                    <a href="@Url.Action("ReplaceForm", "Clothing", new { id = item.ID})" id="replace-roll" class="btn btn-success btn-sm" title="Replace Clothing/Roll"><i class="fas fa-exchange-alt mx-2"></i></a>
+                                                }
+
                                             }
                                             <a href="~/Clothing/Details/@item.ID" class="btn btn-info btn-sm" title="Details"><i class="fas fa-info-circle"></i></a>
-                                            <a href="~/Clothing/Edit/@item.ID" class="btn btn-warning btn-sm" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                            <a href="~/Clothing/Delete/@item.ID" class="btn btn-danger btn-sm" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                                            @if (ViewBag.UserRoles.Contains(3) || ViewBag.UserRoles.Contains(4))
+                                            {
+                                                <a href="~/Clothing/Edit/@item.ID" class="btn btn-warning btn-sm" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="~/Clothing/Delete/@item.ID" class="btn btn-danger btn-sm" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                                            }
+
+
                                         </div>
 
 
@@ -106,12 +116,16 @@
     <script>
         $(document).ready(function () {
             'use strict';
+            var user = '@ViewBag.CurrUser';
+            var roles = '@ViewBag.UserRoles';
             $('#inventory_table').dataTable({
                 dom: 'Bfrtip',
-                buttons: [
-                    'pdfHtml5',
-                    'excel'
-                ]
+                buttons: {
+                    buttons: [
+                        { "extend": 'pdfHtml5', "className": 'btn btn-danger' },
+                        { "extend": 'excelHtml5', "className": 'btn btn-success' }
+                    ]
+                }
             }
 
             );
@@ -133,7 +147,7 @@
                     url: '@Url.Content("~/Reports/CreateWeeklyPMReport")',
                     method: "POST",
                     success: function (response) {
-                        
+
                         console.log(response);
                         window.open("Content/Reports/" + response);
                     }

@@ -18,7 +18,11 @@ namespace Finch_Inventory.Controllers
         // GET: Users
         public async Task<ActionResult> Index()
         {
-            return View(await db.Users.ToListAsync());
+            if (ViewBag.UserRoles.Contains(3) || ViewBag.UserRoles.Contains(4))
+            {
+                return View(await db.Users.ToListAsync());
+            }
+            return View("Error");
         }
 
         // GET: Users/Details/5

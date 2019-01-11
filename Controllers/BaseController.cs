@@ -1,9 +1,7 @@
-﻿using CodeNode.ActiveDirectory;
-using Finch_Inventory.Models;
+﻿using Finch_Inventory.Models;
 using System;
-using System.Collections.Generic;
+using System.DirectoryServices.AccountManagement;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Finch_Inventory.Controllers
@@ -14,25 +12,46 @@ namespace Finch_Inventory.Controllers
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+            string UserDomain = Environment.UserDomainName.ToString();
+            PrincipalContext ctx = new PrincipalContext(ContextType.Domain);
+            UserPrincipal user = UserPrincipal.FindByIdentity(ctx, User.Identity.Name);
+            string UserEmail = user.EmailAddress;
             db.Dispose();
             db = new FinchDbContext();
             var inventory = db.Clothings.ToList();
 
-            var manager = new ActiveDirectoryManager();
-            var currWinUser = manager.GetCurrentWindowUser();
-            if (currWinUser != null)
+
+
+            if (UserEmail != null)
             {
-                var currUser = db.Users.SingleOrDefault(u => u.UserName == currWinUser.UserPrincipalName);
-                var roles = db.UserRoles.Where(r => r.UserID == currUser.ID).Select(r => r.RoleID).ToList();
-                ViewBag.CurrUser = currUser;
-                ViewBag.UserRoles = roles;
+                var currUser = db.Users.SingleOrDefault(u => u.UserName == UserEmail);
+                if (currUser != null)
+                {
+                    var roles = db.UserRoles.Where(r => r.UserID == currUser.ID).Select(r => r.RoleID).ToList();
+                    ViewBag.CurrUser = currUser;
+                    ViewBag.UserRoles = roles;
+                    ViewBag.RolesList = new MultiSelectList(db.Roles.OrderBy(r => r.ID).Select(r => r.Role1).ToList());
+                    ViewBag.Admins = db.Users.SqlQuery(@"select * from users u 
+                                                        inner join UserRoles r
+                                                         on u.ID = r.UserID where r.RoleID = '3'
+                                                         order by userid, RoleID").ToList();
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = $"There is no user account found that matches the current logged in user.";
+                    ViewBag.ErrorDetails = $@"The current logged in user has the email address {UserEmail}.
+                                            Please contact an admin for assistance. Current admins include:";
+
+                }
+
 
             }
+            else
+            {
+                ViewBag.ErrorMessage = $"There is no user account found that matches the current logged in user.";
+                ViewBag.ErrorDetails = $"The current logged in user has the email address {UserEmail}.";
+            }
 
-
-            
-            
-            ViewBag.RolesList = new MultiSelectList(db.Roles.OrderBy(r => r.ID).Select(r => r.Role1).ToList());
             ViewBag.Inventory = inventory;
         }
     }

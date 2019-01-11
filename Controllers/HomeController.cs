@@ -10,7 +10,12 @@ namespace Finch_Inventory.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (ViewBag.CurrUser != null)
+            {
+                return View();
+
+            }
+            return View("Error");
         }
 
         public ActionResult About()
