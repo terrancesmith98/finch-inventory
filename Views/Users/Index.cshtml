@@ -72,12 +72,20 @@
             'use strict';
             $('#users-table').dataTable({
                 dom: 'Bfrtip',
-                buttons: {
-                    buttons: [
-                        { "extend": 'pdfHtml5', "className": 'btn btn-danger'},
-                        { "extend": 'excelHtml5', "className": 'btn btn-success'}
-                    ]
-                }
+                buttons: [
+                    {
+                        extend: 'excelHtml5',
+                        orientation: 'landscape',
+                        text: '<i class="fas fa-file-excel fa-2x"></i>',
+                        titleAttr: 'Export To Excel',
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        orientation: 'landscape',
+                        text: '<i class="fas fa-file-pdf fa-2x"></i>',
+                        titleAttr: 'Export To PDF',
+                    },
+                ]
             }
 
             );

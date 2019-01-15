@@ -78,3 +78,94 @@ nav {
     color: whitesmoke;
     text-align: center;
 }
+
+//Loading Icon
+#fadeOverlay {
+    display: none;
+    background: rgba(0,0,0,.7);
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 50;
+    top: 0;
+}
+
+.center-div {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+}
+
+.spinner {
+    position: fixed;
+    z-index: 2000;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.6;
+
+    path,
+    polygon {
+        fill: whitesmoke;
+    }
+}
+
+.loader {
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    transform: translateX(-75px);
+
+    .sp1 {
+        transform-origin: center center;
+        animation: spin 2s linear infinite;
+    }
+
+    #top-bar {
+        animation: blueFade 3s linear infinite;
+    }
+
+    #middle-bar {
+        animation: blueFade 3s linear infinite;
+        animation-delay: 1.5s;
+    }
+}
+
+.inner-div {
+    background-color: transparent;
+    border-radius: 15px;
+    margin: auto;
+    padding: 2%;
+    width: 150px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+//datatable buttons
+.dt-buttons button {
+    background: #333;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.buttons-pdf i {
+    color: #c50000;
+}
+
+.buttons-excel i {
+    color: forestgreen;
+}

@@ -112,6 +112,7 @@ namespace Finch_Inventory.Custom_Classes
             section.PageSetup.HeaderDistance = 2;
             section.PageSetup.LeftMargin = 10;
             section.PageSetup.TopMargin = 30;
+            section.PageSetup.RightMargin = 10;
             section.PageSetup.DifferentFirstPageHeaderFooter = true;
 
 
@@ -129,14 +130,14 @@ namespace Finch_Inventory.Custom_Classes
         {
             //create new Migradoc document
             Document document = new Document();
-            document.Info.Title = "Weekly PM Clothing Report";
-            document.Info.Subject = "Displays a weekly paper maching roll aging report.";
+            document.Info.Title = "Weekly PM Report";
+            document.Info.Subject = "Displays a weekly paper maching item aging report.";
             document.Info.Author = "Terry Smith Custom Applications";
             Styles.DefineStyles(document);
             DefineWeeklyPMClothingContentSection(document);
 
             //add report heading
-            document.LastSection.AddParagraph("Weekly Paper Machine Clothing Report  - " + DateTime.Now.ToShortDateString(), "Heading1");
+            document.LastSection.AddParagraph("Weekly Paper Machine Report  - " + DateTime.Now.ToShortDateString(), "Heading1");
             document.LastSection.AddParagraph("", "FooterText");
 
             //add main content table
@@ -160,6 +161,7 @@ namespace Finch_Inventory.Custom_Classes
             section.PageSetup.HeaderDistance = 2;
             section.PageSetup.LeftMargin = 10;
             section.PageSetup.TopMargin = 30;
+            section.PageSetup.RightMargin = 10;
             section.PageSetup.DifferentFirstPageHeaderFooter = true;
             section.PageSetup.Orientation = Orientation.Landscape;
 

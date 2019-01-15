@@ -15,7 +15,7 @@ else
 {
     <h2 class="text-danger">@ViewBag.ErrorMessage</h2>
     <p class="text-light">@ViewBag.ErrorDetails</p>
-    @*if (ViewBag.Admins != null)
+    if (ViewBag.Admins != null)
     {
         <ul>
             @foreach (var user in ViewBag.Admins)
@@ -23,7 +23,7 @@ else
                 <li>@user.FirstName @user.LastName - @user.UserName</li>
             }
         </ul>
-    }*@
+    }
 }
 
 

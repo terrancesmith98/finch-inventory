@@ -1,4 +1,5 @@
-﻿using Finch_Inventory.Custom_Classes;
+﻿using CsvHelper;
+using Finch_Inventory.Custom_Classes;
 using Finch_Inventory.Models;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
@@ -7,10 +8,14 @@ using PdfSharp.Drawing;
 using PdfSharp.Drawing.Layout;
 using PdfSharp.Pdf;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Web.Mvc;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace Finch_Inventory.Controllers
 {
@@ -50,7 +55,8 @@ namespace Finch_Inventory.Controllers
             Document document = Documents.WeeklyPMReport(currentClothing, currentRolls);
             PageSetup pageSetup = document.DefaultPageSetup.Clone();
             // set orientation
-            pageSetup.Orientation = Orientation.Landscape;
+            
+            pageSetup.Orientation = MigraDoc.DocumentObjectModel.Orientation.Landscape;
             //create PDF renderer
             PdfDocumentRenderer renderer = new PdfDocumentRenderer(true);
             renderer.Document = document;
@@ -60,6 +66,41 @@ namespace Finch_Inventory.Controllers
             renderer.PdfDocument.Save(filePath);
 
             return fileName;
+        }
+
+        [HttpGet]
+        public FileStreamResult InventoryToExcel()
+        {
+            var clothings = WriteCsvToMemory(db.Clothings.ToList());
+            var memoryStream = new MemoryStream(clothings);
+            var today = (DateTime.Now.ToShortDateString().Replace("/", "-"));
+
+            var fileName = $"clothing-roll-inventory_{today}.csv";
+
+            return new FileStreamResult(memoryStream, "text/csv") { FileDownloadName = fileName };
+        }
+
+        public FileStreamResult HistoricalToExcel()
+        {
+            var clothings = WriteCsvToMemory(db.Clothings.Where(c => c.StatusID == 3).ToList());
+            var memoryStream = new MemoryStream(clothings);
+            var today = (DateTime.Now.ToShortDateString().Replace("/", "-"));
+
+            var fileName = $"clothing-roll-historical_{today}.csv";
+
+            return new FileStreamResult(memoryStream, "text/csv") { FileDownloadName = fileName };
+        }
+
+        public byte[] WriteCsvToMemory(List<Clothing> clothing)
+        {
+            using (var memoryStream = new MemoryStream())
+            using (var streamWriter = new StreamWriter(memoryStream))
+            using (var csvWriter = new CsvWriter(streamWriter))
+            {
+                csvWriter.WriteRecords(clothing);
+                streamWriter.Flush();
+                return memoryStream.ToArray();
+            }
         }
     }
 }

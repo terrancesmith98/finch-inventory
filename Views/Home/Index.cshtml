@@ -11,12 +11,17 @@
             <div class="col-lg-12 mt-2">
                 <div id="main-console" class="mt-2 rounded p-3 col-lg-12">
                     <div class="row">
-                        <div class="col-lg-4 main-console">
-                            <a href="~/Clothing/Create" class="btn btn-success mx-2" title="Receive Clothing/Roll"><i class="fas fa-plus mx-2"></i>Receive Roll</a>
+                        <div class="col-lg-3 main-console">
+                            <a href="~/Clothing/Create" class="btn btn-success mx-2" title="Receive Clothing/Roll"><i class="fas fa-plus mx-2"></i>Receive Item</a>
                         </div>
-                        <div class="col-lg-8 main-console">
-                            <a href="#" id="audit-report-btn" class="btn btn-secondary ml-5 mr-2 pull-right" title="Generate Inventory Audit Report"><i class="fas fa-file-pdf mx-2"></i>Inventory Audit</a>
-                            <a href="#" id="weekly-pm-report-btn" class="btn btn-secondary mx-2 pull-right" title="Generate Weekly PM Clothing Report"><i class="fas fa-file-pdf mx-2"></i>Weekly PM Clothing</a>
+                        <div class="col-lg-9 main-console">
+                            <a href="#" id="audit-report-btn" class="btn btn-secondary btn-sm ml-5 mr-2 pull-right" title="Generate Inventory Audit Report"><i class="fas fa-file-pdf mx-2"></i>Inventory Audit</a>
+                            <a href="#" id="weekly-pm-report-btn" class="btn btn-secondary btn-sm mx-2 pull-right" title="Generate Weekly PM Report"><i class="fas fa-file-pdf mx-2"></i>Weekly PM Report</a>
+                            <a href="~/Reports/HistoricalToExcel" id="historical-to-excel" class="btn btn-secondary btn-sm mx-2 pull-right" title="Historical Data to Excel"><i class="fas fa-file-excel mx-2 text-success"></i>Historical to Excel</a>
+                            @if (ViewBag.UserRoles.Contains(3) || ViewBag.UserRoles.Contains(4))
+	                        {
+                            <a href="~/Reports/InventoryToExcel" id="inventory-to-excel" class="btn btn-secondary btn-sm mx-2 pull-right" title="Full Database to Excel"><i class="fas fa-file-excel mx-2 text-success"></i>Full Database to Excel</a>
+	                        }
                         </div>
                     </div>
 
@@ -33,9 +38,13 @@
                 <table id="inventory_table" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>PM_Number</th>
+                            <th>PM#</th>
                             <th>Position</th>
-                            <th>Serial Number</th>
+                            <th>Manuf</th>
+                            <th>Ser#</th>
+                            <th>Received</th>
+                            <th>Placed</th>
+                            <th>Removed</th>
                             <th>Type</th>
                             <th>Status</th>
                             <th>Age</th>
@@ -47,31 +56,20 @@
 
                             foreach (Clothing item in ViewBag.Inventory)
                             {
-                                var dateReceived = new DateTime();
-                                var datePlaced = new DateTime();
-                                var dateRemoved = new DateTime();
-                                var location = string.Empty;
-                                if (item.Date_Received != null)
-                                {
-                                    dateReceived = (DateTime)item.Date_Received;
-                                }
-                                if (item.Date_Placed_On_Mac != null)
-                                {
-                                    datePlaced = (DateTime)item.Date_Placed_On_Mac;
-                                }
-                                if (item.Date_Removed_From_Mac != null)
-                                {
-                                    dateRemoved = (DateTime)item.Date_Removed_From_Mac;
-                                }
-                                if (item.Location != null)
-                                {
-                                    location = item.Location.Location1;
-                                }
+                                var datePlaced = item.Date_Placed_On_Mac.HasValue ? item.Date_Placed_On_Mac.Value.ToString("MM/dd/yyyy") : "None";
+                                var dateRemoved = item.Date_Removed_From_Mac.HasValue ? item.Date_Removed_From_Mac.Value.ToString("MM/dd/yyyy") : "None";
+                                var dateReceived = item.Date_Received.HasValue ? item.Date_Received.Value.ToString("MM/dd/yyyy") : "None";
+
+                                var location = item.Location.Location1 ?? "None";
 
                                 <tr>
                                     <td>@item.PM_Number</td>
                                     <td>@item.Position.Position1.ToUpper()</td>
+                                    <td>@item.Manufacturer</td>
                                     <td>@item.Serial_Number</td>
+                                    <td>@dateReceived</td>
+                                    <td>@datePlaced</td>
+                                    <td>@dateRemoved</td>
                                     <td>@item.Type.Type1.ToUpper()</td>
                                     <td>@item.Status.Status1.ToUpper()</td>
                                     <td>@item.Age</td>
@@ -82,7 +80,7 @@
                                             {
                                                 if (ViewBag.UserRoles.Contains(3) || ViewBag.UserRoles.Contains(2) || ViewBag.UserRoles.Contains(4))
                                                 {
-                                                    <a href="@Url.Action("ReplaceForm", "Clothing", new { id = item.ID})" id="replace-roll" class="btn btn-success btn-sm" title="Replace Clothing/Roll"><i class="fas fa-exchange-alt mx-2"></i></a>
+                                                    <a href="@Url.Action("ReplaceForm", "Clothing", new { id = item.ID})" class="btn btn-success btn-sm replace-roll" title="Replace Clothing/Roll"><i class="fas fa-exchange-alt mx-2"></i></a>
                                                 }
 
                                             }
@@ -118,14 +116,30 @@
             'use strict';
             var user = '@ViewBag.CurrUser';
             var roles = '@ViewBag.UserRoles';
+
+            console.log(user);
             $('#inventory_table').dataTable({
                 dom: 'Bfrtip',
-                buttons: {
-                    buttons: [
-                        { "extend": 'pdfHtml5', "className": 'btn btn-danger' },
-                        { "extend": 'excelHtml5', "className": 'btn btn-success' }
-                    ]
-                }
+                buttons: [
+                    {
+                        extend: 'excelHtml5',
+                        orientation: 'landscape',
+                        text: '<i class="fas fa-file-excel fa-2x"></i>',
+                        titleAttr: 'Export To Excel',
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        orientation: 'landscape',
+                        text: '<i class="fas fa-file-pdf fa-2x"></i>',
+                        titleAttr: 'Export To PDF',
+                    }
+                    
+                ],
+                "columnDefs": [
+                    { "width": "1%", "targets": 0 },
+                    { "width": "3%", "targets": 1 },
+                    { "width": "15%", "targets": 10 }
+                ]
             }
 
             );
@@ -153,6 +167,19 @@
                     }
                 });
             });
+
+            @*$('#inventory-to-excel').click(function (e) {
+                 e.preventDefault();
+                $.ajax({
+                    url: '@Url.Content("~/Reports/InventoryToExcel")',
+                    method: "GET",
+                    success: function (response) {
+                        console.log(response);
+                        return window.open(response);
+                    }
+                });
+                
+            });*@
         });
 
     </script>

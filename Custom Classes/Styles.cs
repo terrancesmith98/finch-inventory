@@ -22,7 +22,7 @@ namespace Finch_Inventory.Custom_Classes
 
             style = document.Styles["Heading1"];
             style.Font.Name = "Verdana";
-            style.Font.Size = 14;
+            style.Font.Size = 16;
             style.Font.Bold = true;
             style.Font.Color = Colors.SlateGray;
             style.ParagraphFormat.Alignment = ParagraphAlignment.Center;
@@ -31,7 +31,7 @@ namespace Finch_Inventory.Custom_Classes
             style.ParagraphFormat.SpaceBefore = 8;
 
             style = document.Styles["Heading2"];
-            style.Font.Size = 10;
+            style.Font.Size = 12;
             style.Font.Bold = true;
             style.Font.Color = Colors.DarkGray;
             style.ParagraphFormat.Alignment = ParagraphAlignment.Center;
@@ -40,7 +40,7 @@ namespace Finch_Inventory.Custom_Classes
             style.ParagraphFormat.SpaceAfter = 6;
 
             style = document.Styles["Heading3"];
-            style.Font.Size = 8;
+            style.Font.Size = 10;
             style.Font.Bold = true;
             style.Font.Italic = false;
             style.ParagraphFormat.Alignment = ParagraphAlignment.Center;
@@ -58,7 +58,7 @@ namespace Finch_Inventory.Custom_Classes
             style.ParagraphFormat.Alignment = ParagraphAlignment.Center;
             style.Font.Name = "Arial";
             style.Font.Bold = false;
-            style.Font.Size = 7;
+            style.Font.Size = 10;
             style.ParagraphFormat.KeepTogether = true;
 
             // Create a new style called TextBox based on style Normal
@@ -76,7 +76,7 @@ namespace Finch_Inventory.Custom_Classes
             //Create a new style called Table based on style Normal
             style = document.Styles.AddStyle("Table", "Normal");
             style.Font.Name = "Arial";
-            style.Font.Size = 8;
+            style.Font.Size = 10;
 
         }
 

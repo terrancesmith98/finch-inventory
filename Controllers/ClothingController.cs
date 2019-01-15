@@ -58,7 +58,7 @@ namespace Finch_Inventory.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,PM_Number,PositionID,Manufacturer,TypeID,Serial_Number,Date_Received,Date_Placed_On_Mac,Date_Removed_From_Mac,StatusID,LocationID,Comments, newType, RollTypeID")] Clothing clothing, string newType)
+        public async Task<ActionResult> Create([Bind(Include = "ID,PM_Number,PositionID,Manufacturer,TypeID,Serial_Number,Date_Received,Date_Placed_On_Mac,Date_Removed_From_Mac,StatusID,LocationID,Comments, newType, RollTypeID, Dimensions, RollWeight, CurrentDia, MinDia, Crown, CoverMaterial, HoleGroovePattern, SpecifiedHardness, MeasuredHardness, SpecifiedRa, MeasuredRa, CoverDate")] Clothing clothing, string newType)
         {
             if (ModelState.IsValid)
             {
@@ -84,6 +84,7 @@ namespace Finch_Inventory.Controllers
                     }
                     
                 }
+
                 
                 db.Clothings.Add(clothing);
                 await db.SaveChangesAsync();
@@ -114,6 +115,7 @@ namespace Finch_Inventory.Controllers
             ViewBag.PositionID = new SelectList(db.Positions, "ID", "Position1", clothing.PositionID);
             ViewBag.StatusID = new SelectList(db.Status, "ID", "Status1", clothing.StatusID);
             ViewBag.TypeID = new SelectList(db.Types, "ID", "Type1", clothing.TypeID);
+            ViewBag.RollTypeID = new SelectList(db.RollTypes, "ID", "Type");
             ViewBag.Machines = db.Machines.ToList();
 
             return View(clothing);
@@ -124,7 +126,7 @@ namespace Finch_Inventory.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,PM_Number,PositionID,Manufacturer,TypeID,Serial_Number,Date_Received,Date_Placed_On_Mac,Date_Removed_From_Mac,StatusID,LocationID,Comments")] Clothing clothing)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,PM_Number,PositionID,Manufacturer,TypeID,Serial_Number,Date_Received,Date_Placed_On_Mac,Date_Removed_From_Mac,StatusID,LocationID,Comments, RollTypeID, RollWeight, Dimensions, CurrentDia, MinDia, Crown, CoverMaterial, HoleGroovePattern, SpecifiedHardness, MeasuredHardness, SpecifiedRa, MeasuredRa, CoverDate")] Clothing clothing)
         {
             if (ModelState.IsValid)
             {
@@ -213,6 +215,28 @@ namespace Finch_Inventory.Controllers
             db.Clothings.Remove(clothing);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult LoadPositions(string type)
+        {
+            var items = new List<SelectListItem>();
+            if (type == "Clothing")
+            {
+                var positions = db.Positions.Take(12);
+                foreach (var item in positions)
+                {
+                    items.Add(new SelectListItem { Value = item.ID.ToString(), Text = item.Position1 });
+                }
+            }
+            else
+            {
+                var positions = db.Positions.OrderBy(p => p.ID).Skip(12).Take(22);
+                foreach (var item in positions)
+                {
+                    items.Add(new SelectListItem { Value = item.ID.ToString(), Text = item.Position1 });
+                }
+            }
+            return Json(items, JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)
