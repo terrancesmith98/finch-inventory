@@ -1,4 +1,5 @@
 ﻿@model System.Web.Mvc.HandleErrorInfo
+@using Finch_Inventory.Models()
 
 @{
     ViewBag.Title = "Error";
@@ -14,16 +15,18 @@
 else
 {
     <h2 class="text-danger">@ViewBag.ErrorMessage</h2>
-    <p class="text-light">@ViewBag.ErrorDetails</p>
-    if (ViewBag.Admins != null)
-    {
-        <ul>
-            @foreach (var user in ViewBag.Admins)
-            {
-                <li>@user.FirstName @user.LastName - @user.UserName</li>
-            }
-        </ul>
-    }
+    <p class="text-light">@ViewBag.ErrorDetails<br /><br /> Irina Spiry - Irina.Spiry@finchpaper.com</p>
+
+       
+
 }
 
-
+@section Scripts 
+{
+        <script>
+            $(document).ready(function(){
+                'use strict';
+                console.log('@ViewBag.Admins');
+            });
+        </script>    
+}

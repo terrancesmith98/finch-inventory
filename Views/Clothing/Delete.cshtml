@@ -125,19 +125,23 @@
                                 @dateRemoved.ToShortDateString()
                             </dd>
                         }
-
-                        if (Model.Date_Placed_On_Mac != null || Model.Date_Placed_On_Mac != DateTime.Parse("1/1/0001") && Model.Date_Removed_From_Mac == null || Model.Date_Removed_From_Mac != DateTime.Parse("1/1/0001"))
+                        var age = 0;
+                        if (Model.Age > 0)
                         {
-                            var age = (DateTime)Model.Date_Placed_On_Mac - (DateTime)Model.Date_Received;
-                            <dt>Age</dt>
-                            <dd>@age.Days</dd>
+                            age = (int)Model.Age;
                         }
-                        else if (Model.Date_Removed_From_Mac != null && Model.Date_Removed_From_Mac != DateTime.Parse("1/1/0001"))
+                        else if (Model.StatusID == 2)
                         {
-                            var age = (DateTime)Model.Date_Removed_From_Mac - (DateTime)Model.Date_Received;
-                            <dt>Age</dt>
-                            <dd>@age.Days</dd>
+                            var diff = DateTime.Now - (DateTime)Model.Date_Placed_On_Mac;
+                            age = diff.Days;
                         }
+                        else if (Model.StatusID == 3)
+                        {
+                            var diff = (DateTime)Model.Date_Removed_From_Mac - (DateTime)Model.Date_Placed_On_Mac;
+                            age = diff.Days;
+                        }
+                        <dt>Age</dt>
+                        <dd>@age</dd>
                     }
                     <dt>
                         @Html.DisplayNameFor(model => model.Comments)
@@ -157,8 +161,8 @@
                     @Html.AntiForgeryToken()
 
                     <div class="form-actions no-color">
-                        <button type="submit" class="btn btn-danger " title="Delete">Delete</button>
-                        <a href="~/Home/Index" class="btn btn-primary " title="Back">Back To List</a>
+                        <button type="submit" class="btn btn-danger spinner-button" title="Delete">Delete</button>
+                        <a href="~/Home/Index" class="btn btn-primary spinner-button" title="Back">Back To List</a>
                     </div>
                 }
             </div>

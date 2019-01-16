@@ -49,7 +49,6 @@
                                 <div class="form-row">
                                     @Html.LabelFor(model => model.PositionID, "Position", htmlAttributes: new { @class = "control-label col-md-2 text-right" })
                                     <div class="col-md-4">
-                                        @*@Html.DropDownList("PositionID", null, htmlAttributes: new { @class = "form-control" })*@
                                         <select id="PositionID", name="PositionID">
                                             <option  disabled value="na">-- Select Position --</option>
                                         </select>
@@ -74,8 +73,7 @@
                                 <div class="form-row">
                                     @Html.LabelFor(model => model.TypeID, "Type", htmlAttributes: new { @class = "control-label col-md-2 text-right" })
                                     <div class="col-md-4">
-                                        @*@Html.DropDownList("TypeID", null, htmlAttributes: new { @class = "form-control" })*@
-                                        <select id="type-select" name="TypeID" required>
+                                        <select id="TypeID" name="TypeID" required>
                                             <option value="" disabled selected>-- Select Type --</option>
                                             <option value="new">Add New</option>
                                             @using (FinchDbContext db = new FinchDbContext())
@@ -235,8 +233,8 @@
 
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-success" title="Save"><i class="fas fa-save mx-2"></i>Save</button>
-                        <a href="@Url.Action("Index","Home")" class="btn btn-primary" title="Cancel"><i class="fas fa-arrow-left mx-2"></i>Cancel</a>
+                        <button type="submit" class="btn btn-success spinner-button" title="Save"><i class="fas fa-save mx-2"></i>Save</button>
+                        <a href="@Url.Action("Index","Home")" class="btn btn-primary spinner-button" title="Cancel"><i class="fas fa-arrow-left mx-2"></i>Cancel</a>
                     </div>
                 }
             </div>
@@ -252,7 +250,7 @@
             'use strict';
             $('#Date_Received').datepicker('setDate', new Date());
 
-            $('#type-select').change(function () {
+            $('#TypeID').change(function () {
                 var newType = $('#type-select').val();
                 console.log(newType);
 
@@ -262,14 +260,22 @@
                 
             });
 
+            var url = "@Url.Action("LoadPositions", "Clothing")";
+                var options = "";
+                $.getJSON(url, { "type": "Roll" }, function (data) {
+                    $.each(data, function (a, b) {
+                        options += "<option value='" + b.Value + "'>" + b.Text + "</option>";
+                    });
+                    $('#PositionID').html(options);
+                });
+
             $('#rollTypeID').change(function () {
                 var type = $('#rollTypeID option:selected').text();
                 var url = "@Url.Action("LoadPositions", "Clothing")";
                 var options = "";
                 $.getJSON(url, { "type": type }, function (data) {
-                    console.log(data);
                     $.each(data, function (a, b) {
-                        options += "<option value='" + a.Value + "'>" + b.Text + "</option>";
+                        options += "<option value='" + b.Value + "'>" + b.Text + "</option>";
                     });
                     $('#PositionID').html(options);
                 });

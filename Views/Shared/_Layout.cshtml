@@ -19,7 +19,7 @@
         <div class="center-div">
             <div class="inner-div">
                 <div class="loader">
-                    <img src="~/Content/images/Gear-1s-200px.svg" />
+                    <span><i class="fas fa-spinner"></i></span>
                 </div>
             </div>
         </div>
@@ -36,27 +36,21 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="~/" id="home-link">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link spinner-button" href="~/" id="home-link">Home <span class="sr-only">(current)</span></a>
                 </li>
-                @*<li class="nav-item">
-                        <a class="nav-link" href="~/Users/Index" id="users-link">Users</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="~/Goals/Index" id="goals-link">Goals</a>
-                    </li>*@
                 @{
                     if (ViewBag.UserRoles != null)
                     {
                         if (ViewBag.UserRoles.Contains(3) || ViewBag.UserRoles.Contains(4))
                         {
                             <li class="nav-item">
-                                <a class="nav-link" href="~/Users/Index" id="users-link">Users</a>
+                                <a class="nav-link spinner-button" href="~/Users/Index" id="users-link">Users</a>
                             </li>
                         }
                         if (ViewBag.UserRoles.Contains(3) || ViewBag.UserRoles.Contains(4))
                         {
                             <li class="nav-item">
-                                <a class="nav-link" href="~/Goals/Index" id="goals-link">Goals</a>
+                                <a class="nav-link spinner-button" href="~/Goals/Index" id="goals-link">Goals</a>
                             </li>
                         }
                     }
@@ -97,6 +91,7 @@
     <script>
         $(document).ready(function () {
             'use strict';
+            $('.spinner').css('display', 'none');
             $('.datepicker').datepicker();
 
             if (window.location.href.indexOf("Users") > -1) {
@@ -116,6 +111,10 @@
                 $('#home-link').addClass('active');
                 $('#home-link').siblings().removeClass('active');
             }
+
+            $('.spinner-button').click(function () {
+                $('.spinner').css('display', 'block');
+            });
         });
     </script>
     @RenderSection("scripts", required: false)

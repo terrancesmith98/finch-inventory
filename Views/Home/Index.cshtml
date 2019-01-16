@@ -12,11 +12,11 @@
                 <div id="main-console" class="mt-2 rounded p-3 col-lg-12">
                     <div class="row">
                         <div class="col-lg-3 main-console">
-                            <a href="~/Clothing/Create" class="btn btn-success mx-2" title="Receive Clothing/Roll"><i class="fas fa-plus mx-2"></i>Receive Item</a>
+                            <a href="~/Clothing/Create" class="btn btn-success mx-2 spinner-button" title="Receive Clothing/Roll"><i class="fas fa-plus mx-2"></i>Receive Item</a>
                         </div>
                         <div class="col-lg-9 main-console">
-                            <a href="#" id="audit-report-btn" class="btn btn-secondary btn-sm ml-5 mr-2 pull-right" title="Generate Inventory Audit Report"><i class="fas fa-file-pdf mx-2"></i>Inventory Audit</a>
-                            <a href="#" id="weekly-pm-report-btn" class="btn btn-secondary btn-sm mx-2 pull-right" title="Generate Weekly PM Report"><i class="fas fa-file-pdf mx-2"></i>Weekly PM Report</a>
+                            <a href="#" id="audit-report-btn" class="btn btn-secondary btn-sm ml-5 mr-2 pull-right spinner-button" title="Generate Inventory Audit Report"><i class="fas fa-file-pdf mx-2"></i>Inventory Audit</a>
+                            <a href="#" id="weekly-pm-report-btn" class="btn btn-secondary btn-sm mx-2 pull-right spinner-button" title="Generate Weekly PM Report"><i class="fas fa-file-pdf mx-2"></i>Weekly PM Report</a>
                             <a href="~/Reports/HistoricalToExcel" id="historical-to-excel" class="btn btn-secondary btn-sm mx-2 pull-right" title="Historical Data to Excel"><i class="fas fa-file-excel mx-2 text-success"></i>Historical to Excel</a>
                             @if (ViewBag.UserRoles.Contains(3) || ViewBag.UserRoles.Contains(4))
 	                        {
@@ -80,15 +80,15 @@
                                             {
                                                 if (ViewBag.UserRoles.Contains(3) || ViewBag.UserRoles.Contains(2) || ViewBag.UserRoles.Contains(4))
                                                 {
-                                                    <a href="@Url.Action("ReplaceForm", "Clothing", new { id = item.ID})" class="btn btn-success btn-sm replace-roll" title="Replace Clothing/Roll"><i class="fas fa-exchange-alt mx-2"></i></a>
+                                                    <a href="@Url.Action("ReplaceForm", "Clothing", new { id = item.ID})" class="btn btn-success btn-sm replace-roll spinner-button" title="Replace Clothing/Roll"><i class="fas fa-exchange-alt mx-2"></i></a>
                                                 }
 
                                             }
-                                            <a href="~/Clothing/Details/@item.ID" class="btn btn-info btn-sm" title="Details"><i class="fas fa-info-circle"></i></a>
+                                            <a href="~/Clothing/Details/@item.ID" class="btn btn-info btn-sm spinner-button" title="Details"><i class="fas fa-info-circle"></i></a>
                                             @if (ViewBag.UserRoles.Contains(3) || ViewBag.UserRoles.Contains(4))
                                             {
-                                                <a href="~/Clothing/Edit/@item.ID" class="btn btn-warning btn-sm" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                                <a href="~/Clothing/Delete/@item.ID" class="btn btn-danger btn-sm" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="~/Clothing/Edit/@item.ID" class="btn btn-warning btn-sm spinner-button" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="~/Clothing/Delete/@item.ID" class="btn btn-danger btn-sm spinner-button" title="Delete"><i class="fas fa-trash-alt"></i></a>
                                             }
 
 
@@ -136,8 +136,8 @@
                     
                 ],
                 "columnDefs": [
-                    { "width": "1%", "targets": 0 },
-                    { "width": "3%", "targets": 1 },
+                    { "width": "1%", "targets": [0, 9] },
+                    { "width": "3%", "targets": [1, 2, 3, 4, 5, 6, 7, 8] },
                     { "width": "15%", "targets": 10 }
                 ]
             }
@@ -150,6 +150,7 @@
                     url: '@Url.Content("~/Reports/CreateInventoryAuditReport")',
                     method: "POST",
                     success: function (response) {
+                        $('.spinner').css('display', 'none');
                         window.open("Content/Reports/" + response);
                     }
                 });
@@ -161,25 +162,11 @@
                     url: '@Url.Content("~/Reports/CreateWeeklyPMReport")',
                     method: "POST",
                     success: function (response) {
-
-                        console.log(response);
+                        $('.spinner').css('display', 'none');
                         window.open("Content/Reports/" + response);
                     }
                 });
             });
-
-            @*$('#inventory-to-excel').click(function (e) {
-                 e.preventDefault();
-                $.ajax({
-                    url: '@Url.Content("~/Reports/InventoryToExcel")',
-                    method: "GET",
-                    success: function (response) {
-                        console.log(response);
-                        return window.open(response);
-                    }
-                });
-                
-            });*@
         });
 
     </script>

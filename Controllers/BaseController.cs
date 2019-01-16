@@ -35,7 +35,7 @@ namespace Finch_Inventory.Controllers
                     ViewBag.CurrUser = currUser;
                     ViewBag.UserRoles = roles;
                     ViewBag.RolesList = new MultiSelectList(db.Roles.OrderBy(r => r.ID).Select(r => r.Role1).ToList());
-                    ViewBag.Admins = db.Admins.ToList(); 
+                    
                 }
                 else
                 {
@@ -49,7 +49,7 @@ namespace Finch_Inventory.Controllers
                 ViewBag.ErrorMessage = $"There is no user account found that matches the current logged in user.";
                 ViewBag.ErrorDetails = $"The current logged in user has the email address {UserEmail}.";
             }
-
+            ViewBag.Admins = db.Admins.ToList();
             ViewBag.Inventory = inventory;
         }
     }
