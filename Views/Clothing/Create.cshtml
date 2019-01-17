@@ -135,7 +135,22 @@
                                 <div class="form-row">
                                     @Html.LabelFor(model => model.LocationID, "Location", htmlAttributes: new { @class = "control-label col-md-2 text-right" })
                                     <div class="col-md-4">
-                                        @Html.DropDownList("LocationID", null, htmlAttributes: new { @class = "form-control" })
+                                        <select id="location-select" name="LocationID" class="form-control" required>
+                                            <option value="" disabled selected>-- Select Location --</option>
+                                            <option value="0">** Add New **</option>
+                                            @using (FinchDbContext db = new FinchDbContext())
+                                            {
+                                                foreach (Finch_Inventory.Models.Location location in db.Locations.ToList())
+                                                {
+                                                    if (location.Location1 != "None")
+                                                    {
+                                                        <option value="@location.ID">@location.Location1</option>
+                                                    }
+
+                                                }
+                                            }
+                                        </select>
+                                        <input type="text" class="my-2 p-1 form-control" name="newLocation" id="newLocation" value="" placeholder="Enter new location" hidden />
                                         @Html.ValidationMessageFor(model => model.LocationID, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -282,6 +297,16 @@
                     $('#newManufacturer').removeAttr('hidden');
                 } else {
                     $('#newManufacturer').attr('hidden', true);
+                }
+            });
+
+            $('#location-select').change(function () {
+                var newLoc = $(this).val();
+
+                if (newLoc == "0") {
+                    $('#newLocation').removeAttr('hidden');
+                } else {
+                    $('#newLocation').attr('hidden', true);
                 }
             });
 

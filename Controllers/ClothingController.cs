@@ -60,7 +60,7 @@ namespace Finch_Inventory.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,PM_Number,PositionID,ManufacturerID,TypeID,Serial_Number,Date_Received,Date_Placed_On_Mac,Date_Removed_From_Mac,StatusID,LocationID,Comments, RollTypeID, RollWeight, Dimensions, CurrentDia, MinDia, Crown, CoverMaterial, HoleGroovePattern, SpecifiedHardness, MeasuredHardness, SpecifiedRa, MeasuredRa, CoverDate")] Clothing clothing, string newType, string newManufacturer)
+        public async Task<ActionResult> Create([Bind(Include = "ID,PM_Number,PositionID,ManufacturerID,TypeID,Serial_Number,Date_Received,Date_Placed_On_Mac,Date_Removed_From_Mac,StatusID,LocationID,Comments, RollTypeID, RollWeight, Dimensions, CurrentDia, MinDia, Crown, CoverMaterial, HoleGroovePattern, SpecifiedHardness, MeasuredHardness, SpecifiedRa, MeasuredRa, CoverDate")] Clothing clothing, string newType, string newManufacturer, string newLocation)
         {
             if (ModelState.IsValid )
             {
@@ -104,8 +104,26 @@ namespace Finch_Inventory.Controllers
                         clothing.ManufacturerID = newManID;
                     }
                 }
+                if (!string.IsNullOrEmpty(newLocation))
+                {
+                    Location loc = new Location();
+                    loc.Location1 = newLocation;
+                    bool locExists = db.Locations.Any(m => m.Location1 == loc.Location1);
+                    if (!locExists)
+                    {
+                        db.Locations.Add(loc);
+                        await db.SaveChangesAsync();
+                        var newLocID = db.Locations.OrderByDescending(x => x.ID).First();
+                        clothing.LocationID = newLocID.ID;
+                    }
+                    else
+                    {
+                        var newLocID = db.Locations.Where(m => m.Location1 == newLocation).Select(x => x.ID).Single();
+                        clothing.LocationID = newLocID;
+                    }
+                }
 
-                
+
                 db.Clothings.Add(clothing);
                 await db.SaveChangesAsync();
                 
