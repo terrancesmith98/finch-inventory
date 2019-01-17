@@ -49,6 +49,7 @@ namespace Finch_Inventory.Controllers
             ViewBag.StatusID = new SelectList(db.Status, "ID", "Status1");
             ViewBag.TypeID = new SelectList(db.Types, "ID", "Type1");
             ViewBag.RollTypeID = new SelectList(db.RollTypes, "ID", "Type");
+            ViewBag.ManufacturerID = new SelectList(db.Manufacturers, "ID", "Name");
             ViewBag.Machines = db.Machines.ToList();
             ViewBag.Types = db.Types.ToList();
             return View();
@@ -59,9 +60,9 @@ namespace Finch_Inventory.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,PM_Number,PositionID,Manufacturer,TypeID,Serial_Number,Date_Received,Date_Placed_On_Mac,Date_Removed_From_Mac,StatusID,LocationID,Comments, RollTypeID, RollWeight, Dimensions, CurrentDia, MinDia, Crown, CoverMaterial, HoleGroovePattern, SpecifiedHardness, MeasuredHardness, SpecifiedRa, MeasuredRa, CoverDate")] Clothing clothing, string newType)
+        public async Task<ActionResult> Create([Bind(Include = "ID,PM_Number,PositionID,ManufacturerID,TypeID,Serial_Number,Date_Received,Date_Placed_On_Mac,Date_Removed_From_Mac,StatusID,LocationID,Comments, RollTypeID, RollWeight, Dimensions, CurrentDia, MinDia, Crown, CoverMaterial, HoleGroovePattern, SpecifiedHardness, MeasuredHardness, SpecifiedRa, MeasuredRa, CoverDate")] Clothing clothing, string newType, string newManufacturer)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid )
             {
                 clothing.StatusID = 1;
                 clothing.Date_Placed_On_Mac = null;
@@ -84,6 +85,24 @@ namespace Finch_Inventory.Controllers
                         clothing.TypeID = newTypeID;
                     }
                     
+                }
+                if (!string.IsNullOrEmpty(newManufacturer))
+                {
+                    Manufacturer man = new Manufacturer();
+                    man.Name = newManufacturer;
+                    bool manExists = db.Manufacturers.Any(m => m.Name == man.Name);
+                    if (!manExists)
+                    {
+                        db.Manufacturers.Add(man);
+                        await db.SaveChangesAsync();
+                        var newManID = db.Manufacturers.OrderByDescending(x => x.ID).First();
+                        clothing.ManufacturerID = newManID.ID;
+                    }
+                    else
+                    {
+                        var newManID = db.Manufacturers.Where(m => m.Name == newManufacturer).Select(x => x.ID).Single();
+                        clothing.ManufacturerID = newManID;
+                    }
                 }
 
                 

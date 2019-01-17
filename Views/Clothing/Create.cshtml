@@ -23,7 +23,7 @@
                                 <div class="form-row">
                                     @Html.LabelFor(model => model.PM_Number, "Machine Number", htmlAttributes: new { @class = "control-label col-md-2 text-right" })
                                     <div class="col-md-4">
-                                        <select id="PM_Number" , name="PM_Number">
+                                        <select id="PM_Number" , name="PM_Number" class="form-control">
                                             @foreach (var machine in ViewBag.Machines)
                                             {
                                                 <option value="@machine.ID">@machine.Machine1</option>
@@ -49,7 +49,7 @@
                                 <div class="form-row">
                                     @Html.LabelFor(model => model.PositionID, "Position", htmlAttributes: new { @class = "control-label col-md-2 text-right" })
                                     <div class="col-md-4">
-                                        <select id="PositionID", name="PositionID">
+                                        <select id="PositionID", name="PositionID" class="form-control">
                                             <option  disabled value="na">-- Select Position --</option>
                                         </select>
                                         @Html.ValidationMessageFor(model => model.PositionID, "", new { @class = "text-danger" })
@@ -62,7 +62,21 @@
                                 <div class="form-row">
                                     @Html.LabelFor(model => model.Manufacturer, htmlAttributes: new { @class = "control-label col-md-2 text-right" })
                                     <div class="col-md-4">
-                                        @Html.EditorFor(model => model.Manufacturer, new { htmlAttributes = new { @class = "form-control" } })
+                                        <select id="manufacturer-select" class="form-control" name="ManufacturerID" required>
+                                            <option value="" disabled selected>-- Select Manufacturer --</option>
+                                            <option value="0">** Add New **</option>
+                                            @using(FinchDbContext db = new FinchDbContext())
+                                            {
+                                                foreach (Finch_Inventory.Models.Manufacturer manufacturer in db.Manufacturers.ToList())
+                                                {
+                                                    if (manufacturer.Name != "None")
+                                                    {
+                                                        <option value="@manufacturer.ID">@manufacturer.Name</option>
+                                                    }
+                                                }
+                                            }   
+                                        </select>
+                                        <input type="text" class="form-control my-2 p-1" name="newManufacturer" id="newManufacturer" value="" placeholder="Enter new manufacturer name" hidden />
                                         @Html.ValidationMessageFor(model => model.Manufacturer, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -73,9 +87,9 @@
                                 <div class="form-row">
                                     @Html.LabelFor(model => model.TypeID, "Type", htmlAttributes: new { @class = "control-label col-md-2 text-right" })
                                     <div class="col-md-4">
-                                        <select id="type-select" name="type-select" required>
+                                        <select id="type-select" name="TypeID" class="form-control" required>
                                             <option value="" disabled selected>-- Select Type --</option>
-                                            <option value="new">Add New</option>
+                                            <option value="0">** Add New **</option>
                                             @using (FinchDbContext db = new FinchDbContext())
                                             {
                                                 foreach (Finch_Inventory.Models.Type type in db.Types.ToList())
@@ -88,7 +102,7 @@
                                                 }
                                             }
                                         </select>
-                                        <input type="text" name="newType" id="newType" value="" placeholder="Enter new type" hidden />
+                                        <input type="text" class="my-2 p-1 form-control" name="newType" id="newType" value="" placeholder="Enter new type" hidden />
                                         @Html.ValidationMessageFor(model => model.TypeID, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -253,10 +267,22 @@
             $('#type-select').change(function () {
                 var newType = $(this).val();
 
-                if (newType == "new") {
+                if (newType == "0") {
                     $('#newType').removeAttr('hidden');
+                } else {
+                    $('#newType').attr('hidden', true);
                 }
                 
+            });
+
+            $('#manufacturer-select').change(function () {
+                var newMan = $(this).val();
+
+                if (newMan == "0") {
+                    $('#newManufacturer').removeAttr('hidden');
+                } else {
+                    $('#newManufacturer').attr('hidden', true);
+                }
             });
 
             var url = "@Url.Action("LoadPositions", "Clothing")";
