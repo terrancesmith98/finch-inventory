@@ -195,6 +195,7 @@
     <Compile Include="Models\Goal.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Machine.cs" />
+    <Compile Include="Models\Manufacturer.cs" />
     <Compile Include="Models\Position.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\RollType.cs" />

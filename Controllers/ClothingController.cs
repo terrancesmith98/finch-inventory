@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using Finch_Inventory.Models;
 using Type = Finch_Inventory.Models.Type;
+using System.IO;
 
 namespace Finch_Inventory.Controllers
 {
@@ -183,12 +184,12 @@ namespace Finch_Inventory.Controllers
                     replacement.StatusID = 2;
                     db.SaveChanges();
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    throw;
+                    return Json(new { redirecturl = "../../Home/Index", errorMessage = e.Message}, JsonRequestBehavior.AllowGet);
                 }
             }
-            return View("~/Home/Index");
+            return Json(new { redirecturl = "../../Home/Index"}, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Clothing/Delete/5

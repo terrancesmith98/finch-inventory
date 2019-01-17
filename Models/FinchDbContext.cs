@@ -16,6 +16,7 @@ namespace Finch_Inventory.Models
         public virtual DbSet<Goal> Goals { get; set; }
         public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<Machine> Machines { get; set; }
+        public virtual DbSet<Manufacturer> Manufacturers { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<RollType> RollTypes { get; set; }

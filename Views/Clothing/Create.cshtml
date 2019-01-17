@@ -73,7 +73,7 @@
                                 <div class="form-row">
                                     @Html.LabelFor(model => model.TypeID, "Type", htmlAttributes: new { @class = "control-label col-md-2 text-right" })
                                     <div class="col-md-4">
-                                        <select id="TypeID" name="TypeID" required>
+                                        <select id="type-select" name="type-select" required>
                                             <option value="" disabled selected>-- Select Type --</option>
                                             <option value="new">Add New</option>
                                             @using (FinchDbContext db = new FinchDbContext())
@@ -250,12 +250,11 @@
             'use strict';
             $('#Date_Received').datepicker('setDate', new Date());
 
-            $('#TypeID').change(function () {
-                var newType = $('#type-select').val();
-                console.log(newType);
+            $('#type-select').change(function () {
+                var newType = $(this).val();
 
                 if (newType == "new") {
-                    $('#newType').attr('hidden', false);
+                    $('#newType').removeAttr('hidden');
                 }
                 
             });

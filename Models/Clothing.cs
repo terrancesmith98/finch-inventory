@@ -15,9 +15,6 @@ namespace Finch_Inventory.Models
 
         public int PositionID { get; set; }
 
-        [StringLength(50)]
-        public string Manufacturer { get; set; }
-
         public int TypeID { get; set; }
 
         [Required]
@@ -71,9 +68,13 @@ namespace Finch_Inventory.Models
         [Column(TypeName = "date")]
         public DateTime? CoverDate { get; set; }
 
+        public int? ManufacturerID { get; set; }
+
         public virtual Location Location { get; set; }
 
         public virtual Machine Machine { get; set; }
+
+        public virtual Manufacturer Manufacturer { get; set; }
 
         public virtual Position Position { get; set; }
 
