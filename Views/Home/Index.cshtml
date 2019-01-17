@@ -61,11 +61,11 @@
                                 var dateReceived = item.Date_Received.HasValue ? item.Date_Received.Value.ToString("MM/dd/yyyy") : "None";
 
                                 var location = item.Location.Location1 ?? "None";
-
+                                var manufacturer = !string.IsNullOrEmpty(item.Manufacturer.Name) ? item.Manufacturer.Name : "None";
                                 <tr>
                                     <td>@item.PM_Number</td>
                                     <td>@item.Position.Position1.ToUpper()</td>
-                                    <td>@item.Manufacturer.Name</td>
+                                    <td>@manufacturer</td>
                                     <td>@item.Serial_Number</td>
                                     <td>@dateReceived</td>
                                     <td>@datePlaced</td>

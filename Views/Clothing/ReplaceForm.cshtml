@@ -10,7 +10,7 @@
         <div class="col-lg-12">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h2>Replace: Serial#@ViewBag.Existing.Serial_Number | @ViewBag.Existing.Type.Type1 | PM# @ViewBag.Existing.PM_Number | Position - @ViewBag.Existing.Position.Position1</h2>
+                    <h2>Replace: Serial#@ViewBag.Existing.Serial_Number - @ViewBag.Existing.Type.Type1 - PM# @ViewBag.Existing.PM_Number - @ViewBag.Existing.Position.Position1 Position</h2>
                 </div>
                 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "replaceForm" }))
                 {
@@ -20,16 +20,17 @@
                         <input type="hidden" name="id" value="@Model.ID" />
                         @if (ViewBag.AvailableRolls.Count > 0)
                         {
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.ID, "Replace This Roll With:", htmlAttributes: new { @class = "control-label col-md-3 text-danger" })
-                                <div class="col-md-9">
-                                    <select id="replacementId" , name="replacementId">
+                        <div class="form-row">
+                            <div class="form-group col-lg-4">
+                                @Html.LabelFor(model => model.ID, "Replace This Item With:", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    <select id="replacementId" name="replacementId" class="form-control">
                                         @{
                                             using (var db = new FinchDbContext())
                                             {
                                                 foreach (Clothing item in @ViewBag.AvailableRolls)
                                                 {
-                                                    <option value="@item.ID">@item.Serial_Number | @item.Type.Type1  | PM#@item.PM_Number | Pos-@item.Position.Position1</option>
+                                                    <option value="@item.ID">@item.Serial_Number - @item.Type.Type1 - PM#@item.PM_Number - Pos-@item.Position.Position1</option>
                                                 }
                                             }
                                         }
@@ -39,6 +40,16 @@
                                     @Html.ValidationMessageFor(model => model.PM_Number, "", new { @class = "text-danger" })
                                 </div>
                             </div>
+                            <div class="col-lg-4">
+                                <label for="dDateReplaced" class="control-label">Date Replaced</label>
+                                <input type="date" name="dateReplaced" class="form-control" value="" />
+                            </div>
+                            <div class="col-lg-4">
+                                <label for="comments" class="control-label">Comments</label>
+                                <input type="text" name="comments" class="form-control" value="" />
+                            </div>
+                        </div>
+                            
                         }
                         else
                         {
@@ -71,10 +82,8 @@
                     e.preventDefault();
 
                     var id = '@Model.ID';
-                    var replacementId = $('#replacementId').val();
                     var url = '@Url.Action("Replace", "Clothing")';
                     var form = $('#replaceForm').serialize();
-                    console.log('ID: ' + id + '  Replacement ID: ' + replacementId);
                     $.ajax({
                         url: url,
                         type: "POST",

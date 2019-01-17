@@ -205,19 +205,21 @@ namespace Finch_Inventory.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Replace(int id, int replacementId)
+        public ActionResult Replace(int id, int replacementId, DateTime dateReplaced, string comments)
         {
             var existing = db.Clothings.Find(id);
             var replacement = db.Clothings.Find(replacementId);
+            var date = dateReplaced != null ? dateReplaced : DateTime.Now;
             if (existing != null && replacement != null)
             {
                 try
                 {
                     //update Date Removed for roll to be replaced
-                    existing.Date_Removed_From_Mac = DateTime.Now;
+                    existing.Date_Removed_From_Mac = date;
                     //update Status to History for roll to be replaced
                     existing.StatusID = 3;
-                    replacement.Date_Placed_On_Mac = DateTime.Now;
+                    existing.Comments = comments;
+                    replacement.Date_Placed_On_Mac = date;
                     replacement.StatusID = 2;
                     db.SaveChanges();
                 }
