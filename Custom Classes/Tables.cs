@@ -71,7 +71,7 @@ namespace Finch_Inventory.Custom_Classes
 
                 Cell cType = r.Cells[1];
                 cType.Format.Font.Size = 8.5;
-                cType.AddParagraph($"{clothing.Manufacturer} - #{clothing.Serial_Number} - {clothing.Type.Type1}");
+                cType.AddParagraph($"{clothing.Manufacturer.Name} - #{clothing.Serial_Number} - {clothing.Type.Type1}");
                 cType.VerticalAlignment = VerticalAlignment.Center;
 
                 Cell cLoc = r.Cells[2];
