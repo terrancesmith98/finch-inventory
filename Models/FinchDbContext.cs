@@ -85,11 +85,6 @@ namespace Finch_Inventory.Models
                 .HasMany(e => e.Clothings)
                 .WithRequired(e => e.Type)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<User>()
-                .HasMany(e => e.UserRoles)
-                .WithRequired(e => e.User)
-                .WillCascadeOnDelete(false);
         }
     }
 }

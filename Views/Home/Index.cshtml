@@ -62,6 +62,16 @@
 
                                 var location = item.Location.Location1 ?? "None";
                                 var manufacturer = !string.IsNullOrEmpty(item.Manufacturer.Name) ? item.Manufacturer.Name : "None";
+                                var age = 0;
+                                if (item.Age > 0 && item.StatusID != 2)
+                                {
+                                    age = Convert.ToInt32(item.Age);
+                                }
+                                else if (item.StatusID == 2 && item.Date_Placed_On_Mac != null)
+                                {
+                                    var days = DateTime.Now - (DateTime)item.Date_Placed_On_Mac;
+                                    age = days.Days;
+                                }
                                 <tr>
                                     <td>@item.PM_Number</td>
                                     <td>@item.Position.Position1.ToUpper()</td>
@@ -72,7 +82,7 @@
                                     <td>@dateRemoved</td>
                                     <td>@item.Type.Type1.ToUpper()</td>
                                     <td>@item.Status.Status1.ToUpper()</td>
-                                    <td>@item.Age</td>
+                                    <td>@age</td>
                                     <td class="text-right">
                                         <div class="pull-right">
 

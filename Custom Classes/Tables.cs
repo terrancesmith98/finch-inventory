@@ -5484,7 +5484,7 @@ namespace Finch_Inventory.Custom_Classes
         {
             if (clothing != null)
             {
-                if (clothing.Age > 0)
+                if (clothing.Age > 0 && clothing.StatusID != 2)
                 {
                     return Convert.ToInt32(clothing.Age);
                 }

@@ -15,12 +15,12 @@ namespace Finch_Inventory.Controllers
             //string UserEmail = "terry.smith@finchpaper.com";
 
             var UserDomain = Environment.UserDomainName.ToString();
-            PrincipalContext ctx = new PrincipalContext(ContextType.Domain);
-            UserPrincipal user = UserPrincipal.FindByIdentity(ctx, User.Identity.Name);
-            string UserEmail = user.EmailAddress;
+            //PrincipalContext ctx = new PrincipalContext(ContextType.Domain);
+            //UserPrincipal user = UserPrincipal.FindByIdentity(ctx, User.Identity.Name);
+            //string UserEmail = user.EmailAddress;
 
-            if (user.Name == "Terrance Smith")
-                UserEmail = "terry.smith@finchpaper.com";
+            //if (user.Name == "Terrance Smith")
+               var UserEmail = "terry.smith@finchpaper.com";
 
             db.Dispose();
             db = new FinchDbContext();
